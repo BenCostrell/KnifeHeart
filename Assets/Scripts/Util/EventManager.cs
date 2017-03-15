@@ -20,6 +20,8 @@ public class X_P2 : Event {}
 
 public class Y_P2 : Event {}
 
+public class Reset : Event {}
+
 public class GameOver : Event {}
 
 public class EventManager {

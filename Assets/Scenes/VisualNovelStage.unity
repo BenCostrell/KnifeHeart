@@ -454,10 +454,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 1488856918}
-  option1: {fileID: 1897646726}
-  option2: {fileID: 955181212}
-  option3: {fileID: 697876465}
-  option4: {fileID: 2060319380}
+  option1Obj: {fileID: 1897646726}
+  option2Obj: {fileID: 955181212}
+  option3Obj: {fileID: 697876465}
+  option4Obj: {fileID: 2060319380}
 --- !u!4 &637570062
 Transform:
   m_ObjectHideFlags: 0

@@ -28,5 +28,8 @@ public class InputManager {
 		if (Input.GetButtonDown("Y_P2")){
 			Services.EventManager.Fire (new Y_P2 ());
 		}
+		if (Input.GetButtonDown ("Reset")) {
+			Services.EventManager.Fire (new Reset ());
+		}
 	}
 }
