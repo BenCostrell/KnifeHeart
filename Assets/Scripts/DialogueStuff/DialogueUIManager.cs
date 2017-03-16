@@ -16,8 +16,11 @@ public class DialogueUIManager : MonoBehaviour {
 	private Dialogue option3Dialogue;
 	private Dialogue option4Dialogue;
 
+	public Dialogue queuedDialogue;
+
 	// Use this for initialization
 	void Start () {
+		Services.EventManager.Register<DialoguePicked> (QueueDialogue);
 	}
 	
 	// Update is called once per frame
@@ -27,6 +30,7 @@ public class DialogueUIManager : MonoBehaviour {
 
 	public void SetUpUI(){
 		SetOptionUIStatus (false);
+		dialogueText.GetComponent<Text> ().text = "";
 	}
 
 	void SetOptionUIStatus(bool active){
@@ -50,5 +54,28 @@ public class DialogueUIManager : MonoBehaviour {
 		option2Obj.GetComponentInChildren<Text> ().text = option2Dialogue.blurb;
 		option3Obj.GetComponentInChildren<Text> ().text = option3Dialogue.blurb;
 		option4Obj.GetComponentInChildren<Text> ().text = option4Dialogue.blurb;
+	}
+
+	public Dialogue GetDialogueFromInput(string buttonName){
+		switch (buttonName) {
+		case "Y":
+			return option1Dialogue;
+		case "X":
+			return option2Dialogue;
+		case "B":
+			return option3Dialogue;
+		case "A":
+			return option4Dialogue;
+		default:
+			return null;
+		}
+	}
+
+	public void QueueDialogue(DialoguePicked e){
+		queuedDialogue = e.dialogue;
+	}
+
+	public void SetDialogueText(string text){
+		dialogueText.GetComponent<Text> ().text = text;
 	}
 }

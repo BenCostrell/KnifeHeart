@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour {
 
 	public TextAsset dialogueFile;
 	private List<Ability.Type> abilityPool;
+	private List<Ability.Type> abilityList_P1;
+	private List<Ability.Type> abilityList_P2;
+	public int currentTurnPlayerNum;
 
 
 	// Use this for initialization
@@ -23,6 +26,7 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Services.InputManager.GetInput ();
+		Services.TaskManager.Update ();
 	}
 
 	void InitializeServices(){
@@ -45,12 +49,14 @@ public class GameManager : MonoBehaviour {
 			Ability.Type.Wallop, 
 			Ability.Type.Pull
 		};
+		abilityList_P1 = new List<Ability.Type> ();
+		abilityList_P2 = new List<Ability.Type> ();
 	}
 
-	Ability.Type GetRandomAbility(){
-		int index = Random.Range (0, abilityPool.Count);
-		Ability.Type ability = abilityPool [index];
-		abilityPool.Remove (ability);
+	Ability.Type GetRandomAbility(List<Ability.Type> abilityList){
+		int index = Random.Range (0, abilityList.Count);
+		Ability.Type ability = abilityList [index];
+		abilityList.Remove (ability);
 		return ability;
 	}
 
@@ -65,16 +71,50 @@ public class GameManager : MonoBehaviour {
 		Dialogue option4 = null;
 
 		if (roundNum == 1) {
-			option1 = Services.DialogueDataManager.GetDialogue (GetRandomAbility ());
-			option2 = Services.DialogueDataManager.GetDialogue (GetRandomAbility ());
-			option3 = Services.DialogueDataManager.GetDialogue (GetRandomAbility ());
-			option4 = Services.DialogueDataManager.GetDialogue (GetRandomAbility ());
+			List<Ability.Type> abilityList = new List<Ability.Type> (abilityPool);
+			option1 = Services.DialogueDataManager.GetDialogue (GetRandomAbility (abilityList));
+			option2 = Services.DialogueDataManager.GetDialogue (GetRandomAbility (abilityList));
+			option3 = Services.DialogueDataManager.GetDialogue (GetRandomAbility (abilityList));
+			option4 = Services.DialogueDataManager.GetDialogue (GetRandomAbility (abilityList));
 		}
 
 		Services.DialogueUIManager.SetDialogueOptions (option1, option2, option3, option4);
+
+		currentTurnPlayerNum = 1;
+
+		WaitForDialogueChoiceTask waitForFirstChoice = new WaitForDialogueChoiceTask ();
+		TypeDialogue typeFirstDialogue = new TypeDialogue ();
+		WaitForDialogueChoiceTask waitForSecondChoice = new WaitForDialogueChoiceTask ();
+		TypeDialogue typeSecondDialogue = new TypeDialogue ();
+
+		waitForFirstChoice
+			.Then (typeFirstDialogue)
+			.Then (waitForSecondChoice)
+			.Then (typeSecondDialogue);
+
+		Services.TaskManager.AddTask (waitForFirstChoice);
 	}
 
 	void Reset(Reset e){
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+	}
+
+	void PickAbility(DialoguePicked e){
+		int playerNum = e.pickedByPlayerNum;
+		Ability.Type ability = e.dialogue.abilityGiven;
+		if (playerNum == 1) {
+			abilityList_P1.Add (ability);
+		} else if (playerNum == 2) {
+			abilityList_P2.Add (ability);
+		}
+		abilityPool.Remove (ability);
+	}
+
+	public void ChangePlayerTurn(){
+		if (currentTurnPlayerNum == 1) {
+			currentTurnPlayerNum = 2;
+		} else if (currentTurnPlayerNum == 2) {
+			currentTurnPlayerNum = 1;
+		}
 	}
 }

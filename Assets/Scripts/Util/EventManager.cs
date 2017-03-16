@@ -4,25 +4,27 @@ using UnityEngine;
 
 public abstract class Event {}
 
-public class A_P1 : Event {}
-
-public class B_P1 : Event {}
-
-public class X_P1 : Event {}
-
-public class Y_P1 : Event {}
-
-public class A_P2 : Event {}
-
-public class B_P2 : Event {}
-
-public class X_P2 : Event {}
-
-public class Y_P2 : Event {}
+public class ButtonPressed : Event {
+	public string buttonTitle;
+	public int playerNum;
+	public ButtonPressed(string name, int num){
+		buttonTitle = name;
+		playerNum = num;
+	}
+}
 
 public class Reset : Event {}
 
 public class GameOver : Event {}
+
+public class DialoguePicked : Event {
+	public Dialogue dialogue;
+	public int pickedByPlayerNum;
+	public DialoguePicked(Dialogue dia, int playerNum){
+		dialogue = dia;
+		pickedByPlayerNum = playerNum;
+	}
+}
 
 public class EventManager {
 
