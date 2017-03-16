@@ -47,8 +47,6 @@ public class ShowDialogueOptions : Task {
 			
 		timeElapsed = Mathf.Min (totalDuration, timeElapsed + Time.deltaTime);
 
-		Debug.Log (timeElapsed);
-
 		if (timeElapsed == totalDuration) {
 			SetStatus (TaskStatus.Success);
 		}

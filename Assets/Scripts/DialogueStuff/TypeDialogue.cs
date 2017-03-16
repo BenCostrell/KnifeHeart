@@ -14,9 +14,18 @@ public class TypeDialogue : Task {
 
 	protected override void Init ()
 	{
+		int playerNum = Services.GameManager.currentTurnPlayerNum;
 		dialogueText = Services.DialogueUIManager.queuedDialogue.mainText;
 		characterIndex = 0;
 		Services.DialogueUIManager.dialogueText.GetComponent<Text> ().text = "";
+		Services.DialogueUIManager.SetTextBoxColor (playerNum, false, true);
+		if (playerNum == 1) {
+			Services.DialogueUIManager.arrow_P1.SetActive (true);
+			Services.DialogueUIManager.arrow_P2.SetActive (false);
+		} else if (playerNum == 2) {
+			Services.DialogueUIManager.arrow_P1.SetActive (false);
+			Services.DialogueUIManager.arrow_P2.SetActive (true);
+		}
 	}
 
 	internal override void Update ()

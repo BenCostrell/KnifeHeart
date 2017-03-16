@@ -6,8 +6,13 @@ using UnityEngine.UI;
 public class DialogueUIManager : MonoBehaviour {
 
 	public GameObject dialogueText;
+	public GameObject dialogueTextBox;
 	public GameObject[] optionObjects;
 	public GameObject continueIndicator;
+	public GameObject arrow_P1;
+	public GameObject arrow_P2;
+
+
 	public GameObject selectedOption;
 
 	private Dialogue[] optionDialogues;
@@ -37,6 +42,12 @@ public class DialogueUIManager : MonoBehaviour {
 		dialogueText.GetComponent<Text> ().text = "";
 		optionDialogues = new Dialogue[4];
 		continueIndicator.SetActive (false);
+		arrow_P1.SetActive (false);
+		arrow_P2.SetActive (false);
+
+		arrow_P1.GetComponent<Image> ().color = textBoxColor_P1;
+		arrow_P2.GetComponent<Image> ().color = textBoxColor_P2;
+
 		SetOptionUIStatus (false);
 	}
 
@@ -53,7 +64,7 @@ public class DialogueUIManager : MonoBehaviour {
 	public void SetDialogueOptions(Dialogue[] dialogueOptions){
 		optionDialogues = dialogueOptions;
 		SetBlurbText ();
-		SetTextBoxColor (Services.GameManager.currentTurnPlayerNum);
+		SetTextBoxColor (Services.GameManager.currentTurnPlayerNum, true, false);
 	}
 
 	public void ActivateOptionTextBox(int optionNum){
@@ -105,15 +116,20 @@ public class DialogueUIManager : MonoBehaviour {
 		selectedOption = e.optionObject;
 	}
 
-	void SetTextBoxColor(int playerNum){
+	public void SetTextBoxColor(int playerNum, bool options, bool dialogueBox){
 		Color textBoxColor = Color.white;
 		if (playerNum == 1) {
 			textBoxColor = textBoxColor_P1;
 		} else if (playerNum == 2) {
 			textBoxColor = textBoxColor_P2;
 		}
-		for (int i = 0; i < optionObjects.Length; i++) {
-			optionObjects [i].GetComponentsInChildren<Image> () [1].color = textBoxColor;
+		if (options) {
+			for (int i = 0; i < optionObjects.Length; i++) {
+				optionObjects [i].GetComponentsInChildren<Image> () [1].color = textBoxColor;
+			}
+		}
+		if (dialogueBox) {
+			dialogueTextBox.GetComponent<Image> ().color = textBoxColor;
 		}
 	}
 }
