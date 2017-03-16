@@ -6,15 +6,9 @@ using UnityEngine.UI;
 public class DialogueUIManager : MonoBehaviour {
 
 	public GameObject dialogueText;
-	public GameObject option1Obj;
-	public GameObject option2Obj;
-	public GameObject option3Obj;
-	public GameObject option4Obj;
+	public GameObject[] optionObjects;
 
-	private Dialogue option1Dialogue;
-	private Dialogue option2Dialogue;
-	private Dialogue option3Dialogue;
-	private Dialogue option4Dialogue;
+	private Dialogue[] optionDialogues;
 
 	public Dialogue queuedDialogue;
 
@@ -34,38 +28,37 @@ public class DialogueUIManager : MonoBehaviour {
 	}
 
 	void SetOptionUIStatus(bool active){
-		option1Obj.SetActive (active);
-		option2Obj.SetActive (active);
-		option3Obj.SetActive (active);
-		option4Obj.SetActive (active);
+		foreach (GameObject optionObj in optionObjects) {
+			optionObj.SetActive (active);
+		}
 	}
 
-	public void SetDialogueOptions(Dialogue option1, Dialogue option2, Dialogue option3, Dialogue option4){
-		option1Dialogue = option1;
-		option2Dialogue = option2;
-		option3Dialogue = option3;
-		option4Dialogue = option4;
+	public void SetDialogueOptions(Dialogue[] dialogueOptions){
+		optionDialogues = dialogueOptions;
 		SetOptionUIStatus (true);
 		SetBlurbText ();
 	}
 
 	void SetBlurbText(){
-		option1Obj.GetComponentInChildren<Text> ().text = option1Dialogue.blurb;
-		option2Obj.GetComponentInChildren<Text> ().text = option2Dialogue.blurb;
-		option3Obj.GetComponentInChildren<Text> ().text = option3Dialogue.blurb;
-		option4Obj.GetComponentInChildren<Text> ().text = option4Dialogue.blurb;
+		for (int i = 0; i < optionObjects.Length; i++) {
+			if (optionDialogues [i] != null) {
+				optionObjects [i].GetComponentInChildren<Text> ().text = optionDialogues [i].blurb;
+			} else {
+				optionObjects [i].GetComponentInChildren<Text> ().text = "";
+			}
+		}
 	}
 
 	public Dialogue GetDialogueFromInput(string buttonName){
 		switch (buttonName) {
 		case "Y":
-			return option1Dialogue;
+			return optionDialogues[0];
 		case "X":
-			return option2Dialogue;
+			return optionDialogues[1];
 		case "B":
-			return option3Dialogue;
+			return optionDialogues[2];
 		case "A":
-			return option4Dialogue;
+			return optionDialogues[3];
 		default:
 			return null;
 		}

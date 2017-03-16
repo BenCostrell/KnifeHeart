@@ -6,6 +6,11 @@ using UnityEngine.UI;
 public class TypeDialogue : Task {
 	private string dialogueText;
 	private int characterIndex;
+	private bool firstChoice;
+
+	public TypeDialogue(bool firstChc){
+		firstChoice = firstChc;
+	}
 
 	protected override void Init ()
 	{
@@ -25,6 +30,8 @@ public class TypeDialogue : Task {
 
 	protected override void OnSuccess ()
 	{
-		Services.GameManager.ChangePlayerTurn ();
+		if (firstChoice) {
+			Services.GameManager.ChangePlayerTurn ();
+		}
 	}
 }

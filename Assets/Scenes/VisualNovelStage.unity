@@ -413,6 +413,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueFile: {fileID: 4900000, guid: 550df998c4fb1cc4fba43508b12d1800, type: 3}
+  currentTurnPlayerNum: 0
+  currentRoundNum: 0
 --- !u!4 &433000985
 Transform:
   m_ObjectHideFlags: 0
@@ -454,10 +456,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 1488856918}
-  option1Obj: {fileID: 1897646726}
-  option2Obj: {fileID: 955181212}
-  option3Obj: {fileID: 697876465}
-  option4Obj: {fileID: 2060319380}
+  optionObjects:
+  - {fileID: 1897646726}
+  - {fileID: 955181212}
+  - {fileID: 697876465}
+  - {fileID: 2060319380}
 --- !u!4 &637570062
 Transform:
   m_ObjectHideFlags: 0

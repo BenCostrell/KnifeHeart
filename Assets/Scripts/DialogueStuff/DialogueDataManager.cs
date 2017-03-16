@@ -30,7 +30,7 @@ public class DialogueDataManager {
 		string[] lineSeparator = new string[] { "\r\n", "\r", "\n" };
 		char[] entrySeparator = new char[] { ',' };
 		fileLines = fileFullString.Split (lineSeparator, System.StringSplitOptions.None);
-		for (int i = 0; i < fileLines.Length; i++) {
+		for (int i = 1; i < fileLines.Length; i++) {
 			fileLine = fileLines [i];
 			lineEntries = fileLine.Split (entrySeparator);
 			List<Ability.Type> abilityList = new List<Ability.Type> ();
@@ -78,10 +78,11 @@ public class DialogueDataManager {
 		}
 	}
 
-	Dialogue GetDialogue (List<Ability.Type> abilityList){
+	public Dialogue GetDialogue (List<Ability.Type> abilityList){
 		if (dialogueDict.ContainsKey (abilityList)) {
-			int index = Random.Range (0, abilityList.Count);
-			return dialogueDict [abilityList][index];
+			List<Dialogue> possibleDialogueOptions = dialogueDict [abilityList];
+			int index = Random.Range (0, possibleDialogueOptions.Count);
+			return possibleDialogueOptions[index];
 		} else {
 			return null;
 		}
