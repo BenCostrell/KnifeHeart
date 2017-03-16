@@ -7,24 +7,30 @@ public class TypeDialogue : Task {
 	private string dialogueText;
 	private int characterIndex;
 	private bool firstChoice;
+	private bool initialDialogue;
 
-	public TypeDialogue(bool firstChc){
+	public TypeDialogue(bool firstChc, bool initDialogue){
 		firstChoice = firstChc;
+		initialDialogue = initDialogue;
 	}
 
 	protected override void Init ()
 	{
 		int playerNum = Services.GameManager.currentTurnPlayerNum;
-		dialogueText = Services.DialogueUIManager.queuedDialogue.mainText;
 		characterIndex = 0;
-		Services.DialogueUIManager.dialogueText.GetComponent<Text> ().text = "";
-		Services.DialogueUIManager.SetTextBoxColor (playerNum, false, true);
-		if (playerNum == 1) {
-			Services.DialogueUIManager.arrow_P1.SetActive (true);
-			Services.DialogueUIManager.arrow_P2.SetActive (false);
-		} else if (playerNum == 2) {
-			Services.DialogueUIManager.arrow_P1.SetActive (false);
-			Services.DialogueUIManager.arrow_P2.SetActive (true);
+		if (!initialDialogue) {
+			dialogueText = Services.DialogueUIManager.queuedDialogue.mainText;
+			Services.DialogueUIManager.dialogueText.GetComponent<Text> ().text = "";
+			Services.DialogueUIManager.SetTextBoxColor (playerNum, false, true);
+			if (playerNum == 1) {
+				Services.DialogueUIManager.arrow_P1.SetActive (true);
+				Services.DialogueUIManager.arrow_P2.SetActive (false);
+			} else if (playerNum == 2) {
+				Services.DialogueUIManager.arrow_P1.SetActive (false);
+				Services.DialogueUIManager.arrow_P2.SetActive (true);
+			}
+		} else {
+			dialogueText = Services.DialogueUIManager.initialDialogue;
 		}
 	}
 
@@ -39,7 +45,7 @@ public class TypeDialogue : Task {
 
 	protected override void OnSuccess ()
 	{
-		if (firstChoice) {
+		if (!initialDialogue && firstChoice) {
 			Services.GameManager.ChangePlayerTurn ();
 		}
 	}

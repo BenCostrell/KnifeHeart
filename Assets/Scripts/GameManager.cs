@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour {
 
 		currentRoundNum = 1;
 
-		StartRound ();
+		BeginDialogueSequence ();
 	}
 	
 	// Update is called once per frame
@@ -74,18 +74,28 @@ public class GameManager : MonoBehaviour {
 		Services.DialogueDataManager.ParseDialogueFile (dialogueFile);
 	}
 
+	void BeginDialogueSequence(){
+		TypeDialogue typeInitialDialogue = new TypeDialogue (false, true);
+		WaitForAnyInput waitForInput = new WaitForAnyInput ();
+		StartDialogueExchange startRound = new StartDialogueExchange ();
+		typeInitialDialogue
+			.Then (waitForInput)
+			.Then (startRound);
+		Services.TaskManager.AddTask (typeInitialDialogue);
+	}
+
 	public void StartRound(){
 		currentTurnPlayerNum = 1;
 
 		ShowDialogueOptions showFirstOptions = new ShowDialogueOptions (true);
 		WaitForDialogueChoiceTask waitForFirstChoice = new WaitForDialogueChoiceTask ();
 		HighlightSelectedOption highlightFirstChoice = new HighlightSelectedOption ();
-		TypeDialogue typeFirstDialogue = new TypeDialogue (true);
+		TypeDialogue typeFirstDialogue = new TypeDialogue (true, false);
 		WaitForAnyInput waitAfterFirstDialogue = new WaitForAnyInput ();
 		ShowDialogueOptions showSecondOptions = new ShowDialogueOptions (false);
 		WaitForDialogueChoiceTask waitForSecondChoice = new WaitForDialogueChoiceTask ();
 		HighlightSelectedOption highlightSecondChoice = new HighlightSelectedOption ();
-		TypeDialogue typeSecondDialogue = new TypeDialogue (false);
+		TypeDialogue typeSecondDialogue = new TypeDialogue (false, false);
 		WaitForAnyInput waitAfterSecondDialogue = new WaitForAnyInput ();
 		DialogueTransitionTask transition = new DialogueTransitionTask ();
 

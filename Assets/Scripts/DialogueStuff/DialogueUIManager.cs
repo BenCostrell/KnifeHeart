@@ -22,6 +22,8 @@ public class DialogueUIManager : MonoBehaviour {
 	public Color textBoxColor_P1;
 	public Color textBoxColor_P2;
 
+	public string initialDialogue;
+
 	public float optionAppearanceStaggerTime;
 	public float optionAppearanceTime;
 	public float indicatorFlashUptime;

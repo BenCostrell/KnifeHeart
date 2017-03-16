@@ -536,6 +536,7 @@ MonoBehaviour:
   selectedOption: {fileID: 0}
   textBoxColor_P1: {r: 1, g: 0.74421906, b: 0.28676468, a: 1}
   textBoxColor_P2: {r: 0.24264705, g: 1, b: 0.6866126, a: 1}
+  initialDialogue: Initial Dialogue
   optionAppearanceStaggerTime: 0.2
   optionAppearanceTime: 0.3
   indicatorFlashUptime: 0.25
