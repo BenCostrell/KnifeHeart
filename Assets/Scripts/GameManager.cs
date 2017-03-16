@@ -77,19 +77,31 @@ public class GameManager : MonoBehaviour {
 	public void StartRound(){
 		currentTurnPlayerNum = 1;
 
-		WaitForDialogueChoiceTask waitForFirstChoice = new WaitForDialogueChoiceTask (true);
+		ShowDialogueOptions showFirstOptions = new ShowDialogueOptions (true);
+		WaitForDialogueChoiceTask waitForFirstChoice = new WaitForDialogueChoiceTask ();
+		HighlightSelectedOption highlightFirstChoice = new HighlightSelectedOption ();
 		TypeDialogue typeFirstDialogue = new TypeDialogue (true);
-		WaitForDialogueChoiceTask waitForSecondChoice = new WaitForDialogueChoiceTask (false);
+		WaitForAnyInput waitAfterFirstDialogue = new WaitForAnyInput ();
+		ShowDialogueOptions showSecondOptions = new ShowDialogueOptions (false);
+		WaitForDialogueChoiceTask waitForSecondChoice = new WaitForDialogueChoiceTask ();
+		HighlightSelectedOption highlightSecondChoice = new HighlightSelectedOption ();
 		TypeDialogue typeSecondDialogue = new TypeDialogue (false);
+		WaitForAnyInput waitAfterSecondDialogue = new WaitForAnyInput ();
 		DialogueTransitionTask transition = new DialogueTransitionTask ();
 
-		waitForFirstChoice
+		showFirstOptions
+			.Then (waitForFirstChoice)
+			.Then (highlightFirstChoice)
 			.Then (typeFirstDialogue)
+			.Then (waitAfterFirstDialogue)
+			.Then (showSecondOptions)
 			.Then (waitForSecondChoice)
+			.Then (highlightSecondChoice)
 			.Then (typeSecondDialogue)
+			.Then (waitAfterSecondDialogue)
 			.Then (transition);
 
-		Services.TaskManager.AddTask (waitForFirstChoice);
+		Services.TaskManager.AddTask (showFirstOptions);
 	}
 		
 	public void GenerateDialogueOptions(bool firstChoice){

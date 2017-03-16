@@ -7,10 +7,21 @@ public class DialogueUIManager : MonoBehaviour {
 
 	public GameObject dialogueText;
 	public GameObject[] optionObjects;
+	public GameObject continueIndicator;
+	public GameObject selectedOption;
 
 	private Dialogue[] optionDialogues;
 
 	public Dialogue queuedDialogue;
+
+	public Color textBoxColor_P1;
+	public Color textBoxColor_P2;
+
+	public float optionAppearanceStaggerTime;
+	public float optionAppearanceTime;
+	public float indicatorFlashUptime;
+	public float unselectedOptionShrinkTime;
+	public float selectedOptionHighlightTime;
 
 	// Use this for initialization
 	void Start () {
@@ -23,20 +34,30 @@ public class DialogueUIManager : MonoBehaviour {
 	}
 
 	public void SetUpUI(){
-		SetOptionUIStatus (false);
 		dialogueText.GetComponent<Text> ().text = "";
+		optionDialogues = new Dialogue[4];
+		continueIndicator.SetActive (false);
+		SetOptionUIStatus (false);
 	}
 
-	void SetOptionUIStatus(bool active){
-		foreach (GameObject optionObj in optionObjects) {
-			optionObj.SetActive (active);
+	public void SetOptionUIStatus(bool active){
+		for(int i = 0; i < optionObjects.Length; i++) {
+			if (optionDialogues [i] != null) {
+				optionObjects [i].SetActive (active);
+			} else {
+				optionObjects [i].SetActive (false);
+			}
 		}
 	}
 
 	public void SetDialogueOptions(Dialogue[] dialogueOptions){
 		optionDialogues = dialogueOptions;
-		SetOptionUIStatus (true);
 		SetBlurbText ();
+		SetTextBoxColor (Services.GameManager.currentTurnPlayerNum);
+	}
+
+	public void ActivateOptionTextBox(int optionNum){
+		optionObjects [optionNum - 1].SetActive (true);
 	}
 
 	void SetBlurbText(){
@@ -64,7 +85,35 @@ public class DialogueUIManager : MonoBehaviour {
 		}
 	}
 
+	public GameObject GetOptionObjectFromInput(string buttonName){
+		switch (buttonName) {
+		case "Y":
+			return optionObjects[0];
+		case "X":
+			return optionObjects[1];
+		case "B":
+			return optionObjects[2];
+		case "A":
+			return optionObjects[3];
+		default:
+			return null;
+		}
+	}
+
 	public void QueueDialogue(DialoguePicked e){
 		queuedDialogue = e.dialogue;
+		selectedOption = e.optionObject;
+	}
+
+	void SetTextBoxColor(int playerNum){
+		Color textBoxColor = Color.white;
+		if (playerNum == 1) {
+			textBoxColor = textBoxColor_P1;
+		} else if (playerNum == 2) {
+			textBoxColor = textBoxColor_P2;
+		}
+		for (int i = 0; i < optionObjects.Length; i++) {
+			optionObjects [i].GetComponentsInChildren<Image> () [1].color = textBoxColor;
+		}
 	}
 }

@@ -20,9 +20,11 @@ public class GameOver : Event {}
 public class DialoguePicked : Event {
 	public Dialogue dialogue;
 	public int pickedByPlayerNum;
-	public DialoguePicked(Dialogue dia, int playerNum){
+	public GameObject optionObject;
+	public DialoguePicked(Dialogue dia, int playerNum, GameObject optionObjectSelected){
 		dialogue = dia;
 		pickedByPlayerNum = playerNum;
+		optionObject = optionObjectSelected;
 	}
 }
 
