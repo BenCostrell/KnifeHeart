@@ -74,8 +74,4 @@ public class DialogueUIManager : MonoBehaviour {
 	public void QueueDialogue(DialoguePicked e){
 		queuedDialogue = e.dialogue;
 	}
-
-	public void SetDialogueText(string text){
-		dialogueText.GetComponent<Text> ().text = text;
-	}
 }
