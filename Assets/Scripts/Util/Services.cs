@@ -11,4 +11,5 @@ public static class Services {
 	public static DialogueUIManager DialogueUIManager { get; set; }
 	public static GameInfo GameInfo { get; set; }
 	public static InputManager InputManager { get; set; }
+	public static TransitionUIManager TransitionUIManager { get; set; }
 }

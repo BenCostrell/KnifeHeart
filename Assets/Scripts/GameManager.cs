@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour {
 		Services.DialogueUIManager = GameObject.FindGameObjectWithTag ("DialogueUIManager").GetComponent<DialogueUIManager> ();
 		Services.GameInfo = new GameInfo ();
 		Services.InputManager = new InputManager ();
+		Services.TransitionUIManager = GameObject.FindGameObjectWithTag ("TransitionUIManager").GetComponent<TransitionUIManager> ();
 	}
 
 	void InitializeAbilityPool(){
@@ -167,5 +168,17 @@ public class GameManager : MonoBehaviour {
 		} else if (currentTurnPlayerNum == 2) {
 			currentTurnPlayerNum = 1;
 		}
+	}
+
+	public void TransitionToFight(){
+		Services.GameInfo.player1Abilities = abilityList_P1;
+		Services.GameInfo.player2Abilities = abilityList_P2;
+
+		SlideInFightBackground slideInBG = new SlideInFightBackground ();
+		ShowFightinWords showWords = new ShowFightinWords ();
+
+		slideInBG.Then (showWords);
+
+		Services.TaskManager.AddTask (slideInBG);
 	}
 }

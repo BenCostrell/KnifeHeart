@@ -5,12 +5,15 @@ using UnityEngine.UI;
 
 public class DialogueUIManager : MonoBehaviour {
 
+	public GameObject dialogueContainer;
 	public GameObject dialogueText;
 	public GameObject dialogueTextBox;
 	public GameObject[] optionObjects;
 	public GameObject continueIndicator;
 	public GameObject arrow_P1;
 	public GameObject arrow_P2;
+	public GameObject ponytail;
+	public GameObject pigtails;
 
 
 	public GameObject selectedOption;
@@ -46,7 +49,6 @@ public class DialogueUIManager : MonoBehaviour {
 		continueIndicator.SetActive (false);
 		arrow_P1.SetActive (false);
 		arrow_P2.SetActive (false);
-
 		arrow_P1.GetComponent<Image> ().color = textBoxColor_P1;
 		arrow_P2.GetComponent<Image> ().color = textBoxColor_P2;
 

@@ -18,6 +18,8 @@ public class DialogueTransitionTask : Task {
 	{
 		if (Services.GameManager.currentRoundNum < 4) {
 			Services.GameManager.StartRound ();
+		} else {
+			Services.GameManager.TransitionToFight ();
 		}
 	}
 }

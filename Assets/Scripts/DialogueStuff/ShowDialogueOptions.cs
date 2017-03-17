@@ -38,7 +38,7 @@ public class ShowDialogueOptions : Task {
 		GameObject[] optObjects = Services.DialogueUIManager.optionObjects;
 		for (int i = 0; i < numAvailOptions; i++) {
 			float totalStaggerTime = i * staggerTime;
-			GameObject obj = Services.DialogueUIManager.optionObjects [i];
+			GameObject obj = optObjects [i];
 			if ((timeElapsed <= duration + totalStaggerTime) && (timeElapsed >= totalStaggerTime)) {
 				obj.transform.localScale = Vector3.LerpUnclamped (Vector3.zero, Vector3.one, 
 					Easing.BackEaseOut ((timeElapsed - totalStaggerTime) / duration));
