@@ -176,8 +176,11 @@ public class GameManager : MonoBehaviour {
 
 		SlideInFightBackground slideInBG = new SlideInFightBackground ();
 		ShowFightinWords showWords = new ShowFightinWords ();
+		WaitForReady waitForReady = new WaitForReady ();
 
-		slideInBG.Then (showWords);
+		slideInBG
+			.Then (showWords)
+			.Then (waitForReady);
 
 		Services.TaskManager.AddTask (slideInBG);
 	}

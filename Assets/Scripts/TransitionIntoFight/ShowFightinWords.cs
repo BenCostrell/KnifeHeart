@@ -9,6 +9,12 @@ public class ShowFightinWords : Task {
 
 	protected override void Init ()
 	{
+		Services.TransitionUIManager.transitionUI.SetActive (true);
+		Services.TransitionUIManager.readyPrompt_P1.SetActive (false);
+		Services.TransitionUIManager.readyPrompt_P2.SetActive (false);
+		Services.TransitionUIManager.ready_P1.SetActive (false);
+		Services.TransitionUIManager.ready_P2.SetActive (false);
+
 		GameObject[] words = Services.TransitionUIManager.fightWords;
 		numWords = words.Length;
 		for (int i = 0; i < numWords; i++) {
@@ -16,8 +22,6 @@ public class ShowFightinWords : Task {
 			words [i].transform.localScale = Vector3.zero;
 		}
 		timeElapsed = 0;
-		Services.DialogueUIManager.ponytail.GetComponent<Animator> ().SetTrigger ("getAngry");
-		Services.DialogueUIManager.pigtails.GetComponent<Animator> ().SetTrigger ("getAngry");
 	}
 
 	internal override void Update ()
@@ -40,5 +44,11 @@ public class ShowFightinWords : Task {
 		if (timeElapsed == totalDuration) {
 			SetStatus (TaskStatus.Success);
 		}
+	}
+
+	protected override void OnSuccess ()
+	{
+		Services.DialogueUIManager.ponytail.GetComponent<Animator> ().SetTrigger ("getAngry");
+		Services.DialogueUIManager.pigtails.GetComponent<Animator> ().SetTrigger ("getAngry");
 	}
 }
