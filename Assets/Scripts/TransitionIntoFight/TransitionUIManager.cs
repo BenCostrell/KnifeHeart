@@ -5,6 +5,7 @@ using UnityEngine;
 public class TransitionUIManager : MonoBehaviour {
 
 	public GameObject fightBackground;
+	public GameObject wordsContainer;
 	public GameObject[] fightWords;
 
 	public GameObject transitionUI;
@@ -18,6 +19,8 @@ public class TransitionUIManager : MonoBehaviour {
 	public float fightWordStaggerTime;
 	public float readyPromptGrowTime;
 	public float readyPromptShrinkTime;
+	public float uiScaleOutTime;
+	public float transitionEndTime;
 
 
 	// Use this for initialization
