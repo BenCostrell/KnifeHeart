@@ -16,6 +16,13 @@ public class WallopTask : Task {
 	{
 		wallop.gameObject.GetComponent<Collider2D> ().enabled = false;
 		timeUntilHitboxActive = wallop.delay;
+		Services.EventManager.Register<PlayerInputPaused> (AnotherInputPauseTaskWasStarted);
+	}
+
+	protected void AnotherInputPauseTaskWasStarted(PlayerInputPaused e){
+		if (e.player == player) {
+			Abort ();
+		}
 	}
 
 	internal override void Update ()
@@ -31,5 +38,10 @@ public class WallopTask : Task {
 		wallop.gameObject.GetComponent<Collider2D> ().enabled = true;
 		float angle = wallop.transform.localRotation.eulerAngles.z * Mathf.Deg2Rad;
 		wallop.transform.localPosition = 3 * new Vector3 (-Mathf.Cos (angle), -Mathf.Sin (angle), 0);
+	}
+
+	protected override void CleanUp ()
+	{
+		Services.EventManager.Unregister<PlayerInputPaused> (AnotherInputPauseTaskWasStarted);
 	}
 }
