@@ -14,10 +14,11 @@ public class Shield : Ability {
 		
 	}
 
-	public virtual void Init(GameObject player){
+	public override void Init(GameObject player){
 		animTrigger = "Shield";
 		castDuration = 0.5f;
 		cooldown = 2f;
+		isMelee = true;
 		onCastAudio = Resources.Load ("Sounds/Abilities/Shield") as AudioClip;
 
 		base.Init (player);

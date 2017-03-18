@@ -27,13 +27,18 @@ public class Fireball : Attack {
 		damage = 1;
 		speed = 10;
 		isProjectile = true;
+		isMelee = false;
 		onCastAudio = Resources.Load ("Sounds/Abilities/Fireball") as AudioClip;
 
 		base.Init (player);
 
-		float direction = -1 * Mathf.Sign (player.transform.localScale.x);
+		float direction = -1;
+		if (player.GetComponent<SpriteRenderer> ().flipX) {
+			direction = 1;
+		}	
 		GetComponent<Rigidbody2D> ().velocity = direction * new Vector2 (speed, 0);
 		transform.localScale = new Vector3 (-direction * transform.localScale.x, transform.localScale.y, transform.localScale.z);
+		transform.position += direction * 1.5f * Vector3.right;
 	}
 
 	protected override Vector3 GetDirectionHit(GameObject playerHit){

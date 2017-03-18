@@ -36,4 +36,25 @@ public class PrefabDB : ScriptableObject {
 	private GameObject pull;
 	public GameObject Pull { get { return pull; } }
 
+	public GameObject GetPrefabFromAbilityType(Ability.Type type){
+		switch (type) {
+		case Ability.Type.BasicAttack:
+			return basicAttack;
+		case Ability.Type.Fireball:
+			return fireball;
+		case Ability.Type.Lunge:
+			return lunge;
+		case Ability.Type.Pull:
+			return pull;
+		case Ability.Type.Shield:
+			return shield;
+		case Ability.Type.Sing:
+			return sing;
+		case Ability.Type.Wallop:
+			return wallop;
+		default:
+			return null;
+		}
+	}
+
 }

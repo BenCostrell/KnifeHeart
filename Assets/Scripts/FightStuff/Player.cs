@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Player : MonoBehaviour {
+	public int playerNum;
+	public List<Ability.Type> abilityList;
 
 	private Rigidbody2D rb;
 	public Animator anim;
@@ -10,17 +12,16 @@ public class Player : MonoBehaviour {
 
 	public float maxSpeed;
 	public float accel;
-	public int playerNum;
-
-	public List<Ability.Type> abilityList;
-
-	public int damage;
-	private float timeUntilActionable;
 	public float hitstunFactor;
 	public float knockbackDamageGrowthFactor;
+
+	public int damage;
+	public bool actionable;
+	private float timeUntilActionable;
 	public bool isInvulnerable;
 	private bool inHitstun;
 	private bool actionInProcess;
+
 	private float basicAttackCooldownCounter;
 	private float ability1BaseCooldown;
 	private float ability2BaseCooldown;
@@ -51,6 +52,8 @@ public class Player : MonoBehaviour {
 
 		ability1BaseCooldown = 1;
 		ability2BaseCooldown = 1;
+
+		StartListeningForInput ();
 	}
 	
 	// Update is called once per frame
@@ -59,15 +62,12 @@ public class Player : MonoBehaviour {
 		if (timeUntilActionable > 0) {
 			timeUntilActionable -= Time.deltaTime;
 		} else {
-			if (inHitstun) {
-				rb.velocity = Vector3.zero;
-				inHitstun = false;
-				GetComponent<SpriteRenderer> ().color = Color.white;
-			}
 			if (actionInProcess) {
 				ResetToNeutral ();
 			}
-			Move ();
+			if (actionable) {
+				Move ();
+			}
 			//DetectActionInput ();
 		}
 	}
@@ -87,11 +87,19 @@ public class Player : MonoBehaviour {
 			sr.flipX = false;
 		}
 
-		Debug.Log (rb.velocity);
+		//Debug.Log (rb.velocity);
 	}
 
-	public void ListenForInput(){
-		Services.EventManager.Register<ButtonPressed> (DoAbility);
+	public void StartListeningForInput(){
+		Services.EventManager.Register<ButtonPressed> (AbilityActivated);
+		actionable = true;
+		Debug.Log ("listening");
+	}
+
+	public void StopListeningForInput(){
+		Services.EventManager.Unregister<ButtonPressed> (AbilityActivated);
+		actionable = false;
+		Debug.Log ("stopped listening");
 	}
 
 	void ProcessAbilityCooldowns(){
@@ -152,61 +160,32 @@ public class Player : MonoBehaviour {
 		isInvulnerable = false;
 	}
 
-	void DoAbility(ButtonPressed e){
-		Ability.Type ab = Ability.Type.None;
-		if (ab == Ability.Type.BasicAttack) {
-			//return BasicAttack ();
-		} else if (ab == Ability.Type.Fireball) {
-			//return ThrowFireball ();
-		} else if (ab == Ability.Type.Lunge) {
-			//return Lunge ();
-		} else if (ab == Ability.Type.Sing) {
-			//return Sing ();
-		} else if (ab == Ability.Type.Shield) {
-			//return Shield ();
+	void AbilityActivated(ButtonPressed e){
+		if (e.playerNum == playerNum) {
+			switch (e.buttonTitle){
+			case "A":	
+				DoAbility (Ability.Type.BasicAttack);
+				break;
+			case "X":
+				DoAbility (abilityList [0]);
+				break;
+			case "Y":
+				DoAbility (abilityList [1]);
+				break;
+			case "B":
+				DoAbility (abilityList [2]);
+				break;
+			default:
+				break;
+			}
 		}
-		//return 0f;
 	}
 
-
-
-	float BasicAttack(){
-		GameObject basicAttack = Instantiate (Services.PrefabDB.BasicAttack, transform, false);
-		BasicAttack ba = basicAttack.GetComponent<BasicAttack> ();
-		ba.Init (gameObject);
-		return ba.cooldown;
+	void DoAbility(Ability.Type type){
+		GameObject abilityObj = Instantiate (Services.PrefabDB.GetPrefabFromAbilityType (type), transform.position, Quaternion.identity) as GameObject;
+		abilityObj.GetComponent<Ability> ().Init (gameObject);
 	}
 
-	float ThrowFireball(){
-		float direction = -1 * Mathf.Sign (transform.localScale.x);
-		Vector3 fireballOffset = direction * 1.5f * Vector3.right;
-		GameObject fireball = Instantiate (Services.PrefabDB.Fireball, transform.position + fireballOffset, Quaternion.identity);
-		Fireball fc = fireball.GetComponent<Fireball> ();
-		fc.Init (gameObject);
-
-		return fc.cooldown;
-	}
-
-	float Lunge(){
-		GameObject lunge = Instantiate (Services.PrefabDB.Lunge, transform, false);
-		Lunge lun = lunge.GetComponent<Lunge> ();
-		lun.Init (gameObject);
-		return lun.cooldown;
-	}
-
-	float Sing(){
-		GameObject sing = Instantiate (Services.PrefabDB.Sing, transform.position, Quaternion.identity);
-		Sing sin = sing.GetComponent<Sing> ();
-		sin.Init (gameObject);
-		return sin.cooldown;
-	}
-
-	float Shield(){
-		GameObject shield = Instantiate (Services.PrefabDB.Shield, transform, false);
-		Shield sh = shield.GetComponent<Shield> ();
-		sh.Init (gameObject);
-		return sh.cooldown;
-	}
 
 	void Die(){
 		Destroy (gameObject);
@@ -234,10 +213,9 @@ public class Player : MonoBehaviour {
 	}
 
 	public void Stun(float hitstun){
-		timeUntilActionable = hitstun;
-		inHitstun = true;
 		rb.velocity = Vector3.zero;
-		GetComponent<SpriteRenderer> ().color = Color.red;
+		HitstunTask startHitstun = new HitstunTask (hitstun, this);
+		Services.TaskManager.AddTask (startHitstun);
 	}
 
 	public void InitiateAction(float actionDuration){

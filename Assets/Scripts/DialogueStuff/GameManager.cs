@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Reset(Reset e){
+		Services.EventManager.Clear ();
+		Services.TaskManager.Clear ();
 		if (Input.GetButton ("HardReset")) {
 			SceneManager.LoadScene ("VisualNovelStage");
 		} else {

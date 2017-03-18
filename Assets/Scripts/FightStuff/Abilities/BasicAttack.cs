@@ -20,6 +20,7 @@ public class BasicAttack : Attack {
 		knockbackGrowth = 1;
 		damage = 2;
 		isProjectile = false;
+		isMelee = true;
 		onCastAudio = Resources.Load ("Sounds/Abilities/Sword") as AudioClip;
 
 		base.Init (player);

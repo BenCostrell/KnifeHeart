@@ -12,6 +12,7 @@ public class Ability : MonoBehaviour {
 	public string animTrigger;
 	protected AudioSource audioSource;
 	protected AudioClip onCastAudio;
+	protected bool isMelee;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +25,9 @@ public class Ability : MonoBehaviour {
 
 	public virtual void Init(GameObject player){
 		parentPlayer = player;
+		if (isMelee) {
+			transform.parent = player.transform;
+		}
 		player.GetComponent<Player> ().InitiateAction (castDuration);
 		player.GetComponent<Player> ().anim.SetTrigger (animTrigger);
 		audioSource = gameObject.AddComponent<AudioSource> ();
