@@ -18,5 +18,5 @@ MonoBehaviour:
   sing: {fileID: 1152909143943310, guid: 82a7ef6821145d343bfbd44ec4844d0d, type: 2}
   shield: {fileID: 1571807527392738, guid: 36659d5e3aaf9c34499fd070b8a43d6a, type: 2}
   lunge: {fileID: 1811806750741508, guid: c54f6f5ead86f444da2e22651d3d3726, type: 2}
-  wallop: {fileID: 0}
+  wallop: {fileID: 1538593383098656, guid: 453292908b6de3149a2759a6f4c0eda7, type: 2}
   pull: {fileID: 0}

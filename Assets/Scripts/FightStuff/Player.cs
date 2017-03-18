@@ -100,11 +100,7 @@ public class Player : MonoBehaviour {
 		Services.EventManager.Unregister<ButtonPressed> (AbilityActivated);
 		actionable = false;
 	}
-
-	void OnTriggerEnter2D(Collider2D other) 
-	{ 
-
-	} 
+ 
 
 	void OnTriggerExit2D(Collider2D collider){
 		if (collider.tag == "Arena"){
