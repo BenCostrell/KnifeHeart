@@ -22,7 +22,7 @@ public class Fireball : Attack {
 		animTrigger = "ThrowFireball";
 		cooldown = 1;
 		castDuration = 0.2f;
-		baseKnockback = 6;
+		baseKnockback = 8;
 		knockbackGrowth = 0.5f;
 		damage = 1;
 		speed = 10;
@@ -32,17 +32,16 @@ public class Fireball : Attack {
 
 		base.Init (player);
 
-		float direction = -1;
-		if (player.GetComponent<SpriteRenderer> ().flipX) {
-			direction = 1;
-		}	
-		GetComponent<Rigidbody2D> ().velocity = direction * new Vector2 (speed, 0);
-		transform.localScale = new Vector3 (-direction * transform.localScale.x, transform.localScale.y, transform.localScale.z);
-		transform.position += direction * 1.5f * Vector3.right;
+		float angle = player.GetComponent<Player>().effectiveRotation;
+		Vector3 direction = new Vector3 (-Mathf.Cos(angle*Mathf.Deg2Rad), -Mathf.Sin(angle*Mathf.Deg2Rad));
+
+		GetComponent<Rigidbody2D> ().velocity = speed * direction;
+		transform.rotation = Quaternion.Euler (0, 0, angle);
+		transform.position += 1.5f * direction;
 	}
 
 	protected override Vector3 GetDirectionHit(GameObject playerHit){
-		return -1 * Mathf.Sign(transform.localScale.x) * Vector3.right;
+		return GetComponent<Rigidbody2D> ().velocity.normalized;
 	}
 
 	protected override void HitPlayer(GameObject player){

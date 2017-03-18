@@ -31,6 +31,7 @@ public class Ability : MonoBehaviour {
 			player.AddComponent<FixedJoint2D> ().connectedBody = GetComponent<Rigidbody2D> ();
 		}
 		player.GetComponent<Player> ().anim.SetTrigger (animTrigger);
+		player.GetComponent<Player> ().anim.SetBool ("neutral", false);
 		audioSource = gameObject.AddComponent<AudioSource> ();
 		OnCast ();
 	}

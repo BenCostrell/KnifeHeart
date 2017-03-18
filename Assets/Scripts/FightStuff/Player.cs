@@ -45,7 +45,9 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (actionable) {
+			anim.SetBool ("neutral", true);
 			Move ();
+		} else {
 		}
 	}
 
@@ -58,14 +60,34 @@ public class Player : MonoBehaviour {
 			rb.velocity = maxSpeed * direction.normalized;
 		}
 
-		if (direction.x > 0.01f) {
-			sr.flipX = true;
-			effectiveRotation = 180;
-		} else if (direction.x < -0.01f) {
-			sr.flipX = false;
-			effectiveRotation = 0;
+		float angleFacing = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
+		if (direction.magnitude > 0.01f) {
+			if ((angleFacing >= -45) && (angleFacing < 45)) {
+				sr.flipX = true;
+				effectiveRotation = 180;
+				anim.SetBool ("sideFacing", true);
+				anim.SetBool ("upFacing", false);
+				anim.SetBool ("downFacing", false);
+			} else if ((angleFacing >= 45) && (angleFacing < 135)) {
+				sr.flipX = false;
+				effectiveRotation = -90;
+				anim.SetBool ("sideFacing", false);
+				anim.SetBool ("upFacing", true);
+				anim.SetBool ("downFacing", false);
+			} else if ((angleFacing >= 135) || ((angleFacing >= -180) && (angleFacing <= -135))) {
+				sr.flipX = false;
+				effectiveRotation = 0;
+				anim.SetBool ("sideFacing", true);
+				anim.SetBool ("upFacing", false);
+				anim.SetBool ("downFacing", false);
+			} else {
+				sr.flipX = false;
+				effectiveRotation = 90;
+				anim.SetBool ("sideFacing", false);
+				anim.SetBool ("upFacing", false);
+				anim.SetBool ("downFacing", true);
+			}
 		}
-
 		//Debug.Log (rb.velocity);
 	}
 

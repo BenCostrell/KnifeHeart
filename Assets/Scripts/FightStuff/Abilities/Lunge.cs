@@ -20,8 +20,8 @@ public class Lunge : Attack {
 		animTrigger = "Lunge";
 		cooldown = 1f;
 		castDuration = 0.4f;
-		baseKnockback = 8;
-		knockbackGrowth = 1;
+		baseKnockback = 16;
+		knockbackGrowth = 2;
 		damage = 2;
 		speed = 40;
 		isProjectile = false;
@@ -30,11 +30,10 @@ public class Lunge : Attack {
 
 		base.Init (player);
 
-		float direction = -1;
-		if (player.GetComponent<SpriteRenderer> ().flipX) {
-			direction = 1;
-		}
-		player.GetComponent<Rigidbody2D>().velocity = direction * speed * Vector3.right;
+		float angle = player.GetComponent<Player>().effectiveRotation;
+		Vector3 direction = new Vector3 (-Mathf.Cos(angle*Mathf.Deg2Rad), -Mathf.Sin(angle*Mathf.Deg2Rad));
+
+		player.GetComponent<Rigidbody2D> ().velocity = speed * direction;
 	}
 
 	protected override Vector3 GetDirectionHit(GameObject playerHit){
