@@ -16,16 +16,14 @@ public class BasicAttack : Attack {
 		animTrigger = "basicAttack";
 		cooldown = 0.4f;
 		castDuration = 0.2f;
-		baseKnockback = 8;
-		knockbackGrowth = 1;
+		baseKnockback = 16;
+		knockbackGrowth = 2;
 		damage = 2;
 		isProjectile = false;
 		isMelee = true;
 		onCastAudio = Resources.Load ("Sounds/Abilities/Sword") as AudioClip;
 
 		base.Init (player);
-
-		Destroy (gameObject, castDuration);
 	}
 
 	protected override Vector3 GetDirectionHit(GameObject playerHit){

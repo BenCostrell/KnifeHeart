@@ -13,6 +13,13 @@ public class ButtonPressed : Event {
 	}
 }
 
+public class PlayerInputPaused : Event {
+	public Player player;
+	public PlayerInputPaused(Player pl){
+		player = pl;
+	}
+}
+
 public class Reset : Event {}
 
 public class GameOver : Event {}

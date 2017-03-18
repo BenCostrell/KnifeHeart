@@ -17,6 +17,7 @@ public class FightUIManager : MonoBehaviour {
 	public Sprite wallopUI;
 	public Sprite pullUI;
 	private Dictionary<Ability.Type, Sprite> spriteDict;
+	private Dictionary<Ability.Type, GameObject> cooldownBarDict;
 
 	// Use this for initialization
 	void Start () {
@@ -40,25 +41,34 @@ public class FightUIManager : MonoBehaviour {
 	}
 
 	void InitializeUI(){
+		cooldownBarDict = new Dictionary<Ability.Type, GameObject> ();
 		for (int i = 0; i < cooldownUI_P1.Length; i++) {
-			cooldownUI_P1 [i].GetComponent<SpriteRenderer> ().sprite = spriteDict [Services.GameInfo.player1Abilities [i]];
-			cooldownUI_P2 [i].GetComponent<SpriteRenderer> ().sprite = spriteDict [Services.GameInfo.player2Abilities [i]];
+			GameObject obj_P1 = cooldownUI_P1 [i];
+			GameObject obj_P2 = cooldownUI_P2 [i];
+			GameObject bar_P1 = obj_P1.transform.GetChild (0).gameObject;
+			GameObject bar_P2 = obj_P2.transform.GetChild (0).gameObject;
+			Ability.Type ability_P1 = Services.GameInfo.player1Abilities [i];
+			Ability.Type ability_P2 = Services.GameInfo.player2Abilities [i];
+
+			obj_P1.GetComponent<SpriteRenderer> ().sprite = spriteDict [ability_P1];
+			obj_P2.GetComponent<SpriteRenderer> ().sprite = spriteDict [ability_P2];
+
+			bar_P1.GetComponent<SpriteRenderer> ().color = Color.green;
+			bar_P2.GetComponent<SpriteRenderer> ().color = Color.green;
+
+			cooldownBarDict.Add (ability_P1, bar_P1);
+			cooldownBarDict.Add (ability_P2, bar_P2);
 		}
 	}
 
-	public void UpdateCooldownBar(int playerNum, int abilityNum, float fractionOfCooldownRemaining){
-		Transform bar = null;
-		if (playerNum == 1) {
-			bar = cooldownUI_P1 [abilityNum].transform.GetChild (0);
-		} else if (playerNum == 2) {
-			bar = cooldownUI_P2 [abilityNum].transform.GetChild (0);
-		}
-		bar.localScale = new Vector3 (0.4f * (1 - fractionOfCooldownRemaining), bar.localScale.y, bar.localScale.z);
-
-		if (fractionOfCooldownRemaining > 0) {
-			bar.gameObject.GetComponent<SpriteRenderer> ().color = Color.red;
+	public void UpdateCooldownUI(Ability.Type ability, float fractionRemaining){
+		GameObject bar = cooldownBarDict [ability];
+		bar.transform.localScale = Vector3.Lerp (new Vector3 (0, bar.transform.localScale.y, bar.transform.localScale.z),
+			new Vector3 (0.4f, bar.transform.localScale.y, bar.transform.localScale.z), 1 - fractionRemaining);
+		if (fractionRemaining > 0) {
+			bar.GetComponent<SpriteRenderer> ().color = Color.red;
 		} else {
-			bar.gameObject.GetComponent<SpriteRenderer> ().color = Color.green;
+			bar.GetComponent<SpriteRenderer> ().color = Color.green;
 		}
 	}
 

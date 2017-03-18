@@ -13,20 +13,28 @@ public class PlayerUnactionableTask : Task {
 
 	protected override void Init ()
 	{
+		Services.EventManager.Fire (new PlayerInputPaused (player));
+		Services.EventManager.Register<PlayerInputPaused> (AnotherInputPauseTaskWasStarted);
 		player.StopListeningForInput ();
+	}
+
+	protected void AnotherInputPauseTaskWasStarted(PlayerInputPaused e){
+		if (e.player == player) {
+			Abort ();
+		}
 	}
 
 	internal override void Update ()
 	{
 		duration -= Time.deltaTime;
-		Debug.Log (duration);
 		if (duration <= 0) {
 			SetStatus (TaskStatus.Success);
 		}
 	}
 
-	protected override void OnSuccess ()
+	protected override void CleanUp ()
 	{
+		Services.EventManager.Unregister<PlayerInputPaused> (AnotherInputPauseTaskWasStarted);
 		player.StartListeningForInput ();
 	}
 }

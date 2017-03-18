@@ -9,12 +9,13 @@ public class HitstunTask : PlayerUnactionableTask {
 	protected override void Init ()
 	{
 		base.Init ();
+		player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 		player.gameObject.GetComponent<SpriteRenderer> ().color = Color.red;
 	}
 
-	protected override void OnSuccess ()
+	protected override void CleanUp ()
 	{
-		base.OnSuccess ();
+		base.CleanUp ();
 		player.gameObject.GetComponent<Rigidbody2D> ().velocity = Vector3.zero;
 		player.gameObject.GetComponent<SpriteRenderer> ().color = Color.white;
 	}

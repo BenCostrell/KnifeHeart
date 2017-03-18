@@ -17,18 +17,10 @@ public class Player : MonoBehaviour {
 
 	public int damage;
 	public bool actionable;
-	private float timeUntilActionable;
 	public bool isInvulnerable;
-	private bool inHitstun;
-	private bool actionInProcess;
+	public float effectiveRotation;
 
-	private float basicAttackCooldownCounter;
-	private float ability1BaseCooldown;
-	private float ability2BaseCooldown;
-	private float ability1CooldownCounter;
-	private float ability2CooldownCounter;
-	private bool ability1OnCooldown;
-	private bool ability2OnCooldown;
+	public List <Ability.Type> abilitiesOnCooldown;
 
     AudioSource audioSource;
     AudioClip audioClip;
@@ -41,34 +33,19 @@ public class Player : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
 		sr = GetComponent<SpriteRenderer> ();
-		timeUntilActionable = 0;
-		ability1CooldownCounter = 0;
-		ability2CooldownCounter = 0;
-		inHitstun = false;
-		actionInProcess = false;
+
+		abilitiesOnCooldown = new List<Ability.Type> ();
 
         audioSource = Camera.main.GetComponent<AudioSource>();
         audioClip = Camera.main.GetComponent<AudioClip>();
-
-		ability1BaseCooldown = 1;
-		ability2BaseCooldown = 1;
 
 		StartListeningForInput ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//ProcessAbilityCooldowns ();
-		if (timeUntilActionable > 0) {
-			timeUntilActionable -= Time.deltaTime;
-		} else {
-			if (actionInProcess) {
-				ResetToNeutral ();
-			}
-			if (actionable) {
-				Move ();
-			}
-			//DetectActionInput ();
+		if (actionable) {
+			Move ();
 		}
 	}
 
@@ -83,8 +60,10 @@ public class Player : MonoBehaviour {
 
 		if (direction.x > 0.01f) {
 			sr.flipX = true;
+			effectiveRotation = 180;
 		} else if (direction.x < -0.01f) {
 			sr.flipX = false;
+			effectiveRotation = 0;
 		}
 
 		//Debug.Log (rb.velocity);
@@ -93,54 +72,11 @@ public class Player : MonoBehaviour {
 	public void StartListeningForInput(){
 		Services.EventManager.Register<ButtonPressed> (AbilityActivated);
 		actionable = true;
-		Debug.Log ("listening");
 	}
 
 	public void StopListeningForInput(){
 		Services.EventManager.Unregister<ButtonPressed> (AbilityActivated);
 		actionable = false;
-		Debug.Log ("stopped listening");
-	}
-
-	void ProcessAbilityCooldowns(){
-		if (abilityList != null) {
-			if (ability1CooldownCounter > 0) {
-				ability1CooldownCounter -= Time.deltaTime;
-			} else {
-				ability1OnCooldown = false;
-			}
-
-			Services.FightUIManager.UpdateCooldownBar (playerNum, 1, ability1CooldownCounter / ability1BaseCooldown);
-
-			if (ability2CooldownCounter > 0) {
-				ability2CooldownCounter -= Time.deltaTime;
-			} else {
-				ability2OnCooldown = false;
-			}
-
-			Services.FightUIManager.UpdateCooldownBar (playerNum, 2, ability2CooldownCounter / ability2BaseCooldown);
-
-		}
-	}
-
-	void DetectActionInput(){
-		if (basicAttackCooldownCounter > 0) {
-			basicAttackCooldownCounter -= Time.deltaTime;
-		}
-		else if (Input.GetButtonDown("BasicAttack_P" + playerNum)){
-			//basicAttackCooldownCounter = DoAbility (Ability.Type.BasicAttack);
-		}
-
-		if (Input.GetButtonDown ("Ability1_P" + playerNum) && !ability1OnCooldown) {
-			//ability1CooldownCounter = DoAbility (abilityList [0]);
-			ability1OnCooldown = true;
-			ability1BaseCooldown = ability1CooldownCounter;
-		} else if (Input.GetButtonDown ("Ability2_P" + playerNum) && !ability2OnCooldown) {
-			//ability2CooldownCounter = DoAbility (abilityList [1]);
-			ability2OnCooldown = true;
-			ability2BaseCooldown = ability2CooldownCounter;
-		}
-
 	}
 
 	void OnTriggerEnter2D(Collider2D other) 
@@ -154,8 +90,7 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	void ResetToNeutral(){
-		actionInProcess = false;
+	public void ResetToNeutral(){
 		anim.SetTrigger ("ResetToNeutral");
 		isInvulnerable = false;
 	}
@@ -182,8 +117,18 @@ public class Player : MonoBehaviour {
 	}
 
 	void DoAbility(Ability.Type type){
-		GameObject abilityObj = Instantiate (Services.PrefabDB.GetPrefabFromAbilityType (type), transform.position, Quaternion.identity) as GameObject;
-		abilityObj.GetComponent<Ability> ().Init (gameObject);
+		if (!abilitiesOnCooldown.Contains (type)) {
+			GameObject abilityObj = Instantiate (Services.PrefabDB.GetPrefabFromAbilityType (type), 
+				transform.position, Quaternion.identity) as GameObject;
+			Ability ability = abilityObj.GetComponent<Ability> ();
+			ability.Init (gameObject);
+
+			CastAbilityTask castTimeLockout = new CastAbilityTask (ability.castDuration, this, ability);
+			AbilityCooldownTask abilityCooldown = new AbilityCooldownTask (type, ability.cooldown, this);
+
+			Services.TaskManager.AddTask (castTimeLockout);
+			Services.TaskManager.AddTask (abilityCooldown);
+		}
 	}
 
 
@@ -204,23 +149,18 @@ public class Player : MonoBehaviour {
 
     }
 
-	public void TakeHit(int damageTaken, float baseKnockback, float knockbackGrowth, Vector3 knockbackVector){
+	public void TakeHit(int damageTaken, float baseKnockback, float knockbackGrowth, Vector3 knockbackDirection){
 		damage += damageTaken;
 		float knockbackMagnitude = baseKnockback + (knockbackGrowth * damage * knockbackDamageGrowthFactor);
-		Stun(knockbackMagnitude * hitstunFactor);
-		rb.velocity = knockbackMagnitude * knockbackVector;
+		float hitstunDuration = knockbackMagnitude * hitstunFactor;
+		Vector3 knockbackVector = knockbackMagnitude * knockbackDirection;
+		KnockbackTask startKnockback = new KnockbackTask (hitstunDuration, this, knockbackVector);
+		Services.TaskManager.AddTask (startKnockback);
 		Services.FightUIManager.UpdateDamageUI (gameObject);
 	}
 
 	public void Stun(float hitstun){
-		rb.velocity = Vector3.zero;
 		HitstunTask startHitstun = new HitstunTask (hitstun, this);
 		Services.TaskManager.AddTask (startHitstun);
-	}
-
-	public void InitiateAction(float actionDuration){
-		timeUntilActionable = actionDuration;
-		rb.velocity = Vector3.zero;
-		actionInProcess = true;
 	}
 }

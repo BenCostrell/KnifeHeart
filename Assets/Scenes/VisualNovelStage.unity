@@ -837,14 +837,16 @@ MonoBehaviour:
   ponytail: {fileID: 1903742799}
   pigtails: {fileID: 1447805797}
   selectedOption: {fileID: 0}
-  textBoxColor_P1: {r: 1, g: 0.74421906, b: 0.28676468, a: 1}
+  textBoxColor_P1: {r: 1, g: 0.74509805, b: 0.28627452, a: 1}
   textBoxColor_P2: {r: 0.24264705, g: 1, b: 0.6866126, a: 1}
+  textBox: {fileID: 21300000, guid: 01dee82d857cb414aba8b1351bd1e4ea, type: 3}
+  textBoxHighlighted: {fileID: 21300000, guid: d1df86a98a62ae645be76a1dbf25bfd6, type: 3}
   initialDialogue: Initial Dialogue
   optionAppearanceStaggerTime: 0.2
   optionAppearanceTime: 0.3
   indicatorFlashUptime: 0.25
-  unselectedOptionShrinkTime: 0.3
-  selectedOptionHighlightTime: 0.6
+  unselectedOptionShrinkTime: 0.4
+  selectedOptionHighlightTime: 0.5
 --- !u!4 &637570062
 Transform:
   m_ObjectHideFlags: 0

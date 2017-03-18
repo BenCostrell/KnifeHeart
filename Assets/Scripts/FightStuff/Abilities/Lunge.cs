@@ -29,15 +29,12 @@ public class Lunge : Attack {
 		onCastAudio = Resources.Load ("Sounds/Abilities/Lunge") as AudioClip;
 
 		base.Init (player);
-		GetComponent<FixedJoint2D> ().connectedBody = player.GetComponent<Rigidbody2D> ();
 
 		float direction = -1;
 		if (player.GetComponent<SpriteRenderer> ().flipX) {
 			direction = 1;
 		}
 		player.GetComponent<Rigidbody2D>().velocity = direction * speed * Vector3.right;
-
-		Destroy (gameObject, castDuration);
 	}
 
 	protected override Vector3 GetDirectionHit(GameObject playerHit){

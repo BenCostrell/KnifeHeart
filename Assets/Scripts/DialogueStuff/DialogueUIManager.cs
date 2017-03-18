@@ -24,6 +24,8 @@ public class DialogueUIManager : MonoBehaviour {
 
 	public Color textBoxColor_P1;
 	public Color textBoxColor_P2;
+	public Sprite textBox;
+	public Sprite textBoxHighlighted;
 
 	public string initialDialogue;
 

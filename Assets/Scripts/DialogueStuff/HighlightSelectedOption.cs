@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HighlightSelectedOption : Task {
 	private GameObject selectedOption;
@@ -9,6 +10,7 @@ public class HighlightSelectedOption : Task {
 	protected override void Init ()
 	{
 		selectedOption = Services.DialogueUIManager.selectedOption;
+		selectedOption.transform.GetChild (1).gameObject.GetComponent<Image> ().sprite = Services.DialogueUIManager.textBoxHighlighted;
 	}
 
 	internal override void Update ()
@@ -34,5 +36,6 @@ public class HighlightSelectedOption : Task {
 	protected override void OnSuccess ()
 	{
 		Services.DialogueUIManager.SetOptionUIStatus (false);
+		selectedOption.transform.GetChild (1).gameObject.GetComponent<Image> ().sprite = Services.DialogueUIManager.textBox;
 	}
 }

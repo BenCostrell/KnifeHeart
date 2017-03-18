@@ -40,4 +40,8 @@ public class Sing : Attack {
 		player.GetComponent<Player> ().Stun (stunDuration);
 		Destroy (gameObject);
 	}
+
+	public override void OnCastFinish ()
+	{
+	}
 }

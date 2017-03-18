@@ -49,4 +49,8 @@ public class Fireball : Attack {
 		base.HitPlayer (player);
 		Destroy (gameObject);
 	}
+
+	public override void OnCastFinish ()
+	{
+	}
 }

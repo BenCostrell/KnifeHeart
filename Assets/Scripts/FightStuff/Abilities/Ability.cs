@@ -27,8 +27,9 @@ public class Ability : MonoBehaviour {
 		parentPlayer = player;
 		if (isMelee) {
 			transform.parent = player.transform;
+			transform.localRotation = Quaternion.Euler (0, 0, player.GetComponent<Player> ().effectiveRotation);
+			player.AddComponent<FixedJoint2D> ().connectedBody = GetComponent<Rigidbody2D> ();
 		}
-		player.GetComponent<Player> ().InitiateAction (castDuration);
 		player.GetComponent<Player> ().anim.SetTrigger (animTrigger);
 		audioSource = gameObject.AddComponent<AudioSource> ();
 		OnCast ();
@@ -39,5 +40,12 @@ public class Ability : MonoBehaviour {
 			audioSource.clip = onCastAudio;
 			audioSource.Play ();
 		}
+	}
+
+	public virtual void OnCastFinish(){
+		if (isMelee) {
+			Destroy (parentPlayer.GetComponent<FixedJoint2D> ());
+		}
+		Destroy (gameObject);
 	}
 }

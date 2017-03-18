@@ -23,7 +23,6 @@ public class Shield : Ability {
 
 		base.Init (player);
 
-		Destroy (gameObject, castDuration);
 		player.GetComponent<Player> ().isInvulnerable = true;
 	}
 
@@ -41,5 +40,11 @@ public class Shield : Ability {
 
 			}
 		}
+	}
+
+	public override void OnCastFinish ()
+	{
+		base.OnCastFinish ();
+		parentPlayer.GetComponent<Player> ().isInvulnerable = false;
 	}
 }
