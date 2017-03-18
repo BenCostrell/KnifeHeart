@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 		if (Services.EventManager == null) {
 			InitializeUniversalServices ();
 		}
-		if (SceneManager.GetActiveScene ().name == "VisualNovelScene") {
+		if (SceneManager.GetActiveScene ().name == "VisualNovelStage") {
 			InitializeVNServices ();
 		} else if (SceneManager.GetActiveScene ().name == "fightRoom") {
 			InitializeFightServices ();

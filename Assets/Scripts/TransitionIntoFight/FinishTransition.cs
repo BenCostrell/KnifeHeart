@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinishTransition : Task {
 	private Vector3 ponytailInitialPosition;
@@ -26,5 +27,10 @@ public class FinishTransition : Task {
 		if (timeElapsed > duration) {
 			SetStatus (TaskStatus.Success);
 		}
+	}
+
+	protected override void OnSuccess ()
+	{
+		SceneManager.LoadScene ("fightRoom");
 	}
 }

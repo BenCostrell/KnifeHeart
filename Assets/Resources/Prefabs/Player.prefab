@@ -150,10 +150,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d703b751e4eb74795149bd9d77f829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   maxSpeed: 10
   accel: 80
   playerNum: 0
-  anim: {fileID: 0}
   abilityList: 
   damage: 0
   hitstunFactor: 0
