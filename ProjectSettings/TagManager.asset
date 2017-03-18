@@ -10,6 +10,8 @@ TagManager:
   - FightSceneManager
   - Arena
   - TransitionUIManager
+  - VisualNovelSceneManager
+  - FightUIManager
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Player
   - 
   - 
   - 

@@ -16,7 +16,7 @@ public class ShowDialogueOptions : Task {
 
 	protected override void Init ()
 	{
-		Services.GameManager.GenerateDialogueOptions (firstChoice);
+		Services.VisualNovelSceneManager.GenerateDialogueOptions (firstChoice);
 		GameObject[] optObjects = Services.DialogueUIManager.optionObjects;
 		numAvailOptions = 0;
 		for (int i = 0; i < optObjects.Length; i++) {

@@ -19,7 +19,7 @@ public class WaitForDialogueChoiceTask : Task {
 	}
 
 	private void OnInputReceived(ButtonPressed e){
-		if (e.playerNum == Services.GameManager.currentTurnPlayerNum) {
+		if (e.playerNum == Services.VisualNovelSceneManager.currentTurnPlayerNum) {
 			Dialogue dialogueSelected = Services.DialogueUIManager.GetDialogueFromInput (e.buttonTitle);
 			GameObject optionObjectSelected = Services.DialogueUIManager.GetOptionObjectFromInput (e.buttonTitle);
 			if (dialogueSelected != null) {

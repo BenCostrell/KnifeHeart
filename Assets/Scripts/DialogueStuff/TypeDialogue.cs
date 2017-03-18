@@ -16,7 +16,7 @@ public class TypeDialogue : Task {
 
 	protected override void Init ()
 	{
-		int playerNum = Services.GameManager.currentTurnPlayerNum;
+		int playerNum = Services.VisualNovelSceneManager.currentTurnPlayerNum;
 		characterIndex = 0;
 		if (!initialDialogue) {
 			dialogueText = Services.DialogueUIManager.queuedDialogue.mainText;
@@ -46,7 +46,7 @@ public class TypeDialogue : Task {
 	protected override void OnSuccess ()
 	{
 		if (!initialDialogue && firstChoice) {
-			Services.GameManager.ChangePlayerTurn ();
+			Services.VisualNovelSceneManager.ChangePlayerTurn ();
 		}
 	}
 }

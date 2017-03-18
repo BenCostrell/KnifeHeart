@@ -9,6 +9,10 @@ public class PrefabDB : ScriptableObject {
 	public GameObject Player { get { return player; } }
 
 	[SerializeField]
+	private GameObject basicAttack;
+	public GameObject BasicAttack { get { return basicAttack; } }
+
+	[SerializeField]
 	private GameObject fireball;
 	public GameObject Fireball { get { return fireball; } }
 

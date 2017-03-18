@@ -68,7 +68,7 @@ public class DialogueUIManager : MonoBehaviour {
 	public void SetDialogueOptions(Dialogue[] dialogueOptions){
 		optionDialogues = dialogueOptions;
 		SetBlurbText ();
-		SetTextBoxColor (Services.GameManager.currentTurnPlayerNum, true, false);
+		SetTextBoxColor (Services.VisualNovelSceneManager.currentTurnPlayerNum, true, false);
 	}
 
 	public void ActivateOptionTextBox(int optionNum){

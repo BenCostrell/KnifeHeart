@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 4274863938935492}
   - component: {fileID: 61873405231344114}
   m_Layer: 8
-  m_Name: GameObject
+  m_Name: PhysicalCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,7 +86,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -131,7 +131,7 @@ Animator:
   m_GameObject: {fileID: 1000013687557626}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0771b1473e81e144eaf985ec86d6495e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 67eaf806daf2bf747b77e9e32629d312, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -150,14 +150,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d703b751e4eb74795149bd9d77f829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  maxSpeed: 10
+  accel: 80
   playerNum: 0
   anim: {fileID: 0}
-  basicAttackPrefab: {fileID: 0}
-  lungePrefab: {fileID: 0}
-  fireballPrefab: {fileID: 0}
-  musicBubblePrefab: {fileID: 0}
-  shieldPrefab: {fileID: 0}
   abilityList: 
   damage: 0
   hitstunFactor: 0

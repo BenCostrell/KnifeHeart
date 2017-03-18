@@ -6,7 +6,7 @@ public class DialogueTransitionTask : Task {
 
 	protected override void Init ()
 	{
-		Services.GameManager.currentRoundNum += 1;
+		Services.VisualNovelSceneManager.currentRoundNum += 1;
 	}
 
 	internal override void Update ()
@@ -16,10 +16,10 @@ public class DialogueTransitionTask : Task {
 
 	protected override void OnSuccess ()
 	{
-		if (Services.GameManager.currentRoundNum < 4) {
-			Services.GameManager.StartRound ();
+		if (Services.VisualNovelSceneManager.currentRoundNum < 4) {
+			Services.VisualNovelSceneManager.StartRound ();
 		} else {
-			Services.GameManager.TransitionToFight ();
+			Services.VisualNovelSceneManager.TransitionToFight ();
 		}
 	}
 }

@@ -11,6 +11,6 @@ public class StartDialogueExchange : Task {
 
 	protected override void OnSuccess ()
 	{
-		Services.GameManager.StartRound ();
+		Services.VisualNovelSceneManager.StartRound ();
 	}
 }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb97a5447d61fe4f9c3760090779b89, type: 3}
+  m_Name: PrefabDB
+  m_EditorClassIdentifier: 
+  player: {fileID: 1000013687557626, guid: d3d140c6d5588c7488047f7573df5092, type: 2}
+  basicAttack: {fileID: 1825282077941030, guid: 10c387e3d0052e248b73d47b736a8ee7,
+    type: 2}
+  fireball: {fileID: 1387515170855940, guid: 4df8c9949f73d584c9aae984459ce8d8, type: 2}
+  sing: {fileID: 1152909143943310, guid: 82a7ef6821145d343bfbd44ec4844d0d, type: 2}
+  shield: {fileID: 1571807527392738, guid: 36659d5e3aaf9c34499fd070b8a43d6a, type: 2}
+  lunge: {fileID: 1811806750741508, guid: c54f6f5ead86f444da2e22651d3d3726, type: 2}
+  wallop: {fileID: 0}
+  pull: {fileID: 0}

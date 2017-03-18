@@ -12,4 +12,7 @@ public static class Services {
 	public static GameInfo GameInfo { get; set; }
 	public static InputManager InputManager { get; set; }
 	public static TransitionUIManager TransitionUIManager { get; set; }
+	public static VisualNovelSceneManager VisualNovelSceneManager { get; set; }
+	public static FightSceneManager FightSceneManager { get; set; }
+	public static FightUIManager FightUIManager { get; set; }
 }

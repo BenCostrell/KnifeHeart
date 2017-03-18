@@ -85,13 +85,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1387515170855940}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b551f60db28aaf34bb9c00b406edf8c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a81dc34bfc5c074d9afbc025435652c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0
   parentPlayer: {fileID: 0}
   castDuration: 0
   animTrigger: 
+  hitPlayer1: 0
+  hitPlayer2: 0
   isProjectile: 0
 --- !u!212 &212668589737223458
 SpriteRenderer:
