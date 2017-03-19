@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 50606670338350878}
   m_Layer: 0
   m_Name: Wallop
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,6 +95,7 @@ MonoBehaviour:
   hitPlayer1: 0
   hitPlayer2: 0
   isProjectile: 0
+  delay: 0
 --- !u!212 &212875424328164428
 SpriteRenderer:
   m_ObjectHideFlags: 1

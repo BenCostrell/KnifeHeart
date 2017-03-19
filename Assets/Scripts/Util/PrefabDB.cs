@@ -36,10 +36,6 @@ public class PrefabDB : ScriptableObject {
 	private GameObject pull;
 	public GameObject Pull { get { return pull; } }
 
-	[SerializeField]
-	private GameObject chain;
-	public GameObject Chain { get { return chain; } }
-
 	public GameObject GetPrefabFromAbilityType(Ability.Type type){
 		switch (type) {
 		case Ability.Type.BasicAttack:
