@@ -28,7 +28,9 @@ public class Ability : MonoBehaviour {
 		if (isMelee) {
 			transform.parent = player.transform;
 			transform.localRotation = Quaternion.Euler (0, 0, player.GetComponent<Player> ().effectiveRotation);
-			player.AddComponent<FixedJoint2D> ().connectedBody = GetComponent<Rigidbody2D> ();
+			FixedJoint2D joint = player.AddComponent<FixedJoint2D> ();
+			joint.connectedBody = GetComponent<Rigidbody2D> ();
+			joint.enableCollision = true;
 		}
 		player.GetComponent<Player> ().anim.SetTrigger (animTrigger);
 		player.GetComponent<Player> ().anim.SetBool ("neutral", false);

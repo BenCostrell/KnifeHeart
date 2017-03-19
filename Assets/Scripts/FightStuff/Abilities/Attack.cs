@@ -35,6 +35,7 @@ public class Attack : Ability {
 		if (collidedObject.tag == "Player") {
 			Player pc = collidedObject.GetComponent<Player> ();
 			if (pc.playerNum != parentPlayer.GetComponent<Player>().playerNum){
+				Debug.Log (pc.playerNum);
 				if ((pc.playerNum == 1) && !hitPlayer1) {
 					hitPlayer1 = true;
 					if (!pc.isInvulnerable){
