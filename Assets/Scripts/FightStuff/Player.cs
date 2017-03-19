@@ -151,7 +151,8 @@ public class Player : MonoBehaviour {
 
 
 	void Die(){
-		Destroy (gameObject);
+		Services.EventManager.Fire (new GameOver (this));
+		StopListeningForInput ();
         if (gameObject == Services.FightSceneManager.player1)
         {
             Debug.Log("player 1 died");
@@ -164,7 +165,7 @@ public class Player : MonoBehaviour {
             audioSource.clip = player2Died;
             audioSource.Play();
         }
-
+		Destroy (gameObject);
     }
 
 	public void TakeHit(int damageTaken, float baseKnockback, float knockbackGrowth, Vector3 knockbackDirection){

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FightUIManager : MonoBehaviour {
 
+	public GameObject UI_P1;
+	public GameObject UI_P2;
+
 	public GameObject[] cooldownUI_P1;
 	public GameObject[] cooldownUI_P2;
 

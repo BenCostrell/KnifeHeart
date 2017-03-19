@@ -29,7 +29,12 @@ public class PlayerHooked : Event {
 
 public class Reset : Event {}
 
-public class GameOver : Event {}
+public class GameOver : Event {
+	public Player losingPlayer;
+	public GameOver(Player loser){
+		losingPlayer = loser;
+	}
+}
 
 public class DialoguePicked : Event {
 	public Dialogue dialogue;

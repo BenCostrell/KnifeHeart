@@ -15,6 +15,7 @@ public class PlayerUnactionableTask : Task {
 	{
 		Services.EventManager.Fire (new PlayerInputPaused (player));
 		Services.EventManager.Register<PlayerInputPaused> (AnotherInputPauseTaskWasStarted);
+		Services.EventManager.Register<GameOver> (OnGameOver);
 		player.StopListeningForInput ();
 	}
 
@@ -22,6 +23,10 @@ public class PlayerUnactionableTask : Task {
 		if (e.player == player) {
 			Abort ();
 		}
+	}
+
+	protected void OnGameOver(GameOver e){
+		Abort ();
 	}
 
 	internal override void Update ()
@@ -34,6 +39,7 @@ public class PlayerUnactionableTask : Task {
 
 	protected override void CleanUp ()
 	{
+		Services.EventManager.Unregister<GameOver> (OnGameOver);
 		Services.EventManager.Unregister<PlayerInputPaused> (AnotherInputPauseTaskWasStarted);
 		player.StartListeningForInput ();
 	}

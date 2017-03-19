@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour {
 	void InitializeFightServices(){
 		Services.FightSceneManager = GameObject.FindGameObjectWithTag ("FightSceneManager").GetComponent<FightSceneManager> ();
 		Services.FightUIManager = GameObject.FindGameObjectWithTag ("FightUIManager").GetComponent<FightUIManager> ();
+		Services.WinScreenUIManager = GameObject.FindGameObjectWithTag ("WinScreenUIManager").GetComponent<WinScreenUIManager> ();
 	}
 
 	void Reset(Reset e){

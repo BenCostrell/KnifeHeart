@@ -15,4 +15,5 @@ public static class Services {
 	public static VisualNovelSceneManager VisualNovelSceneManager { get; set; }
 	public static FightSceneManager FightSceneManager { get; set; }
 	public static FightUIManager FightUIManager { get; set; }
+	public static WinScreenUIManager WinScreenUIManager { get; set; }
 }

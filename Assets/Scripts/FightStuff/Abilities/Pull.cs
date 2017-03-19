@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pull : Attack {
-	private float speed;
+	public float speed;
 	public float distanceToPullTo;
 	public float hitstun;
 
@@ -20,7 +20,7 @@ public class Pull : Attack {
 	public override void Init(GameObject player){
 		animTrigger = "Pull";
 		cooldown = 3f;
-		castDuration = 1f;
+		castDuration = 0.5f;
 		baseKnockback = 0;
 		knockbackGrowth = 0f;
 		damage = 2;

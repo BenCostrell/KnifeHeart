@@ -12,6 +12,7 @@ TagManager:
   - TransitionUIManager
   - VisualNovelSceneManager
   - FightUIManager
+  - WinScreenUIManager
   layers:
   - Default
   - TransparentFX

@@ -9,6 +9,7 @@ public class PullTask : Task {
 	private float duration;
 	private bool retract;
 	private Player hookedPlayer;
+	private LineRenderer line;
 
 	public PullTask(Player pl, Pull pul){
 		player = pl;
@@ -22,10 +23,13 @@ public class PullTask : Task {
 		retract = false;
 		Services.EventManager.Register<PlayerHooked> (OnPlayerHooked);
 		player.StopListeningForInput ();
+		line = pull.gameObject.GetComponent<LineRenderer> ();
 	}
 
 	internal override void Update ()
 	{
+		line.SetPosition (0, player.transform.position);
+		line.SetPosition (1, pull.transform.position);
 		if (retract) {
 			hookedPlayer.gameObject.GetComponent<Rigidbody2D> ().MovePosition (pull.transform.position);
 			if (InPosition ()) {
@@ -48,8 +52,8 @@ public class PullTask : Task {
 	}
 
 	void OnPlayerHooked(PlayerHooked e){
-		pull.GetComponent<Rigidbody2D> ().velocity *= -1;
 		hookedPlayer = e.hookedPlayer;
+		pull.GetComponent<Rigidbody2D> ().velocity = pull.speed * (player.transform.position - hookedPlayer.transform.position).normalized;
 		retract = true;
 		hookedPlayer.StopListeningForInput ();
 	}
