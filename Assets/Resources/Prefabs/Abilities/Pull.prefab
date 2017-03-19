@@ -95,10 +95,8 @@ MonoBehaviour:
   hitPlayer1: 0
   hitPlayer2: 0
   isProjectile: 0
-  maxLength: 0
-  playerHooked: 0
-  chain: {fileID: 0}
-  offset: {x: 0, y: 0, z: 0}
+  distanceToPullTo: 0
+  hitstun: 0
 --- !u!212 &212839537694908560
 SpriteRenderer:
   m_ObjectHideFlags: 1

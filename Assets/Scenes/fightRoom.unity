@@ -623,7 +623,7 @@ MonoBehaviour:
   shieldUI: {fileID: 21300000, guid: 49aa51cb2e1c10f4da271def23115799, type: 3}
   singUI: {fileID: 21300000, guid: 10d7e9aec44e40c42afb8be59c7722f4, type: 3}
   wallopUI: {fileID: 21300000, guid: 67389b1fc1fac04448aba1354331ece4, type: 3}
-  pullUI: {fileID: 21300000, guid: 38804d15957a15149aa393e8261518b8, type: 3}
+  pullUI: {fileID: 21300000, guid: dc1957744407dc94c900f5734f26d5e9, type: 3}
 --- !u!4 &647304235
 Transform:
   m_ObjectHideFlags: 0
