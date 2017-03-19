@@ -20,6 +20,13 @@ public class PlayerInputPaused : Event {
 	}
 }
 
+public class PlayerHooked : Event {
+	public Player hookedPlayer;
+	public PlayerHooked(Player player){
+		hookedPlayer = player;
+	}
+}
+
 public class Reset : Event {}
 
 public class GameOver : Event {}
