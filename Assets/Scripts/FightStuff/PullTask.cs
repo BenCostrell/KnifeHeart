@@ -5,6 +5,7 @@ using UnityEngine;
 public class PullTask : Task {
 	private Player player;
 	private Pull pull;
+	private Rigidbody2D pullRb;
 	private float timeElapsed;
 	private float duration;
 	private bool retract;
@@ -24,6 +25,8 @@ public class PullTask : Task {
 		Services.EventManager.Register<PlayerHooked> (OnPlayerHooked);
 		player.StopListeningForInput ();
 		line = pull.gameObject.GetComponent<LineRenderer> ();
+		pullRb = pull.GetComponent<Rigidbody2D> ();
+		Services.EventManager.Unregister<GameOver> (OnGameOver);
 	}
 
 	internal override void Update ()
@@ -31,6 +34,7 @@ public class PullTask : Task {
 		line.SetPosition (0, player.transform.position);
 		line.SetPosition (1, pull.transform.position);
 		if (retract) {
+			pullRb.velocity = pull.speed * (player.transform.position - hookedPlayer.transform.position).normalized;
 			hookedPlayer.gameObject.GetComponent<Rigidbody2D> ().MovePosition (pull.transform.position);
 			if (InPosition ()) {
 				SetStatus (TaskStatus.Success);
@@ -51,9 +55,13 @@ public class PullTask : Task {
 		}
 	}
 
+
+	void OnGameOver(GameOver e){
+		Abort ();
+	}
+
 	void OnPlayerHooked(PlayerHooked e){
 		hookedPlayer = e.hookedPlayer;
-		pull.GetComponent<Rigidbody2D> ().velocity = pull.speed * (player.transform.position - hookedPlayer.transform.position).normalized;
 		retract = true;
 		hookedPlayer.StopListeningForInput ();
 	}
@@ -67,6 +75,7 @@ public class PullTask : Task {
 	protected override void CleanUp ()
 	{
 		Services.EventManager.Unregister<PlayerHooked> (OnPlayerHooked);
+		Services.EventManager.Unregister<GameOver> (OnGameOver);
 		pull.OnFinish ();
 		player.StartListeningForInput ();
 	}

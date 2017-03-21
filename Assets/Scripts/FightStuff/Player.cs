@@ -40,6 +40,7 @@ public class Player : MonoBehaviour {
         audioClip = Camera.main.GetComponent<AudioClip>();
 
 		StartListeningForInput ();
+		Services.EventManager.Register<GameOver> (OnGameOver);
 	}
 	
 	// Update is called once per frame
@@ -101,6 +102,10 @@ public class Player : MonoBehaviour {
 		actionable = false;
 	}
  
+	void OnGameOver(GameOver e){
+		rb.velocity = Vector3.zero;
+		StopListeningForInput ();
+	}
 
 	void OnTriggerExit2D(Collider2D collider){
 		if (collider.tag == "Arena"){
@@ -151,6 +156,7 @@ public class Player : MonoBehaviour {
 
 
 	void Die(){
+		Services.EventManager.Unregister<GameOver> (OnGameOver);
 		Services.EventManager.Fire (new GameOver (this));
 		StopListeningForInput ();
         if (gameObject == Services.FightSceneManager.player1)

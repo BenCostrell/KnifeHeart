@@ -33,6 +33,7 @@ public class WinScreenUIManager : MonoBehaviour {
 	}
 
 	void StartWinScreenSequence(GameOver e){
+		Services.EventManager.Unregister<GameOver> (StartWinScreenSequence);
 		if (e.losingPlayer.playerNum == 1) {
 			winningPlayerNum = 2;
 		} else {
