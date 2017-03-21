@@ -30,7 +30,7 @@ public class Sing : Attack {
 
 		base.Init (player);
 
-		stunDuration = 2;
+		stunDuration = 1;
 		lifeDuration = 3;
 		timeElapsed = 0;
 		Destroy (gameObject, lifeDuration);
