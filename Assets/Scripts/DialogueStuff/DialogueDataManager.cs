@@ -28,7 +28,7 @@ public class DialogueDataManager {
 		string[] lineEntries;
 		string fileLine;
 		string[] lineSeparator = new string[] { "\r\n", "\r", "\n" };
-		char[] entrySeparator = new char[] { ',' };
+		char[] entrySeparator = new char[] { '\t' };
 		fileLines = fileFullString.Split (lineSeparator, System.StringSplitOptions.None);
 		for (int i = 1; i < fileLines.Length; i++) {
 			fileLine = fileLines [i];
@@ -59,7 +59,7 @@ public class DialogueDataManager {
 	}
 
 	Ability.Type GetAbilityTypeFromString(string abilityString){
-		string str = abilityString.ToUpper ();
+		string str = abilityString.ToUpper ().Trim ();
 		switch (str) {
 		case "FIREBALL":
 			return Ability.Type.Fireball;
@@ -84,6 +84,10 @@ public class DialogueDataManager {
 			int index = Random.Range (0, possibleDialogueOptions.Count);
 			return possibleDialogueOptions[index];
 		} else {
+			Debug.Log ("can't find: ");
+			for (int i = 0; i < abilityList.Count; i++) {
+				Debug.Log (abilityList [i]);
+			}
 			return null;
 		}
 	}
