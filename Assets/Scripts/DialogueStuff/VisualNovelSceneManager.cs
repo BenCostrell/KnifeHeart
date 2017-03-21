@@ -58,11 +58,13 @@ public class VisualNovelSceneManager : MonoBehaviour {
 	void BeginDialogueSequence(){
 		ShowStartScreen showStartScreen = new ShowStartScreen ();
 		TypeDialogue typeInitialDialogue = new TypeDialogue (false, true);
+		SlideOutCrowd slideOutCrowd = new SlideOutCrowd ();
 		WaitForAnyInput waitForInput = new WaitForAnyInput ();
 		StartDialogueExchange startRound = new StartDialogueExchange ();
 		showStartScreen
 			.Then (typeInitialDialogue)
 			.Then (waitForInput)
+			.Then (slideOutCrowd)
 			.Then (startRound);
 		Services.TaskManager.AddTask (showStartScreen);
 	}

@@ -31,6 +31,7 @@ public class TypeDialogue : Task {
 			}
 		} else {
 			dialogueText = Services.DialogueUIManager.initialDialogue;
+			Services.DialogueUIManager.crowdImage.SetActive (true);
 		}
 	}
 
