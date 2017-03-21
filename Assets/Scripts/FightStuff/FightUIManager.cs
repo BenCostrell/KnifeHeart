@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FightUIManager : MonoBehaviour {
 
@@ -45,34 +46,35 @@ public class FightUIManager : MonoBehaviour {
 
 	void InitializeUI(){
 		cooldownBarDict = new Dictionary<Ability.Type, GameObject> ();
-		for (int i = 0; i < cooldownUI_P1.Length; i++) {
+		for (int i = 0; i < cooldownUI_P1.Length - 1; i++) {
 			GameObject obj_P1 = cooldownUI_P1 [i];
 			GameObject obj_P2 = cooldownUI_P2 [i];
-			GameObject bar_P1 = obj_P1.transform.GetChild (0).gameObject;
-			GameObject bar_P2 = obj_P2.transform.GetChild (0).gameObject;
+			GameObject timer_P1 = obj_P1.transform.GetChild (0).gameObject;
+			GameObject timer_P2 = obj_P2.transform.GetChild (0).gameObject;
+			GameObject icon_P1 = obj_P1.transform.GetChild (1).gameObject;
+			GameObject icon_P2 = obj_P2.transform.GetChild (1).gameObject;
 			Ability.Type ability_P1 = Services.GameInfo.player1Abilities [i];
 			Ability.Type ability_P2 = Services.GameInfo.player2Abilities [i];
 
-			obj_P1.GetComponent<SpriteRenderer> ().sprite = spriteDict [ability_P1];
-			obj_P2.GetComponent<SpriteRenderer> ().sprite = spriteDict [ability_P2];
+			icon_P1.GetComponent<Image> ().sprite = spriteDict [ability_P1];
+			icon_P2.GetComponent<Image> ().sprite = spriteDict [ability_P2];
 
-			bar_P1.GetComponent<SpriteRenderer> ().color = Color.green;
-			bar_P2.GetComponent<SpriteRenderer> ().color = Color.green;
-
-			cooldownBarDict.Add (ability_P1, bar_P1);
-			cooldownBarDict.Add (ability_P2, bar_P2);
+			cooldownBarDict.Add (ability_P1, timer_P1);
+			cooldownBarDict.Add (ability_P2, timer_P2);
 		}
 	}
 
 	public void UpdateCooldownUI(Ability.Type ability, float fractionRemaining){
-		GameObject bar = cooldownBarDict [ability];
-		bar.transform.localScale = Vector3.Lerp (new Vector3 (0, bar.transform.localScale.y, bar.transform.localScale.z),
-			new Vector3 (0.4f, bar.transform.localScale.y, bar.transform.localScale.z), 1 - fractionRemaining);
+		GameObject timer = cooldownBarDict [ability];
+		Image image = timer.GetComponent<Image> ();
+		float alpha;
+		image.fillAmount = 1 - fractionRemaining;
 		if (fractionRemaining > 0) {
-			bar.GetComponent<SpriteRenderer> ().color = Color.red;
+			alpha = 0.5f;
 		} else {
-			bar.GetComponent<SpriteRenderer> ().color = Color.green;
+			alpha = 1;
 		}
+		image.color = new Color (image.color.r, image.color.g, image.color.b, alpha);
 	}
 
 	public void UpdateDamageUI(GameObject player){
@@ -84,7 +86,7 @@ public class FightUIManager : MonoBehaviour {
 			damageUI = damageUIP2;
 		}
 		if (damageUI != null) {
-			damageUI.GetComponent<TextMesh> ().text = pc.damage.ToString();
+			damageUI.GetComponentInChildren<Text> ().text = pc.damage.ToString();
 		}
 	}
 }

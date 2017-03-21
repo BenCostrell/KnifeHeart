@@ -5,24 +5,28 @@ using UnityEngine;
 public class SlideOutFightUI : Task {
 	private float duration;
 	private float timeElapsed;
-	private Vector3 uiInitialPos_P1;
-	private Vector3 uiInitialPos_P2;
+	private Vector2 uiInitialPos_P1;
+	private Vector2 uiInitialPos_P2;
+	private RectTransform uiTransformP1;
+	private RectTransform uiTransformP2;
 
 	protected override void Init ()
 	{
 		duration = Services.WinScreenUIManager.UISlideOffTime;
 		timeElapsed = 0;
-		uiInitialPos_P1 = Services.FightUIManager.UI_P1.transform.position;
-		uiInitialPos_P2 = Services.FightUIManager.UI_P2.transform.position;
+		uiTransformP1 = Services.FightUIManager.UI_P1.GetComponent<RectTransform> ();
+		uiTransformP2 = Services.FightUIManager.UI_P2.GetComponent<RectTransform> ();
+		uiInitialPos_P1 = uiTransformP1.anchoredPosition;
+		uiInitialPos_P2 = uiTransformP2.anchoredPosition;
 	}
 
 	internal override void Update ()
 	{
 		timeElapsed = Mathf.Min (duration, timeElapsed + Time.deltaTime);
 
-		Services.FightUIManager.UI_P1.transform.position = Vector3.LerpUnclamped (uiInitialPos_P1, uiInitialPos_P1 + 3.5f * Vector3.left, 
+		uiTransformP1.anchoredPosition = Vector2.LerpUnclamped (uiInitialPos_P1, uiInitialPos_P1 + 540 * Vector2.left, 
 			Easing.BackEaseIn (timeElapsed / duration));
-		Services.FightUIManager.UI_P2.transform.position = Vector3.LerpUnclamped (uiInitialPos_P2, uiInitialPos_P2 + 3.5f * Vector3.right, 
+		uiTransformP2.anchoredPosition = Vector3.LerpUnclamped (uiInitialPos_P2, uiInitialPos_P2 + 540 * Vector2.right, 
 			Easing.BackEaseIn (timeElapsed / duration));
 
 		if (timeElapsed >= duration) {
