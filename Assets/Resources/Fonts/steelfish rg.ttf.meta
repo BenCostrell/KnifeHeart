@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 1c9ae242914eedd419031c511e49e6e0
+timeCreated: 1490290317
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Steelfish
+  fontNames:
+  - Steelfish
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

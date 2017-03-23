@@ -75,6 +75,7 @@ public class DialogueUIManager : MonoBehaviour {
 		optionDialogues = dialogueOptions;
 		SetBlurbText ();
 		SetTextBoxColor (Services.VisualNovelSceneManager.currentTurnPlayerNum, true, false);
+        SetButtonSide(Services.VisualNovelSceneManager.currentTurnPlayerNum);
 	}
 
 	public void ActivateOptionTextBox(int optionNum){
@@ -126,6 +127,21 @@ public class DialogueUIManager : MonoBehaviour {
 		selectedOption = e.optionObject;
 	}
 
+    public void SetButtonSide(int playerNum)
+    {
+        int side = 1;
+        if (playerNum == 1)
+        {
+            side *= -1;
+        }
+
+        for (int i = 0; i < optionObjects.Length; i++) {
+            RectTransform rectTransform = optionObjects[i].transform.GetChild(0).GetComponent<RectTransform>();
+            rectTransform.anchoredPosition = new Vector2(side * Mathf.Abs(rectTransform.anchoredPosition.x), 
+                rectTransform.anchoredPosition.y);
+        }
+    }
+    
 	public void SetTextBoxColor(int playerNum, bool options, bool dialogueBox){
 		Color textBoxColor = Color.white;
 		if (playerNum == 1) {
