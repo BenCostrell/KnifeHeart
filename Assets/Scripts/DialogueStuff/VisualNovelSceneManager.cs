@@ -57,13 +57,25 @@ public class VisualNovelSceneManager : MonoBehaviour {
 
 	void BeginDialogueSequence(){
 		ShowStartScreen showStartScreen = new ShowStartScreen ();
-		TypeDialogue typeInitialDialogue = new TypeDialogue (false, true);
+        SlideInPanel slidePanel1_1 = new SlideInPanel(Services.DialogueUIManager.introSequence.transform.GetChild(1).gameObject, true);
+        SlideInPanel showPanel1_2 = new SlideInPanel(Services.DialogueUIManager.introSequence.transform.GetChild(2).gameObject, false);
+        SlideInPanel slidePanel2_1 = new SlideInPanel(Services.DialogueUIManager.introSequence.transform.GetChild(3).gameObject, true);
+        SlideInPanel showPanel2_2 = new SlideInPanel(Services.DialogueUIManager.introSequence.transform.GetChild(4).gameObject, false);
+        WaitForAnyInput waitForInput = new WaitForAnyInput();
+        FinishIntroSequence finishIntroSeq = new FinishIntroSequence();
+        TypeDialogue typeInitialDialogue = new TypeDialogue (false, true);
 		SlideOutCrowd slideOutCrowd = new SlideOutCrowd ();
-		WaitForAnyInput waitForInput = new WaitForAnyInput ();
+		WaitForAnyInput waitForInputAgain = new WaitForAnyInput ();
 		StartDialogueExchange startRound = new StartDialogueExchange ();
 		showStartScreen
+            .Then(slidePanel1_1)
+            .Then(showPanel1_2)
+            .Then(slidePanel2_1)
+            .Then(showPanel2_2)
+            .Then(waitForInput)
+            .Then(finishIntroSeq)
 			.Then (typeInitialDialogue)
-			.Then (waitForInput)
+			.Then (waitForInputAgain)
 			.Then (slideOutCrowd)
 			.Then (startRound);
 		Services.TaskManager.AddTask (showStartScreen);

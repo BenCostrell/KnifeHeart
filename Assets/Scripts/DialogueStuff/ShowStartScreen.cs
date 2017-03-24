@@ -18,5 +18,6 @@ public class ShowStartScreen : Task {
 	{
 		Services.DialogueUIManager.startScreen.SetActive (false);
 		Services.EventManager.Unregister<ButtonPressed> (Continue);
+        Services.DialogueUIManager.introSequence.SetActive(true);
 	}
 }
