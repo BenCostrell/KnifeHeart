@@ -16,16 +16,16 @@ public class WaitForDialogueChoiceTask : Task {
 
 	protected override void OnSuccess ()
 	{
-	}
+        Services.EventManager.Unregister<ButtonPressed>(OnInputReceived);
+    }
 
-	private void OnInputReceived(ButtonPressed e){
+    private void OnInputReceived(ButtonPressed e){
 		if (e.playerNum == Services.VisualNovelSceneManager.currentTurnPlayerNum) {
 			Dialogue dialogueSelected = Services.DialogueUIManager.GetDialogueFromInput (e.buttonTitle);
 			GameObject optionObjectSelected = Services.DialogueUIManager.GetOptionObjectFromInput (e.buttonTitle);
 			if (dialogueSelected != null) {
 				Services.EventManager.Fire (new DialoguePicked (dialogueSelected, e.playerNum, optionObjectSelected));
 				SetStatus (TaskStatus.Success);
-				Services.EventManager.Unregister<ButtonPressed> (OnInputReceived);
 			}
 		}
 	}

@@ -11,12 +11,12 @@ public class ShowDialogueOptions : Task {
 
 	public ShowDialogueOptions(bool firstChc){
 		firstChoice = firstChc;
-		timeElapsed = 0;
 	}
 
 	protected override void Init ()
 	{
-		Services.VisualNovelSceneManager.GenerateDialogueOptions (firstChoice);
+        timeElapsed = 0;
+        Services.VisualNovelSceneManager.GenerateDialogueOptions (firstChoice);
 		GameObject[] optObjects = Services.DialogueUIManager.optionObjects;
 		numAvailOptions = 0;
 		for (int i = 0; i < optObjects.Length; i++) {

@@ -6,6 +6,7 @@ using System.Linq;
 public class DialogueDataManager {
 
 	private Dictionary<List<Ability.Type>,List<Dialogue>> dialogueDict;
+    private Dictionary<string[], string[]> rpsDialogueDict;
 
 	private class ListComparer<T> : IEqualityComparer<List<T>>{
 		public bool Equals(List<T> x, List<T> y){
@@ -21,7 +22,56 @@ public class DialogueDataManager {
 		}
 	}
 
-	public void ParseDialogueFile(TextAsset dialogueFile){
+    public class StringArrayComparer : IEqualityComparer<string[]>
+    {
+        public bool Equals(string[] x, string[] y)
+        {
+            if (x.Length != y.Length)
+            {
+                return false;
+            }
+            for (int i = 0; i < x.Length; i++)
+            {
+                if (x[i] != y[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public int GetHashCode(string[] obj)
+        {
+            int hashcode = 0;
+            foreach (string t in obj)
+            {
+                hashcode ^= t.GetHashCode();
+            }
+            return hashcode;
+        }
+    }
+
+    public void ParseRpsDialogueFile(TextAsset dialogueFile)
+    {
+        rpsDialogueDict = new Dictionary<string[], string[]>(new StringArrayComparer());
+        string fileFullString = dialogueFile.text;
+        string[] fileLines;
+        string[] lineEntries;
+        string fileLine;
+        string[] lineSeparator = new string[] { "\r\n", "\r", "\n" };
+        char[] entrySeparator = new char[] { '\t' };
+        fileLines = fileFullString.Split(lineSeparator, System.StringSplitOptions.None);
+        for (int i = 0; i < fileLines.Length; i++)
+        {
+            fileLine = fileLines[i];
+            lineEntries = fileLine.Split(entrySeparator);
+            string[] key = new string[3] { lineEntries[0].ToUpper().Trim(), lineEntries[1].ToUpper().Trim(), lineEntries[2].ToUpper().Trim() };
+            string[] entry = new string[3] { lineEntries[3], lineEntries[4], lineEntries[5] };
+            rpsDialogueDict.Add(key, entry);
+        }
+    }
+
+    public void ParseDialogueFile(TextAsset dialogueFile){
 		dialogueDict = new Dictionary<List<Ability.Type>, List<Dialogue>> (new ListComparer<Ability.Type>());
 		string fileFullString = dialogueFile.text;
 		string[] fileLines;
@@ -77,6 +127,12 @@ public class DialogueDataManager {
 			return Ability.Type.None;
 		}
 	}
+
+    public string[] GetRpsDialogue(int scenarioNum, string winningChoice, string losingChoice)
+    {
+        string[] key = new string[3] { scenarioNum.ToString(), winningChoice, losingChoice };
+        return rpsDialogueDict[key];
+    }
 
 	public Dialogue GetDialogue (List<Ability.Type> abilityList){
 		if (dialogueDict.ContainsKey (abilityList)) {

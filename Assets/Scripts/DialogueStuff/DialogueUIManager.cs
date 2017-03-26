@@ -12,6 +12,10 @@ public class DialogueUIManager : MonoBehaviour {
 	public GameObject dialogueText;
 	public GameObject dialogueTextBox;
 	public GameObject[] optionObjects;
+    public GameObject[] rpsOptionObjects;
+    public GameObject rpsTimer;
+    public GameObject rpsReady_P1;
+    public GameObject rpsReady_P2;
 	public GameObject continueIndicator;
 	public GameObject arrow_P1;
 	public GameObject arrow_P2;
@@ -39,6 +43,8 @@ public class DialogueUIManager : MonoBehaviour {
 	public float selectedOptionHighlightTime;
 	public float crowdSlideTime;
     public float panelAppearTime;
+    public float rpsWaitTime;
+    public float rpsDialogueDelay;
 
 	// Use this for initialization
 	void Start () {
@@ -60,8 +66,10 @@ public class DialogueUIManager : MonoBehaviour {
 		arrow_P2.GetComponent<Image> ().color = textBoxColor_P2;
 		crowdImage.SetActive (false);
         introSequence.SetActive(false);
-
 		SetOptionUIStatus (false);
+        SetRpsOptionUIStatus(false);
+        rpsReady_P1.SetActive(false);
+        rpsReady_P2.SetActive(false);
 	}
 
 	public void SetOptionUIStatus(bool active){
@@ -73,6 +81,14 @@ public class DialogueUIManager : MonoBehaviour {
 			}
 		}
 	}
+
+    public void SetRpsOptionUIStatus(bool active)
+    {
+        for (int i = 0; i < rpsOptionObjects.Length; i++)
+        {
+            rpsOptionObjects[i].SetActive(active);
+        }
+    }
 
 	public void SetDialogueOptions(Dialogue[] dialogueOptions){
 		optionDialogues = dialogueOptions;

@@ -1,0 +1,31 @@
+Scenario	Winner	Loser	Winning Dialogue	Losing Dialogue	Crowd Dialogue
+1			...	...	...
+1	Rock		Rock	...	crowd reaction
+1	Paper		Paper	...	crowd reaction
+1	Scissors		Scissors	...	crowd reaction
+1	Rock	Scissors	Rock beats Scissors	Scissors loses to Rock	crowd reaction
+1	Rock	Rock	Faster Rock	Slower Rock	crowd reaction
+1	Paper	Rock	Paper beats Rock	Rock loses to Paper	crowd reaction
+1	Paper	Paper	Faster Paper	Slower Paper	crowd reaction
+1	Scissors	Paper	Scissors beats Paper	Paper loses to Scissors	crowd reaction
+1	Scissors	Scissors	Faster Scissors	Slower Scissors	crowd reaction
+2			...	...	crowd reaction
+2	Rock		Rock	...	crowd reaction
+2	Paper		Paper	...	crowd reaction
+2	Scissors		Scissors	...	crowd reaction
+2	Rock	Scissors	Rock beats Scissors	Scissors loses to Rock	crowd reaction
+2	Rock	Rock	Faster Rock	Slower Rock	crowd reaction
+2	Paper	Rock	Paper beats Rock	Rock loses to Paper	crowd reaction
+2	Paper	Paper	Faster Paper	Slower Paper	crowd reaction
+2	Scissors	Paper	Scissors beats Paper	Paper loses to Scissors	crowd reaction
+2	Scissors	Scissors	Faster Scissors	Slower Scissors	crowd reaction
+3			...	...	crowd reaction
+3	Rock		Rock	...	crowd reaction
+3	Paper		Paper	...	crowd reaction
+3	Scissors		Scissors	...	crowd reaction
+3	Rock	Scissors	Rock beats Scissors	Scissors loses to Rock	crowd reaction
+3	Rock	Rock	Faster Rock	Slower Rock	crowd reaction
+3	Paper	Rock	Paper beats Rock	Rock loses to Paper	crowd reaction
+3	Paper	Paper	Faster Paper	Slower Paper	crowd reaction
+3	Scissors	Paper	Scissors beats Paper	Paper loses to Scissors	crowd reaction
+3	Scissors	Scissors	Faster Scissors	Slower Scissors	crowd reaction

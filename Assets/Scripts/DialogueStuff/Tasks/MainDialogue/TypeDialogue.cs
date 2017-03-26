@@ -6,21 +6,19 @@ using UnityEngine.UI;
 public class TypeDialogue : Task {
 	private string dialogueText;
 	private int characterIndex;
-	private bool firstChoice;
-	private bool initialDialogue;
+	private bool crowdDialogue;
 
-	public TypeDialogue(bool firstChc, bool initDialogue){
-		firstChoice = firstChc;
-		initialDialogue = initDialogue;
+	public TypeDialogue(bool crowdDialog){
+		crowdDialogue = crowdDialog;
 	}
 
 	protected override void Init ()
 	{
 		int playerNum = Services.VisualNovelSceneManager.currentTurnPlayerNum;
 		characterIndex = 0;
-		if (!initialDialogue) {
+        Services.DialogueUIManager.dialogueText.GetComponent<Text>().text = "";
+        if (!crowdDialogue) {
 			dialogueText = Services.DialogueUIManager.queuedDialogue.mainText;
-			Services.DialogueUIManager.dialogueText.GetComponent<Text> ().text = "";
 			Services.DialogueUIManager.SetTextBoxColor (playerNum, false, true);
 			if (playerNum == 1) {
 				Services.DialogueUIManager.arrow_P1.SetActive (true);
@@ -30,8 +28,10 @@ public class TypeDialogue : Task {
 				Services.DialogueUIManager.arrow_P2.SetActive (true);
 			}
 		} else {
-			dialogueText = Services.DialogueUIManager.initialDialogue;
-			Services.DialogueUIManager.crowdImage.SetActive (true);
+            Services.DialogueUIManager.SetTextBoxColor(0, false, true);
+            dialogueText = "CROWD: " + Services.VisualNovelSceneManager.rpsDialogueArray[2];
+            Services.DialogueUIManager.arrow_P1.SetActive(false);
+            Services.DialogueUIManager.arrow_P2.SetActive(false);
 		}
 	}
 
@@ -46,8 +46,6 @@ public class TypeDialogue : Task {
 
 	protected override void OnSuccess ()
 	{
-		if (!initialDialogue && firstChoice) {
-			Services.VisualNovelSceneManager.ChangePlayerTurn ();
-		}
+		Services.VisualNovelSceneManager.ChangePlayerTurn ();
 	}
 }

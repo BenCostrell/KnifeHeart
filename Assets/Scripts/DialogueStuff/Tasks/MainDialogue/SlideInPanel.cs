@@ -28,7 +28,6 @@ public class SlideInPanel : Task {
     internal override void Update()
     {
         timeElapsed += Time.deltaTime;
-        Debug.Log(timeElapsed);
         if (slide)
         {
             rectTransform.anchoredPosition = Vector2.Lerp(initialPos + 900 * Vector2.left, initialPos, 

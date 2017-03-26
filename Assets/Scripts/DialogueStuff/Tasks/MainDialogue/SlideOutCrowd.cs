@@ -23,14 +23,14 @@ public class SlideOutCrowd : Task {
 
 	internal override void Update ()
 	{
-		crowdLeft.anchoredPosition = Vector2.LerpUnclamped (leftInitialPos, leftInitialPos + 800 * Vector2.left, 
+        timeElapsed = Mathf.Min(duration, timeElapsed + Time.deltaTime);
+
+        crowdLeft.anchoredPosition = Vector2.LerpUnclamped (leftInitialPos, leftInitialPos + 800 * Vector2.left, 
 			Easing.BackEaseIn(timeElapsed / duration));
 		crowdRight.anchoredPosition = Vector2.LerpUnclamped (rightInitialPos, rightInitialPos + 800 * Vector2.right, 
 			Easing.BackEaseIn(timeElapsed / duration));
 
-		timeElapsed = Mathf.Min (duration, timeElapsed + Time.deltaTime);
-
-		if (crowdLeft.anchoredPosition == leftInitialPos + (800 * Vector2.left)) {
+		if (timeElapsed == duration) {
 			SetStatus (TaskStatus.Success);
 		}
 	}
