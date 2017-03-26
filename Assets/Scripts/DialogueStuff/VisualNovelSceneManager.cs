@@ -343,18 +343,20 @@ public class VisualNovelSceneManager : MonoBehaviour {
 		Services.GameInfo.player1Abilities = abilityList_P1;
 		Services.GameInfo.player2Abilities = abilityList_P2;
 
-		SlideInFightBackground slideInBG = new SlideInFightBackground ();
+        SlideOutCrowd slideOutCrowd = new SlideOutCrowd();
+        SlideInFightBackground slideInBG = new SlideInFightBackground ();
 		ShowFightinWords showWords = new ShowFightinWords ();
 		WaitForReady waitForReady = new WaitForReady ();
 		ScaleOutTransitionUI scaleOut = new ScaleOutTransitionUI ();
 		FinishTransition finish = new FinishTransition ();
 
-		slideInBG
-			.Then (showWords)
-			.Then (waitForReady)
-			.Then (scaleOut)
-			.Then (finish);
+        slideOutCrowd
+            .Then(slideInBG)
+            .Then(showWords)
+            .Then(waitForReady)
+            .Then(scaleOut)
+            .Then(finish);
 
-		Services.TaskManager.AddTask (slideInBG);
+		Services.TaskManager.AddTask (slideOutCrowd);
 	}
 }

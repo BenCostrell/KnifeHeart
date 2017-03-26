@@ -16,5 +16,9 @@ public class DialogueTransitionTask : Task {
 
 	protected override void OnSuccess ()
 	{
+        if (Services.VisualNovelSceneManager.currentRoundNum == 4)
+        {
+            Services.VisualNovelSceneManager.TransitionToFight();
+        }
 	}
 }
