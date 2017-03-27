@@ -28,8 +28,6 @@ public class DialogueUIManager : MonoBehaviour {
 
 	public Dialogue queuedDialogue;
 
-	public Color textBoxColor_P1;
-	public Color textBoxColor_P2;
 	public Sprite textBox;
 	public Sprite textBoxHighlighted;
 
@@ -60,8 +58,6 @@ public class DialogueUIManager : MonoBehaviour {
 		continueIndicator.SetActive (false);
 		arrow_P1.SetActive (false);
 		arrow_P2.SetActive (false);
-		arrow_P1.GetComponent<Image> ().color = textBoxColor_P1;
-		arrow_P2.GetComponent<Image> ().color = textBoxColor_P2;
 		crowdImage.SetActive (false);
 		SetOptionUIStatus (false);
         SetRpsOptionUIStatus(false);
@@ -90,8 +86,6 @@ public class DialogueUIManager : MonoBehaviour {
 	public void SetDialogueOptions(Dialogue[] dialogueOptions){
 		optionDialogues = dialogueOptions;
 		SetBlurbText ();
-		SetTextBoxColor (Services.VisualNovelSceneManager.currentTurnPlayerNum, true, false);
-        SetButtonSide(Services.VisualNovelSceneManager.currentTurnPlayerNum);
 	}
 
 	public void ActivateOptionTextBox(int optionNum){
@@ -141,37 +135,5 @@ public class DialogueUIManager : MonoBehaviour {
 	public void QueueDialogue(DialoguePicked e){
 		queuedDialogue = e.dialogue;
 		selectedOption = e.optionObject;
-	}
-
-    public void SetButtonSide(int playerNum)
-    {
-        int side = 1;
-        if (playerNum == 1)
-        {
-            side *= -1;
-        }
-
-        for (int i = 0; i < optionObjects.Length; i++) {
-            RectTransform rectTransform = optionObjects[i].transform.GetChild(0).GetComponent<RectTransform>();
-            rectTransform.anchoredPosition = new Vector2(side * Mathf.Abs(rectTransform.anchoredPosition.x), 
-                rectTransform.anchoredPosition.y);
-        }
-    }
-    
-	public void SetTextBoxColor(int playerNum, bool options, bool dialogueBox){
-		Color textBoxColor = Color.white;
-		if (playerNum == 1) {
-			textBoxColor = textBoxColor_P1;
-		} else if (playerNum == 2) {
-			textBoxColor = textBoxColor_P2;
-		}
-		if (options) {
-			for (int i = 0; i < optionObjects.Length; i++) {
-				optionObjects [i].GetComponentsInChildren<Image> () [1].color = textBoxColor;
-			}
-		}
-		if (dialogueBox) {
-			dialogueTextBox.GetComponent<Image> ().color = textBoxColor;
-		}
 	}
 }

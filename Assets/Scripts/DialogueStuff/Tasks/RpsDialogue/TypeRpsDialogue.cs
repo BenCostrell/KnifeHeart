@@ -21,7 +21,6 @@ public class TypeRpsDialogue : Task {
             dialogueText = Services.VisualNovelSceneManager.rpsDialogueArray[1];
         }
         Services.DialogueUIManager.dialogueText.GetComponent<Text>().text = "";
-        Services.DialogueUIManager.SetTextBoxColor(playerNum, false, true);
         if (playerNum == 1)
         {
             Services.DialogueUIManager.arrow_P1.SetActive(true);

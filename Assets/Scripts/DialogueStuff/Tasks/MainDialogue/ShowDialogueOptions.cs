@@ -8,7 +8,16 @@ public class ShowDialogueOptions : Task {
 	private bool firstChoice;
 	private float timeElapsed;
 	private int numAvailOptions;
-
+    private RectTransform activePlayer;
+    private RectTransform inactivePlayer;
+    private Vector3 activeScaleTarget;
+    private Vector3 inactiveScaleTarget;
+    private Vector3 activeInitialScale;
+    private Vector3 inactiveInitialScale;
+    private Vector2 activePosTarget;
+    private Vector2 inactivePosTarget;
+    private Vector2 activeInitialPos;
+    private Vector2 inactiveInitialPos;
 	public ShowDialogueOptions(bool firstChc){
 		firstChoice = firstChc;
 	}
@@ -28,6 +37,25 @@ public class ShowDialogueOptions : Task {
 				optObjects [i].SetActive (false);
 			}
 		}
+
+        if (Services.VisualNovelSceneManager.currentTurnPlayerNum == 1)
+        {
+            activePlayer = Services.DialogueUIManager.ponytail.GetComponent<RectTransform>();
+            inactivePlayer = Services.DialogueUIManager.pigtails.GetComponent<RectTransform>();
+        }
+        else
+        {
+            activePlayer = Services.DialogueUIManager.pigtails.GetComponent<RectTransform>();
+            inactivePlayer = Services.DialogueUIManager.ponytail.GetComponent<RectTransform>();
+        }
+        activeInitialScale = activePlayer.localScale;
+        inactiveInitialScale = inactivePlayer.localScale;
+        activeScaleTarget = 1.5f * Vector3.one;
+        inactiveScaleTarget = 1.2f * Vector3.one;
+        activeInitialPos = activePlayer.anchoredPosition;
+        inactiveInitialPos = inactivePlayer.anchoredPosition;
+        activePosTarget = new Vector2(activeInitialPos.x, 10);
+        inactivePosTarget = new Vector2(inactiveInitialPos.x, -80);
 	}
 
 	internal override void Update ()
@@ -43,9 +71,18 @@ public class ShowDialogueOptions : Task {
 				obj.transform.localScale = Vector3.LerpUnclamped (Vector3.zero, Vector3.one, 
 					Easing.BackEaseOut ((timeElapsed - totalStaggerTime) / duration));
 			}
-		} 
-			
-		timeElapsed = Mathf.Min (totalDuration, timeElapsed + Time.deltaTime);
+		}
+
+        activePlayer.localScale = Vector3.Lerp(activeInitialScale, activeScaleTarget, 
+            Easing.ExpoEaseOut(timeElapsed / (0.5f * totalDuration)));
+        activePlayer.anchoredPosition = Vector2.Lerp(activeInitialPos, activePosTarget, 
+            Easing.ExpoEaseOut(timeElapsed / (0.5f * totalDuration)));
+        inactivePlayer.localScale = Vector3.Lerp(inactiveInitialScale, inactiveScaleTarget, 
+            Easing.ExpoEaseOut(timeElapsed / (0.5f * totalDuration)));
+        inactivePlayer.anchoredPosition = Vector2.Lerp(inactiveInitialPos, inactivePosTarget, 
+            Easing.ExpoEaseOut(timeElapsed / (0.5f * totalDuration)));
+
+        timeElapsed = Mathf.Min (totalDuration, timeElapsed + Time.deltaTime);
 
 		if (timeElapsed == totalDuration) {
 			SetStatus (TaskStatus.Success);

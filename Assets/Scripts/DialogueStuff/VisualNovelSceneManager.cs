@@ -95,7 +95,7 @@ public class VisualNovelSceneManager : MonoBehaviour {
 
     Task ComicSequence(Task precedingTask, Transform scenarioTransform, Vector2[,] shifts)
     {
-        SlideInPanel slideInComicBackground = new SlideInPanel(Services.ComicPanelManager.comicBackground, true, 1600 * Vector2.left);
+        SlideInPanel slideInComicBackground = new SlideInPanel(Services.ComicPanelManager.comicBackground, true, 1600 * Vector2.right);
         Task turnOffStartScreen = new SetObjectStatus(false, Services.DialogueUIManager.startScreen);
         SetObjectStatus turnOnScenario = new SetObjectStatus(true, scenarioTransform.gameObject);
         precedingTask
@@ -169,11 +169,13 @@ public class VisualNovelSceneManager : MonoBehaviour {
     }
 
     Task DialogueExchangeSequence(Task precedingTask){
-		ShowDialogueOptions showFirstOptions = new ShowDialogueOptions (true);
+        SetObjectStatus turnOffDialogueBox1 = new SetObjectStatus(false, Services.DialogueUIManager.dialogueContainer);
+        ShowDialogueOptions showFirstOptions = new ShowDialogueOptions (true);
 		WaitForDialogueChoiceTask waitForFirstChoice = new WaitForDialogueChoiceTask ();
 		HighlightSelectedOption highlightFirstChoice = new HighlightSelectedOption ();
 		TypeDialogue typeFirstDialogue = new TypeDialogue (false);
 		WaitForAnyInput waitAfterFirstDialogue = new WaitForAnyInput ();
+        SetObjectStatus turnOffDialogueBox2 = new SetObjectStatus(false, Services.DialogueUIManager.dialogueContainer);
 		ShowDialogueOptions showSecondOptions = new ShowDialogueOptions (false);
 		WaitForDialogueChoiceTask waitForSecondChoice = new WaitForDialogueChoiceTask ();
 		HighlightSelectedOption highlightSecondChoice = new HighlightSelectedOption ();
@@ -181,18 +183,20 @@ public class VisualNovelSceneManager : MonoBehaviour {
 		WaitForAnyInput waitAfterSecondDialogue = new WaitForAnyInput ();
 		DialogueTransitionTask transition = new DialogueTransitionTask ();
 
-		precedingTask
+        precedingTask
+            .Then(turnOffDialogueBox1)
             .Then(showFirstOptions)
-			.Then (waitForFirstChoice)
-			.Then (highlightFirstChoice)
-			.Then (typeFirstDialogue)
-			.Then (waitAfterFirstDialogue)
-			.Then (showSecondOptions)
-			.Then (waitForSecondChoice)
-			.Then (highlightSecondChoice)
-			.Then (typeSecondDialogue)
-			.Then (waitAfterSecondDialogue)
-			.Then (transition);
+            .Then(waitForFirstChoice)
+            .Then(highlightFirstChoice)
+            .Then(typeFirstDialogue)
+            .Then(waitAfterFirstDialogue)
+            .Then(turnOffDialogueBox2)
+            .Then(showSecondOptions)
+            .Then(waitForSecondChoice)
+            .Then(highlightSecondChoice)
+            .Then(typeSecondDialogue)
+            .Then(waitAfterSecondDialogue)
+            .Then(transition);
 
         return transition;
 	}
