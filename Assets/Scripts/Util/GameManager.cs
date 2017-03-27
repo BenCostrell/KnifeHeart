@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour {
 		Services.DialogueUIManager = GameObject.FindGameObjectWithTag ("DialogueUIManager").GetComponent<DialogueUIManager> ();
 		Services.TransitionUIManager = GameObject.FindGameObjectWithTag ("TransitionUIManager").GetComponent<TransitionUIManager> ();
 		Services.VisualNovelSceneManager = GameObject.FindGameObjectWithTag ("VisualNovelSceneManager").GetComponent<VisualNovelSceneManager> ();
+        Services.ComicPanelManager = GameObject.FindGameObjectWithTag("ComicPanelManager").GetComponent<ComicPanelManager>();
 	}
 
 	void InitializeFightServices(){

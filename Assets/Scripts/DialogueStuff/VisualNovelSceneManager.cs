@@ -66,32 +66,70 @@ public class VisualNovelSceneManager : MonoBehaviour {
 
 	void BeginVisualNovelSequence(){
         ShowStartScreen showStartScreen = new ShowStartScreen ();
-        Task introSequence = IntroSequence(showStartScreen);
-        Task round1Sequence = RoundSequence(introSequence);
-        Task round2Sequence = RoundSequence(round1Sequence);
-        Task round3Sequence = RoundSequence(round2Sequence);
+        Task comicSequence1 = ComicSequence(showStartScreen, Services.ComicPanelManager.scenario1.transform,
+            new Vector2[2, 3]
+            {
+                {900 * Vector2.up, 900 * Vector2.left, 900 * Vector2.right },
+                {1600 * Vector2.right, 1600 * Vector2.left, 1600 * Vector2.right }
+            });
+        Task round1Sequence = RoundSequence(comicSequence1);
+        Task comicSequence2 = ComicSequence(round1Sequence, Services.ComicPanelManager.scenario2.transform,
+            new Vector2[3, 2]
+            {
+                {1600 * Vector2.left, 1600 * Vector2.right },
+                {1600 * Vector2.left, 1600 * Vector2.right },
+                {1600 * Vector2.left, 1600 * Vector2.right }
+            });
+        Task round2Sequence = RoundSequence(comicSequence2);
+        Task comicSequence3 = ComicSequence(round2Sequence, Services.ComicPanelManager.scenario3.transform,
+            new Vector2[3, 3]
+            {
+                {900 * Vector2.up, 1600 * Vector2.left, 1600 * Vector2.right },
+                {1600 * Vector2.left, Vector2.zero, Vector2.zero },
+                {1600 * Vector2.left, 1600 * Vector2.right, Vector2.zero }
+            });
+        Task round3Sequence = RoundSequence(comicSequence3);
         
 		Services.TaskManager.AddTask (showStartScreen);
 	}
 
-    Task IntroSequence(Task precedingTask)
+    Task ComicSequence(Task precedingTask, Transform scenarioTransform, Vector2[,] shifts)
     {
-        SlideInPanel slidePanel1_1 = new SlideInPanel(Services.DialogueUIManager.introSequence.transform.GetChild(1).gameObject, true);
-        SlideInPanel showPanel1_2 = new SlideInPanel(Services.DialogueUIManager.introSequence.transform.GetChild(2).gameObject, false);
-        SlideInPanel slidePanel2_1 = new SlideInPanel(Services.DialogueUIManager.introSequence.transform.GetChild(3).gameObject, true);
-        SlideInPanel showPanel2_2 = new SlideInPanel(Services.DialogueUIManager.introSequence.transform.GetChild(4).gameObject, false);
-        WaitForAnyInput waitForInput = new WaitForAnyInput();
-        FinishIntroSequence finishIntroSeq = new FinishIntroSequence();
-
+        SlideInPanel slideInComicBackground = new SlideInPanel(Services.ComicPanelManager.comicBackground, true, 1600 * Vector2.left);
+        Task turnOffStartScreen = new SetObjectStatus(false, Services.DialogueUIManager.startScreen);
+        SetObjectStatus turnOnScenario = new SetObjectStatus(true, scenarioTransform.gameObject);
         precedingTask
-            .Then(slidePanel1_1)
-            .Then(showPanel1_2)
-            .Then(slidePanel2_1)
-            .Then(showPanel2_2)
-            .Then(waitForInput)
-            .Then(finishIntroSeq);
+            .Then(slideInComicBackground)
+            .Then(turnOffStartScreen)
+            .Then(turnOnScenario);
+        int numPages = scenarioTransform.childCount;
+        Task currentTask = turnOnScenario;
+        for (int i = 0; i < numPages; i++)
+        {
+            Transform page = scenarioTransform.GetChild(i);
+            SetObjectStatus turnOnPage = new SetObjectStatus(true, page.gameObject);
+            currentTask.Then(turnOnPage);
+            currentTask = turnOnPage;
+            int numPanels = page.childCount;
+            for (int j = 0; j < numPanels; j++)
+            {
+                SlideInPanel slideInPanel = new SlideInPanel(page.GetChild(j).gameObject, true, shifts[i,j]);
+                currentTask.Then(slideInPanel);
+                currentTask = slideInPanel;
+            }
+            WaitToContinueFromComic waitToContinue = new WaitToContinueFromComic(page.gameObject);
+            currentTask.Then(waitToContinue);
+            currentTask = waitToContinue;
+        }
+        SetObjectStatus turnOffDialogueBox = new SetObjectStatus(false, Services.DialogueUIManager.dialogueContainer);
+        SetObjectStatus turnOffBackground = new SetObjectStatus(false, Services.ComicPanelManager.comicBackground);
+        currentTask
+            .Then(turnOffDialogueBox)
+            .Then(turnOffBackground);
 
-        return finishIntroSeq;
+        currentTask = turnOffBackground;
+
+        return currentTask;
     }
 
     Task RoundSequence(Task precedingTask)

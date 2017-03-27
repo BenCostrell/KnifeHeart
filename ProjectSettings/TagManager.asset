@@ -13,6 +13,7 @@ TagManager:
   - VisualNovelSceneManager
   - FightUIManager
   - WinScreenUIManager
+  - ComicPanelManager
   layers:
   - Default
   - TransparentFX

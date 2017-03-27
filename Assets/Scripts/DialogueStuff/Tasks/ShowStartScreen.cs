@@ -16,8 +16,6 @@ public class ShowStartScreen : Task {
 
 	protected override void OnSuccess ()
 	{
-		Services.DialogueUIManager.startScreen.SetActive (false);
 		Services.EventManager.Unregister<ButtonPressed> (Continue);
-        Services.DialogueUIManager.introSequence.SetActive(true);
 	}
 }

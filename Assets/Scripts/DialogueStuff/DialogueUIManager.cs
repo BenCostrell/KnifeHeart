@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class DialogueUIManager : MonoBehaviour {
 
 	public GameObject startScreen;
-    public GameObject introSequence;
 	public GameObject crowdImage;
 	public GameObject dialogueContainer;
 	public GameObject dialogueText;
@@ -42,7 +41,6 @@ public class DialogueUIManager : MonoBehaviour {
 	public float unselectedOptionShrinkTime;
 	public float selectedOptionHighlightTime;
 	public float crowdSlideTime;
-    public float panelAppearTime;
     public float rpsWaitTime;
     public float rpsDialogueDelay;
 
@@ -65,7 +63,6 @@ public class DialogueUIManager : MonoBehaviour {
 		arrow_P1.GetComponent<Image> ().color = textBoxColor_P1;
 		arrow_P2.GetComponent<Image> ().color = textBoxColor_P2;
 		crowdImage.SetActive (false);
-        introSequence.SetActive(false);
 		SetOptionUIStatus (false);
         SetRpsOptionUIStatus(false);
         rpsReady_P1.SetActive(false);

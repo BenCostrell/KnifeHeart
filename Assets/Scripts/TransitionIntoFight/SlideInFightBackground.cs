@@ -5,21 +5,24 @@ using UnityEngine;
 public class SlideInFightBackground : Task {
 
 	private float timeElapsed;
+    private float duration;
+    private RectTransform rectTransform;
 
-	protected override void Init ()
-	{
-		Services.TransitionUIManager.fightBackground.SetActive (true);
-		Services.DialogueUIManager.dialogueContainer.SetActive (false);
-	}
+    protected override void Init()
+    {
+        Services.TransitionUIManager.fightBackground.SetActive(true);
+        Services.DialogueUIManager.dialogueContainer.SetActive(false);
+        rectTransform = Services.TransitionUIManager.fightBackground.GetComponent<RectTransform>();
+        duration = Services.TransitionUIManager.fightBackgroundSlideInTime;
+        timeElapsed = 0;
+    }
 
 	internal override void Update ()
 	{
-		float duration = Services.TransitionUIManager.fightBackgroundSlideInTime;
-		Services.TransitionUIManager.fightBackground.transform.position = Vector3.Lerp (13 * Vector3.right, Vector3.zero, 
-			Easing.QuadEaseIn (timeElapsed / duration));
-		timeElapsed += Time.deltaTime;
+        timeElapsed += Time.deltaTime;
+		rectTransform.anchoredPosition = Vector2.Lerp (1600 * Vector2.right, Vector2.zero, Easing.QuadEaseIn (timeElapsed / duration));
 
-		if (Services.TransitionUIManager.fightBackground.transform.position == Vector3.zero) {
+		if (timeElapsed >= duration) {
 			SetStatus (TaskStatus.Success);
 		}
 	}

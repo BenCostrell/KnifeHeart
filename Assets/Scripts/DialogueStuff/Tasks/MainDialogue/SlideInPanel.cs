@@ -7,19 +7,21 @@ public class SlideInPanel : Task {
     private bool slide;
     private float duration;
     private float timeElapsed;
+    private Vector2 slideVector;
     private Vector2 initialPos;
     private RectTransform rectTransform;
 
-    public SlideInPanel(GameObject _panel, bool _slide)
+    public SlideInPanel(GameObject _panel, bool _slide, Vector2 shiftAmount)
     {
         panel = _panel;
         slide = _slide;
+        slideVector = shiftAmount;
     }
 
     protected override void Init()
     {
         timeElapsed = 0;
-        duration = Services.DialogueUIManager.panelAppearTime;
+        duration = Services.ComicPanelManager.panelAppearTime;
         rectTransform = panel.GetComponent<RectTransform>();
         initialPos = rectTransform.anchoredPosition;
         panel.SetActive(true);
@@ -30,8 +32,7 @@ public class SlideInPanel : Task {
         timeElapsed += Time.deltaTime;
         if (slide)
         {
-            rectTransform.anchoredPosition = Vector2.Lerp(initialPos + 900 * Vector2.left, initialPos, 
-                Easing.ExpoEaseOut(timeElapsed / duration));
+            rectTransform.anchoredPosition = Vector2.Lerp(initialPos + slideVector, initialPos, Easing.ExpoEaseOut(timeElapsed / duration));
         }
 
         if (timeElapsed >= duration)

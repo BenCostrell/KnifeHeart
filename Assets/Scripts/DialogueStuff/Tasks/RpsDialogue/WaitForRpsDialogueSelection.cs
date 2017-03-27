@@ -56,14 +56,20 @@ public class WaitForRpsDialogueSelection : Task {
         if (e.playerNum == 1)
         {
             choice_P1 = choice;
-            choiceTime_P1 = timeElapsed;
-            Services.DialogueUIManager.rpsReady_P1.SetActive(true);
+            if (choice != "")
+            {
+                choiceTime_P1 = timeElapsed;
+                Services.DialogueUIManager.rpsReady_P1.SetActive(true);
+            }
         }
         else if (e.playerNum == 2)
         {
             choice_P2 = choice;
-            choiceTime_P2 = timeElapsed;
-            Services.DialogueUIManager.rpsReady_P2.SetActive(true);
+            if (choice != "")
+            {
+                choiceTime_P2 = timeElapsed;
+                Services.DialogueUIManager.rpsReady_P2.SetActive(true);
+            }
         }
         if ((choice_P1 != "") && (choice_P2 != ""))
         {

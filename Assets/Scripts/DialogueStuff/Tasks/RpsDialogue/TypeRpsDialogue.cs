@@ -11,6 +11,7 @@ public class TypeRpsDialogue : Task {
     {
         int playerNum = Services.VisualNovelSceneManager.currentTurnPlayerNum;
         characterIndex = 0;
+        Services.DialogueUIManager.dialogueContainer.SetActive(true);
         if (playerNum == Services.VisualNovelSceneManager.initiatingPlayer)
         {
             dialogueText = Services.VisualNovelSceneManager.rpsDialogueArray[0];

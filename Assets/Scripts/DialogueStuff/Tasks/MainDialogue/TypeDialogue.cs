@@ -16,6 +16,7 @@ public class TypeDialogue : Task {
 	{
 		int playerNum = Services.VisualNovelSceneManager.currentTurnPlayerNum;
 		characterIndex = 0;
+        Services.DialogueUIManager.dialogueContainer.SetActive(true);
         Services.DialogueUIManager.dialogueText.GetComponent<Text>().text = "";
         if (!crowdDialogue) {
 			dialogueText = Services.DialogueUIManager.queuedDialogue.mainText;
