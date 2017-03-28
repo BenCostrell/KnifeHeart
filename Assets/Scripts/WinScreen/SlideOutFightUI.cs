@@ -24,9 +24,9 @@ public class SlideOutFightUI : Task {
 	{
 		timeElapsed = Mathf.Min (duration, timeElapsed + Time.deltaTime);
 
-		uiTransformP1.anchoredPosition = Vector2.LerpUnclamped (uiInitialPos_P1, uiInitialPos_P1 + 540 * Vector2.left, 
+		uiTransformP1.anchoredPosition = Vector2.LerpUnclamped (uiInitialPos_P1, uiInitialPos_P1 + 640 * Vector2.left, 
 			Easing.BackEaseIn (timeElapsed / duration));
-		uiTransformP2.anchoredPosition = Vector3.LerpUnclamped (uiInitialPos_P2, uiInitialPos_P2 + 540 * Vector2.right, 
+		uiTransformP2.anchoredPosition = Vector3.LerpUnclamped (uiInitialPos_P2, uiInitialPos_P2 + 640 * Vector2.right, 
 			Easing.BackEaseIn (timeElapsed / duration));
 
 		if (timeElapsed >= duration) {
