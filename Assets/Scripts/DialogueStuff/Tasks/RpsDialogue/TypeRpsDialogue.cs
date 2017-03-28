@@ -14,11 +14,11 @@ public class TypeRpsDialogue : Task {
         Services.DialogueUIManager.dialogueContainer.SetActive(true);
         if (playerNum == Services.VisualNovelSceneManager.initiatingPlayer)
         {
-            dialogueText = Services.VisualNovelSceneManager.rpsDialogueArray[0];
+            dialogueText = Services.VisualNovelSceneManager.rpsDialogueArray[1];
         }
         else
         {
-            dialogueText = Services.VisualNovelSceneManager.rpsDialogueArray[1];
+            dialogueText = Services.VisualNovelSceneManager.rpsDialogueArray[0];
         }
         Services.DialogueUIManager.dialogueText.GetComponent<Text>().text = "";
         if (playerNum == 1)

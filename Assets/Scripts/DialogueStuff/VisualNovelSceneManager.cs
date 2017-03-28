@@ -274,9 +274,9 @@ public class VisualNovelSceneManager : MonoBehaviour {
             winningPlayerNum = 1;
         }
 
-        if (choice_P1 == "ROCK")
+        if (choice_P1 == "BE AGGRESSIVE")
         {
-            if (choice_P2 == "ROCK")
+            if (choice_P2 == "BE AGGRESSIVE")
             {
                 if (choiceTime_P1 < choiceTime_P2)
                 {
@@ -294,25 +294,25 @@ public class VisualNovelSceneManager : MonoBehaviour {
                     winningPlayerNum = Random.Range(1, 3);
                 }
             }
-            else if (choice_P2 == "PAPER")
+            else if (choice_P2 == "BE NICE")
             {
                 Debug.Log("player 2 beats rock with paper");
                 winningPlayerNum = 2;
             }
-            else if (choice_P2 == "SCISSORS")
+            else if (choice_P2 == "BE PASSIVE AGGRESSIVE")
             {
                 Debug.Log("player 1 beats scissors with rock");
                 winningPlayerNum = 1;
             }
         }
-        else if (choice_P1 == "PAPER")
+        else if (choice_P1 == "BE NICE")
         {
-            if (choice_P2 == "ROCK")
+            if (choice_P2 == "BE AGGRESSIVE")
             {
                 Debug.Log("player 1 beats rock with paper");
                 winningPlayerNum = 1;
             }
-            else if (choice_P2 == "PAPER")
+            else if (choice_P2 == "BE NICE")
             {
                 if (choiceTime_P1 < choiceTime_P2)
                 {
@@ -330,25 +330,25 @@ public class VisualNovelSceneManager : MonoBehaviour {
                     winningPlayerNum = Random.Range(1, 3);
                 }
             }
-            else if (choice_P2 == "SCISSORS")
+            else if (choice_P2 == "BE PASSIVE AGGRESSIVE")
             {
                 Debug.Log("player 2 beats paper with scissors");
                 winningPlayerNum = 2;
             }
         }
-        else if (choice_P1 == "SCISSORS")
+        else if (choice_P1 == "BE PASSIVE AGGRESSIVE")
         {
-            if (choice_P2 == "ROCK")
+            if (choice_P2 == "BE AGGRESSIVE")
             {
                 Debug.Log("player 2 beats scissors with rock");
                 winningPlayerNum = 2;
             }
-            else if (choice_P2 == "PAPER")
+            else if (choice_P2 == "BE NICE")
             {
                 Debug.Log("player 1 beats paper with scissors");
                 winningPlayerNum = 1;
             }
-            else if (choice_P2 == "SCISSORS")
+            else if (choice_P2 == "BE PASSIVE AGGRESSIVE")
             {
                 if (choiceTime_P1 < choiceTime_P2)
                 {

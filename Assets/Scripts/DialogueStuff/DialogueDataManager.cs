@@ -61,7 +61,7 @@ public class DialogueDataManager {
         string[] lineSeparator = new string[] { "\r\n", "\r", "\n" };
         char[] entrySeparator = new char[] { '\t' };
         fileLines = fileFullString.Split(lineSeparator, System.StringSplitOptions.None);
-        for (int i = 0; i < fileLines.Length; i++)
+        for (int i = 1; i < fileLines.Length; i++)
         {
             fileLine = fileLines[i];
             lineEntries = fileLine.Split(entrySeparator);

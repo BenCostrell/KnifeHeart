@@ -42,13 +42,13 @@ public class WaitForRpsDialogueSelection : Task {
         switch (e.buttonTitle)
         {
             case "Y":
-                choice = "ROCK";
+                choice = "BE AGGRESSIVE";
                 break;
             case "X":
-                choice = "PAPER";
+                choice = "BE NICE";
                 break;
             case "B":
-                choice = "SCISSORS";
+                choice = "BE PASSIVE AGGRESSIVE";
                 break;
             default:
                 break;
