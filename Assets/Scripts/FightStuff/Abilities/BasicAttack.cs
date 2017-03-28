@@ -14,7 +14,7 @@ public class BasicAttack : Attack {
 
 	public override void Init(GameObject player){
 		animTrigger = "basicAttack";
-		cooldown = 0.4f;
+		cooldown = 0.6f;
 		castDuration = 0.2f;
 		baseKnockback = 16;
 		knockbackGrowth = 2;

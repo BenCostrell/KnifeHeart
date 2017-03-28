@@ -20,7 +20,7 @@ public class Wallop : Attack {
 		animTrigger = "Wallop";
 		cooldown = 2f;
 		castDuration = 1f;
-		baseKnockback = 30;
+		baseKnockback = 25;
 		knockbackGrowth = 5;
 		damage = 5;
 		isProjectile = false;
