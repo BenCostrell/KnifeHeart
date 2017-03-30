@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class SetPanelImage : Task {
     private int panelNum;
+    private int pageNum;
     private GameObject panel;
     private GameObject incomingArena;
 
-    public SetPanelImage(GameObject pnl, int num, GameObject newArena)
+    public SetPanelImage(GameObject pnl, int pnlNum, int pgNum, GameObject newArena)
     {
-        panelNum = num;
+        panelNum = pnlNum;
+        pageNum = pgNum;
         panel = pnl;
         incomingArena = newArena;
     }
@@ -24,9 +26,13 @@ public class SetPanelImage : Task {
             {
                 panelSprite = Services.TransitionComicManager.transitionToParkingLotImagesPigtailsWins[panelNum];
             }
-            else
+            else if (incomingArena == Services.FightSceneManager.hellArena)
             {
                 panelSprite = Services.TransitionComicManager.transitionToHellImagesPigtailsWins[panelNum];
+            }
+            else
+            {
+                panelSprite = Services.TransitionComicManager.winComicPigtailsWins[pageNum][panelNum];
             }
         }
         else
@@ -35,9 +41,13 @@ public class SetPanelImage : Task {
             {
                 panelSprite = Services.TransitionComicManager.transitionToParkingLotImagesPonytailWins[panelNum];
             }
-            else
+            else if (incomingArena == Services.FightSceneManager.hellArena)
             {
                 panelSprite = Services.TransitionComicManager.transitionToHellImagesPonytailWins[panelNum];
+            }
+            else
+            {
+                panelSprite = Services.TransitionComicManager.winComicPonytailWins[pageNum][panelNum];
             }
         }
 

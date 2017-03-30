@@ -146,7 +146,7 @@ public class Player : MonoBehaviour {
 
 
 	public void Fall(){
-        rb.velocity *= 0.5f;
+        rb.velocity = Vector2.zero;
         Services.EventManager.Fire (new PlayerFall (this));
     }
 

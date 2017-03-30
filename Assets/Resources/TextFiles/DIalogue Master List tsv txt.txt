@@ -3,7 +3,7 @@ Scenario 1:	I'm better than you.
 Scenario 2:							
 Scenario 3:							
 							
-Scenario	Round 1 Ability	Round 2 Ability	Round 3 Ability	Blurb	Call	Response 	
+Scenario	Round 1 Ability	Round 2 Ability	Round 3 Ability	Call Blurb	Call	Response Blurb	Response 
 1	Pull			Demean Her	Do you have any idea who I am? No? Heathen.	Demean her.	How DARE you open your mouth to me, peon.
 1	Pull			Dominate Her	You need to bow down to me, I have boots that need licking.	Dominate Her	You're going to regret this when you meet my toys.
 1	Pull			Demand Respect	Bow down to me you peon, I am your god.	Demand Respect	Do you even comprehend the different ways I could make your life hell?
@@ -50,34 +50,34 @@ Scenario	Round 1 Ability	Round 2 Ability	Round 3 Ability	Blurb	Call	Response
 3	Pull	Sing	Wallop	Be Shakespearean	Alas, on this day when thou copiest me, twas thy end. Translation: I'm going to bury you. 	Be Shakespearean 	THY WORDS ARE FALSE. Thou knowest the truth. In plain English: you're an unoriginal fuck wizard.
 3	Pull	Sing	Fireball	Give disingenuous advice	Honey, if you copy me forever, MAYBE you'll be slightly less trashy than you are now. Good luck.	Bakchanded Compliment	HA. Oh my god, I copied you? That's too much, you're a riot. It's good you're funny. 
 3	Pull	Sing	Lunge	Threaten Murder	OHMYGOD. I WILL END YOUR LIFE FOR COPYING ME. AND THEN DIE. AND KILL YOU AGAIN.	Threaten Existence	I will SO go back in time and fuck your grandfather so that I'M your mother, then I'll punish you. Bitch.
-3	Pull	Fireball	Shield	Be sarcastic	Oh wow. Look at that. SO original. Did you make that out of mashed potatoes and tears? Such talent. 	SO done	You can't think of an original insult? Idk why I've wasted this much time, but I guess I have another minute.
-3	Pull	Fireball	Wallop	Be high cultured	That poor chiseling, the unpolished veneer, what a crude attempt at copying my masterpiece. 	Swag Attack	Really? I copied you? Your work is below average and...no..YOU MADE SENPAI LOOK UGLY. HELL NO.
+3	Pull	Fireball	Shield	Be sarcastic	Oh wow. Look at that. SO original. Did you make that out of mashed potatoes and tears? Such talent. 	SO done	Can't think of an original insult? I've wasted this much time, I guess I have another minute.
+3	Pull	Fireball	Wallop	Be high cultured	That poor chiseling, the unpolished veneer, what a crude attempt at copying my masterpiece. 	Swag Attack	Really? I copied you? Your work is...no..YOU MADE SENPAI LOOK UGLY. HELL NO.
 3	Pull	Fireball	Sing	Annoy Her	Aw, did the poor wittle baby try copying big girl art? Is okay, Senpai may get a chuckle out of it.	Be Overdramatic 	Your breath is like 1000 razor blades from hell on my perfect skin.
-3	Pull	Fireball	Lunge	Flip the fuck Out	HEY. HEY. YOU COPIED ME. HEY. HEY. HEY. HEY. BITCH. HEY. HEY. HEY. SENPAI'S MINE.	Flip the fuck Out	NO. NO. NO. FALSE. ALL MY IDEAS ARE MINE. THAT MEANS YOU'RE A THEIF. SO LET'S DO THIS.
-3	Pull	Lunge	Shield	So Done With Her	I've told you a million times you're dumb. I practically own you. Did you not think I'd notice you copying me?	So Done With This	You're about to wake up a beast not seen for 1000 years...and it won't be happy.
-3	Pull	Lunge	Wallop	Talk Down To Her	You are so far beneath me it's almost cute when you copy me. Almost. I'm still going to tear your eyes out.	Instagram This	For that, when you're licking my boots, they'll be covered in shit. #ShitQueen
-3	Pull	Lunge	Sing	Cause A Scene	CAN WE JUST FIGHT ALREADY? FIRST YOU LOOK AT SENPAI. NOW YOU STEAL MY SHIT? LET'S GO.	Insult everything 	You little, disgusting, miniscule, barely-worth-my-time BITCH. You're done.
-3	Pull	Lunge	Fireball	Start Rumors	Omg, this is perfect. You copying me literally starts the rumors themselves. You're so in love with me.	Done with Rumors	*claps hands* This is too perfect. Your poor attempts at impressing Senpai will drive him straight into my arms.
-3	Shield	Pull	Wallop	Be Condescending	I don't have time for scum like you stealing my work. Now I have to get Senpai's heart AND crush yours.	Swag on her	"Blah blah blah, blah blah, I want to die" is pretty much all I hear when you talk. Let me do this for you.
-3	Shield	Pull	Sing	Talk yourself up	Whatever, steal my high art. When Senpai sees mine they'll know how beneath me you are. Bitch.	Talk Yourself Up	Oh, that's RICH. Me steal YOUR idea. Do you have any idea how far below you are beneath me? Bitch.
-3	Shield	Pull	Fireball	Start a Rumor	Ugh, the bug again? This time stealing my idea? Fine. New rumor. Your eyebrows are fake.	Reveal Rumors	UGH. No. I didn't steal your idea. I started enough rumors that I CONTROL your ideas. Seen Inception? Bitch.
-3	Shield	Pull	Lunge	Threaten with Violence	You stole my idea?! I can't wait to finally crush you under my boot and show Senpai true power.	Threaten with Violence	Your idea isn't even WORTH stealing. That statue is trash. It's only good for smashing your face in. 
-3	Shield	Wallop	Pull	Demean Her	Oh dear, another fan trying to imitate me. You're only good enough to oil my feet and worship me.	Demean her.	Darling, you think I even know you exist? You're just a speck of dust on my immaculate love for Senpai.
-3	Shield	Wallop	Sing	Cause A Scene	HOW DARE YOU STEAL MY IDEA. HOW DARRREEEE YOOOUU. YOUR ARE NOTHINNGGGG.	Cause a scene	SENPAI DESERVES ONLY A TRUE MAGNIFICENT BEING. HE WILL BE MINE YOU BIIITTTTCHHH.
-3	Shield	Wallop	Fireball	Talk yourself up	Omg. FINE. You want to steal my ideas? I expect royalties. And daily admiration in front of Senpai.	Bakchanded Compliment	Oh look at you, so special, accusing me of  stealing. The only thing I stole was your dignity you hopeless groupie.
-3	Shield	Wallop	Lunge	Threaten with Lawsuit	Copying my sculpture? I'll have my lawyers contact you and take everything you have. Then kill you.	Threaten Lawsuit	I Stole YOUR sculpture? I can't wait to take you to court and shove that sculpture down your fucking throat.
-3	Shield	Sing	Pull	Demean Her	Pitiful fool. Think you can copy me? The queen of rumors? I'm the only reason you're not dead yet.	Demean Her	LOL okay. I stole your idea? Senpai deserves the best, not a snivelling brat like you, so far bneath me. Bitch.
-3	Shield	Sing	Wallop	Be Dismissive	Bored now. Stealing my work? YAWN. I've had crazies before. Senpai will see right through you.	Be Dismissive	Oh cute, you're another crazed lunatic claiming my work. I don't have time for lawyers, I'll just squash you now.
-3	Shield	Sing	Fireball	Start Rumor	*Yawn* Hm? Stealing my idea? Okay, fine. HEY EVERYONE SHE SAYS SHE EATS BABIES,	Stir Up Trouble	*sigh* Okay. Claim I stole your work. It won't matter when I break your sculpture over your head and sue you.
-3	Shield	Sing	Lunge	Tell her to GTFO	All I want to do is not have you steal my ideas, STAY AWAY FROM SENPAI,  and fucking die.	Threaten to Punch Her	OH. OKAY. YOU WANNA PLAY THE ACCUSING GAME? HOW BOUT I ACCUSE MY FIST DOWN YOUR THROAT.
-3	Shield	Fireball	Pull	Demean Her	A SIMPLE drudge like you WOULD steal my perfect ideas. Pathetic. Senpai sees right through you.	Dismiss Her	Stole your idea? What idea? To be perfect and hate you? I came up with that all on my own. God I'm so done with this.
-3	Shield	Fireball	Sing	Cause A Scene	I HATE YOU I HATE YOU I HATE YOU. YOU TRY TO STEAL EVERYTHING THAT'S MINE.	Cause a scene	OH. OH. HA. OKAY. STEAL YOUR IDEAS? THAT'S GOLD. *Breathe* I can calm myself, just need to punch you real quick.
-3	Shield	Fireball	Wallop	Be Condescending	Oh, a fan! But dear you can't steal from me. It comes off as tacky and everyone will hate you for it.	Gloat	Oh no no,I can't have you accuse me of this. My more rabid fans will tear you to shreds! I'll just have to BEAT them to the PUNCH!
-3	Shield	Fireball	Lunge	Threaten with Violence	I spread ALL those rumors and this is how you repay me? Stealing ideas? I'll just have to kill you.	Threaten with Violence	Steal your ideas?! I told ALL your friends ways they could fix you. But I think the only thing I can fix is your face. With my fist. Bitch.
-3	Shield	Lunge	Pull	Dominate Her	Stealing ideas now? I'm fucking done with this. I'll show you the true meaning of domination and pain. 	Demean Her	Don't be ridiculous. You're so far beneath me I'll have to scrape you off my boots. Senpai deserves my complete perfection.
-3	Shield	Lunge	Wallop	Gloat	Ugh. I don't have fucking time to deal with you stealing shit. My fans will enjoy  me kicking your ass.	Be Condescending 	Yeah...I STILL barely know who you are? I just know I hate your fucking face. The idea of punching it feels really good right now.
+3	Pull	Fireball	Lunge	Flip the fuck Out	HEY. HEY. YOU COPIED ME. HEY. HEY. HEY. HEY. BITCH. HEY. HEY. HEY. SENPAI'S MINE.	Flip the fuck Out	NO. FALSE. ALL MY IDEAS ARE MINE. THAT MEANS YOU'RE A THEIF. SO LET'S DO THIS.
+3	Pull	Lunge	Shield	So Done With Her	I've told you a 1000 times you're dumb. I own you. Did you not think I'd notice you copying me?	So Done With This	You're about to wake up a beast not seen for 1000 years...and it won't be happy.
+3	Pull	Lunge	Wallop	Talk Down To Her	You are so far beneath me it's almost cute when you copy me. I'm still going to tear your eyes out.	Instagram This	For that, when you're licking my boots, they'll be covered in shit. #ShitQueen
+3	Pull	Lunge	Sing	Cause A Scene	CAN WE FIGHT ALREADY? FIRST YOU LOOK AT SENPAI. THEN STEAL MY SHIT? LET'S GO.	Insult everything 	You little, disgusting, miniscule, barely-worth-my-time BITCH. You're done.
+3	Pull	Lunge	Fireball	Start Rumors	Omg, this is perfect. You copying me starts the rumors themselves. You're so in love with me.	Done with Rumors	*claps hands* Perfect. Your attempts at impressing Senpai will drive him straight into my arms.
+3	Shield	Pull	Wallop	Be Condescending	Scum like you stealing my work. Now I have to get Senpai's heart AND crush yours.	Swag on her	"Blah blah blah, I want to die" is pretty much all I hear when you talk. Let me do this for you.
+3	Shield	Pull	Sing	Talk yourself up	Whatever, steal my high art. When Senpai sees mine they'll know how beneath me you are. Bitch.	Talk Yourself Up	That's RICH. Me steal YOUR idea. Do you have any idea how  beneath me you are? Bitch.
+3	Shield	Pull	Fireball	Start a Rumor	Ugh, the bug again? This time stealing my idea? Fine. New rumor. Your eyebrows are fake.	Reveal Rumors	I didn't steal your idea. I started enough rumors that I CONTROL your ideas. Inception, bitch.
+3	Shield	Pull	Lunge	Threaten with Violence	You stole my idea?! I can't wait to finally crush you under my boot and show Senpai true power.	Threaten with Violence	Your idea WORTH nothing. That statue is trash. It's only good for smashing your face in. 
+3	Shield	Wallop	Pull	Demean Her	Oh dear, another fan trying to imitate me. You're only good enough to oil my feet and worship me.	Demean her.	Darling, you think you matter? You're a speck of dust on my immaculate love for Senpai.
+3	Shield	Wallop	Sing	Cause A Scene	HOW DARE YOU STEAL MY IDEA. HOW DARRREEEE YOOOUU. YOUR ARE NOTHINNGGGG.	Cause a scene	SENPAI DESERVES ONLY A TRUE MAGNIFICENT BEING. HE WILL BE MINE.
+3	Shield	Wallop	Fireball	Talk yourself up	Omg. FINE. You want to steal my ideas? I expect royalties. And daily admiration in front of Senpai.	Bakchanded Compliment	Accusing me of  stealing? The only thing stolen was your dignity. Hopeless groupie.
+3	Shield	Wallop	Lunge	Threaten with Lawsuit	Copying my sculpture? I'll have my lawyers contact you and take everything you have. Then kill you.	Threaten Lawsuit	Stole YOUR sculpture? I can't wait to go to court and shove that trash down your fucking throat.
+3	Shield	Sing	Pull	Demean Her	Pitiful fool. Think you can copy me? The queen of rumors? I'm the only reason you're not dead yet.	Demean Her	LOL I stole your idea? Senpai deserves the best, not a brat like you, so beneath me. Bitch.
+3	Shield	Sing	Wallop	Be Dismissive	Bored now. Stealing my work? YAWN. I've had crazies before. Senpai will see right through you.	Be Dismissive	Oh cute, you're another lunatic claiming my work. No time for lawyers, I'll just squash you now.
+3	Shield	Sing	Fireball	Start Rumor	*Yawn* Hm? Stealing my idea? Okay, fine. HEY EVERYONE SHE SAYS SHE EATS BABIES,	Stir Up Trouble	Claim I stole your work. It won't matter when I break it over your head and sue you.
+3	Shield	Sing	Lunge	Tell her to GTFO	All I want to do is not have you steal my ideas, STAY AWAY FROM SENPAI,  and fucking die.	Threaten to Punch Her	YOU WANNA PLAY THE ACCUSING GAME? I ACCUSE MY FIST DOWN YOUR THROAT.
+3	Shield	Fireball	Pull	Demean Her	A SIMPLE drudge like you WOULD steal my perfect ideas. Pathetic. Senpai sees right through you.	Dismiss Her	Stole your idea? What idea? To be perfect and hate you? God I'm so done with this.
+3	Shield	Fireball	Sing	Cause A Scene	I HATE YOU I HATE YOU I HATE YOU. YOU TRY TO STEAL EVERYTHING THAT'S MINE.	Cause a scene	OH. HA. STEAL YOUR IDEAS? THAT'S GOLD. *Breathe* I  just need to punch you real quick.
+3	Shield	Fireball	Wallop	Be Condescending	Oh, a fan! But dear you can't steal from me. It comes off as tacky and everyone will hate you for it.	Gloat	I can't have you accuse me. My fans will kill you! I'll just have to BEAT them to the PUNCH!
+3	Shield	Fireball	Lunge	Threaten with Violence	I spread ALL those rumors and this is how you repay me? Stealing ideas? I'll just have to kill you.	Threaten with Violence	Steal ideas?! I told your friends how they could fix you! The only thing I can fix is your face.
+3	Shield	Lunge	Pull	Dominate Her	Stealing ideas now? I'm fucking done with this. I'll show you the true meaning of domination and pain. 	Demean Her	You're so far beneath me I'll have to scrape you off my boots. Senpai deserves a god.
+3	Shield	Lunge	Wallop	Gloat	Ugh. I don't have fucking time to deal with you stealing shit. My fans will enjoy me kicking your ass.	Be Condescending 	I STILL barely know who you are, but I hate your fucking face. Punching it sounds good.
 3	Shield	Lunge	Sing	Annoy Her	omgdidyoustealmyideayoufuckingbitchiwillkillyouwhatswrongwithyoudoyouthinkyouhaveanychangewithsenpai...	Annoy Her	areyoukiddingmeyoufuckinglittleliarididn'tstealshitfromyouYOUKNOWWHATSTHATSITIMDONEITSHAPPENINGPREPARETODIE.
-3	Shield	Lunge	Fireball	Be insincere 	It's fine that you're ordinary, boring, and plain. A person like you WOULD steal my idea. 	Make it About You	You really think I would try to steal you ideas? Your drab, pathetic excuse for a gift? Don't make me vomit on your face.
+3	Shield	Lunge	Fireball	Be insincere 	It's fine that you're ordinary, boring, and plain. A person like you WOULD steal my idea. 	Make it About You	Think I'd steal your ideas? Your pathetic excuse for a gift? I'm going to vomit on your face.
 1	Fireball			Throw shade	I don't need to lower myself to your level.	Throw shade	Wow, do you have a four-year old write your insults for you?
 1	Fireball			Throw shade	I can't imagine leaving my house looking like you do...	Throw shade	Were you trying to hurt my feelings or something? That's cute.
 1	Fireball			Be passive aggressive	First impressions are important...it's clear that *I* knew that...	Be passive aggressive	I'm sorry, was that supposed to be an insult?
@@ -102,56 +102,56 @@ Scenario	Round 1 Ability	Round 2 Ability	Round 3 Ability	Blurb	Call	Response
 1	Sing			Act appalled 	Oh my GOD, I know I'm hot, but you don't have to tackle me like that.	Act appalled 	OH NO. NO. MY DELICATE EARS. SUCH VILE WORDS. FOR SHAME. SHAMMMEEEE.
 1	Sing			Talk yourself up	It's only the first day...no need to look like you've given up already.	Make a scene	Oh WOW. WOW. LOOK AT HOW THIS GIRL IS TREATING ME. WOW. JUST. WOW.
 1	Sing			Stir up trouble	Only one person can be the BEST...and that's me.	Make a scene	Really? You're gonna be like that? Well at least I DON'T HATE ANIMALS LIKE YOU DO!
-2	Fireball	Pull		Dominate her	You should just admit defeat to me and save yourself the embarassment.		
-2	Fireball	Shield		Done with her	Just take your cake and leave, you know you can't take me.		
-2	Fireball	Lunge		Call her desperate	It's cute how you're trying to impress Senpai, but you're coming across pretty desperate.		
-2	Fireball	Wallop		Gloat	You could have had a chance with Senpai...if *I* wasn't in the picture.		
-2	Fireball	Sing		Stir up trouble	I think we both know Senpai deserves someone more like me.		
-2	Sing	Pull		Act superior	Please, even you know that I'm the better choice.		
-2	Sing	Shield		Be snarky	I'm sorry? Is that supposed to be a cake?		
-2	Sing	Lunge			That cake looks almost as bad as you do. I didn't know that was possible.		
-2	Sing	Wallop			I wouldn't eat that cake if you paid me.		
+2	Fireball	Pull		Dominate her	You should just admit defeat to me and save yourself the embarassment.	Demean her	That doesn't deserve to be called a cake, and you don't deserve Senpai.
+2	Fireball	Shield		Done with her	Just take your cake and leave, you know you can't take me.	Done with her	Psh, don't take out your frustration with your shitty baking skills on me.
+2	Fireball	Lunge		Call her desperate	It's cute how you're trying to impress Senpai, but you're coming across pretty desperate.	Call her boring	Please. You think you and your boring cake will impress Senpai?
+2	Fireball	Wallop		Gloat	You could have had a chance with Senpai...if *I* wasn't in the picture.	Grandstand	Well at least MY cake looks edible...
+2	Fireball	Sing		Make it about you	That cake better be for ME and not Senpai...	Annoy her	I wouldn't eat that cake if you paid me. I bet, no I KNOW that Senpai feels the same.
+2	Sing	Pull		Act superior	Please, even you know that I'm the better choice.	Be dismissive	I can't believe you think THAT mess is a good gift. Especially when compared to mine.
+2	Sing	Shield		Be snarky	I'm sorry? Is that supposed to be a cake?	Be snarky	You're just passing by...RIGHT??? That cake's NOT for Senpai...
+2	Sing	Lunge		Call her ugly	That cake looks almost as bad as you do. I didn't know that was possible.	Call her mediocre	Please, Senpai doesn't like mediocre cakes...OR girls.
+2	Sing	Wallop		Grandstand	I think we both know Senpai deserves someone more like me.	Grandstand	I think we both know that you're outclassed here...
 2	Sing	Fireball		Throw shade	I spent hours on my cake...but I'm pretty sure I saw yours at the grocery store...	Start a rumor	I can't BELIEVE you would call Senpai such mean names! That's so RUDE.
-3	Fireball	Pull	Shield		It's cute how you think copying me will endear you to Senpai...		
-3	Fireball	Pull	Lunge		At least I'll get to watch you humiliate yourself in front of Senpai with...THAT.		
-3	Fireball	Pull	Wallop	Brag	Your attempt at a statue just makes mine look even better.		
-3	Fireball	Pull	Sing	Make it about you	Oh, please. You're no threat to Senpai and mine's TRUE LOVE.		
-3	Fireball	Shield	Pull		Of course you followed me. I couldn't expect you to come up with something original.		
-3	Fireball	Shield	Lunge	Call her a thief	I never expected you to stoop THIS low, even I thought you were above such blatant theft.		
-3	Fireball	Shield	Wallop				
+3	Fireball	Pull	Shield	Be scornful	It's cute how you think copying me will endear you to Senpai...	Done with her	Oh, I'm sorry, did you think I was actually listening to you? HA.
+3	Fireball	Pull	Lunge	Laugh at her	At least I'll get to watch you humiliate yourself in front of Senpai with...THAT.	Call her a thief	At least I don't have to steal other people's ideas...I can think for myself.
+3	Fireball	Pull	Wallop	Brag	Your attempt at a statue just makes mine look even better.	Demean her	As if. I wouldn't lower myself to stealing YOUR idea.
+3	Fireball	Pull	Sing	Make it about you	Oh, please. You're no threat to Senpai and mine's TRUE LOVE.	Annoy her	HEY. You should all LISTEN TO WHAT I SAY, this girl is nothing but a FAKE.
+3	Fireball	Shield	Pull	Demean her	Of course you imitated me. I shouldn't expect you to come up with something original.	Be dismissive	Yeah...go on...say more to me. You're just an annoying little fly.
+3	Fireball	Shield	Lunge	Call her a thief	I never expected you to stoop THIS low, even I thought you were above such blatant theft.	Call her ugly	I guess it would be hard to make a beautiful sculpture when you have no beauty.
+3	Fireball	Shield	Wallop	Grandstand	It's so great to see people being inspired by my greatness...	Grandstand	I guess it's unfair to expect you to be anywhere close to my league...
 3	Fireball	Shield	Sing	Make it about you	Were you trying to get my attention by copying me?	Act appalled	I can't believe you! I worked HARD ON THIS, I doubt Senpai appreciates such nastiness.
-3	Fireball	Lunge	Pull	Demean her	Look at you trying so desperately to climb out of my shadow...and still failing.		
-3	Fireball	Lunge	Shield	Done with her	I guess that could be considered a sculpture...for a loose definition of "sculpture".		
-3	Fireball	Lunge	Wallop				
-3	Fireball	Lunge	Sing			Make a scene	FINE. I guess you've declared WAR ON ME NOW.
-3	Fireball	Wallop	Pull				
-3	Fireball	Wallop	Shield				
-3	Fireball	Wallop	Lunge		Your statue is a lame imitation of mine, exactly like how you're a worse version of me.		
-3	Fireball	Wallop	Sing				
-3	Fireball	Sing	Pull	Demean her	Stop pretending that you're even in Senpai's league and leave us alone.		
-3	Fireball	Sing	Shield	Done with her	I should have known you would come back...with another annoying copy.		
-3	Fireball	Sing	Lunge				
-3	Fireball	Sing	Wallop		Let's pretend you copied my statue because you were so inspired by me.		
-3	Sing	Pull	Shield	Done with her	Yawn. You're not even worth my time...OR Senpai's.		
-3	Sing	Pull	Lunge	Call her sad	I'm used to people following me...but you make it seem sad.	Threathen violence	It's like you want me use to this statue to beat your ass.
-3	Sing	Pull	Wallop		Don't you think it's sort of pathetic how much you copy me?		
-3	Sing	Pull	Fireball	Start a rumor	WOW you art thief! This is plagarism!!! EVERYONE, THIS GIRL IS A COPY CAT.		
-3	Sing	Shield	Pull				
-3	Sing	Shield	Lunge				
-3	Sing	Shield	Wallop				
-3	Sing	Shield	Fireball		That statue won't help you...everyone says that Senpai thinks I'm great.		
-3	Sing	Lunge	Pull				
-3	Sing	Lunge	Shield				
-3	Sing	Lunge	Wallop	Gloat	I thought my sculpture was good...and then I saw yours. Now I know mine is GREAT.		
-3	Sing	Lunge	Fireball			Give disingenuous advice	You wouldn't have to try so hard to get people to like you if you were less of a bitch.
-3	Sing	Wallop	Pull				
-3	Sing	Wallop	Shield				
-3	Sing	Wallop	Lunge			Be aggressive	Fine then you must really want to lose to me...
-3	Sing	Wallop	Fireball				
-3	Sing	Fireball	Pull	Dismiss her	If only you had some talent...then you wouldn't need to copy me.		
-3	Sing	Fireball	Shield	Be snarky	Wow, how long did you work on that for? Four minutes?		
-3	Sing	Fireball	Lunge	Call her talentless	That's the worst statue I've ever seen. Exactly what I expect from a talentless hack.		
-3	Sing	Fireball	Wallop				
+3	Fireball	Lunge	Pull	Demean her	Look at you trying so desperately to climb out of my shadow...and still failing.	Demean her	You act like you're even worthy of licking my statue's boots.
+3	Fireball	Lunge	Shield	Done with her	I guess that could be considered a sculpture...for a loose definition of "sculpture".	UGH	I feel like I'm looking at a third-grade art project...
+3	Fireball	Lunge	Wallop	Brag	Stop tring to do things I'm better at, it just makes you look bad.	Grandstand	I guess not everyone can be a master like me...
+3	Fireball	Lunge	Sing	Make it about you	I KNEW you would try to sabotage my relationship with Senpai.	Make a scene	FINE. I guess you've declared WAR ON ME NOW.
+3	Fireball	Wallop	Pull	Demean her	At least you picked a cool person to imitate...even though you do it poorly.	Demean her	You having a chance? That's nothing more than a dream, honey.
+3	Fireball	Wallop	Shield	Done with her	Oh, nice attempt to make something out of play-doh.	Call her boring	I'm bored of you...let's just get this over with.
+3	Fireball	Wallop	Lunge	Call her lame	Your statue is a lame imitation of mine, exactly like how you're a worse version of me.	Call her fake	Your statue is every bit as fake as you are, bitch.
+3	Fireball	Wallop	Sing	Make it about you	Clearly you're just coping me for the attention...	Annoy her	At least my statue looks like a human, and not some weird alien thing.
+3	Fireball	Sing	Pull	Demean her	Stop pretending that you're even in Senpai's league and leave us alone.	Demean her	You shouldn't even be challenging me...and you know it.
+3	Fireball	Sing	Shield	Done with her	I should have known you would come back...with another annoying copy.	Be annoyed	Ugh I don't even have time to tell you how wrong you are...actually I DO.
+3	Fireball	Sing	Lunge	Hate on her	I can't believe you even think that shit is competition for MINE.	Threaten violence	I really wish you had been nicer to me...then I wouldn't have to DESTROY YOU.
+3	Fireball	Sing	Wallop	Grandstand	Let's pretend you copied my statue because you were so inspired by me.	Grandstand	Until you I thought I had no competition for Senpai...now I'm SURE of it.
+3	Sing	Pull	Shield	Done with her	Yawn. Your second hand ideas aren't even worth my time...OR Senpai's.	Done with her	Ugh, I'm done with this. Let's just finish it already.
+3	Sing	Pull	Lunge	Call her sad	I'm used to people following me...but you make it seem sad.	Threaten violence	It's like you want me use to this statue to beat your ass.
+3	Sing	Pull	Wallop	Disrespect her	Don't you think it's sort of pathetic how much you copy me?	Make a pun	OH, I can't WAIT to show you a LITERAL PUT DOWN.
+3	Sing	Pull	Fireball	Start a rumor	WOW you art thief! This is plagarism!!! EVERYONE, THIS GIRL IS A COPY CAT.	Throw shade	You should ask for a refund for whatever sculpting lessons you took...they clearly didn't help.
+3	Sing	Shield	Pull	Dominate her	Oh, please. That statue is like...a peasant statue compared to mine.	Dominate her	Either shut up or get ready for me to show you how inferior you REALLY are...
+3	Sing	Shield	Lunge	Call her tacky	I can't believe you think a tacky imitation will impress Senpai!	Threaten her	Ugh, just leave, before I have to make you...
+3	Sing	Shield	Wallop	Disrespect her	Calling your thing a statue is an insult to MY work of art.	Brag	I don't care what you say, everyone ELSE likes me.
+3	Sing	Shield	Fireball	Backhanded compliment	Wow, what a GREAT statue of Danny DeVito! So glad we didn't both make one of Senpai.	Be passive aggressive	That statue won't help you...everyone says that Senpai thinks I'm great.
+3	Sing	Lunge	Pull	Demean her	You have no hope of ever being worthy of being around us.	Demean her	Oh, PLEASE. You would be lucky to just share the air with Senpai and me.
+3	Sing	Lunge	Shield	Done with her	It's not even worth my time to tell you all the things wrong with that "statue"...	Be snarky	If this is your "A" game I understand why you keep failing classes.
+3	Sing	Lunge	Wallop	Gloat	I thought my sculpture was good...and then I saw yours. Now I know mine is GREAT.	I'm famous	I don't have to put up with this...everyone ELSE likes me just fine. YOU'RE the problem.
+3	Sing	Lunge	Fireball	Backhanded compliment	Oh nice gargoyle. Everyone likes those!	Give disingenuous advice	You wouldn't have to try so hard to get people to like you if you were less of a bitch.
+3	Sing	Wallop	Pull	Dominate her	I don't see why you even bother...I'm just so clearly superior!	Demean her	Please, I spit on people like you.
+3	Sing	Wallop	Shield	Done with her	Sigh. It's so exhausting to have people fawning over me like this all day...	Be snarky	I don't need to steal YOUR idea...mine are already infinitely better.
+3	Sing	Wallop	Lunge	Be aggressive	Ugh, I can't STAND copy-cats. I won't let this slide.	Be aggressive	Wow you must really want to lose to me...
+3	Sing	Wallop	Fireball	Be passive aggressive	Wow that statue is so bad I almost feel sorry for you...	Be insincere	Well at least you tried something. Even if it is GARBAGE.
+3	Sing	Fireball	Pull	Dismiss her	If only you had some talent...then you wouldn't need to copy me.	Be dismissive	Only people who are truly flawed inside act this way, you know.
+3	Sing	Fireball	Shield	Be snarky	Wow, how long did you work on that for? Four minutes?	Be annoyed	At least you can tell I put EFFORT into mine...
+3	Sing	Fireball	Lunge	Call her talentless	That's the worst statue I've ever seen. Exactly what I expect from a talentless hack.	Call her clueless	Are you completely clueless? Everyone knows this is pointless, and I'm better than you.
+3	Sing	Fireball	Wallop	Grandstand	Wow. It takes real balls to copy me so blatantly and poorly.	Gloat	Everyone loves me...and Senpai is no exception. You MUST know that.
 1	Lunge			Threaten her	You know I can kick your ass, right?	Threaten her	Are you TRYING to make me hit you right now?
 1	Lunge			Call her an idiot	Am I the only person at this school who isn't a total fucking idiot!?	Threaten to uppercut her	Bitch, I will uppercut you!
 1	Lunge			Snap at her	Don't fuck with me, bitch. You're not even close to my level!	Call her ugly	God, I thought your face was bad.  Then I heard your voice.
@@ -183,46 +183,46 @@ Scenario	Round 1 Ability	Round 2 Ability	Round 3 Ability	Blurb	Call	Response
 2	Lunge	Wallop		Disresepct her	You think Senpai wants to go out with you? Ha! You're almost as funny as that stupid cake!	Drop a poem on her	A V-Day poem: Roses are red, violets are blue, Senpai is mine, the fuck you gonna do?
 2	Wallop	Lunge		Be aggressive	Me and Senpai...it's inevitable.  Why don't you go choke on a candy heart or something?	Threaten her	Did you pour your sweat and tears into that cake?  Because I'd be happy to add your blood.
 2	Wallop	Fireball		Give insincere advice	You and Senpai? No. What about that weird kid with no eyebrows? You'd be so cute together!	Backhanded compliment	Oh my god, I love your cake! It's like the sad version of mine!
-2	Wallop	Shield		Ugh	Wait, you're here to ask out Senpai?  Ugh.  Why? You're so boring.	Be snarky	Let me know when you get a date. I'll ride my flying pig to hell and grab you a snowcone.
+2	Wallop	Shield		Ugh	Wait, you're here to ask out Senpai?  Ugh. Why? You're so boring.	Be snarky	Let me know when you get a date. I'll ride my flying pig to hell and grab you a snowcone.
 2	Wallop	Sing		Make it about you	I know you're in love with me or whatev, but I can't share Senpai.  I don't do threesomes.	Make it about you	Oh my god, did you follow me here? I had no idea you were so obsessed with me.
 2	Wallop	Pull		Assert dominance	You and Senpai? Don't waste your time, honey.  I've got Senpai wrapped around my finger.	Demean her	Honey, Senpai doesn't even know who you are.  You're just so...small...and insignificant.
-3	Lunge	Fireball	Sing	Make a scene	Oh my god! Everybody check out this bitch! She totally stole my idea! 		
-3	Lunge	Fireball	Shield 	Be sarcastic	Gross, unpopular, AND a copycat! OMG, congratulations! You are now officially the worst!		
-3	Lunge	Fireball	Pull	Dominate her	You'll regret stealing my statue idea. I swear, I will fucking break you.		
-3	Lunge	Fireball	Wallop	Gloat	You're copied me? Wow.  Even for you, that's embarrassing. Are you really that jealous?		
-3	Lunge	Shield 	Fireball	Give disingenuous advice	God.  If you're going to copy somebody, at least try to be A LITTLE subtle. It wouldn't kill you.		
-3	Lunge	Shield	Sing	Annoy her	Stop copying me.  Stop copying me. Stop copying me. Stop copying me...STOP COPYING ME!		
-3	Lunge	Shield	Pull	Be dismissive	Can't even come up with your own idea? I would find that sad if I gave a shit.		
-3	Lunge	Shield	Wallop	Disrespect her	You're copying me now? Haha! Wow! You've hit a new low, baby girl!		
-3	Lunge	Sing	Fireball	Perpetuate a rumor	Everybody says you're a wannabe loser. I guess it's true.		
-3	Lunge	Sing	Shield 	Be sarcastic	Gee! I wonder who Senpai's going to like? Me, or the girl who can't think for herself?		
-3	Lunge	Sing	Pull	Be dismissive	You copied me? Hmph! You're just a poser.		
-3	Lunge	Sing	Wallop	Gloat	So what? You just copy whatever the cool kids do?		
-3	Lunge	Pull	Fireball	Give disingenuous advice	If you can't come up with your own idea, don't just steal one. It makes you look pathetic.		
+3	Lunge	Fireball	Sing	Act appaled	Oh my god! Would you look at this bitch! She totally stole my idea! 	Flaunt popularity	Whatever! Everybody hates you, bitch!  They're going to cheer for me when I kick your ass!
+3	Lunge	Fireball	Shield 	Be sarcastic	Gross, unpopular, AND a copycat! OMG, congratulations! You are now officially the worst!	Turn it back on her	That's just what somebody who stole MY idea would say. Ugh. Fuckin' bitch.
+3	Lunge	Fireball	Pull	Dominate her	You'll regret stealing my statue idea. I swear, I will fucking break you.	Be dissmissive	I wouldn't steal an idea from YOU.  It's not worth the embarrassment.
+3	Lunge	Fireball	Wallop	Gloat	You're copied me? Wow.  Even for you, that's embarrassing. Are you really that jelly?	Swag on her	Look around you. Do you see how many how many people give a shit? Because I count zero.
+3	Lunge	Shield 	Fireball	Give disingenuous advice	God.  If you're going to copy somebody, at least try to be A LITTLE subtle about it.	Be insincere	Shh shh shh, it's okay.  I know it's a lot for your tiny brain to handle.
+3	Lunge	Shield	Sing	Annoy her	Stop copying me.  Stop copying me. Stop copying me. Stop copying me...STOP COPYING ME!	Make a scene	I didn't copy your statue!  Senpai modeled for me!  Nude! NUDE!
+3	Lunge	Shield	Pull	Be dismissive	Can't even come up with your own idea? I would find that sad if I gave a shit.	Demean her	Do you honestly think I would have to steal an idea from YOU? You're dumber than you look,
+3	Lunge	Shield	Wallop	Disrespect her	You're copying me now? Haha! Wow! You've hit a new low, baby girl!	Swag on her	Actually, I got the statue idea from a friend, but you wouldn't know about having friends.
+3	Lunge	Sing	Fireball	Perpetuate a rumor	Everybody says you're a wannabe loser. I guess it's true.	Be passive aggressive	Oh my god. Stealing your idea is a compliment!  Why are you being such a bitch about it?
+3	Lunge	Sing	Shield 	Be sarcastic	Gee! I wonder who Senpai's going to like? Me, or the girl who can't think for herself?	Provoke her	Do you, like, get off on being a bitch? Seriously, does it turn you on or something?
+3	Lunge	Sing	Pull	Be dismissive	You copied me? Hmph! You're just a poser.	Dominate her	Are you going to shut up, or am I going to have to MAKE YOU shut up?
+3	Lunge	Sing	Wallop	Gloat	So what? You just copy whatever the cool kids do?	Play it cool	You know what? I think I'll kick your ass just for the hell of it.  I've got two minutes.
+3	Lunge	Pull	Fireball	Give disingenuous advice	If you can't come up with your own idea, don't just steal one. It makes you look pathetic.	Turn people against her	I didn't need to steal your dumb fuck idea.  I can just get other people to do that for me.
 3	Lunge	Pull	Shield 	Ugh.	You stole my idea? Ugh. Are you physically incapable of having an original thought?	Provoke her	You mad? You want to hit me?  Go ahead.  Do it!  See how that plays out for you.
-3	Lunge	Pull	Sing	Cause a scene	Oh my god! Are you seriously that pathetic that you had to steal my idea?!		
-3	Lunge	Pull	Wallop	Swag on her	Honey, you get to my level by being talented, not by copying the big girls.		
-3	Lunge	Wallop	Fireball	Sarcastic comment	Wow. The way you can just unabashedly steal somebody else's idea. It's is just...so you.		
-3	Lunge	Wallop	Shield 	Be snarky	They say that imitation is the sincerest form of flattery, yet somehow I still hate you.		
-3	Lunge	Wallop	Sing	Make it about you	You can steal my idea, but you DEFINITELY can't steal my talent. Your statue sucks!		
-3	Lunge	Wallop	Pull	Act superior	I'm not surprised that you copied me.  I always knew you couldn't think for yourself.		
-3	Wallop	Lunge	Fireball	Give disingenuous advice	A little word of advice, sweetie; it's okay to be uncreative, but nobody likes a copycat.		
-3	Wallop	Lunge	Shield 	Be sarcastic	A girl who'd dare copy me? Now I've really seen everything.		
-3	Wallop	Lunge	Sing	Make it about you	Too dumb to come up with your own idea? Well, I guess you always have me to look up to.		
-3	Wallop	Lunge	Pull	Demean her	You stole my statue idea?  Hmm. I always knew you were a pathetic wannabe.		
-3	Wallop	Fireball	Lunge	Call her ugly	You made a marble statue too? Oh my god, we're like twins! You know, except I'm pretty.		
-3	Wallop	Fireball	Shield 	Be sarcastic	A marble statue of Senpai? So cool. I wonder where you got that idea.		
-3	Wallop	Fireball	Sing	Act Appaled	I can't believe you would steal my idea!  Is that what I get for being cool to you?		
-3	Wallop	Fireball	Pull	Be dissmissive	You stole my idea? God.  I'm sorry I ever deigned to talk to you.		
-3	Wallop	Shield	Lunge	Threaten violence	You know what'll be fun? Beating you to death with that ridiculous poser statue.		
-3	Wallop	Shield	Fireball	Be insincere 	It's okay if you're not clever enough to come up with your own idea.  I totally get it.		
-3	Wallop	Shield	Sing	Make it about you	I should've known you'd copy me.  Not everyone can be as clever as me.		
-3	Wallop	Shield	Pull	Be aloof	I would call your statue a pale imitation, but even that would be too generous. 		
-3	Wallop	Sing	Lunge	Get angry	I used to think it was cute how much you wanted to be me, but now it's just annoying!		
-3	Wallop	Sing	Fireball	Give disingenuous advice	I'm flattered, but your obsession with me is really unhealthy. You should do you.		
-3	Wallop	Sing	Shield 	So done with her	Wow, I know you're obsessed with me, but copying me? It's starting to get creepy.		
-3	Wallop	Sing	Pull	Demean her	You're copying me now?  Are you really that pathetic?		
-3	Wallop	Pull	Lunge	Be cutting	You stole my idea? Are you jealous, or are you just too stupid to come up with your own?		
-3	Wallop	Pull	Fireball	Turn people against her	I'm going to tell the whole school you stole my idea, and you know they'll believe me.		
-3	Wallop	Pull	Shield 	Be sarcastic	Oh look! The little nobody stole my idea! Oh wow, how flattering.		
-3	Wallop	Pull	Sing	Flaunt your popularity	Oh sure! Steal an idea from the most popular girl in school! That's a good look!	Flaunt your popularity	This whole school worships me and so does Senpai!  I don't care what you say about me!
+3	Lunge	Pull	Sing	Act appalled	Oh my god! Are you seriously that pathetic that you had to steal my idea?!	Flip out	You want to mess with me, bitch?! I will make your life a living hell!
+3	Lunge	Pull	Wallop	Swag on her	Honey, you get to my level by being talented, not by copying the big girls.	Swag on her	I should keep a mic on me. I'm always looking for something drop on bitches like you.
+3	Lunge	Wallop	Fireball	Throw shade	Wow. The way you can just unabashedly steal somebody else's idea. It's is just...so you.	Be insincere	Oh my god, are you going to cry? Aw, it's okay, baby.  Let it all out.
+3	Lunge	Wallop	Shield 	Be snarky	They say that imitation is the sincerest form of flattery, yet somehow I still hate you.	Be cheeky	Oh yeah? You think you can back up those accusations with facts?...or fists?
+3	Lunge	Wallop	Sing	Make it about you	You can steal my idea, but you DEFINITELY can't steal my talent. Your statue sucks!	Make a scene	Hey everybody! Who wants to come to the roof and watch me kick this bitch's ass?
+3	Lunge	Wallop	Pull	Act superior	I'm not surprised that you copied me.  I always knew you couldn't think for yourself.	Demean her	Now you're REALLY aggravating me. I think it's about time I crushed this little bug.
+3	Wallop	Lunge	Fireball	Give disingenuous advice	A little word of advice, sweetie; it's okay to be uncreative, but nobody likes a copycat.	Throw shade	Honey, you're not flattering yourself with all that complaining. So embarrassing.
+3	Wallop	Lunge	Shield 	Be sarcastic	A girl who'd dare copy me? Now I've really seen everything.	Be snarky	Oh, damn. Looks like I'm fresh out of fucks to give. Sorry about that.
+3	Wallop	Lunge	Sing	Make it about you	Too dumb to come up with your own idea? Well, I guess you always have me to look up to.	Act offended	YOU are accusing ME?! UGH! That is IT! You're dead bitch!
+3	Wallop	Lunge	Pull	Demean her	You stole my statue idea?  Hmm. I always knew you were a pathetic wannabe.	Dominate her	No, please, keep yapping.  It'll be all the more satisfying when I grind you into the dirt.
+3	Wallop	Fireball	Lunge	Call her ugly	You made a marble statue too? Oh my god, we're like twins! You know, except I'm pretty.	Get angry	Ugh! I'm done being cute with you.  I think I'm just going to kick your ass now.
+3	Wallop	Fireball	Shield 	Be sarcastic	A marble statue of Senpai? So cool. I wonder where you got THAT idea.	Be sarcastic	Oh my god, you're so totally right.  I DEFINITELY copied your sad little garbage pile.
+3	Wallop	Fireball	Sing	Act Appaled	I can't believe you would steal my idea!  Is that what I get for being nice to you?	Be annoying	Oh? AHHH HAHAHAHAHAHAHAHAHA!!! I'm sorry! You're just so cute when you're mad!
+3	Wallop	Fireball	Pull	Be dissmissive	You stole my idea? Hmph.  I'm sorry I ever deigned to talk to you.	Be dissmissive	I don't know why I tried to be nice to you.  You're just a pathetic loser.
+3	Wallop	Shield	Lunge	Threaten violence	You know what'll be fun? Beating you to death with that ridiculous poser statue.	Threaten violence	*sigh* I tried to be civil, but..now I'm going to have to throw you off the fucking roof.
+3	Wallop	Shield	Fireball	Be insincere 	It's okay if you're not clever enough to come up with your own idea.  I totally get it.	Throw shade	Of course I didn't copy your statue.  MY statue actually looks like Senpai.
+3	Wallop	Shield	Sing	Make it about you	I should've known you'd copy me.  Not everyone can be as clever as me.	Annoy her	I CAN SCREAM LOUDER THAN YOU!!!!
+3	Wallop	Shield	Pull	Be aloof	I would call your statue a pale imitation, but even that would be too generous. 	Belittle her	Is that all? Ha! I should have known not to expect anything intelligent from you.
+3	Wallop	Sing	Lunge	Get angry	I used to think it was cute how much you wanted to be me, but now it's just annoying!	Threaten her	God! Leave me alone! Am I going to have to choke a bitch?!
+3	Wallop	Sing	Fireball	Give disingenuous advice	I'm flattered, but your obsession with me is really unhealthy. You should do you.	Give disingenuous advice	You shouldn't throw around false accusations.  It makes you look desperate.
+3	Wallop	Sing	Shield 	So done with her	Wow, I know you're obsessed with me, but copying me? It's starting to get creepy.	Turn it back on her	Uh, you definitely copied ME.  Oh my god, stop stalking me! I swear I'll call the cops!
+3	Wallop	Sing	Pull	Demean her	You're copying me now?  Are you really that pathetic?	Act superior	I didn't steal your stupid idea.  I wouldn't deign you with that kind of honor.
+3	Wallop	Pull	Lunge	Be cutting	You stole my idea? Are you jealous, or are you just too stupid to come up with your own?	Threaten her	I'm going to have to curb stomp you, aren't I? God, I hate getting my shoes dirty.
+3	Wallop	Pull	Fireball	Turn people against her	I'm going to tell the whole school you stole my idea, and you know they'll believe me.	Turn people against her	You do know that I can snap my fingers and turn this whole school against you, right?
+3	Wallop	Pull	Shield 	Be sarcastic	Oh look! The little nobody stole my idea! Oh, how flattering!	Be snarky	I'm sorry, were you talking to me? I don't speak plebe.
+3	Wallop	Pull	Sing	Flaunt your popularity	Oh sure! Steal an idea from the most popular girl in school! That's a good look!	Flaunt your popularity	This whole school worships me.  Why should I care what you say about me?

@@ -23,11 +23,13 @@ public class FightSceneManager : MonoBehaviour {
     public Player fallenPlayer;
     public int fallDamage;
     public float fallAnimationTime;
-    private int roundNum;
+    public int roundNum;
+    public bool lastComic;
 
 	// Use this for initialization
 	void Start () {
         roundNum = 1;
+        lastComic = false;
         SetUpArenas();
         InitiateFightSequence();
 	}
@@ -81,6 +83,11 @@ public class FightSceneManager : MonoBehaviour {
         Services.EventManager.Fire(new GameOver(fallenPlayer));
     }
 
+    void LastComic()
+    {
+        lastComic = true;
+    }
+
     void IncrementRoundNum()
     {
         roundNum += 1;
@@ -106,9 +113,6 @@ public class FightSceneManager : MonoBehaviour {
 
         player1.GetComponent<SpriteRenderer>().enabled = true;
         player2.GetComponent<SpriteRenderer>().enabled = true;
-
-        fallenPlayer.TakeHit(fallDamage, 0, 0, Vector3.zero);
-
     }
 
     void InitiateFightSequence()
@@ -136,7 +140,16 @@ public class FightSceneManager : MonoBehaviour {
         ActionTask positionPlayersForHell = new ActionTask(PositionPlayers);
         WaitForFall waitForHellFall = new WaitForFall();
         PlayerFallAnimation hellFallAnimation = new PlayerFallAnimation();
+        Task winComic = ComicSequence(hellFallAnimation,
+            Services.TransitionComicManager.winComic.transform,
+            new Vector2[,]
+            {
+                {1600 * Vector2.left, 1600 * Vector2.right },
+                {1600 * Vector2.left, 1600 * Vector2.right }
+            },
+            hellArena, null);
         ActionTask gameOver = new ActionTask(GameOver);
+        winComic.Then(gameOver);
 
         initializePlayersForRooftop
             .Then(waitForRooftopFall)
@@ -150,8 +163,7 @@ public class FightSceneManager : MonoBehaviour {
         transitionToHell
             .Then(positionPlayersForHell)
             .Then(waitForHellFall)
-            .Then(hellFallAnimation)
-            .Then(gameOver);
+            .Then(hellFallAnimation);
 
         Services.TaskManager.AddTask(initializePlayersForRooftop);
     }
@@ -177,7 +189,7 @@ public class FightSceneManager : MonoBehaviour {
             int numPanels = page.childCount;
             for (int j = 0; j < numPanels; j++)
             {
-                SetPanelImage setPanelImage = new SetPanelImage(page.GetChild(j).gameObject, j, newArena);
+                SetPanelImage setPanelImage = new SetPanelImage(page.GetChild(j).gameObject, j, i, newArena);
                 SlideInPanel slideInPanel = new SlideInPanel(page.GetChild(j).gameObject, true, shifts[i, j],
                     Services.TransitionComicManager.panelAppearTime);
                 currentTask
@@ -185,21 +197,30 @@ public class FightSceneManager : MonoBehaviour {
                     .Then(slideInPanel);
                 currentTask = slideInPanel;
             }
+            if ((i == numPages -1) && (newArena == null))
+            {
+                ActionTask itsTheLastComic = new ActionTask(LastComic);
+                currentTask.Then(itsTheLastComic);
+                currentTask = itsTheLastComic;
+            }
             WaitToContinueFromComic waitToContinue = new WaitToContinueFromComic(page.gameObject,
                 Services.TransitionComicManager.continueButton, Services.TransitionComicManager.continuePromptGrowTime, 
                 Services.TransitionComicManager.continuePromptShrinkTime);
             currentTask.Then(waitToContinue);
             currentTask = waitToContinue;
         }
-        Task turnOnNextArena = new SetObjectStatus(true, newArena);
-        SetObjectStatus turnOffBackground = new SetObjectStatus(false, Services.TransitionComicManager.comicBackground);
-        ActionTask incrementRoundNum = new ActionTask(IncrementRoundNum);
-        currentTask
-            .Then(turnOnNextArena)
-            .Then(turnOffBackground)
-            .Then(incrementRoundNum);
-        currentTask = incrementRoundNum;
-
+        if (newArena != null)
+        {
+            Task turnOnNextArena = new SetObjectStatus(true, newArena);
+            SetObjectStatus turnOffBackground = new SetObjectStatus(false, Services.TransitionComicManager.comicBackground);
+            ActionTask incrementRoundNum = new ActionTask(IncrementRoundNum);
+            currentTask
+                .Then(turnOnNextArena)
+                .Then(turnOffBackground)
+                .Then(incrementRoundNum);
+            currentTask = incrementRoundNum;
+        }
+        
         return currentTask;
     }
 

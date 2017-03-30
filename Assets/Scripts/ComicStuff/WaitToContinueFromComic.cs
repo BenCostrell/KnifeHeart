@@ -68,8 +68,16 @@ public class WaitToContinueFromComic : Task {
 
     protected override void OnSuccess()
     {
+        bool lastComic = false;
         Services.EventManager.Unregister<ButtonPressed>(Continue);
-        comicPage.SetActive(false);
+        if (Services.FightSceneManager != null)
+        {
+            lastComic = Services.FightSceneManager.lastComic;
+        }
+        if (!lastComic)
+        {
+            comicPage.SetActive(false);
+        }
         continueButton.SetActive(false);
     }
 }

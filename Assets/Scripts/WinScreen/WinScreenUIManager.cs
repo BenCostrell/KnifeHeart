@@ -6,6 +6,7 @@ public class WinScreenUIManager : MonoBehaviour {
 	public GameObject ponytail;
 	public GameObject pigtails;
 	public GameObject resetText;
+    public GameObject uiResetText;
 
 	public Sprite ponytailWinSprite;
 	public Sprite ponytailLoseSprite;
@@ -25,6 +26,7 @@ public class WinScreenUIManager : MonoBehaviour {
 		ponytail.SetActive (false);
 		pigtails.SetActive (false);
 		resetText.SetActive (false);
+        uiResetText.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -34,7 +36,7 @@ public class WinScreenUIManager : MonoBehaviour {
 
 	void StartWinScreenSequence(GameOver e){
 		Services.EventManager.Unregister<GameOver> (StartWinScreenSequence);
-		if (e.losingPlayer.playerNum == 1) {
+        /*if (e.losingPlayer.playerNum == 1) {
 			winningPlayerNum = 2;
 		} else {
 			winningPlayerNum = 1;
@@ -48,6 +50,11 @@ public class WinScreenUIManager : MonoBehaviour {
 			.Then (slideInWinScreenSprites)
 			.Then (highlightWinner);
 
-		Services.TaskManager.AddTask (slideOutFightUI);
+		Services.TaskManager.AddTask (slideOutFightUI);*/
+
+        SetObjectStatus turnOnResetText = new SetObjectStatus(true, uiResetText);
+
+        Services.TaskManager.AddTask(turnOnResetText);
+
 	}
 }

@@ -7,11 +7,19 @@ public class TransitionComicManager : MonoBehaviour {
     public GameObject comicBackground;
     public GameObject transitionToParkingLot;
     public GameObject transitionToHell;
+    public GameObject winComic;
     public GameObject continueButton;
     public Sprite[] transitionToParkingLotImagesPigtailsWins;
     public Sprite[] transitionToParkingLotImagesPonytailWins;
     public Sprite[] transitionToHellImagesPigtailsWins;
     public Sprite[] transitionToHellImagesPonytailWins;
+    public List<Sprite> winComicPigtailsWinsPage1;
+    public List<Sprite> winComicPigtailsWinsPage2;
+    public List<Sprite> winComicPonytailWinsPage1;
+    public List<Sprite> winComicPonytailWinsPage2;
+
+    public List<List<Sprite>> winComicPigtailsWins;
+    public List<List<Sprite>> winComicPonytailWins;
 
     public float panelAppearTime;
     public float continuePromptGrowTime;
@@ -20,6 +28,12 @@ public class TransitionComicManager : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        winComicPigtailsWins = new List<List<Sprite>>();
+        winComicPigtailsWins.Add(winComicPigtailsWinsPage1);
+        winComicPigtailsWins.Add(winComicPigtailsWinsPage2);
+        winComicPonytailWins = new List<List<Sprite>>();
+        winComicPonytailWins.Add(winComicPonytailWinsPage1);
+        winComicPonytailWins.Add(winComicPonytailWinsPage2);
         TurnOffComicPanels();
     }
 
@@ -39,6 +53,10 @@ public class TransitionComicManager : MonoBehaviour {
             t.gameObject.SetActive(false);
         }
         foreach (Transform t in transitionToHell.GetComponentsInChildren<Transform>())
+        {
+            t.gameObject.SetActive(false);
+        }
+        foreach (Transform t in winComic.GetComponentsInChildren<Transform>())
         {
             t.gameObject.SetActive(false);
         }
