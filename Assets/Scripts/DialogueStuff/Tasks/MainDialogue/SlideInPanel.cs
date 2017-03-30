@@ -11,17 +11,17 @@ public class SlideInPanel : Task {
     private Vector2 initialPos;
     private RectTransform rectTransform;
 
-    public SlideInPanel(GameObject _panel, bool _slide, Vector2 shiftAmount)
+    public SlideInPanel(GameObject _panel, bool _slide, Vector2 shiftAmount, float dur)
     {
         panel = _panel;
         slide = _slide;
         slideVector = shiftAmount;
+        duration = dur;
     }
 
     protected override void Init()
     {
         timeElapsed = 0;
-        duration = Services.ComicPanelManager.panelAppearTime;
         rectTransform = panel.GetComponent<RectTransform>();
         initialPos = rectTransform.anchoredPosition;
         panel.SetActive(true);

@@ -95,7 +95,8 @@ public class VisualNovelSceneManager : MonoBehaviour {
 
     Task ComicSequence(Task precedingTask, Transform scenarioTransform, Vector2[,] shifts)
     {
-        SlideInPanel slideInComicBackground = new SlideInPanel(Services.ComicPanelManager.comicBackground, true, 1600 * Vector2.right);
+        SlideInPanel slideInComicBackground = new SlideInPanel(Services.ComicPanelManager.comicBackground, true, 1600 * Vector2.right,
+            Services.ComicPanelManager.panelAppearTime);
         Task turnOffStartScreen = new SetObjectStatus(false, Services.DialogueUIManager.startScreen);
         SetObjectStatus turnOnScenario = new SetObjectStatus(true, scenarioTransform.gameObject);
         precedingTask
@@ -113,11 +114,13 @@ public class VisualNovelSceneManager : MonoBehaviour {
             int numPanels = page.childCount;
             for (int j = 0; j < numPanels; j++)
             {
-                SlideInPanel slideInPanel = new SlideInPanel(page.GetChild(j).gameObject, true, shifts[i,j]);
+                SlideInPanel slideInPanel = new SlideInPanel(page.GetChild(j).gameObject, true, shifts[i, j], 
+                    Services.ComicPanelManager.panelAppearTime);
                 currentTask.Then(slideInPanel);
                 currentTask = slideInPanel;
             }
-            WaitToContinueFromComic waitToContinue = new WaitToContinueFromComic(page.gameObject);
+            WaitToContinueFromComic waitToContinue = new WaitToContinueFromComic(page.gameObject, Services.ComicPanelManager.continueButton,
+                Services.TransitionUIManager.readyPromptGrowTime, Services.TransitionUIManager.readyPromptShrinkTime);
             currentTask.Then(waitToContinue);
             currentTask = waitToContinue;
         }

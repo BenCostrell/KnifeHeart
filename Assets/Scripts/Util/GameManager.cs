@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour {
 		Services.FightSceneManager = GameObject.FindGameObjectWithTag ("FightSceneManager").GetComponent<FightSceneManager> ();
 		Services.FightUIManager = GameObject.FindGameObjectWithTag ("FightUIManager").GetComponent<FightUIManager> ();
 		Services.WinScreenUIManager = GameObject.FindGameObjectWithTag ("WinScreenUIManager").GetComponent<WinScreenUIManager> ();
+        Services.TransitionComicManager = GameObject.FindGameObjectWithTag("TransitionComicManager").GetComponent<TransitionComicManager>();
 	}
 
 	void Reset(Reset e){

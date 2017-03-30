@@ -6,17 +6,23 @@ public class WaitToContinueFromComic : Task {
     private GameObject comicPage;
     private bool grow;
     private float scaleTime;
+    private float growTime;
+    private float shrinkTime;
+    GameObject continueButton;
 
-    public WaitToContinueFromComic(GameObject page)
+    public WaitToContinueFromComic(GameObject page, GameObject contButton, float grwTime, float shrnkTime)
     {
         comicPage = page;
+        continueButton = contButton;
+        growTime = grwTime;
+        shrinkTime = shrnkTime;
     }
 
 
     protected override void Init()
     {
         Services.EventManager.Register<ButtonPressed>(Continue);
-        Services.ComicPanelManager.continueButton.SetActive(true);
+        continueButton.SetActive(true);
         grow = true;
         scaleTime = 0;
     }
@@ -29,20 +35,20 @@ public class WaitToContinueFromComic : Task {
         float easedTime;
         if (grow)
         {
-            totalScaleTime = Services.TransitionUIManager.readyPromptGrowTime;
+            totalScaleTime = growTime;
             startScale = Vector3.one;
             targetScale = 1.2f * Vector3.one;
             easedTime = Easing.ExpoEaseOut(scaleTime / totalScaleTime);
         }
         else {
-            totalScaleTime = Services.TransitionUIManager.readyPromptShrinkTime;
+            totalScaleTime = shrinkTime;
             startScale = 1.2f * Vector3.one;
             targetScale = Vector3.one;
             easedTime = Easing.QuadEaseOut(scaleTime / totalScaleTime);
         }
         if (scaleTime < totalScaleTime)
         {
-            Services.ComicPanelManager.continueButton.transform.localScale = Vector3.Lerp(startScale, targetScale, easedTime);
+            continueButton.transform.localScale = Vector3.Lerp(startScale, targetScale, easedTime);
         }
         else {
             grow = !grow;
@@ -64,6 +70,6 @@ public class WaitToContinueFromComic : Task {
     {
         Services.EventManager.Unregister<ButtonPressed>(Continue);
         comicPage.SetActive(false);
-        Services.ComicPanelManager.continueButton.SetActive(false);
+        continueButton.SetActive(false);
     }
 }

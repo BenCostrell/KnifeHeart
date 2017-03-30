@@ -22,12 +22,6 @@ public class Player : MonoBehaviour {
 
 	public List <Ability.Type> abilitiesOnCooldown;
 
-    AudioSource audioSource;
-    AudioClip audioClip;
-
-    public AudioClip player1Died;
-    public AudioClip player2Died;
-
     // Use this for initialization
     void Start () {
 		rb = GetComponent<Rigidbody2D> ();
@@ -36,11 +30,9 @@ public class Player : MonoBehaviour {
 
 		abilitiesOnCooldown = new List<Ability.Type> ();
 
-        audioSource = Camera.main.GetComponent<AudioSource>();
-        audioClip = Camera.main.GetComponent<AudioClip>();
-
 		StartListeningForInput ();
 		Services.EventManager.Register<GameOver> (OnGameOver);
+        Services.EventManager.Register<PlayerFall>(OnPlayerFall);
 	}
 	
 	// Update is called once per frame
@@ -105,11 +97,15 @@ public class Player : MonoBehaviour {
 	void OnGameOver(GameOver e){
 		rb.velocity = Vector3.zero;
 		StopListeningForInput ();
+        if (e.losingPlayer == this)
+        {
+            sr.enabled = false;
+        }
 	}
 
 	void OnTriggerExit2D(Collider2D collider){
 		if (collider.tag == "Arena"){
-			Die ();
+			Fall ();
 		}
 	}
 
@@ -155,23 +151,13 @@ public class Player : MonoBehaviour {
 	}
 
 
-	void Die(){
-		Services.EventManager.Unregister<GameOver> (OnGameOver);
-		Services.EventManager.Fire (new GameOver (this));
-		StopListeningForInput ();
-        if (gameObject == Services.FightSceneManager.player1)
-        {
-            Debug.Log("player 1 died");
-            audioSource.clip = player1Died;
-            audioSource.Play();
-        }
-        else if (gameObject == Services.FightSceneManager.player2)
-        {
-            Debug.Log("player 2 died");
-            audioSource.clip = player2Died;
-            audioSource.Play();
-        }
-		Destroy (gameObject);
+	void Fall(){
+		Services.EventManager.Fire (new PlayerFall (this));
+    }
+
+    void OnPlayerFall(PlayerFall e)
+    {
+        StopListeningForInput();
     }
 
 	public void TakeHit(int damageTaken, float baseKnockback, float knockbackGrowth, Vector3 knockbackDirection){

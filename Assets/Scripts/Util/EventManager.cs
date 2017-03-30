@@ -29,6 +29,15 @@ public class PlayerHooked : Event {
 
 public class Reset : Event {}
 
+public class PlayerFall : Event
+{
+    public Player fallenPlayer;
+    public PlayerFall(Player fallenPl)
+    {
+        fallenPlayer = fallenPl;
+    }
+}
+
 public class GameOver : Event {
 	public Player losingPlayer;
 	public GameOver(Player loser){
