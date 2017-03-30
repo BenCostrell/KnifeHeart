@@ -1010,6 +1010,65 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 585282262}
+--- !u!1 &624203856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 624203857}
+  - component: {fileID: 624203858}
+  m_Layer: 0
+  m_Name: DeathZone
+  m_TagString: DeathZone
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &624203857
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 624203856}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1185692028}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &624203858
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 624203856}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: 4.5001903, y: 1.649832}
+  - {x: 0.9628943, y: -0.18406378}
+  - {x: 0.26044157, y: -1.8912063}
+  - {x: 1.5359561, y: -3.5877147}
+  - {x: 3.1593082, y: -4.591526}
+  - {x: 3.5395536, y: -6.1803355}
+  - {x: 7.261872, y: -8.068713}
+  - {x: 9.4870615, y: -7.759942}
+  - {x: 11.664482, y: -4.834223}
+  - {x: 13.095918, y: -3.4814122}
+  - {x: 13.611077, y: -2.5887237}
+  - {x: 12.656258, y: -2.1731098}
+  - {x: 10.827179, y: -2.7809465}
+  - {x: 8.969528, y: -2.2887032}
+  - {x: 8.260318, y: -0.87941575}
+  - {x: 7.2307487, y: 0.80885094}
+  - {x: 4.572352, y: 1.7345228}
 --- !u!1 &625299403
 GameObject:
   m_ObjectHideFlags: 0
@@ -2365,9 +2424,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -0.7}
+  m_Offset: {x: 0, y: -0.61160463}
   serializedVersion: 2
-  m_Size: {x: 38.5, y: 24}
+  m_Size: {x: 38.5, y: 26.121477}
 --- !u!212 &1019953968
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2710,7 +2769,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1185692028}
   - component: {fileID: 1185692030}
-  - component: {fileID: 1185692029}
   m_Layer: 0
   m_Name: ParkingLot
   m_TagString: Arena
@@ -2729,47 +2787,10 @@ Transform:
   m_LocalScale: {x: 0.52, y: 0.52, z: 1}
   m_Children:
   - {fileID: 1860949178}
+  - {fileID: 624203857}
   m_Father: {fileID: 1644821300}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &1185692029
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1185692027}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  m_Points:
-  - {x: -21.316687, y: -17.413763}
-  - {x: -21.273514, y: 11.1304455}
-  - {x: 4.4870214, y: 11.153146}
-  - {x: 4.5206375, y: 5.5648856}
-  - {x: -2.1017015, y: 2.7648292}
-  - {x: -3.0481195, y: -1.7877802}
-  - {x: -1.6007926, y: -5.1109753}
-  - {x: 1.1639484, y: -6.4692755}
-  - {x: 1.4986694, y: -8.272501}
-  - {x: 5.7085958, y: -10.042481}
-  - {x: 7.808923, y: -10.592301}
-  - {x: 9.024055, y: -9.689722}
-  - {x: 11.42921, y: -8.835088}
-  - {x: 13.719514, y: -6.101948}
-  - {x: 15.708099, y: -3.7661238}
-  - {x: 16.087652, y: -0.7951395}
-  - {x: 13.094012, y: 1.145489}
-  - {x: 11.065163, y: 0.95679635}
-  - {x: 10.538756, y: 1.2839284}
-  - {x: 10.018714, y: 3.438961}
-  - {x: 4.9168434, y: 5.6830072}
-  - {x: 4.824229, y: 11.125921}
-  - {x: 30.518955, y: 11.130103}
-  - {x: 30.823347, y: -17.14516}
-  - {x: -21.499632, y: -17.144485}
 --- !u!212 &1185692030
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3022,7 +3043,8 @@ MonoBehaviour:
   parkingLotArena: {fileID: 1185692027}
   hellArena: {fileID: 1019953965}
   fallenPlayer: {fileID: 0}
-  fallDamage: 50
+  fallDamage: 20
+  fallAnimationTime: 0.7
 --- !u!4 &1274177485
 Transform:
   m_ObjectHideFlags: 0
@@ -3577,7 +3599,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1860949177}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 31ffdd8f3c3b5bb4aae88b5062378422, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 5, y: -20}
@@ -3591,7 +3613,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1860949177}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 31ffdd8f3c3b5bb4aae88b5062378422, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 33.8, y: -2.5}
@@ -3605,7 +3627,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1860949177}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 31ffdd8f3c3b5bb4aae88b5062378422, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 5, y: 15}
@@ -3619,7 +3641,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1860949177}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 31ffdd8f3c3b5bb4aae88b5062378422, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: -24.4, y: -2.5}
@@ -3735,9 +3757,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: 0, y: -0.28141212}
   serializedVersion: 2
-  m_Size: {x: 32, y: 21.5}
+  m_Size: {x: 32, y: 24.533718}
 --- !u!1 &2118595408
 GameObject:
   m_ObjectHideFlags: 0

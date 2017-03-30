@@ -22,6 +22,7 @@ public class FightSceneManager : MonoBehaviour {
 
     public Player fallenPlayer;
     public int fallDamage;
+    public float fallAnimationTime;
     private int roundNum;
 
 	// Use this for initialization
@@ -103,6 +104,9 @@ public class FightSceneManager : MonoBehaviour {
         player1.GetComponent<Player>().StartListeningForInput();
         player2.GetComponent<Player>().StartListeningForInput();
 
+        player1.GetComponent<SpriteRenderer>().enabled = true;
+        player2.GetComponent<SpriteRenderer>().enabled = true;
+
         fallenPlayer.TakeHit(fallDamage, 0, 0, Vector3.zero);
 
     }
@@ -111,7 +115,8 @@ public class FightSceneManager : MonoBehaviour {
     {
         ActionTask initializePlayersForRooftop = new ActionTask(InitializePlayers);
         WaitForFall waitForRooftopFall = new WaitForFall();
-        Task transitionToParkingLot = ComicSequence(waitForRooftopFall, 
+        PlayerFallAnimation rooftopFallAnimation = new PlayerFallAnimation();
+        Task transitionToParkingLot = ComicSequence(rooftopFallAnimation, 
             Services.TransitionComicManager.transitionToParkingLot.transform,
             new Vector2[,]
             {
@@ -120,7 +125,8 @@ public class FightSceneManager : MonoBehaviour {
             rooftopArena, parkingLotArena);
         ActionTask positionPlayersForParkingLot = new ActionTask(PositionPlayers);
         WaitForFall waitForParkingLotFall = new WaitForFall();
-        Task transitionToHell = ComicSequence(waitForParkingLotFall,
+        PlayerFallAnimation parkingLotFallAnimation = new PlayerFallAnimation();
+        Task transitionToHell = ComicSequence(parkingLotFallAnimation,
             Services.TransitionComicManager.transitionToHell.transform,
             new Vector2[,]
             {
@@ -129,18 +135,22 @@ public class FightSceneManager : MonoBehaviour {
             parkingLotArena, hellArena);
         ActionTask positionPlayersForHell = new ActionTask(PositionPlayers);
         WaitForFall waitForHellFall = new WaitForFall();
+        PlayerFallAnimation hellFallAnimation = new PlayerFallAnimation();
         ActionTask gameOver = new ActionTask(GameOver);
 
         initializePlayersForRooftop
-            .Then(waitForRooftopFall);
+            .Then(waitForRooftopFall)
+            .Then(rooftopFallAnimation);
 
         transitionToParkingLot
             .Then(positionPlayersForParkingLot)
-            .Then(waitForParkingLotFall);
+            .Then(waitForParkingLotFall)
+            .Then(parkingLotFallAnimation);
 
         transitionToHell
             .Then(positionPlayersForHell)
             .Then(waitForHellFall)
+            .Then(hellFallAnimation)
             .Then(gameOver);
 
         Services.TaskManager.AddTask(initializePlayersForRooftop);

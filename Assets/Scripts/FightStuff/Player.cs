@@ -103,12 +103,6 @@ public class Player : MonoBehaviour {
         }
 	}
 
-	void OnTriggerExit2D(Collider2D collider){
-		if (collider.tag == "Arena"){
-			Fall ();
-		}
-	}
-
 	public void ResetToNeutral(){
 		anim.SetTrigger ("ResetToNeutral");
 		isInvulnerable = false;
@@ -151,8 +145,9 @@ public class Player : MonoBehaviour {
 	}
 
 
-	void Fall(){
-		Services.EventManager.Fire (new PlayerFall (this));
+	public void Fall(){
+        rb.velocity *= 0.5f;
+        Services.EventManager.Fire (new PlayerFall (this));
     }
 
     void OnPlayerFall(PlayerFall e)

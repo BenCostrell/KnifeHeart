@@ -15,6 +15,7 @@ TagManager:
   - WinScreenUIManager
   - ComicPanelManager
   - TransitionComicManager
+  - DeathZone
   layers:
   - Default
   - TransparentFX
