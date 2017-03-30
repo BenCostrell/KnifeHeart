@@ -5,7 +5,8 @@ using System.Linq;
 
 public class DialogueDataManager {
 
-	private Dictionary<List<Ability.Type>,List<Dialogue>> dialogueDict;
+	private Dictionary<List<Ability.Type>,List<Dialogue>> callDialogueDict;
+    private Dictionary<List<Ability.Type>, List<Dialogue>> responseDialogueDict;
     private Dictionary<string[], string[]> rpsDialogueDict;
 
 	private class ListComparer<T> : IEqualityComparer<List<T>>{
@@ -72,39 +73,44 @@ public class DialogueDataManager {
     }
 
     public void ParseDialogueFile(TextAsset dialogueFile){
-		dialogueDict = new Dictionary<List<Ability.Type>, List<Dialogue>> (new ListComparer<Ability.Type>());
-		string fileFullString = dialogueFile.text;
+		callDialogueDict = new Dictionary<List<Ability.Type>, List<Dialogue>> (new ListComparer<Ability.Type>());
+        responseDialogueDict = new Dictionary<List<Ability.Type>, List<Dialogue>>(new ListComparer<Ability.Type>());
+        string fileFullString = dialogueFile.text;
 		string[] fileLines;
 		string[] lineEntries;
 		string fileLine;
 		string[] lineSeparator = new string[] { "\r\n", "\r", "\n" };
 		char[] entrySeparator = new char[] { '\t' };
 		fileLines = fileFullString.Split (lineSeparator, System.StringSplitOptions.None);
-		for (int i = 1; i < fileLines.Length; i++) {
+		for (int i = 6; i < fileLines.Length; i++) {
 			fileLine = fileLines [i];
 			lineEntries = fileLine.Split (entrySeparator);
 			List<Ability.Type> abilityList = new List<Ability.Type> ();
-			abilityList.Add(GetAbilityTypeFromString(lineEntries[0]));
-			if (lineEntries [1] != "") {
-				abilityList.Add (GetAbilityTypeFromString (lineEntries [1]));
-				if (lineEntries [2] != "") {
-					abilityList.Add (GetAbilityTypeFromString (lineEntries [2]));
+			abilityList.Add(GetAbilityTypeFromString(lineEntries[1]));
+			if (lineEntries [2] != "") {
+				abilityList.Add (GetAbilityTypeFromString (lineEntries [2]));
+				if (lineEntries [3] != "") {
+					abilityList.Add (GetAbilityTypeFromString (lineEntries [3]));
 				}
 			}
-			string blurbText = lineEntries [3];
-			string mainText = lineEntries [4];
-			Dialogue dialogue = new Dialogue (mainText, blurbText, abilityList [abilityList.Count - 1]);
-			AddDialogueEntry (abilityList, dialogue);
+			string callBlurbText = lineEntries [4];
+			string callMainText = lineEntries [5];
+            string responseBlurbText = lineEntries[6];
+            string responseMainText = lineEntries[7];
+			Dialogue callDialogue = new Dialogue (callMainText, callBlurbText, abilityList [abilityList.Count - 1]);
+            Dialogue responseDialogue = new Dialogue(responseMainText, responseBlurbText, abilityList[abilityList.Count - 1]);
+            AddDialogueEntry(abilityList, callDialogue, callDialogueDict);
+            AddDialogueEntry(abilityList, responseDialogue, responseDialogueDict);
 		}
 	}
 
-	void AddDialogueEntry(List<Ability.Type> abilityList, Dialogue newDialogue){
-		if (dialogueDict.ContainsKey (abilityList)) {
-			dialogueDict [abilityList].Add (newDialogue);
+	void AddDialogueEntry(List<Ability.Type> abilityList, Dialogue newDialogue, Dictionary<List<Ability.Type>, List<Dialogue>> dict){
+        if (dict.ContainsKey (abilityList)) {
+			dict [abilityList].Add (newDialogue);
 		} else {
 			List<Dialogue> dialogueList = new List<Dialogue> ();
 			dialogueList.Add (newDialogue);
-			dialogueDict.Add (abilityList, dialogueList);
+			dict.Add (abilityList, dialogueList);
 		}
 	}
 
@@ -134,9 +140,18 @@ public class DialogueDataManager {
         return rpsDialogueDict[key];
     }
 
-	public Dialogue GetDialogue (List<Ability.Type> abilityList){
-		if (dialogueDict.ContainsKey (abilityList)) {
-			List<Dialogue> possibleDialogueOptions = dialogueDict [abilityList];
+	public Dialogue GetDialogue (List<Ability.Type> abilityList, bool call){
+        Dictionary<List<Ability.Type>, List<Dialogue>> dict;
+        if (call)
+        {
+            dict = callDialogueDict;
+        }
+        else
+        {
+            dict = responseDialogueDict;
+        }
+        if (dict.ContainsKey (abilityList)) {
+			List<Dialogue> possibleDialogueOptions = dict [abilityList];
 			int index = Random.Range (0, possibleDialogueOptions.Count);
 			return possibleDialogueOptions[index];
 		} else {
@@ -148,24 +163,24 @@ public class DialogueDataManager {
 		}
 	}
 
-	public Dialogue GetDialogue(Ability.Type stage1Ability){
+	public Dialogue GetDialogue(Ability.Type stage1Ability, bool call){
 		List<Ability.Type> abilityList = new List<Ability.Type> ();
 		abilityList.Add (stage1Ability);
-		return GetDialogue (abilityList);
+		return GetDialogue (abilityList, call);
 	}
 
-	public Dialogue GetDialogue(Ability.Type stage1Ability, Ability.Type stage2Ability){
+	public Dialogue GetDialogue(Ability.Type stage1Ability, Ability.Type stage2Ability, bool call){
 		List<Ability.Type> abilityList = new List<Ability.Type> ();
 		abilityList.Add (stage1Ability);
 		abilityList.Add (stage2Ability);
-		return GetDialogue (abilityList);
+		return GetDialogue (abilityList, call);
 	}
 
-	public Dialogue GetDialogue(Ability.Type stage1Ability, Ability.Type stage2Ability, Ability.Type stage3Ability){
+	public Dialogue GetDialogue(Ability.Type stage1Ability, Ability.Type stage2Ability, Ability.Type stage3Ability, bool call){
 		List<Ability.Type> abilityList = new List<Ability.Type> ();
 		abilityList.Add (stage1Ability);
 		abilityList.Add (stage2Ability);
 		abilityList.Add (stage3Ability);
-		return GetDialogue (abilityList);
+		return GetDialogue (abilityList, call);
 	}
 }

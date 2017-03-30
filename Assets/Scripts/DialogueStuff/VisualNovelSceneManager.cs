@@ -225,7 +225,7 @@ public class VisualNovelSceneManager : MonoBehaviour {
 		for (int i = 0; i < currentRoundAbilityPool.Count; i++) {
 			fullAbilityKey = new List<Ability.Type> (playerContext);
 			fullAbilityKey.Add (currentRoundAbilityPool [i]);
-			dialogueOptions [i] = Services.DialogueDataManager.GetDialogue (fullAbilityKey);
+			dialogueOptions [i] = Services.DialogueDataManager.GetDialogue (fullAbilityKey, firstChoice);
 		}
 
 		Services.DialogueUIManager.SetDialogueOptions (dialogueOptions);

@@ -1,223 +1,228 @@
-﻿Round 1 Ability	Round 2 Ability	Round 3 Ability	Blurb	Dialogue
-Fireball			Jessica said...	Did you hear what Jessica said about you? Girls can be soooo mean sometimes.
-Fireball			Have you heard?	Have you heard what everyone is saying about you? It's so rude.
-Fireball			I can't believe what they said...	I can't believe what everyone is saying about you!
-Fireball			So sorry about the rumors.	I'm sorry people are saying such terrible things about you! I have no idea how that got started.
-Fireball			Glad I'm not you.	I'm sure glad that it's not ME people are saying such terrible things about.
-Fireball			I heard...	I heard that it was Missy who started that nasty rumor about you.
-Fireball			They're saying...	I've been hearing such awful things about you! I can't believe someone would say such things...
-Fireball			Everyone picks on you.	It's so unfair that you're the only one people ever pick on!
-Fireball			Everyone is talking about you...	I don't know who started saying such things about you, but you sure have the whole school talking!
-Fireball			Heard through the grapevine...	Samantha told me that Kristy told her that Justin told her that...well...you know...
-Fireball			Is it true?	You'd tell ME if those rumors were true...right?
-Fireball			Everyone else is so mean...	Those people gossping about you are so mean! I would never participate in that...
-Sing			I'm great today!	I've been having a great day, I woke up on time, had a great breakfast, and look perfect.
-Sing			Want help?	What do you think of my outfit? It's great right? Would you like some fashion tips?
-Sing			I look great.	Don't I look great today?
-Sing			You wish you were me.	You look so sad...is it because you're not me?
-Sing			#Flawless	I woke up like this...you look like you haven't slept at all!
-Sing			My best feature?	What's your favorite thing about my look today? Go on...take your time.
-Sing			Check me out!	Hey, check me out! I look good, even by my own high standards.
-Sing			Everything works.	Do you ever have one of those days when absolutely everything works for you? No?
-Sing			On a scale from 1-10...	On a scale from 1 to 10...do you think I'm an 11? Or a 12?
-Sing			#Blessed	Everything's been going so well for me lately!
-Sing			Enough about you	You look upset...I'm sorry that your life isn't going as well as mine is!
-Sing			Happy to be me!	I'm so happy with my life right now...I can't imagine changing a single thing!
-Fireball	Pull		I'm better than that.	I'm better than that level of insults though.
-Fireball	Shield		They said it first!	I was just repeating what everyone else was saying.
-Fireball	Lunge		I know it's harsh...	I know it might be hard to hear everyone say such mean things about you, which is why I wanted to tell you first.
-Fireball	Wallop		Relax.	Don't worry though, no one listens to what they say...probably.
-Fireball	Sing		As for me...	Don't you want to know what I would do about this?
-Fireball	Pull	Shield	I wouldn't say that.	You KNOW I would never say such things...
-Fireball	Pull	Lunge	Actions, not words.	I would have PROVED these things...
-Fireball	Pull	Wallop	Above it all.	In fact, I consider myself to be above such simple things.
-Fireball	Pull	Sing	If it were me...	If I had started this rumor it would have been about your terrible fashion sense.
-Fireball	Shield	Pull	Not my fault.	You know, you really shouldn't be so mean to me, it's not like *I* started those rumors.
-Fireball	Shield	Lunge	I thought you knew me.	I thought you knew me better than to suggest I'd start something like this.
-Fireball	Shield	Wallop	I try to stay out of it.	I usually try to stay out of gossip circles...you know that.
-Fireball	Shield	Sing	It must be hard.	It must be hard to hear such things...no one dares to say such things to ME.
-Fireball	Lunge	Pull	Make a "deal".	I could help stop the rumors...if you did something for me.
-Fireball	Lunge	Shield	I'm only trying to help.	There's no need to be so mean, I'm only trying to help you.
-Fireball	Lunge	Wallop	But I shouldn't bother...	But maybe I shouldn't have bothered to tell you...you won't do anything anyways.
-Fireball	Lunge	Sing	Better from me.	You should be grateful you heard it from me, I'm being NICE about it.
-Fireball	Wallop	Pull	People listen to me.	But they listen to what *I* say...so keep that in mind.
-Fireball	Wallop	Shield	It doesn't matter to me.	I don't care what you do though...as long as you know it's not my fault.
-Fireball	Wallop	Lunge	They could be right.	Who knows...maybe the rumors are right.
-Fireball	Wallop	Sing	Listen to me.	You should listen to me...it might be good for you.
-Fireball	Sing	Pull	Tell them what's what.	You should tell them what you REALLY think of all this.
-Fireball	Sing	Shield	Take a leaf out of their book.	You should give them a taste of their own medicine.
-Fireball	Sing	Lunge	Stop being a wimp.	You need to stop being a baby and confront them.
-Fireball	Sing	Wallop	It doesn't bother ME.	You shouldn't pay attention to what everyone says about you; be more like me and ignore it.
-Sing	Pull		Offer tips.	I can always give you tips, you know. People say I'm very helpful.
-Sing	Shield		Fake self-doubt.	I know I'm great, but sometimes I can't help but wonder if everyone is just pretending...
-Sing	Lunge		You're struggling.	You don't seem like you're doing as well as me.
-Sing	Wallop		I don't NEED attention...	I don't NEED people to compliment me, but it's nice to know my hard work is so appreciated.
-Sing	Fireball		I heard you needed my help.	When I heard people saying that I could help you, I didn't know you were this desperate.
-Sing	Pull	Shield	Fish for praise.	I like to think that I'm helpful, anyways...
-Sing	Pull	Lunge	You could use them.	You could really use my help.
-Sing	Pull	Wallop	You don't HAVE to.	Of course, you don't HAVE to care about your appearance...
-Sing	Pull	Fireball	It would stop the rumors.	If you let me help you maybe some of those rumors about you would stop.
-Sing	Shield	Pull	Now be honest...	You'd tell me what you really think, right?
-Sing	Shield	Lunge	No one sucks up to you.	What is it like to never have anyone try to suck up to you?
-Sing	Shield	Wallop	It's hard to be beautiful.	It's hard to have people hold you to such HIGH beauty standards, you know?
-Sing	Shield	Fireball	Insults are honest.	You're lucky you don't have to worry about people telling you what they really think about you.
-Sing	Lunge	Pull	Be more like me.	You know, if you just listend to me you would be a lot better off in a lot of ways.
-Sing	Lunge	Shield	If you don't want my help...	It's okay if you don't want my help...not everyone has it in them to be this spectacular.
-Sing	Lunge	Wallop	None of my business.	But of course...it's none of MY business if you want to continue looking like a disaster.
-Sing	Lunge	Fireball	Not even in my league.	It's so unfair that everyone compares you to me when you clearly don't come close...
-Sing	Wallop	Pull	Me > You.	They say imitation is the sincerest form of flattery...but your attempt to copy me has obviously failed.
-Sing	Wallop	Shield	Don't you appreciate me?	You never say anything nice to me though...why is that?
-Sing	Wallop	Lunge	Wish you could relate.	I'm sorry you don't know what it feels like to be so admired...
-Sing	Wallop	Fireball	They say I'm better than you.	There must be a reason people prefer me over you...
-Sing	Fireball	Pull	Impress me, impress others.	If only you could impress me...maybe then you would have a chance at winning others over.
-Sing	Fireball	Shield	Not using my advice?	It's refreshing to see someone brave enough to ignore all my advice.
-Sing	Fireball	Lunge	Lost cause...	I don't even think *I* could help you...
-Sing	Fireball	Wallop	I'm still better.	It's fine that you don't seem to care what people think...we all know you'll never be better than me.
-Wallop			#swag	You just wish you were this #swag.
-Wallop			I'm kind of a big deal...	Look, I'm kind of a big deal, so...
-Wallop			You want an autograph?	I'm sorry, did you want an autograph?
-Wallop			I look good.	Me? I always look good.
-Wallop			Jealous?	Jealous, sweetie? Don't worry, I'm used to it.
-Wallop			Yes, its me.	Yes, it's really me. Breathe it in.
-Wallop			Envious.	Green with Envy? Come now, darling. That color is SO last season.
-Wallop			Ah, the little people...	Ah, the little people. Can't live with them, can't live....with them.
-Wallop			Are you a fan?	Oh yes of course! I always have time for a fan!
-Wallop			Who are you?	I'm sorry, who are you?
-Wallop			Not easy being perfect.	You know, it's not easy being perfect.
-Wallop			You must recognize me...	You must recognize me from the cheer squad...and the school play...and the student coucil....I get around.
-Wallop	Fireball		I set the bar high...	Oh, honey, don't feel bad about yourself. I just set the bar REALLY high.
-Wallop	Lunge		Did you get dressed in the dark...	You get dressed in the dark this morning, babe? Because that outfit...hoo boy.
-Wallop	Shield		I could beat you if wanted to...	We both know I could totally thrash you if I felt like it. I just don't feel like it.
-Wallop	Sing		*draw a crowd*	Hey, everyone! Check out this weirdo girl whose talking to me for some reason!
-Wallop	Pull		Seriously?	*scoff* Seriously? YOU want to mess with ME?
-Wallop	Fireball	Lunge	Get over it...	I'm smart, I'm funny, I'm pretty, and you're...well...not. Get over it.
-Wallop	Fireball	Shield	u mad?	U mad, baby girl? ( ͡° ͜ʖ ͡°)
-Wallop	Fireball	Sing	I draw a crowd...	Gosh, it's just so hard being the coolest person in the room all the time. Like, it's such a big responsibility. I'm just glad you never have to go through that.
-Wallop	Fireball	Pull	I'll let you carry my books...	Don't worry, I'll let you carry my books for me or something.
-Wallop	Lunge	Fireball	I think you're brave...	No really, I think it shows courage to wear an outfit that's so obviously worse than mine. It's like you don't even care about the staring. Really, it's commendable.
-Wallop	Lunge	Shield	You remind me of myself...	You actually remind me of myself. You know, like...before puberty, when I was flat and gangly and had no sense of style.
-Wallop	Lunge	Sing	Everybody watch this...	Hey! Who wants to come to the roof and watch me thrash this bitch?
-Wallop	Lunge	Pull	I'll drop a mic on you...	I carry this microphone around with me just to drop it on bitches like you.
-Wallop	Shield	Fireball	I ain't even mad...	You just think you're so cool, dontcha? Whatever. I don't even care.
-Wallop	Shield	Lunge	You won't like me when I'm angry...	Oh, you do NOT want to piss me off. I work best when I'm angry!
-Wallop	Shield	Sing	You just ask anybody...	You just ask anybody! They'll totally say that I can kick your ass!
-Wallop	Shield	Pull	I'll play with you...	*scoff* Fine. If you insist. I'll play with you for a while.
-Wallop	Sing	Fireball	You're so cute!	The way you just come up and talk to me is too damn cute! Like we're equals or something! Ugh! Stop it! You're a so adorable!
-Wallop	Sing	Lunge	Get away from me.	Bitch, I don't know you and I couldn't give less of a shit about you.
-Wallop	Sing	Shield	Who do you think you are?	Who does this girl think she is? She can't just walk up to me and start getting all aggressive!
-Wallop	Sing	Pull	I'll sic the school on you...	You have thirty seconds to get away from me before I sic this entire school on you.
-Wallop	Pull	Fireball	You're out of your league...	Oh honey, you have no idea just how far out of your league you are.
-Wallop	Pull	Lunge	You'll regret this...	I'm going to make you regret the day you set foot in my hallway.
-Wallop	Pull	Shield	I'd like to see you try...	You think you can take me on? Oh, I'm going to enjoy watching you try.
-Wallop	Pull	Sing	Well, look what we have here...	Well, look what we have here. A fiesty one. Oh, I'm going to enjoy playing with you!
-Lunge			Look at this bitch.	Ugh. Look at this ugly-ass bitch.
-Lunge			Here comes that bitch I hate.	Oh wow, here comes this bitch.
-Lunge			I hate you.	You know I fucking hate you, right?
-Lunge			Get out of my way!	Ugh! Get out of my way!
-Lunge			Here comes a piece of shit.	Oh great, here comes a piece of shit person to brighten up my piece of shit day.
-Lunge			*laugh at her*	HAHAHA!!! Oh, I'm sorry. I'm just laughing at you.
-Lunge			*scoff*	*scoff*
-Lunge			You're the worst.	You're just the worst, you know that?
-Lunge			You're an asshole.	You're an asshole. Yeah, I'll say it.
-Lunge			You got something to say?	You got something to say? Say it to my face!
-Lunge			You make me angry.	I swear to God, just the sight of you makes me want to hurt a child.
-Lunge			Oh, god it's you.	Oh god, it's you.
-Lunge	Fireball		*sarcastic sympathy*	Honestly, I feel bad for you. It must suck knowing that everyone at this school hates you.
-Lunge	Shield		You're attacking me because you're insecure.	Does attacking me make you feel better about your pathetic life?
-Lunge	Sing		Everyone loves me and hates you.	Who's going to care about a worthless skank like you while I'm here?
-Lunge	Pull		You talking to me?	I'm sorry, were you talking to me? I'll let you know when I'm listening.
-Lunge	Wallop		Are you a whore or just a bitch?	Was the footabll team extra rough with you last night, or are you just always a huge bitch in the morning?
-Lunge	Fireball	Shield	Why are you such a bitch?	Oh my god, why are you such a bitch? Does it make you feel good, huh? You get off on it?
-Lunge	Fireball	Sing	They're going to cheer for me...	No one gives a shit about you, you know that? They're going to cheer for me when I kick your ass.
-Lunge	Fireball	Pull	You poor baby...	Oh, poor baby. Are you upset? You wanna cry?
-Lunge	Fireball	Wallop	You've got a lot of alone time...	All that time you spend alone...you must be great at, you know...fucking yourself.
-Lunge	Shield	Fireball	Everyone knows you're loser.	I mean, everyone knows you're a loser. It's not like it's a secret.
-Lunge	Shield	Sing	You'll never be as popular as me.	You're just a stupid, wannabe, loser! People will never love you the way they love me!
-Lunge	Shield	Pull	Quit yapping, little dog....	Quit yapping little dog, before I make you.
-Lunge	Shield	Wallop	I mean, it's not my fault...	I mean, it's not my fault your parents are too poor to buy you a decent outfit.
-Lunge	Sing	Fireball	*burn book*	I told everyone at school that you that you got dirty with the vice-principal. And you know what? They believed me.
-Lunge	Sing	Shield	Don't hate me because I'm popular.	Don't hate me just because I'm popular. It makes you look pathetic.
-Lunge	Sing	Pull	People worship me...	People literally worship me at this school. What chance do you think you have?
-Lunge	Sing	Wallop	*shark snark*	Swim away little fishy. Before you get schooled by a shark.
-Lunge	Pull	Fireball	You'll be a pariah...	You know what? Why don't I just tell everyone that you've got herpes?
-Lunge	Pull	Shield	Go ahead. Hit me.	Wow. You're so angry. You look like you want to punch me right in the face. Go ahead. Do it! See how that plays out for you.
-Lunge	Pull	Sing	I'll make your life hell.	I swear to God. If you mess with me I will make your life a living hell. You won't be able to move two inches without feeling my hands on your throat.
-Lunge	Pull	Wallop	I'll kick your ass for fun.	You know what? I think I'll kick your ass just for the hell of it. I've got two minutes.
-Lunge	Wallop	Fireball	Looks like the rumors are true.	Looks like what I wrote in the bathroom stall is true. You really will do anything for a good time.
-Lunge	Wallop	Shield	Come at me!	You wan't to fucking go? You, me, on the roof. One on one. Come at me!
-Lunge	Wallop	Sing	*start a scene*	Check it out everybody! Sally Sucks-a-Lot thinks she can throw down with the big girls!
-Lunge	Wallop	Pull	You're my bitch...	Well you're just my little bitch, now aren't you?
-Pull			Are you worthy?	You're worthy of washing my feet. Maybe.
-Pull			Call Agent 47.	I'm pretty sure I can get you killed.
-Pull			Worship me.	By the end of today, you'll be licking my boots.
-Pull			I own you	You look like you'd like to serve me.
-Pull			Love only me.	People love me. You're an idiot if you don't.
-Pull			I am a god.	I am everything. You are nothing.
-Pull			I will lead you.	Take a chance. Listen to my words. I can show you everything .
-Pull			Get on your knees.	Bow down to me you peon, I am your god.
-Pull			You are mine.	Your eyes are beautfiul. I want them.
-Pull			You are nothing.	I run this school. You are nothing without me.
-Pull			I define you.	You're only as good as I say you are.
-Pull			Submit to me.	I love the look of submission glittering in your eyes.
-Shield 			Tell me I'm nice!	I don't understand why everyone is so mean to me.
-Shield 			Everyone is so mean.	If you were a good person you wouldn't be so mean to me.
-Shield 			Compliment me!	The only people who appreciate me are cats.
-Shield 			Pity Party!	I wish I was as cool as you.
-Shield 			I hate myself.	I'm so ugly, and terrible, I just hate myelf. What do you think?
-Shield 			Guilt trip time!	*Gives silent treatment*
-Shield 			Not my fault.	It's not my fault everyone is so stupid.
-Shield 			I'm just lazy.	I could do what you could, if I wanted to.
-Shield 			*wahhhhhhh*	I can't do anything. I'm so dumb. I'm so bad at everything.
-Shield 			I can't do this.	I'm sorry, I can't even fight. Can you just do it for me?
-Shield 			You're just better...	You're so much cooler than I could ever be.
-Shield 			This is stupid.	I hate myself. I'm terrible.
-Pull	Sing		Look at me!	The meeting to worship me is in an hour.
-Pull	Shield		You're a liar!	If you really cared, you would just die.
-Pull	Fireball		I know a secret...	Your friends all think I'm prettier than you.
-Pull	Lunge		I don't like your face.	Ask me, ask my mother, I'm always going to be better than you.
-Pull	Wallop		Check THIS out!	Look at this stuff, isn't it neat? I am the best and your life's incomplete.
-Pull	Sing	Shield	My hands are not tiny.	My meetings are the best meetings, they're HUGE. They're better than anyone elses. IF ANYONE SAYS OTHER WISE THEY'RE LYING.
-Pull	Sing	Fireball	I might not tell...	If you come to my meeting, I'll stop telling people that you pick your butt and smell your fingers.
-Pull	Sing	Lunge	How do you exist?	Come to my meeting and love me or I'll ruin your life.
-Pull	Sing	Wallop	I wil be famous.	My meetings typically involve a performance by me, and clapping is a requirement.
-Pull	Shield	Sing	*Godly Jazz Hands*	It would be a quick death, I promise, people would remember me forever as a merciful god.
-Pull	Shield	Fireball	I know things...	Honestly, dying might be better than everyone knowing you make out with that poster of Emilio Estevez
-Pull	Shield	Lunge	Just accept you're dumb.	I'm telling you to die because you're annoying and your hair is stupid.
-Pull	Shield	Wallop	It will be STABulous.	I see in your future a death so fabulous that you'll be drop dead gorgeous.
-Pull	Fireball	Sing	*Gloating Jazz Hands*	I'm prettier than you and your friends. And your partner thinks so to. And your dog. I don't even know why you're here.
-Pull	Fireball	Shield	It's your fault.	I mean, I don't think I'm prettier than you, but they just keep saying it. Maybe I am? But that's not my fault.
-Pull	Fireball	Lunge	You said something?	Your friends are right. I'm prettier, and cooler, and pretty much better than you. Who are you again?
-Pull	Fireball	Wallop	If it smells like poop...	Your friends are all total assholes. I guess that makes you a turd ferguson.
-Pull	Lunge	Sing	*Spiteful Jazz Hands*	Anything you can do I can do better, I can do anything better....who are you?
-Pull	Lunge	Shield	It's not fair!	We can't all have moms as cool as yours. You're so selfish. I'm going to pull your hair out now.
-Pull	Lunge	Fireball	I have sources...	My mom knows your mom, and your mom wishes you were me. 
-Pull	Lunge	Wallop	Hold my beer.	No, really, your mom likes me better. I'm like the daughter she never had.
-Pull	Wallop	Sing	*Threatening Jazz Hands*	Wouldn't you say I'm the girl...SAY I'M THE GIRL OR DIE.
-Pull	Wallop	Shield	Look at this trash.	I've got gadgets and gizmos of plenty...I mean they're not that cool, but I guess they can hurt you.
-Pull	Wallop	Fireball	Is that a fork?	Wouldn't you say I'm the girl...who totally ISN'T telling you that your friends think your hair is stupid.
-Pull	Wallop	Lunge	*Sharpens Teeth*	Yes. I just sang The Little Mermaid. And now I'm going to go full Mermaid and eat your face off.
-Shield 	Pull		I'm a martyr.	I do so much for everyone, but it's fine, I'll bare my pain in silence...like Jesus did.
-Shield 	Sing		SHUT UP.	My therapist says I have anger issues. BUT YOU AND HER ARE BOTH KNOW-IT-ALL IDIOTS.
-Shield 	Fireball		That's a lot of makeup.	I'm NOT going to tell you that you look like a clown with that makeup because I'm a good friend and I would never tell you that.
-Shield 	Lunge		You have a punchable face.	I really only want to punch you because you remind me of myself.
-Shield 	Wallop		I'm a pun master.	Hmm, about your outfit, I'm not trying to SKIRT the issue...but your skirt is bad....WHY AREN'T YOU LAUGHING?
-Shield 	Pull	Sing	LOOK WHAT I DO FOR THEM.	I sacrifice my body for my friends, taking the bottom lockers so they don't have to bend down. Just like Joan of Arc. And you all stand by idly...you hate me... well you can just DIE.
-Shield 	Pull	Fireball	You're cute like a pet.	You don't even know what I go through. I made all your friends FOR you. Like Charles Man...wait...
-Shield 	Pull	Lunge	I will get revenge.	I will be a martyr. Everyone will love me. And then I will crush you. This is revenge for that time you called me Darth Becky.
-Shield 	Pull	Wallop	Here comes the weasel!	No one appreciates my humor or style. But with everything I do, one day people will recognize the greatness in me. It's Pauly Shore all over again.  
-Shield 	Sing	Pull	You haven't see my final form.	My therapist says a lot of stupid things, things that try to hurt me, but she has no idea that I'm untouchable, that I'm beyond her, that I'm almost...a god. Feel my power.
-Shield 	Sing	Fireball	I'm not that mean.	My therapist also says I need to tell you that you're never going to amount to anything in life. She can be so mean.
-Shield 	Sing	Lunge	Fist meet face.	I know I'm an angry person. And right now, that anger is telling me that you're the reason everything in my life is terrible. So like, I'm gonna beat you up now.
-Shield 	Sing	Wallop	I got a rager for you.	Being upset is normal. RIght now angry people are all the rage. GET IT? THIS IS WHERE YOU'RE SUPPOSED TO LAUGH.
-Shield 	Fireball	Sing	I scrapbook y'know.	And I definitely wouldn't be putting together this scrapbook of all your worst hairstyles that will then be distrbuted to the entire senior class. Or hit you with the scrapbook. Never.
-Shield 	Fireball	Pull	I'm so charitable.	Of course I'm your best friend! I'm willing to let you hold my books without spitting on you. That's called charity.
-Shield 	Fireball	Lunge	You have work to do.	I mean, I DO think you're hair could use some work. And your clothes. Your posture. Your face. Your voice. See how nice I am to not to tell you though?
-Shield 	Fireball	Wallop	I can help with that face.	I'm not clowning around. You look like Bozo. I'm trying to help. Here let me wipe that off your face.
-Shield 	Lunge	Sing	I'm the prettiest.	I mean, nobody is allowed to be as pretty as me. So I really need to punch your teeth in.
-Shield 	Lunge	Pull	I'm going to MAKE you laugh.	Hey, I've got a joke, my fist is gonna tell it to your face. I can't wait till you hear the PUNCHline.
-Shield 	Lunge	Fireball	Bald looks good!	I can always pull out your hair, because if you cut back on the makeup and hair products, you might be able to KEEP your friends.
-Shield 	Lunge	Wallop	I'm too good for Yelp.	I very maturely and straightforwardly left you anonymous comments online. You can thank me later for the clothing advice.
-Shield 	Wallop	Sing	I'm like a model.	You should try to learn from me. My outfits are amazing. But you? Well, I've PLAID enough of you.
-Shield 	Wallop	Pull	I'm the most fashionable.	You will bow down to me and I will dispense better clothing options to you like a a saint...like Santa Kors.
-Shield 	Wallop	Fireball	I voted for you!	I voted for you for the yearbook! Most likely to die alone and consumed by loneliness and a growing dependence on alcohol! You're welcome.
-Shield 	Wallop	Lunge	Clean your face.	Ugh, get away from me. I swear if I wanted to fry some food, I'd get the grease off your forehead. 
+﻿Baseline Calls:	Robot Call						
+Scenario 1:	I'm better than you.						
+Scenario 2:							
+Scenario 3:							
+							
+Scenario	Round 1 Ability	Round 2 Ability	Round 3 Ability	Blurb	Call	Response 	
+1	Pull			Demean Her	Do you have any idea who I am? No? Heathen.	Demean her.	How DARE you open your mouth to me, peon.
+1	Pull			Dominate Her	You need to bow down to me, I have boots that need licking.	Dominate Her	You're going to regret this when you meet my toys.
+1	Pull			Demand Respect	Bow down to me you peon, I am your god.	Demand Respect	Do you even comprehend the different ways I could make your life hell?
+1	Pull			Dismiss Her	You're barely even worthy of hearing my voice.	Dominate Her	So...you're saying you WANT me tie you up and slap you until you like it.
+1	Pull			Dismiss Her	Why am I even wasting my breath on you?	Dismiss Her	Huh? Did you say something? I try not to listen to lesser beings. 
+1	Pull			Demean Her	I can already tell you're a waste of space and liife.	Demand Respect	Talk to me like that again and I'll show you the true meaning of pain.
+1	Pull			Demand Respect	I am everything. You are nothing. I am a boot, and you are an insect.	Dominate Her	Oh. I can't wait to make you cry and taste that sweet sweet suffering. 
+1	Pull			Dominate Her	You're only as good as I say you are.	Demand Respect	Hm, your words...yes I think I'll choose you to make an example of. 
+1	Pull			Dismiss Her	Your eyes aren't even worthy of seeing in my general direction.	Dominate her	As you sit at my feet one day, think back to what you've said and regret it.
+1	Pull			Dominate Her	You need more submission in your eyes when you speak to me.	Dominate her	Mmm, that BITE. I think I'm going to have fun with you. 
+1	Pull			Demean Her	Your eyebrows and your makeup, your general appearance offends me.	Act Powerful	I'm sorry, I'm not sure you realize you're speaking to your doom.
+1	Pull			Demand Respect	Oh look, the lead insect, come to represent the bugs.	Demean her.	HA! You say that like I don't have bugs more interesting than you under my boot.
+1	Shield			Act Aloof	Ugh, I really don't feel like having you talk to me.	Troll her	What is that ANNOYING noise. When did the wind start whining like that?
+1	Shield			Act Aloof	Why is this happening, I really don't care who you are.	Be done with her.	I declare that everything you're saying is stupid.
+1	Shield			Be Scornful	My instinct is to be mean to you right now....bitch.	Be done with her.	Ugh, whatever. You're stupid and I hate you, so bye.
+1	Shield			Be Snide	Your entire being right now confuses me. How are you alive?	Troll her	Ugh, that's the lamest excuse for an insult I've ever heard. Try harder.
+1	Shield			Be Snarky	This is how you dress on the first day of school? God help us all.	Be Snarky to Her	Ha. Ha. Ha. Do you see how much I'm laughing? You're hysterical. A riot. Thumbs up.
+1	Shield			So Done With Her	Can you at least TRY to pretend you're watching where you walk? Fuck.	UGH	What was that? I wasn't paying attention. You literally put me to sleep. SNORE.
+1	Shield			Sarcastic AF	Oh wow, look, you're talking to me. Joy of joys -___-	Troll her	U mad, baby girl? ( ͡° ͜ʖ ͡°)
+1	Shield			Be Annoyed	Ugh, your whole, like, AURA just annoys me. Go away.	Be Snarky to Her	Is there an off button with you? Can I mute you or something?
+1	Shield			So Done With Her	No! You ruined it! Now I HAVE to know you exist. Ugh. Kill me, please.	UGH	I listen to you and I actually want to die. Anywhere to just be away from you.
+1	Shield			So Done With Her	I really don't feel like wasting my time with you. Can you just disappear? Die? Something?	Be Snarky to Her	Can you just go away? I was done with you like 5 second ago. Why are you still here?
+1	Shield			Be Annoyed	I already hated this school, did you HAVE to make things worse by talking to me?	UGH	I think listening to you might have actually caused me to die a little inside and now I hate you.
+1	Shield			Troll Her	I'm a vampire and I will kill you. Or like, a werewolf, just something to make you go away.	Be done with her.	*sigh* was that really the best you had? Try harder next time. You're boring me now, bye.
+2	Pull	Shield		Be Snarky	Senpai is MY chosen one. Go back to building me a tabernacle and washing my feet.	So done with her	You say that, but you're just a false idol, trying to lure Senpai away from his true destiny: me. 
+2	Pull	Wallop		Grandstand	I will punch you into the depth of hell and watch your burn if you don't back off of Senpai.	Grandstand	Watch your tone. My fists will carry me through your face and into the arms of my beloved Senpai.
+2	Pull	Sing		Be Holier than Thou	You don't deserve Senpai. You haven't even tried to atone for your transgressions. Filth!	Be Holier than Thou	Strong words from filth like you. You need to find a way to cleanse yourself, before I make you. 
+2	Pull	Fireball		Tell what others say...	So I heard Senpai was into more godly types...sorry little peon, you're not worth his time.	Share Your Knowledge	HA. I don't think so. I'm all-knowing and I'm not sure it's even possible to imagine Senpai with you.
+2	Pull	Lunge		Tell her to back off	That's it. This is done. Senpai is mine and if I ever see you near him again I will eat your soul.	Be Super Aggressive	What the fuck did you just say to me you little fucking bitch? I'll have you know Senpai's soul is mine.
+2	Shield	Pull		Tell she's Pathetic	Ugh, first you talk to me, but now Senpai? I haven't seen something so pathetic in 1000 years.	Demean her.	BORING. Can you at least pretend like you're trying to threaten me? Where's the passion? The hellfire?
+2	Shield	Wallop		I'm a Star	You're like, here to bring me a drink while I talk to Senpai, right? You're just an extra on this set.	Disrespect her	*Yawn* Did you say something? I was distracted by like, everything else. Are you a fan or something?
+2	Shield	Sing		Cause a Scene	UGH. Senpai will hate your cake, BECAUSE, HEY EVERYBODY, SHE MADE IT WITH SHIT. 	Make it About You	Whenever you talk all I hear is this shrill white noise. I'm going to start calling you Tenitis. BITCH.
+2	Shield	Fireball		Attack her Hair	Oh my god go away, I'm sure Senpai doesn't have time for that kind of shoddy hair work.	Spread Rumors	You say words, but all I hear is the rumor that you collect your fingernails to make sculptues of Senpai.
+2	Shield	Lunge		Be Direct	Your face is stupid, your hair is bad, your general existence is awful. Senpai will hate you.	Threaten with Violence	Yawn. Okay. Whatever. You won't be smiling like that after I knock out a teeth or two.
+3	Pull	Shield	Wallop	Laugh at Her	It's cute the way you try to copy me, really. Here's an autograph: a black eye.	Fix Makeup	Ha, loser. You haven't even seen my final form. You think this kind of beauty doesn't evolve!?
+3	Pull	Shield	Sing	Act appalled.	Oh. My. God. Is your brain so small that you can't have an original idea? What IS your trauma?	Cause a scene	Oh, HERE WE GO AGAIN. Blaming ME for your issues. Well here, you can blame my fist for this.
+3	Pull	Shield	Fireball	Throw Shade	Can you stop stalking me, trying to be me, and imitating me? Single white female much?	Done Spreading Rumors	Excuse me? Okay. Spreading rumors is old news now, I'm about to spread your teeth across the floor.
+3	Pull	Shield	Lunge	Call Her Out	You stole my idea? Really. God, you're really THAT far beneath me aren't you?	Be direct	HA. Like I would want any of your shitty ideas. Come here, let me just kick your ass already.
+3	Pull	Wallop	Shield	Be snarky	Oh, cute, did you try to copy me? Maybe if you that in the trash it'll look better.	Be like, ugh.	Whatever. It's fine. You talk a whole lot. I guess my fist really is the only way to shut you up.
+3	Pull	Wallop	Sing	Act appalled.	Oh. Mon. Dieu. C'est despicable the way you copy moi! You are just like, TOO MUCH.	Draw Attention	How...WHAT? HOW DARE YOU. I..I AM A GODDESS KNEEL BEFORE ME.
+3	Pull	Wallop	Fireball	Insult clothes	If you wanted to copy me this much, you could have tried dressing better a long time ago.	Annoy her	HA. HA. HOOT! HEH. FUNNY. To think I would ever lower myself to copying you. It's cute, bitch.
+3	Pull	Wallop	Lunge	Lose Your Shit	ARE YOU TRYING TO STEAL SENPAI WITH MY OWN IDEA. OH FUCK NO, HO.	Be Petty	For what you've said I'll make you, your parents, your neighbors, this world PAY. TIME TO DIE.
+3	Pull	Sing	Shield	Be snide	WHY. Ugh, I thought I was done with you and now you're back to steal my ideas? That's sad.	So done with her	Really? Can I just like, kill you to make you go away? Senpai is pretty much mine already.
+3	Pull	Sing	Wallop	Be Shakespearean	Alas, on this day when thou copiest me, twas thy end. Translation: I'm going to bury you. 	Be Shakespearean 	THY WORDS ARE FALSE. Thou knowest the truth. In plain English: you're an unoriginal fuck wizard.
+3	Pull	Sing	Fireball	Give disingenuous advice	Honey, if you copy me forever, MAYBE you'll be slightly less trashy than you are now. Good luck.	Bakchanded Compliment	HA. Oh my god, I copied you? That's too much, you're a riot. It's good you're funny. 
+3	Pull	Sing	Lunge	Threaten Murder	OHMYGOD. I WILL END YOUR LIFE FOR COPYING ME. AND THEN DIE. AND KILL YOU AGAIN.	Threaten Existence	I will SO go back in time and fuck your grandfather so that I'M your mother, then I'll punish you. Bitch.
+3	Pull	Fireball	Shield	Be sarcastic	Oh wow. Look at that. SO original. Did you make that out of mashed potatoes and tears? Such talent. 	SO done	You can't think of an original insult? Idk why I've wasted this much time, but I guess I have another minute.
+3	Pull	Fireball	Wallop	Be high cultured	That poor chiseling, the unpolished veneer, what a crude attempt at copying my masterpiece. 	Swag Attack	Really? I copied you? Your work is below average and...no..YOU MADE SENPAI LOOK UGLY. HELL NO.
+3	Pull	Fireball	Sing	Annoy Her	Aw, did the poor wittle baby try copying big girl art? Is okay, Senpai may get a chuckle out of it.	Be Overdramatic 	Your breath is like 1000 razor blades from hell on my perfect skin.
+3	Pull	Fireball	Lunge	Flip the fuck Out	HEY. HEY. YOU COPIED ME. HEY. HEY. HEY. HEY. BITCH. HEY. HEY. HEY. SENPAI'S MINE.	Flip the fuck Out	NO. NO. NO. FALSE. ALL MY IDEAS ARE MINE. THAT MEANS YOU'RE A THEIF. SO LET'S DO THIS.
+3	Pull	Lunge	Shield	So Done With Her	I've told you a million times you're dumb. I practically own you. Did you not think I'd notice you copying me?	So Done With This	You're about to wake up a beast not seen for 1000 years...and it won't be happy.
+3	Pull	Lunge	Wallop	Talk Down To Her	You are so far beneath me it's almost cute when you copy me. Almost. I'm still going to tear your eyes out.	Instagram This	For that, when you're licking my boots, they'll be covered in shit. #ShitQueen
+3	Pull	Lunge	Sing	Cause A Scene	CAN WE JUST FIGHT ALREADY? FIRST YOU LOOK AT SENPAI. NOW YOU STEAL MY SHIT? LET'S GO.	Insult everything 	You little, disgusting, miniscule, barely-worth-my-time BITCH. You're done.
+3	Pull	Lunge	Fireball	Start Rumors	Omg, this is perfect. You copying me literally starts the rumors themselves. You're so in love with me.	Done with Rumors	*claps hands* This is too perfect. Your poor attempts at impressing Senpai will drive him straight into my arms.
+3	Shield	Pull	Wallop	Be Condescending	I don't have time for scum like you stealing my work. Now I have to get Senpai's heart AND crush yours.	Swag on her	"Blah blah blah, blah blah, I want to die" is pretty much all I hear when you talk. Let me do this for you.
+3	Shield	Pull	Sing	Talk yourself up	Whatever, steal my high art. When Senpai sees mine they'll know how beneath me you are. Bitch.	Talk Yourself Up	Oh, that's RICH. Me steal YOUR idea. Do you have any idea how far below you are beneath me? Bitch.
+3	Shield	Pull	Fireball	Start a Rumor	Ugh, the bug again? This time stealing my idea? Fine. New rumor. Your eyebrows are fake.	Reveal Rumors	UGH. No. I didn't steal your idea. I started enough rumors that I CONTROL your ideas. Seen Inception? Bitch.
+3	Shield	Pull	Lunge	Threaten with Violence	You stole my idea?! I can't wait to finally crush you under my boot and show Senpai true power.	Threaten with Violence	Your idea isn't even WORTH stealing. That statue is trash. It's only good for smashing your face in. 
+3	Shield	Wallop	Pull	Demean Her	Oh dear, another fan trying to imitate me. You're only good enough to oil my feet and worship me.	Demean her.	Darling, you think I even know you exist? You're just a speck of dust on my immaculate love for Senpai.
+3	Shield	Wallop	Sing	Cause A Scene	HOW DARE YOU STEAL MY IDEA. HOW DARRREEEE YOOOUU. YOUR ARE NOTHINNGGGG.	Cause a scene	SENPAI DESERVES ONLY A TRUE MAGNIFICENT BEING. HE WILL BE MINE YOU BIIITTTTCHHH.
+3	Shield	Wallop	Fireball	Talk yourself up	Omg. FINE. You want to steal my ideas? I expect royalties. And daily admiration in front of Senpai.	Bakchanded Compliment	Oh look at you, so special, accusing me of  stealing. The only thing I stole was your dignity you hopeless groupie.
+3	Shield	Wallop	Lunge	Threaten with Lawsuit	Copying my sculpture? I'll have my lawyers contact you and take everything you have. Then kill you.	Threaten Lawsuit	I Stole YOUR sculpture? I can't wait to take you to court and shove that sculpture down your fucking throat.
+3	Shield	Sing	Pull	Demean Her	Pitiful fool. Think you can copy me? The queen of rumors? I'm the only reason you're not dead yet.	Demean Her	LOL okay. I stole your idea? Senpai deserves the best, not a snivelling brat like you, so far bneath me. Bitch.
+3	Shield	Sing	Wallop	Be Dismissive	Bored now. Stealing my work? YAWN. I've had crazies before. Senpai will see right through you.	Be Dismissive	Oh cute, you're another crazed lunatic claiming my work. I don't have time for lawyers, I'll just squash you now.
+3	Shield	Sing	Fireball	Start Rumor	*Yawn* Hm? Stealing my idea? Okay, fine. HEY EVERYONE SHE SAYS SHE EATS BABIES,	Stir Up Trouble	*sigh* Okay. Claim I stole your work. It won't matter when I break your sculpture over your head and sue you.
+3	Shield	Sing	Lunge	Tell her to GTFO	All I want to do is not have you steal my ideas, STAY AWAY FROM SENPAI,  and fucking die.	Threaten to Punch Her	OH. OKAY. YOU WANNA PLAY THE ACCUSING GAME? HOW BOUT I ACCUSE MY FIST DOWN YOUR THROAT.
+3	Shield	Fireball	Pull	Demean Her	A SIMPLE drudge like you WOULD steal my perfect ideas. Pathetic. Senpai sees right through you.	Dismiss Her	Stole your idea? What idea? To be perfect and hate you? I came up with that all on my own. God I'm so done with this.
+3	Shield	Fireball	Sing	Cause A Scene	I HATE YOU I HATE YOU I HATE YOU. YOU TRY TO STEAL EVERYTHING THAT'S MINE.	Cause a scene	OH. OH. HA. OKAY. STEAL YOUR IDEAS? THAT'S GOLD. *Breathe* I can calm myself, just need to punch you real quick.
+3	Shield	Fireball	Wallop	Be Condescending	Oh, a fan! But dear you can't steal from me. It comes off as tacky and everyone will hate you for it.	Gloat	Oh no no,I can't have you accuse me of this. My more rabid fans will tear you to shreds! I'll just have to BEAT them to the PUNCH!
+3	Shield	Fireball	Lunge	Threaten with Violence	I spread ALL those rumors and this is how you repay me? Stealing ideas? I'll just have to kill you.	Threaten with Violence	Steal your ideas?! I told ALL your friends ways they could fix you. But I think the only thing I can fix is your face. With my fist. Bitch.
+3	Shield	Lunge	Pull	Dominate Her	Stealing ideas now? I'm fucking done with this. I'll show you the true meaning of domination and pain. 	Demean Her	Don't be ridiculous. You're so far beneath me I'll have to scrape you off my boots. Senpai deserves my complete perfection.
+3	Shield	Lunge	Wallop	Gloat	Ugh. I don't have fucking time to deal with you stealing shit. My fans will enjoy  me kicking your ass.	Be Condescending 	Yeah...I STILL barely know who you are? I just know I hate your fucking face. The idea of punching it feels really good right now.
+3	Shield	Lunge	Sing	Annoy Her	omgdidyoustealmyideayoufuckingbitchiwillkillyouwhatswrongwithyoudoyouthinkyouhaveanychangewithsenpai...	Annoy Her	areyoukiddingmeyoufuckinglittleliarididn'tstealshitfromyouYOUKNOWWHATSTHATSITIMDONEITSHAPPENINGPREPARETODIE.
+3	Shield	Lunge	Fireball	Be insincere 	It's fine that you're ordinary, boring, and plain. A person like you WOULD steal my idea. 	Make it About You	You really think I would try to steal you ideas? Your drab, pathetic excuse for a gift? Don't make me vomit on your face.
+1	Fireball			Throw shade	I don't need to lower myself to your level.	Throw shade	Wow, do you have a four-year old write your insults for you?
+1	Fireball			Throw shade	I can't imagine leaving my house looking like you do...	Throw shade	Were you trying to hurt my feelings or something? That's cute.
+1	Fireball			Be passive aggressive	First impressions are important...it's clear that *I* knew that...	Be passive aggressive	I'm sorry, was that supposed to be an insult?
+1	Fireball			Be passive aggressive	You know, they make foundation in your skintone too.	Throw shade	You seem to be under the impression that I care...
+1	Fireball			Be passive aggressive	It's clear that you tried hard...too bad it didn't quite work.	Be passive aggressive	You sure have a lot of confidence for someone who dresses like that.
+1	Fireball			Be passive aggressive	You know you can be honest with your hairstylist when they do something bad...	Be passive aggressive	Bold words from someone so...well, ordinary.
+1	Fireball			Throw shade	It's only the first day...you had time to come up with a better look.	Throw shade	I saw that your lips were moving, but I didn't hear a single interesting thing.
+1	Fireball			Be passive aggressive	Here's some spare concealer...I can tell you'll need it.	Throw shade	You'd be less of a mess if you'd put effort into your appearance instead of your insults.
+1	Fireball			Be passive aggressive	Don't worry about it, you have all year to learn how to match colors.	Point out her insecurities	You only say these things because you're insecure and you want attention.
+1	Fireball			Backhanded compliment	Wow I used to have that exact outfit! You know, back when it was cool.	Throw shade	It'll be hard enough for you to make friends, I wouldn't be so quick to make enemies.
+1	Fireball			Be passive aggressive	I didn't know people still did that to their hair!	Be passive aggressive	You think you're creative? Psh, I've heard all this before.
+1	Fireball			Backhanded compliment	Wow, dressing like that is one way to get people to pay attention to you.	Be passive aggressive	Don't frown so much, you don't want wrinkles while you're still young do you?
+1	Sing			Stir up trouble	You know I'm better than you, right?	Act appalled 	Why would you SAY something like that, oh my GOD. You ANIMAL.
+1	Sing			Stir up trouble	You shouldn't even be in my space.	Annoy her	Yeah, well, at least I'm not you.
+1	Sing			Annoy her	Are you upset because you're not me?	Act offended	Well I was GONNA be nice to you...but if YOU'RE gonna be like THAT.
+1	Sing			Annoy her	Is it intimidating to be around me? Is it? Is it? Is it?	Make a scene	Are you just saying these things because you're jealous of me? Huh? HUH?
+1	Sing			Stir up trouble	Do you want my help bettering yourself?	Annoy her	I'm not even going to respond to that; it's too beneath me.
+1	Sing			Annoy her	It doesn't matter what you say, I'm clearly better.	Stir up trouble	Only IDIOTS LIKE YOU feel the need to resort to insults!!!
+1	Sing			Stir up trouble	You can keep trying, but you'll never match me.	Make a scene	WOW, OKAY. So like you're gonna go there? Okay then. Bring it on.
+1	Sing			Stir up trouble	You never know...maybe now some of my greatness has rubbed off on you.	Act appalled 	You're SO mean. OH MY GOD. SO mean. Like, why would you say that? What's your malfunction?
+1	Sing			Stir up trouble	You should feel lucky that you got to touch me...that's the last time it'll happen.	Act appalled 	OH. MON DIEU. You BRASH and UNCOUTH...C'EST TRES TERRIBLE.
+1	Sing			Act appalled 	Oh my GOD, I know I'm hot, but you don't have to tackle me like that.	Act appalled 	OH NO. NO. MY DELICATE EARS. SUCH VILE WORDS. FOR SHAME. SHAMMMEEEE.
+1	Sing			Talk yourself up	It's only the first day...no need to look like you've given up already.	Make a scene	Oh WOW. WOW. LOOK AT HOW THIS GIRL IS TREATING ME. WOW. JUST. WOW.
+1	Sing			Stir up trouble	Only one person can be the BEST...and that's me.	Make a scene	Really? You're gonna be like that? Well at least I DON'T HATE ANIMALS LIKE YOU DO!
+2	Fireball	Pull		Dominate her	You should just admit defeat to me and save yourself the embarassment.		
+2	Fireball	Shield		Done with her	Just take your cake and leave, you know you can't take me.		
+2	Fireball	Lunge		Call her desperate	It's cute how you're trying to impress Senpai, but you're coming across pretty desperate.		
+2	Fireball	Wallop		Gloat	You could have had a chance with Senpai...if *I* wasn't in the picture.		
+2	Fireball	Sing		Stir up trouble	I think we both know Senpai deserves someone more like me.		
+2	Sing	Pull		Act superior	Please, even you know that I'm the better choice.		
+2	Sing	Shield		Be snarky	I'm sorry? Is that supposed to be a cake?		
+2	Sing	Lunge			That cake looks almost as bad as you do. I didn't know that was possible.		
+2	Sing	Wallop			I wouldn't eat that cake if you paid me.		
+2	Sing	Fireball		Throw shade	I spent hours on my cake...but I'm pretty sure I saw yours at the grocery store...	Start a rumor	I can't BELIEVE you would call Senpai such mean names! That's so RUDE.
+3	Fireball	Pull	Shield		It's cute how you think copying me will endear you to Senpai...		
+3	Fireball	Pull	Lunge		At least I'll get to watch you humiliate yourself in front of Senpai with...THAT.		
+3	Fireball	Pull	Wallop	Brag	Your attempt at a statue just makes mine look even better.		
+3	Fireball	Pull	Sing	Make it about you	Oh, please. You're no threat to Senpai and mine's TRUE LOVE.		
+3	Fireball	Shield	Pull		Of course you followed me. I couldn't expect you to come up with something original.		
+3	Fireball	Shield	Lunge	Call her a thief	I never expected you to stoop THIS low, even I thought you were above such blatant theft.		
+3	Fireball	Shield	Wallop				
+3	Fireball	Shield	Sing	Make it about you	Were you trying to get my attention by copying me?	Act appalled	I can't believe you! I worked HARD ON THIS, I doubt Senpai appreciates such nastiness.
+3	Fireball	Lunge	Pull	Demean her	Look at you trying so desperately to climb out of my shadow...and still failing.		
+3	Fireball	Lunge	Shield	Done with her	I guess that could be considered a sculpture...for a loose definition of "sculpture".		
+3	Fireball	Lunge	Wallop				
+3	Fireball	Lunge	Sing			Make a scene	FINE. I guess you've declared WAR ON ME NOW.
+3	Fireball	Wallop	Pull				
+3	Fireball	Wallop	Shield				
+3	Fireball	Wallop	Lunge		Your statue is a lame imitation of mine, exactly like how you're a worse version of me.		
+3	Fireball	Wallop	Sing				
+3	Fireball	Sing	Pull	Demean her	Stop pretending that you're even in Senpai's league and leave us alone.		
+3	Fireball	Sing	Shield	Done with her	I should have known you would come back...with another annoying copy.		
+3	Fireball	Sing	Lunge				
+3	Fireball	Sing	Wallop		Let's pretend you copied my statue because you were so inspired by me.		
+3	Sing	Pull	Shield	Done with her	Yawn. You're not even worth my time...OR Senpai's.		
+3	Sing	Pull	Lunge	Call her sad	I'm used to people following me...but you make it seem sad.	Threathen violence	It's like you want me use to this statue to beat your ass.
+3	Sing	Pull	Wallop		Don't you think it's sort of pathetic how much you copy me?		
+3	Sing	Pull	Fireball	Start a rumor	WOW you art thief! This is plagarism!!! EVERYONE, THIS GIRL IS A COPY CAT.		
+3	Sing	Shield	Pull				
+3	Sing	Shield	Lunge				
+3	Sing	Shield	Wallop				
+3	Sing	Shield	Fireball		That statue won't help you...everyone says that Senpai thinks I'm great.		
+3	Sing	Lunge	Pull				
+3	Sing	Lunge	Shield				
+3	Sing	Lunge	Wallop	Gloat	I thought my sculpture was good...and then I saw yours. Now I know mine is GREAT.		
+3	Sing	Lunge	Fireball			Give disingenuous advice	You wouldn't have to try so hard to get people to like you if you were less of a bitch.
+3	Sing	Wallop	Pull				
+3	Sing	Wallop	Shield				
+3	Sing	Wallop	Lunge			Be aggressive	Fine then you must really want to lose to me...
+3	Sing	Wallop	Fireball				
+3	Sing	Fireball	Pull	Dismiss her	If only you had some talent...then you wouldn't need to copy me.		
+3	Sing	Fireball	Shield	Be snarky	Wow, how long did you work on that for? Four minutes?		
+3	Sing	Fireball	Lunge	Call her talentless	That's the worst statue I've ever seen. Exactly what I expect from a talentless hack.		
+3	Sing	Fireball	Wallop				
+1	Lunge			Threaten her	You know I can kick your ass, right?	Threaten her	Are you TRYING to make me hit you right now?
+1	Lunge			Call her an idiot	Am I the only person at this school who isn't a total fucking idiot!?	Threaten to uppercut her	Bitch, I will uppercut you!
+1	Lunge			Snap at her	Don't fuck with me, bitch. You're not even close to my level!	Call her ugly	God, I thought your face was bad.  Then I heard your voice.
+1	Lunge			Call her dumb	What, you can't watch where you're going? Dumb bitch.	Threaten her	You just signed your own death warrant!
+1	Lunge			Call her stupid	Did you eat a brain tumor for breakfast or something?	Threaten her	The last person who spoke to me like that ended up in the back of an ambulance.
+1	Lunge			Call her ugly	Are you really tired today or is that just your face?	Threaten to bitch-slap her	Wow, my bitch-slapping hand is going to get a lot of excercise this year.
+1	Lunge			Laugh at her	That outfit. HAHAHA! You must be the class clown!	Snap at her	Who the fuck do you think you are?!
+1	Lunge			Call her ugly	It's like we had our own little meet cute.  Well, at least I'M cute.	Threaten to decapitate her	Wow, you've got a big head. I really want to rip it off your neck.
+1	Lunge			Call her a bitch	Am I going to have to deal bitches like you all year?	Hate her	Good. I was looking for somebody to hate around here.
+1	Lunge			Threaten to punch her	Watch yourself, or next time you're going to run into my fist.	Snap at her	You know, I was going to be nice...but then you opened your fucking mouth.
+1	Lunge			Threaten her	You do NOT want to get on my bad side. People die on my bad side.	Laugh at her	HAHAHA!!! Oh, sorry I was just laughing at you.
+1	Lunge			Threaten her	You just made my shit list.	Threaten violence	I swear to God, your voice makes me want to hurt children.
+1	Wallop			Brag about Instagram	Do you even know who I am?  You must not be on Instagram.	Gloat	Is that envy I hear in your voice?  Don't worry, it's a natural response.
+1	Wallop			Gloat	You look jealous.  Don't worry, I'm used to it.	Gloat	Listen, it's okay to be jealous of me.
+1	Wallop			Condescend	Look, I'm kind of a big deal, so why don't you just run along.	Condescend	I like how you talk to me like we're equals or something. It's cute.
+1	Wallop			I'm famous	I know you don't know me yet, but you will.	Condescend	Oh honey, you have no idea how far out of your league you are.
+1	Wallop			Swag on her	You're probably not used to seeing this much swag in one place.	Disrespect her	Was that really your best insult.  I was right not to be threatened by you.
+1	Wallop			Gloat	Don't worry.  One day you're going to brag to your kids about the day you bumped into me.	Call her a hater	Wow, haters on the very first day?  I knew I was doing something right.
+1	Wallop			Brag about your looks	Were you distracted by me? I have that effect on people.	Drop a Shakespeare Quote	"I desire that we be better strangers."  That's Shakespeare, but I guess you wouldn't know.
+1	Wallop			Disresepct her	Sorry, did you want an autograph?	Grandstand	Ah, the little people. Can't live with them, can't live....with them.
+1	Wallop			Disresepct her	Don't worry, I'm used to people falling at my feet.	Swag on her	Time is money, honey, and you just cost me about twenty bucks.
+1	Wallop			Gloat	Don't make this about you, because we all know it's about me.	I'm famous	Listen if you want to be more like me, you have to work on your insult game.
+1	Wallop			Gloat	Bumping into me was probably the best part of your day, right?	Disrespect her	You've got to find a better way to channel your jealousy.  Mean isn't working.
+1	Wallop			I'm famous	It was nice meeting you. I bet it was GREAT meeting me.	Swag on her	Hmm, I give that insult a 3/10. Flat delivery, unoriginal, and expected. Give up, baby girl.
+2	Lunge	Fireball		Perpetuate a rumor	You know everyone fucking hates you, right? What makes you think Senpai's any different?	Threaten her with a rumor	I hear you've got a raging case of herpes.  I bet Senpai will love hearing all about it.
+2	Lunge	Shield		Snarky comment	Seriously?  You know Senpai only goes for girls with at least half a brain, right?	Snide Comment	Look, if you can't get a date for V-Day, you can always just stay home and fuck yourself.
+2	Lunge	Sing		Act appalled	Are you seriously trying to make a move on MY Senpai?! Back off, bitch!	Be entitled	Whatever, bitch!  Senpai is already mine!  They just don't know it yet!
+2	Lunge	Pull		Lord over her	Did you seriously think you could win over Senpai with a cake like THAT? Pathetic.	Assert your dominance 	I will shove that pathetic cake so far up your ass, you'll cough up funfetti!
+2	Lunge	Wallop		Disresepct her	You think Senpai wants to go out with you? Ha! You're almost as funny as that stupid cake!	Drop a poem on her	A V-Day poem: Roses are red, violets are blue, Senpai is mine, the fuck you gonna do?
+2	Wallop	Lunge		Be aggressive	Me and Senpai...it's inevitable.  Why don't you go choke on a candy heart or something?	Threaten her	Did you pour your sweat and tears into that cake?  Because I'd be happy to add your blood.
+2	Wallop	Fireball		Give insincere advice	You and Senpai? No. What about that weird kid with no eyebrows? You'd be so cute together!	Backhanded compliment	Oh my god, I love your cake! It's like the sad version of mine!
+2	Wallop	Shield		Ugh	Wait, you're here to ask out Senpai?  Ugh.  Why? You're so boring.	Be snarky	Let me know when you get a date. I'll ride my flying pig to hell and grab you a snowcone.
+2	Wallop	Sing		Make it about you	I know you're in love with me or whatev, but I can't share Senpai.  I don't do threesomes.	Make it about you	Oh my god, did you follow me here? I had no idea you were so obsessed with me.
+2	Wallop	Pull		Assert dominance	You and Senpai? Don't waste your time, honey.  I've got Senpai wrapped around my finger.	Demean her	Honey, Senpai doesn't even know who you are.  You're just so...small...and insignificant.
+3	Lunge	Fireball	Sing	Make a scene	Oh my god! Everybody check out this bitch! She totally stole my idea! 		
+3	Lunge	Fireball	Shield 	Be sarcastic	Gross, unpopular, AND a copycat! OMG, congratulations! You are now officially the worst!		
+3	Lunge	Fireball	Pull	Dominate her	You'll regret stealing my statue idea. I swear, I will fucking break you.		
+3	Lunge	Fireball	Wallop	Gloat	You're copied me? Wow.  Even for you, that's embarrassing. Are you really that jealous?		
+3	Lunge	Shield 	Fireball	Give disingenuous advice	God.  If you're going to copy somebody, at least try to be A LITTLE subtle. It wouldn't kill you.		
+3	Lunge	Shield	Sing	Annoy her	Stop copying me.  Stop copying me. Stop copying me. Stop copying me...STOP COPYING ME!		
+3	Lunge	Shield	Pull	Be dismissive	Can't even come up with your own idea? I would find that sad if I gave a shit.		
+3	Lunge	Shield	Wallop	Disrespect her	You're copying me now? Haha! Wow! You've hit a new low, baby girl!		
+3	Lunge	Sing	Fireball	Perpetuate a rumor	Everybody says you're a wannabe loser. I guess it's true.		
+3	Lunge	Sing	Shield 	Be sarcastic	Gee! I wonder who Senpai's going to like? Me, or the girl who can't think for herself?		
+3	Lunge	Sing	Pull	Be dismissive	You copied me? Hmph! You're just a poser.		
+3	Lunge	Sing	Wallop	Gloat	So what? You just copy whatever the cool kids do?		
+3	Lunge	Pull	Fireball	Give disingenuous advice	If you can't come up with your own idea, don't just steal one. It makes you look pathetic.		
+3	Lunge	Pull	Shield 	Ugh.	You stole my idea? Ugh. Are you physically incapable of having an original thought?	Provoke her	You mad? You want to hit me?  Go ahead.  Do it!  See how that plays out for you.
+3	Lunge	Pull	Sing	Cause a scene	Oh my god! Are you seriously that pathetic that you had to steal my idea?!		
+3	Lunge	Pull	Wallop	Swag on her	Honey, you get to my level by being talented, not by copying the big girls.		
+3	Lunge	Wallop	Fireball	Sarcastic comment	Wow. The way you can just unabashedly steal somebody else's idea. It's is just...so you.		
+3	Lunge	Wallop	Shield 	Be snarky	They say that imitation is the sincerest form of flattery, yet somehow I still hate you.		
+3	Lunge	Wallop	Sing	Make it about you	You can steal my idea, but you DEFINITELY can't steal my talent. Your statue sucks!		
+3	Lunge	Wallop	Pull	Act superior	I'm not surprised that you copied me.  I always knew you couldn't think for yourself.		
+3	Wallop	Lunge	Fireball	Give disingenuous advice	A little word of advice, sweetie; it's okay to be uncreative, but nobody likes a copycat.		
+3	Wallop	Lunge	Shield 	Be sarcastic	A girl who'd dare copy me? Now I've really seen everything.		
+3	Wallop	Lunge	Sing	Make it about you	Too dumb to come up with your own idea? Well, I guess you always have me to look up to.		
+3	Wallop	Lunge	Pull	Demean her	You stole my statue idea?  Hmm. I always knew you were a pathetic wannabe.		
+3	Wallop	Fireball	Lunge	Call her ugly	You made a marble statue too? Oh my god, we're like twins! You know, except I'm pretty.		
+3	Wallop	Fireball	Shield 	Be sarcastic	A marble statue of Senpai? So cool. I wonder where you got that idea.		
+3	Wallop	Fireball	Sing	Act Appaled	I can't believe you would steal my idea!  Is that what I get for being cool to you?		
+3	Wallop	Fireball	Pull	Be dissmissive	You stole my idea? God.  I'm sorry I ever deigned to talk to you.		
+3	Wallop	Shield	Lunge	Threaten violence	You know what'll be fun? Beating you to death with that ridiculous poser statue.		
+3	Wallop	Shield	Fireball	Be insincere 	It's okay if you're not clever enough to come up with your own idea.  I totally get it.		
+3	Wallop	Shield	Sing	Make it about you	I should've known you'd copy me.  Not everyone can be as clever as me.		
+3	Wallop	Shield	Pull	Be aloof	I would call your statue a pale imitation, but even that would be too generous. 		
+3	Wallop	Sing	Lunge	Get angry	I used to think it was cute how much you wanted to be me, but now it's just annoying!		
+3	Wallop	Sing	Fireball	Give disingenuous advice	I'm flattered, but your obsession with me is really unhealthy. You should do you.		
+3	Wallop	Sing	Shield 	So done with her	Wow, I know you're obsessed with me, but copying me? It's starting to get creepy.		
+3	Wallop	Sing	Pull	Demean her	You're copying me now?  Are you really that pathetic?		
+3	Wallop	Pull	Lunge	Be cutting	You stole my idea? Are you jealous, or are you just too stupid to come up with your own?		
+3	Wallop	Pull	Fireball	Turn people against her	I'm going to tell the whole school you stole my idea, and you know they'll believe me.		
+3	Wallop	Pull	Shield 	Be sarcastic	Oh look! The little nobody stole my idea! Oh wow, how flattering.		
+3	Wallop	Pull	Sing	Flaunt your popularity	Oh sure! Steal an idea from the most popular girl in school! That's a good look!	Flaunt your popularity	This whole school worships me and so does Senpai!  I don't care what you say about me!
