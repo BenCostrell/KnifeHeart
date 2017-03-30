@@ -64,8 +64,23 @@ public class FightUIManager : MonoBehaviour {
 		}
 	}
 
-	public void UpdateCooldownUI(Ability.Type ability, float fractionRemaining){
-		GameObject timer = cooldownBarDict [ability];
+	public void UpdateCooldownUI(Ability.Type ability, float fractionRemaining, int playerNum){
+        GameObject timer;
+        if (ability != Ability.Type.BasicAttack)
+        {
+            timer = cooldownBarDict[ability];
+        }
+        else
+        {
+            if (playerNum == 1)
+            {
+                timer = cooldownUI_P1[3].transform.GetChild(0).gameObject;
+            }
+            else
+            {
+                timer = cooldownUI_P2[3].transform.GetChild(0).gameObject;
+            }
+        }
 		Image image = timer.GetComponent<Image> ();
 		float alpha;
 		image.fillAmount = 1 - fractionRemaining;

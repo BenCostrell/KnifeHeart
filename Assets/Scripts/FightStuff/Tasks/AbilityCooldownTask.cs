@@ -23,9 +23,9 @@ public class AbilityCooldownTask : Task {
 	internal override void Update ()
 	{
 		timeRemaining -= Time.deltaTime;
-		if (ability != Ability.Type.BasicAttack) {
-			Services.FightUIManager.UpdateCooldownUI (ability, timeRemaining / duration);
-		}
+  
+		Services.FightUIManager.UpdateCooldownUI (ability, timeRemaining / duration, player.playerNum);
+
 		if (timeRemaining <= 0) {
 			SetStatus (TaskStatus.Success);
 		}
