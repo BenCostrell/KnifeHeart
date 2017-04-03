@@ -113,6 +113,9 @@ public class FightSceneManager : MonoBehaviour {
 
         player1.GetComponent<SpriteRenderer>().enabled = true;
         player2.GetComponent<SpriteRenderer>().enabled = true;
+
+        fallenPlayer.TakeHit(fallDamage, 0, 0, Vector3.zero);
+
     }
 
     void InitiateFightSequence()
