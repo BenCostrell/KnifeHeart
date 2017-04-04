@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class FightSceneManager : MonoBehaviour {
+public class FightSceneManager : Scene<TransitionData> {
 
 	public GameObject player1;
 	public GameObject player2;
@@ -28,14 +28,43 @@ public class FightSceneManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        InitializeFightServices();
         roundNum = 1;
         lastComic = false;
         SetUpArenas();
         InitiateFightSequence();
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    void InitializeFightServices()
+    {
+        Services.FightSceneManager = this;
+        Services.FightUIManager = GameObject.FindGameObjectWithTag("FightUIManager").GetComponent<FightUIManager>();
+        Services.WinScreenUIManager = GameObject.FindGameObjectWithTag("WinScreenUIManager").GetComponent<WinScreenUIManager>();
+        Services.TransitionComicManager = GameObject.FindGameObjectWithTag("TransitionComicManager").GetComponent<TransitionComicManager>();
+
+        if (Services.GameInfo.player1Abilities.Count == 0)
+        {
+            SetPlayerAbilities();
+        }
+    }
+
+    // for testing purposes only
+    void SetPlayerAbilities()
+    {
+        Services.GameInfo.player1Abilities = new List<Ability.Type>() {
+            Ability.Type.Fireball,
+            Ability.Type.Lunge,
+            Ability.Type.Pull
+        };
+        Services.GameInfo.player2Abilities = new List<Ability.Type>() {
+            Ability.Type.Shield,
+            Ability.Type.Sing,
+            Ability.Type.Wallop
+        };
+    }
+
+    // Update is called once per frame
+    void Update () {
 	}
 
 

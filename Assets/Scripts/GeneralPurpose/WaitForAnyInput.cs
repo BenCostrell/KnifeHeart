@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShowStartScreen : Task {
+public class WaitForAnyInput : Task {
 
 	protected override void Init ()
 	{
-		Services.DialogueUIManager.startScreen.SetActive (true);
 		Services.EventManager.Register<ButtonPressed> (Continue);
 	}
 
-	void Continue(ButtonPressed e){
+	void Continue (ButtonPressed e){
 		SetStatus (TaskStatus.Success);
 	}
 

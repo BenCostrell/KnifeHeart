@@ -5,9 +5,7 @@ using UnityEngine;
 public class ComicPanelManager : MonoBehaviour {
 
     public GameObject comicBackground;
-    public GameObject scenario1;
-    public GameObject scenario2;
-    public GameObject scenario3;
+    public GameObject[] scenarios;
     public GameObject continueButton;
     public float panelAppearTime;
 
@@ -27,17 +25,12 @@ public class ComicPanelManager : MonoBehaviour {
         comicBackground.SetActive(false);
         continueButton.SetActive(false);
 
-        foreach (Transform t in scenario1.GetComponentsInChildren<Transform>())
+        for (int i = 0; i < scenarios.Length; i++)
         {
-            t.gameObject.SetActive(false);
-        }
-        foreach (Transform t in scenario2.GetComponentsInChildren<Transform>())
-        {
-            t.gameObject.SetActive(false);
-        }
-        foreach (Transform t in scenario3.GetComponentsInChildren<Transform>())
-        {
-            t.gameObject.SetActive(false);
+            foreach (Transform t in scenarios[i].GetComponentsInChildren<Transform>())
+            {
+                t.gameObject.SetActive(false);
+            }
         }
     }
 }

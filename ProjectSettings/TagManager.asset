@@ -16,6 +16,7 @@ TagManager:
   - ComicPanelManager
   - TransitionComicManager
   - DeathZone
+  - SceneRoot
   layers:
   - Default
   - TransparentFX

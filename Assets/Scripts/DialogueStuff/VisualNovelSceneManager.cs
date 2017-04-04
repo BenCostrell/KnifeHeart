@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VisualNovelSceneManager : MonoBehaviour {
+public class VisualNovelSceneManager : Scene<TransitionData> {
 
 	public TextAsset dialogueFile;
     public TextAsset rpsDialogueFile;
@@ -14,23 +14,62 @@ public class VisualNovelSceneManager : MonoBehaviour {
 	public int currentRoundNum;
     public int initiatingPlayer;
     public string[] rpsDialogueArray;
+    private Vector2[,,] comicShiftArray;
 
-	void Start () {
-		GenerateDialogueData ();
+    internal override void Init()
+    {
+        InitializeVNServices();
+        currentRoundNum = 1;
+        GenerateDialogueData();
         GenerateRpsDialogueData();
-		InitializeAbilityPool ();
-		Services.DialogueUIManager.SetUpUI ();
-		Services.EventManager.Register<DialoguePicked> (PickAbility);
-		currentRoundNum = 1;
-		BeginVisualNovelSequence ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        InitializeAbilityPool();
+        Services.DialogueUIManager.SetUpUI();
+        Services.EventManager.Register<DialoguePicked>(PickAbility);
+    }
+
+    internal override void OnEnter(TransitionData data)
+    {
+        StartSequence();
+        currentRoundNum += 1;
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
-	void InitializeAbilityPool(){
+    void InitializeVNServices()
+    {
+        Services.DialogueDataManager = new DialogueDataManager();
+        Services.DialogueUIManager = GameObject.FindGameObjectWithTag("DialogueUIManager").GetComponent<DialogueUIManager>();
+        Services.TransitionUIManager = GameObject.FindGameObjectWithTag("TransitionUIManager").GetComponent<TransitionUIManager>();
+        Services.VisualNovelSceneManager = this;
+        Services.ComicPanelManager = GameObject.FindGameObjectWithTag("ComicPanelManager").GetComponent<ComicPanelManager>();
+    }
+
+    void InitializeComicShiftArray()
+    {
+        comicShiftArray = new Vector2[3, 3, 3]
+        {
+            {
+                {900 * Vector2.up, 900 * Vector2.left, 900 * Vector2.right },
+                {1600 * Vector2.right, 1600 * Vector2.left, 1600 * Vector2.right },
+                {Vector2.zero, Vector2.zero, Vector2.zero }
+            },
+            {
+                {1600 * Vector2.left, 1600 * Vector2.right, Vector2.zero },
+                {1600 * Vector2.left, 1600 * Vector2.right, Vector2.zero },
+                {1600 * Vector2.left, 1600 * Vector2.right, Vector2.zero }
+            },
+            {
+                {900 * Vector2.up, 1600 * Vector2.left, 1600 * Vector2.right },
+                {1600 * Vector2.left, Vector2.zero, Vector2.zero },
+                {1600 * Vector2.left, 1600 * Vector2.right, Vector2.zero }
+            }
+        };
+    }
+
+    void InitializeAbilityPool(){
 		abilityPool = new List<Ability.Type> () { 
 			Ability.Type.Fireball, 
 			Ability.Type.Lunge, 
@@ -64,44 +103,23 @@ public class VisualNovelSceneManager : MonoBehaviour {
         Services.DialogueDataManager.ParseRpsDialogueFile(rpsDialogueFile);
     }
 
-	void BeginVisualNovelSequence(){
-        ShowStartScreen showStartScreen = new ShowStartScreen ();
-        Task comicSequence1 = ComicSequence(showStartScreen, Services.ComicPanelManager.scenario1.transform,
-            new Vector2[2, 3]
-            {
-                {900 * Vector2.up, 900 * Vector2.left, 900 * Vector2.right },
-                {1600 * Vector2.right, 1600 * Vector2.left, 1600 * Vector2.right }
-            });
-        Task round1Sequence = RoundSequence(comicSequence1);
-        Task comicSequence2 = ComicSequence(round1Sequence, Services.ComicPanelManager.scenario2.transform,
-            new Vector2[3, 2]
-            {
-                {1600 * Vector2.left, 1600 * Vector2.right },
-                {1600 * Vector2.left, 1600 * Vector2.right },
-                {1600 * Vector2.left, 1600 * Vector2.right }
-            });
-        Task round2Sequence = RoundSequence(comicSequence2);
-        Task comicSequence3 = ComicSequence(round2Sequence, Services.ComicPanelManager.scenario3.transform,
-            new Vector2[3, 3]
-            {
-                {900 * Vector2.up, 1600 * Vector2.left, 1600 * Vector2.right },
-                {1600 * Vector2.left, Vector2.zero, Vector2.zero },
-                {1600 * Vector2.left, 1600 * Vector2.right, Vector2.zero }
-            });
-        Task round3Sequence = RoundSequence(comicSequence3);
-        
-		Services.TaskManager.AddTask (showStartScreen);
-	}
+    void StartSequence()
+    {
+        Task startTask = new WaitTask(0);
+        Task comicSequence = ComicSequence(startTask, Services.ComicPanelManager.scenarios[currentRoundNum - 1].transform, 
+            currentRoundNum - 1);
+        Task roundSequence = RoundSequence(comicSequence);
 
-    Task ComicSequence(Task precedingTask, Transform scenarioTransform, Vector2[,] shifts)
+        Services.TaskManager.AddTask(startTask);
+    }
+
+    Task ComicSequence(Task precedingTask, Transform scenarioTransform, int comicNum)
     {
         SlideInPanel slideInComicBackground = new SlideInPanel(Services.ComicPanelManager.comicBackground, true, 1600 * Vector2.right,
             Services.ComicPanelManager.panelAppearTime);
-        Task turnOffStartScreen = new SetObjectStatus(false, Services.DialogueUIManager.startScreen);
         SetObjectStatus turnOnScenario = new SetObjectStatus(true, scenarioTransform.gameObject);
         precedingTask
             .Then(slideInComicBackground)
-            .Then(turnOffStartScreen)
             .Then(turnOnScenario);
         int numPages = scenarioTransform.childCount;
         Task currentTask = turnOnScenario;
@@ -114,7 +132,7 @@ public class VisualNovelSceneManager : MonoBehaviour {
             int numPanels = page.childCount;
             for (int j = 0; j < numPanels; j++)
             {
-                SlideInPanel slideInPanel = new SlideInPanel(page.GetChild(j).gameObject, true, shifts[i, j], 
+                SlideInPanel slideInPanel = new SlideInPanel(page.GetChild(j).gameObject, true, comicShiftArray[comicNum, i, j], 
                     Services.ComicPanelManager.panelAppearTime);
                 currentTask.Then(slideInPanel);
                 currentTask = slideInPanel;
@@ -150,11 +168,11 @@ public class VisualNovelSceneManager : MonoBehaviour {
         WaitForRpsDialogueSelection waitForSelection = new WaitForRpsDialogueSelection();
         TransitionFromSelectionToDialogue transition = new TransitionFromSelectionToDialogue();
         TypeRpsDialogue loserDialogue = new TypeRpsDialogue();
-        WaitForAnyInput waitForInput1 = new WaitForAnyInput();
+        WaitToContinueDialogue waitForInput1 = new WaitToContinueDialogue();
         TypeRpsDialogue winnerDialogue = new TypeRpsDialogue();
-        WaitForAnyInput waitForInput2 = new WaitForAnyInput();
+        WaitToContinueDialogue waitForInput2 = new WaitToContinueDialogue();
         TypeDialogue crowdReaction = new TypeDialogue(true);
-        WaitForAnyInput waitForInput3 = new WaitForAnyInput();
+        WaitToContinueDialogue waitForInput3 = new WaitToContinueDialogue();
 
         precedingTask
             .Then(slideInCrowd)

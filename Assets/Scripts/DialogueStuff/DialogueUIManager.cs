@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class DialogueUIManager : MonoBehaviour {
 
-	public GameObject startScreen;
 	public GameObject crowdImage;
 	public GameObject dialogueContainer;
 	public GameObject dialogueText;
