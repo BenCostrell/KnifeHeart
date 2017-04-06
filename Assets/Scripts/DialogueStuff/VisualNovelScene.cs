@@ -106,22 +106,22 @@ public class VisualNovelScene : Scene<TransitionData> {
 
     void StartSequence()
     {
-        Task startTask = new WaitTask(0);
-        Task comicSequence = ComicSequence(startTask, Services.ComicPanelManager.scenarios[currentRoundNum - 1].transform, 
+        SetObjectStatus turnOnComicBackground = new SetObjectStatus(true, Services.ComicPanelManager.comicBackground);
+        Task comicSequence = ComicSequence(turnOnComicBackground, Services.ComicPanelManager.scenarios[currentRoundNum - 1].transform, 
             currentRoundNum - 1);
         Task roundSequence = RoundSequence(comicSequence);
         Task transitionToFight = TransitionToFightSequence(roundSequence);
 
-        Services.TaskManager.AddTask(startTask);
+        Services.TaskManager.AddTask(turnOnComicBackground);
     }
 
     Task ComicSequence(Task precedingTask, Transform scenarioTransform, int comicNum)
     {
-        SlideInPanel slideInComicBackground = new SlideInPanel(Services.ComicPanelManager.comicBackground, true, 1600 * Vector2.right,
-            Services.ComicPanelManager.panelAppearTime);
+        //SlideInPanel slideInComicBackground = new SlideInPanel(Services.ComicPanelManager.comicBackground, true, 1600 * Vector2.right,
+        //    Services.ComicPanelManager.panelAppearTime);
         SetObjectStatus turnOnScenario = new SetObjectStatus(true, scenarioTransform.gameObject);
         precedingTask
-            .Then(slideInComicBackground)
+        //    .Then(slideInComicBackground)
             .Then(turnOnScenario);
         int numPages = scenarioTransform.childCount;
         Task currentTask = turnOnScenario;

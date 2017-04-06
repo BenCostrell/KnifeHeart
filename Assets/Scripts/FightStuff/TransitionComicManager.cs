@@ -5,9 +5,7 @@ using UnityEngine;
 public class TransitionComicManager : MonoBehaviour {
 
     public GameObject comicBackground;
-    public GameObject transitionToParkingLot;
-    public GameObject transitionToHell;
-    public GameObject winComic;
+    public GameObject[] fightEndComics;
     public GameObject continueButton;
     public Sprite[] transitionToParkingLotImagesPigtailsWins;
     public Sprite[] transitionToParkingLotImagesPonytailWins;
@@ -20,6 +18,8 @@ public class TransitionComicManager : MonoBehaviour {
 
     public List<List<Sprite>> winComicPigtailsWins;
     public List<List<Sprite>> winComicPonytailWins;
+
+    public List<List<List<Vector2>>> comicShifts;
 
     public float panelAppearTime;
     public float continuePromptGrowTime;
@@ -48,17 +48,44 @@ public class TransitionComicManager : MonoBehaviour {
         comicBackground.SetActive(false);
         continueButton.SetActive(false);
 
-        foreach (Transform t in transitionToParkingLot.GetComponentsInChildren<Transform>())
+        for(int i = 0; i <fightEndComics.Length; i++)
         {
-            t.gameObject.SetActive(false);
+            foreach (Transform t in fightEndComics[i].GetComponentsInChildren<Transform>())
+            {
+                t.gameObject.SetActive(false);
+            }
         }
-        foreach (Transform t in transitionToHell.GetComponentsInChildren<Transform>())
+    }
+
+    void InitializeComicShiftArray()
+    {
+        comicShifts = new List<List<List<Vector2>>>
         {
-            t.gameObject.SetActive(false);
-        }
-        foreach (Transform t in winComic.GetComponentsInChildren<Transform>())
-        {
-            t.gameObject.SetActive(false);
-        }
+            /// hallway end comic
+            new List<List<Vector2>>{
+                new List<Vector2>{1600 * Vector2.left}
+            },
+            /// cafeteria end comic
+            new List<List<Vector2>>
+            {
+                new List<Vector2> {1600 * Vector2.left }
+            },
+            /// rooftop end comic
+            new List<List<Vector2>>
+            {
+                new List<Vector2>{ 1600 * Vector2.left, 1600 * Vector2.right }
+            },
+            /// parking lot end comic
+            new List<List<Vector2>>
+            {
+                new List<Vector2>{ 1600 * Vector2.left, 1600 * Vector2.right }
+            },
+            /// hell end (win) comic
+            new List<List<Vector2>>
+            {
+                new List<Vector2>{1600 * Vector2.left, 1600 * Vector2.right },
+                new List<Vector2>{1600 * Vector2.left, 1600 * Vector2.right }
+            }
+         };
     }
 }

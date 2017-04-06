@@ -118,10 +118,16 @@ public class Player : MonoBehaviour {
 				DoAbility (abilityList [0]);
 				break;
 			case "Y":
-				DoAbility (abilityList [1]);
+                if (abilityList.Count > 1)
+                {
+                    DoAbility(abilityList[1]);
+                }
 				break;
 			case "B":
-				DoAbility (abilityList [2]);
+                if (abilityList.Count > 2)
+                {
+                    DoAbility(abilityList[2]);
+                }
 				break;
 			default:
 				break;

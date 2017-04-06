@@ -46,7 +46,6 @@ public class FightUIManager : MonoBehaviour {
 
 	void InitializeUI(){
 		cooldownBarDict = new Dictionary<Ability.Type, GameObject> ();
-        Debug.Log(Services.FightScene.roundNum);
         for (int i = 0; i < cooldownUI_P1.Length - 1; i++) {
             GameObject obj_P1 = cooldownUI_P1[i];
             GameObject obj_P2 = cooldownUI_P2[i];
