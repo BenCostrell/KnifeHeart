@@ -19,12 +19,12 @@ public static class Services {
     public static DialogueDataManager DialogueDataManager { get; set; }
     public static DialogueUIManager DialogueUIManager { get; set; }
     public static TransitionUIManager TransitionUIManager { get; set; }
-    public static VisualNovelSceneManager VisualNovelSceneManager { get; set; }
+    public static VisualNovelScene VisualNovelScene { get; set; }
     public static WinScreenUIManager WinScreenUIManager { get; set; }
     public static TransitionComicManager TransitionComicManager { get; set; }
 
     /// FIGHT SCENE ///
-    public static FightSceneManager FightSceneManager { get; set; }
+    public static FightScene FightScene { get; set; }
 	public static FightUIManager FightUIManager { get; set; }
     public static ComicPanelManager ComicPanelManager { get; set; }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VisualNovelSceneManager : Scene<TransitionData> {
+public class VisualNovelScene : Scene<TransitionData> {
 
 	public TextAsset dialogueFile;
     public TextAsset rpsDialogueFile;
@@ -19,18 +19,19 @@ public class VisualNovelSceneManager : Scene<TransitionData> {
     internal override void Init()
     {
         InitializeVNServices();
-        currentRoundNum = 1;
+        currentRoundNum = 0;
         GenerateDialogueData();
         GenerateRpsDialogueData();
         InitializeAbilityPool();
+        InitializeComicShiftArray();
         Services.DialogueUIManager.SetUpUI();
         Services.EventManager.Register<DialoguePicked>(PickAbility);
     }
 
     internal override void OnEnter(TransitionData data)
     {
-        StartSequence();
         currentRoundNum += 1;
+        StartSequence();
     }
 
     // Update is called once per frame
@@ -43,7 +44,7 @@ public class VisualNovelSceneManager : Scene<TransitionData> {
         Services.DialogueDataManager = new DialogueDataManager();
         Services.DialogueUIManager = GameObject.FindGameObjectWithTag("DialogueUIManager").GetComponent<DialogueUIManager>();
         Services.TransitionUIManager = GameObject.FindGameObjectWithTag("TransitionUIManager").GetComponent<TransitionUIManager>();
-        Services.VisualNovelSceneManager = this;
+        Services.VisualNovelScene = this;
         Services.ComicPanelManager = GameObject.FindGameObjectWithTag("ComicPanelManager").GetComponent<ComicPanelManager>();
     }
 
@@ -109,6 +110,7 @@ public class VisualNovelSceneManager : Scene<TransitionData> {
         Task comicSequence = ComicSequence(startTask, Services.ComicPanelManager.scenarios[currentRoundNum - 1].transform, 
             currentRoundNum - 1);
         Task roundSequence = RoundSequence(comicSequence);
+        Task transitionToFight = TransitionToFightSequence(roundSequence);
 
         Services.TaskManager.AddTask(startTask);
     }
@@ -402,7 +404,7 @@ public class VisualNovelSceneManager : Scene<TransitionData> {
         rpsDialogueArray = dialogueArray;
     }
 
-	public void TransitionToFight(){
+	Task TransitionToFightSequence(Task precedingTask){
 		Services.GameInfo.player1Abilities = abilityList_P1;
 		Services.GameInfo.player2Abilities = abilityList_P2;
 
@@ -412,14 +414,22 @@ public class VisualNovelSceneManager : Scene<TransitionData> {
 		WaitForReady waitForReady = new WaitForReady ();
 		ScaleOutTransitionUI scaleOut = new ScaleOutTransitionUI ();
 		FinishTransition finish = new FinishTransition ();
+        ActionTask startFight = new ActionTask(StartFight);
 
-        slideOutCrowd
+        precedingTask
+            .Then(slideOutCrowd)
             .Then(slideInBG)
             .Then(showWords)
             .Then(waitForReady)
             .Then(scaleOut)
-            .Then(finish);
+            .Then(finish)
+            .Then(startFight);
 
-		Services.TaskManager.AddTask (slideOutCrowd);
+        return startFight;
 	}
+
+    void StartFight()
+    {
+        Services.SceneStackManager.PushScene<FightScene>(new TransitionData(currentRoundNum));
+    }
 }

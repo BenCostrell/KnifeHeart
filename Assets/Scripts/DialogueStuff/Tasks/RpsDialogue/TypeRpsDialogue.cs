@@ -9,16 +9,16 @@ public class TypeRpsDialogue : Task {
 
     protected override void Init()
     {
-        int playerNum = Services.VisualNovelSceneManager.currentTurnPlayerNum;
+        int playerNum = Services.VisualNovelScene.currentTurnPlayerNum;
         characterIndex = 0;
         Services.DialogueUIManager.dialogueContainer.SetActive(true);
-        if (playerNum == Services.VisualNovelSceneManager.initiatingPlayer)
+        if (playerNum == Services.VisualNovelScene.initiatingPlayer)
         {
-            dialogueText = Services.VisualNovelSceneManager.rpsDialogueArray[1];
+            dialogueText = Services.VisualNovelScene.rpsDialogueArray[1];
         }
         else
         {
-            dialogueText = Services.VisualNovelSceneManager.rpsDialogueArray[0];
+            dialogueText = Services.VisualNovelScene.rpsDialogueArray[0];
         }
         Services.DialogueUIManager.dialogueText.GetComponent<Text>().text = "";
         if (playerNum == 1)
@@ -45,7 +45,7 @@ public class TypeRpsDialogue : Task {
 
     protected override void OnSuccess()
     {
-        Services.VisualNovelSceneManager.ChangePlayerTurn();
+        Services.VisualNovelScene.ChangePlayerTurn();
     }
 
 }

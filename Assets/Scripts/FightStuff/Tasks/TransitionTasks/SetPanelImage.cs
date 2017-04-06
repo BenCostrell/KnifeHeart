@@ -20,13 +20,13 @@ public class SetPanelImage : Task {
     protected override void Init()
     {
         Sprite panelSprite;
-        if (Services.FightSceneManager.fallenPlayer.playerNum == 1)
+        if (Services.FightScene.fallenPlayer.playerNum == 1)
         {
-            if (incomingArena == Services.FightSceneManager.parkingLotArena)
+            if (incomingArena == Services.FightScene.parkingLotArena)
             {
                 panelSprite = Services.TransitionComicManager.transitionToParkingLotImagesPigtailsWins[panelNum];
             }
-            else if (incomingArena == Services.FightSceneManager.hellArena)
+            else if (incomingArena == Services.FightScene.hellArena)
             {
                 panelSprite = Services.TransitionComicManager.transitionToHellImagesPigtailsWins[panelNum];
             }
@@ -37,11 +37,11 @@ public class SetPanelImage : Task {
         }
         else
         {
-            if (incomingArena == Services.FightSceneManager.parkingLotArena)
+            if (incomingArena == Services.FightScene.parkingLotArena)
             {
                 panelSprite = Services.TransitionComicManager.transitionToParkingLotImagesPonytailWins[panelNum];
             }
-            else if (incomingArena == Services.FightSceneManager.hellArena)
+            else if (incomingArena == Services.FightScene.hellArena)
             {
                 panelSprite = Services.TransitionComicManager.transitionToHellImagesPonytailWins[panelNum];
             }

@@ -80,6 +80,6 @@ public class WaitForRpsDialogueSelection : Task {
     protected override void OnSuccess()
     {
         Services.EventManager.Unregister<ButtonPressed>(OnInputReceived);
-        Services.VisualNovelSceneManager.ProcessRpsChoices(choice_P1, choice_P2, choiceTime_P1, choiceTime_P2);
+        Services.VisualNovelScene.ProcessRpsChoices(choice_P1, choice_P2, choiceTime_P1, choiceTime_P2);
     }
 }

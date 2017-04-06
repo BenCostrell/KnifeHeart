@@ -14,7 +14,7 @@ public class TypeDialogue : Task {
 
 	protected override void Init ()
 	{
-		int playerNum = Services.VisualNovelSceneManager.currentTurnPlayerNum;
+		int playerNum = Services.VisualNovelScene.currentTurnPlayerNum;
 		characterIndex = 0;
         Services.DialogueUIManager.dialogueContainer.SetActive(true);
         Services.DialogueUIManager.dialogueText.GetComponent<Text>().text = "";
@@ -28,7 +28,7 @@ public class TypeDialogue : Task {
 				Services.DialogueUIManager.arrow_P2.SetActive (true);
 			}
 		} else {
-            dialogueText = "CROWD: " + Services.VisualNovelSceneManager.rpsDialogueArray[2];
+            dialogueText = "CROWD: " + Services.VisualNovelScene.rpsDialogueArray[2];
             Services.DialogueUIManager.arrow_P1.SetActive(false);
             Services.DialogueUIManager.arrow_P2.SetActive(false);
 		}
@@ -45,6 +45,6 @@ public class TypeDialogue : Task {
 
 	protected override void OnSuccess ()
 	{
-		Services.VisualNovelSceneManager.ChangePlayerTurn ();
+		Services.VisualNovelScene.ChangePlayerTurn ();
 	}
 }

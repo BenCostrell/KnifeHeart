@@ -18,7 +18,6 @@ public class DialogueTransitionTask : Task {
 
     protected override void Init ()
 	{
-		Services.VisualNovelSceneManager.currentRoundNum += 1;
         timeElapsed = 0;
         duration = 1f;
         ponytail = Services.DialogueUIManager.ponytail.GetComponent<RectTransform>();
@@ -44,14 +43,6 @@ public class DialogueTransitionTask : Task {
         if (timeElapsed >= duration)
         {
             SetStatus(TaskStatus.Success);
-        }
-	}
-
-	protected override void OnSuccess ()
-	{
-        if (Services.VisualNovelSceneManager.currentRoundNum == 4)
-        {
-            Services.VisualNovelSceneManager.TransitionToFight();
         }
 	}
 }

@@ -18,7 +18,7 @@ public class WaitForFall : Task {
 
     protected override void OnSuccess()
     {
-        Services.FightSceneManager.fallenPlayer = fallenPlayer;
+        Services.FightScene.fallenPlayer = fallenPlayer;
         Services.EventManager.Unregister<PlayerFall>(OnPlayerFall);
     }
 }

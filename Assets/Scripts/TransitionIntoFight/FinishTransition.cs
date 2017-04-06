@@ -33,9 +33,4 @@ public class FinishTransition : Task {
 			SetStatus (TaskStatus.Success);
 		}
 	}
-
-	protected override void OnSuccess ()
-	{
-		SceneManager.LoadScene ("fightRoom");
-	}
 }

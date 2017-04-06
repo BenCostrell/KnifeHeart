@@ -25,7 +25,7 @@ public class TitleScreen : Scene<TransitionData> {
 
     void StartGame()
     {
-        Services.SceneStackManager.Swap<VisualNovelSceneManager>();
+        Services.SceneStackManager.Swap<VisualNovelScene>();
     }
 
     

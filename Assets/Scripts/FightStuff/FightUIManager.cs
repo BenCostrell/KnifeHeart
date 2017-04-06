@@ -46,21 +46,31 @@ public class FightUIManager : MonoBehaviour {
 
 	void InitializeUI(){
 		cooldownBarDict = new Dictionary<Ability.Type, GameObject> ();
-		for (int i = 0; i < cooldownUI_P1.Length - 1; i++) {
-			GameObject obj_P1 = cooldownUI_P1 [i];
-			GameObject obj_P2 = cooldownUI_P2 [i];
-			GameObject timer_P1 = obj_P1.transform.GetChild (0).gameObject;
-			GameObject timer_P2 = obj_P2.transform.GetChild (0).gameObject;
-			GameObject icon_P1 = obj_P1.transform.GetChild (1).gameObject;
-			GameObject icon_P2 = obj_P2.transform.GetChild (1).gameObject;
-			Ability.Type ability_P1 = Services.GameInfo.player1Abilities [i];
-			Ability.Type ability_P2 = Services.GameInfo.player2Abilities [i];
+        Debug.Log(Services.FightScene.roundNum);
+        for (int i = 0; i < cooldownUI_P1.Length - 1; i++) {
+            GameObject obj_P1 = cooldownUI_P1[i];
+            GameObject obj_P2 = cooldownUI_P2[i];
+            if (i < Services.FightScene.roundNum)
+            {
+                
+                GameObject timer_P1 = obj_P1.transform.GetChild(0).gameObject;
+                GameObject timer_P2 = obj_P2.transform.GetChild(0).gameObject;
+                GameObject icon_P1 = obj_P1.transform.GetChild(1).gameObject;
+                GameObject icon_P2 = obj_P2.transform.GetChild(1).gameObject;
+                Ability.Type ability_P1 = Services.GameInfo.player1Abilities[i];
+                Ability.Type ability_P2 = Services.GameInfo.player2Abilities[i];
 
-			icon_P1.GetComponent<Image> ().sprite = spriteDict [ability_P1];
-			icon_P2.GetComponent<Image> ().sprite = spriteDict [ability_P2];
+                icon_P1.GetComponent<Image>().sprite = spriteDict[ability_P1];
+                icon_P2.GetComponent<Image>().sprite = spriteDict[ability_P2];
 
-			cooldownBarDict.Add (ability_P1, timer_P1);
-			cooldownBarDict.Add (ability_P2, timer_P2);
+                cooldownBarDict.Add(ability_P1, timer_P1);
+                cooldownBarDict.Add(ability_P2, timer_P2);
+            }
+            else
+            {
+                obj_P1.SetActive(false);
+                obj_P2.SetActive(false);
+            }
 		}
 	}
 

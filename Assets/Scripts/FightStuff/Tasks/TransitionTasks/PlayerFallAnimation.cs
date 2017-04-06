@@ -10,9 +10,9 @@ public class PlayerFallAnimation : Task {
 
     protected override void Init()
     {
-        playerTransform = Services.FightSceneManager.fallenPlayer.transform;
+        playerTransform = Services.FightScene.fallenPlayer.transform;
         timeElapsed = 0;
-        duration = Services.FightSceneManager.fallAnimationTime;
+        duration = Services.FightScene.fallAnimationTime;
         initialScale = playerTransform.localScale;
     }
 

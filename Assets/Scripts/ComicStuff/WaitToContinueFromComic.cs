@@ -70,9 +70,9 @@ public class WaitToContinueFromComic : Task {
     {
         bool lastComic = false;
         Services.EventManager.Unregister<ButtonPressed>(Continue);
-        if (Services.FightSceneManager != null)
+        if (Services.FightScene != null)
         {
-            lastComic = Services.FightSceneManager.lastComic;
+            lastComic = Services.FightScene.lastComic;
         }
         if (!lastComic)
         {

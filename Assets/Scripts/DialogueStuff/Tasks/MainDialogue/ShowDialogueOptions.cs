@@ -25,7 +25,7 @@ public class ShowDialogueOptions : Task {
 	protected override void Init ()
 	{
         timeElapsed = 0;
-        Services.VisualNovelSceneManager.GenerateDialogueOptions (firstChoice);
+        Services.VisualNovelScene.GenerateDialogueOptions (firstChoice);
 		GameObject[] optObjects = Services.DialogueUIManager.optionObjects;
 		numAvailOptions = 0;
 		for (int i = 0; i < optObjects.Length; i++) {
@@ -38,7 +38,7 @@ public class ShowDialogueOptions : Task {
 			}
 		}
 
-        if (Services.VisualNovelSceneManager.currentTurnPlayerNum == 1)
+        if (Services.VisualNovelScene.currentTurnPlayerNum == 1)
         {
             activePlayer = Services.DialogueUIManager.ponytail.GetComponent<RectTransform>();
             inactivePlayer = Services.DialogueUIManager.pigtails.GetComponent<RectTransform>();

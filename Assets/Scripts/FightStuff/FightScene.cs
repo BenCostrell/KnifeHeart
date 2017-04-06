@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class FightSceneManager : Scene<TransitionData> {
+public class FightScene : Scene<TransitionData> {
 
 	public GameObject player1;
 	public GameObject player2;
@@ -28,20 +28,28 @@ public class FightSceneManager : Scene<TransitionData> {
 
 	// Use this for initialization
 	void Start () {
+        
+	}
+
+    internal override void Init()
+    {
         InitializeFightServices();
-        roundNum = 1;
         lastComic = false;
         SetUpArenas();
         InitiateFightSequence();
-	}
+    }
+
+    internal override void OnEnter(TransitionData data)
+    {
+        roundNum = data.roundNum;
+    }
 
     void InitializeFightServices()
     {
-        Services.FightSceneManager = this;
+        Services.FightScene = this;
         Services.FightUIManager = GameObject.FindGameObjectWithTag("FightUIManager").GetComponent<FightUIManager>();
         Services.WinScreenUIManager = GameObject.FindGameObjectWithTag("WinScreenUIManager").GetComponent<WinScreenUIManager>();
         Services.TransitionComicManager = GameObject.FindGameObjectWithTag("TransitionComicManager").GetComponent<TransitionComicManager>();
-
         if (Services.GameInfo.player1Abilities.Count == 0)
         {
             SetPlayerAbilities();
