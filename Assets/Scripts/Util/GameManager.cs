@@ -38,11 +38,11 @@ public class GameManager : MonoBehaviour {
 		Services.EventManager.Clear ();
 		Services.TaskManager.Clear ();
 		if (Input.GetButton ("HardReset")) {
-			SceneManager.LoadScene ("VisualNovelStage");
-		} else {
-			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
-		}
-	}
+            Services.SceneStackManager.Swap<FightScene>(new TransitionData(3));
+        } else {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
 
 
 }

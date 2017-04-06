@@ -104,7 +104,6 @@ public class Player : MonoBehaviour {
     }
  
 	void OnGameOver(GameOver e){
-		rb.velocity = Vector3.zero;
 		StopListeningForInput ();
         if (e.losingPlayer == this)
         {
