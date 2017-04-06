@@ -4,54 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SetPanelImage : Task {
-    private int panelNum;
-    private int pageNum;
-    private GameObject panel;
-    private GameObject incomingArena;
+    private ComicPanel panel;
 
-    public SetPanelImage(GameObject pnl, int pnlNum, int pgNum, GameObject newArena)
+    public SetPanelImage(GameObject pnl)
     {
-        panelNum = pnlNum;
-        pageNum = pgNum;
-        panel = pnl;
-        incomingArena = newArena;
+        panel = pnl.GetComponent<ComicPanel>();
     }
 
     protected override void Init()
     {
-        Sprite panelSprite;
-        if (Services.FightScene.fallenPlayer.playerNum == 1)
-        {
-            if (incomingArena == Services.FightScene.arenas[3])
-            {
-                panelSprite = Services.TransitionComicManager.transitionToParkingLotImagesPigtailsWins[panelNum];
-            }
-            else if (incomingArena == Services.FightScene.arenas[4])
-            {
-                panelSprite = Services.TransitionComicManager.transitionToHellImagesPigtailsWins[panelNum];
-            }
-            else
-            {
-                panelSprite = Services.TransitionComicManager.winComicPigtailsWins[pageNum][panelNum];
-            }
-        }
-        else
-        {
-            if (incomingArena == Services.FightScene.arenas[3])
-            {
-                panelSprite = Services.TransitionComicManager.transitionToParkingLotImagesPonytailWins[panelNum];
-            }
-            else if (incomingArena == Services.FightScene.arenas[4])
-            {
-                panelSprite = Services.TransitionComicManager.transitionToHellImagesPonytailWins[panelNum];
-            }
-            else
-            {
-                panelSprite = Services.TransitionComicManager.winComicPonytailWins[pageNum][panelNum];
-            }
-        }
-
-        panel.GetComponent<Image>().sprite = panelSprite;
+        panel.SetPanel(3 - Services.FightScene.fallenPlayer.playerNum);
         SetStatus(TaskStatus.Success);
     }
 

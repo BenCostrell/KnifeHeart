@@ -29,6 +29,8 @@ public class DialogueTransitionTask : Task {
         scaleTarget = 1.4f * Vector3.one;
         ponytailPosTarget = new Vector2(-550, -20);
         pigtailsPosTarget = new Vector2(550, -20);
+        ponytail.gameObject.GetComponent<Image>().color = Color.white;
+        pigtails.gameObject.GetComponent<Image>().color = Color.white;
 	}
 
 	internal override void Update ()

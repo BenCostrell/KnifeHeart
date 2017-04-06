@@ -19,6 +19,8 @@ public class DialogueUIManager : MonoBehaviour {
 	public GameObject arrow_P2;
 	public GameObject ponytail;
 	public GameObject pigtails;
+    private Vector2 defaultPosPonytail;
+    private Vector2 defaultPosPigtails;
 
 
 	public GameObject selectedOption;
@@ -43,13 +45,20 @@ public class DialogueUIManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Services.EventManager.Register<DialoguePicked> (QueueDialogue);
-	}
-	
-	// Update is called once per frame
-	void Update () {
+		
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
+
+    public void Init()
+    {
+        Services.EventManager.Register<DialoguePicked>(QueueDialogue);
+        defaultPosPonytail = ponytail.GetComponent<RectTransform>().anchoredPosition;
+        defaultPosPigtails = pigtails.GetComponent<RectTransform>().anchoredPosition;
+    }
 
 	public void SetUpUI(){
 		dialogueText.GetComponent<Text> ().text = "";
@@ -62,6 +71,8 @@ public class DialogueUIManager : MonoBehaviour {
         SetRpsOptionUIStatus(false);
         rpsReady_P1.SetActive(false);
         rpsReady_P2.SetActive(false);
+        ponytail.GetComponent<RectTransform>().anchoredPosition = defaultPosPonytail;
+        pigtails.GetComponent<RectTransform>().anchoredPosition = defaultPosPigtails;
 	}
 
 	public void SetOptionUIStatus(bool active){

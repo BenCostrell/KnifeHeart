@@ -25,15 +25,23 @@ public class TransitionUIManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		fightBackground.SetActive (false);
-		SetFightWordsStatus (false);
-		transitionUI.SetActive (false);
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    public void SetUpUI()
+    {
+        fightBackground.SetActive(false);
+        SetFightWordsStatus(false);
+        wordsContainer.GetComponent<RectTransform>().localScale = Vector2.one;
+        ready_P1.GetComponent<RectTransform>().localScale = Vector2.one;
+        ready_P2.GetComponent<RectTransform>().localScale = Vector2.one;
+        transitionUI.SetActive(false);
+    }
 
 	public void SetFightWordsStatus(bool active){
 		for (int i = 0; i < fightWords.Length; i++) {

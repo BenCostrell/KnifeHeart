@@ -24,13 +24,16 @@ public class VisualNovelScene : Scene<TransitionData> {
         GenerateRpsDialogueData();
         InitializeAbilityPool();
         InitializeComicShiftArray();
-        Services.DialogueUIManager.SetUpUI();
         Services.EventManager.Register<DialoguePicked>(PickAbility);
+        Services.DialogueUIManager.Init();
     }
 
     internal override void OnEnter(TransitionData data)
     {
         currentRoundNum += 1;
+        Services.ComicPanelManager.TurnOffComicPanels();
+        Services.DialogueUIManager.SetUpUI();
+        Services.TransitionUIManager.SetUpUI();
         StartSequence();
     }
 
@@ -106,22 +109,20 @@ public class VisualNovelScene : Scene<TransitionData> {
 
     void StartSequence()
     {
-        SetObjectStatus turnOnComicBackground = new SetObjectStatus(true, Services.ComicPanelManager.comicBackground);
-        Task comicSequence = ComicSequence(turnOnComicBackground, Services.ComicPanelManager.scenarios[currentRoundNum - 1].transform, 
+        Services.ComicPanelManager.comicBackground.SetActive(true);
+        Task startTask = new WaitTask(0);
+        Task comicSequence = ComicSequence(startTask, Services.ComicPanelManager.scenarios[currentRoundNum - 1].transform, 
             currentRoundNum - 1);
         Task roundSequence = RoundSequence(comicSequence);
         Task transitionToFight = TransitionToFightSequence(roundSequence);
 
-        Services.TaskManager.AddTask(turnOnComicBackground);
+        Services.TaskManager.AddTask(startTask);
     }
 
     Task ComicSequence(Task precedingTask, Transform scenarioTransform, int comicNum)
     {
-        //SlideInPanel slideInComicBackground = new SlideInPanel(Services.ComicPanelManager.comicBackground, true, 1600 * Vector2.right,
-        //    Services.ComicPanelManager.panelAppearTime);
         SetObjectStatus turnOnScenario = new SetObjectStatus(true, scenarioTransform.gameObject);
         precedingTask
-        //    .Then(slideInComicBackground)
             .Then(turnOnScenario);
         int numPages = scenarioTransform.childCount;
         Task currentTask = turnOnScenario;
@@ -197,13 +198,13 @@ public class VisualNovelScene : Scene<TransitionData> {
 		WaitForDialogueChoiceTask waitForFirstChoice = new WaitForDialogueChoiceTask ();
 		HighlightSelectedOption highlightFirstChoice = new HighlightSelectedOption ();
 		TypeDialogue typeFirstDialogue = new TypeDialogue (false);
-		WaitForAnyInput waitAfterFirstDialogue = new WaitForAnyInput ();
+		WaitToContinueDialogue waitAfterFirstDialogue = new WaitToContinueDialogue ();
         SetObjectStatus turnOffDialogueBox2 = new SetObjectStatus(false, Services.DialogueUIManager.dialogueContainer);
 		ShowDialogueOptions showSecondOptions = new ShowDialogueOptions (false);
 		WaitForDialogueChoiceTask waitForSecondChoice = new WaitForDialogueChoiceTask ();
 		HighlightSelectedOption highlightSecondChoice = new HighlightSelectedOption ();
 		TypeDialogue typeSecondDialogue = new TypeDialogue (false);
-		WaitForAnyInput waitAfterSecondDialogue = new WaitForAnyInput ();
+		WaitToContinueDialogue waitAfterSecondDialogue = new WaitToContinueDialogue ();
 		DialogueTransitionTask transition = new DialogueTransitionTask ();
 
         precedingTask

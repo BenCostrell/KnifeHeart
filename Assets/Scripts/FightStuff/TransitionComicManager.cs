@@ -7,17 +7,6 @@ public class TransitionComicManager : MonoBehaviour {
     public GameObject comicBackground;
     public GameObject[] fightEndComics;
     public GameObject continueButton;
-    public Sprite[] transitionToParkingLotImagesPigtailsWins;
-    public Sprite[] transitionToParkingLotImagesPonytailWins;
-    public Sprite[] transitionToHellImagesPigtailsWins;
-    public Sprite[] transitionToHellImagesPonytailWins;
-    public List<Sprite> winComicPigtailsWinsPage1;
-    public List<Sprite> winComicPigtailsWinsPage2;
-    public List<Sprite> winComicPonytailWinsPage1;
-    public List<Sprite> winComicPonytailWinsPage2;
-
-    public List<List<Sprite>> winComicPigtailsWins;
-    public List<List<Sprite>> winComicPonytailWins;
 
     public List<List<List<Vector2>>> comicShifts;
 
@@ -28,19 +17,19 @@ public class TransitionComicManager : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        winComicPigtailsWins = new List<List<Sprite>>();
-        winComicPigtailsWins.Add(winComicPigtailsWinsPage1);
-        winComicPigtailsWins.Add(winComicPigtailsWinsPage2);
-        winComicPonytailWins = new List<List<Sprite>>();
-        winComicPonytailWins.Add(winComicPonytailWinsPage1);
-        winComicPonytailWins.Add(winComicPonytailWinsPage2);
-        TurnOffComicPanels();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public void Init()
+    {
+        TurnOffComicPanels();
+        InitializeComicShiftArray();
     }
 
     void TurnOffComicPanels()

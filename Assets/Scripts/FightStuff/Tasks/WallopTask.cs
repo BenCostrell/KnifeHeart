@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallopTask : Task {
+public class WallopTask : InterruptibleByFallTask {
 	private float timeUntilHitboxActive;
 	private Player player;
 	private Wallop wallop;
@@ -14,7 +14,8 @@ public class WallopTask : Task {
 
 	protected override void Init ()
 	{
-		wallop.gameObject.GetComponent<Collider2D> ().enabled = false;
+        base.Init();
+        wallop.gameObject.GetComponent<Collider2D> ().enabled = false;
 		timeUntilHitboxActive = wallop.delay;
 		Services.EventManager.Register<PlayerInputPaused> (AnotherInputPauseTaskWasStarted);
 	}
@@ -42,6 +43,7 @@ public class WallopTask : Task {
 
 	protected override void CleanUp ()
 	{
-		Services.EventManager.Unregister<PlayerInputPaused> (AnotherInputPauseTaskWasStarted);
+        base.CleanUp();
+        Services.EventManager.Unregister<PlayerInputPaused> (AnotherInputPauseTaskWasStarted);
 	}
 }

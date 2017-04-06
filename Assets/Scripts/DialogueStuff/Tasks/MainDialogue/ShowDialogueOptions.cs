@@ -56,6 +56,8 @@ public class ShowDialogueOptions : Task {
         inactiveInitialPos = inactivePlayer.anchoredPosition;
         activePosTarget = new Vector2(activeInitialPos.x, 10);
         inactivePosTarget = new Vector2(inactiveInitialPos.x, -80);
+        activePlayer.gameObject.GetComponent<Image>().color = Color.white;
+        inactivePlayer.gameObject.GetComponent<Image>().color = Color.gray;
 	}
 
 	internal override void Update ()

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbilityCooldownTask : Task {
+public class AbilityCooldownTask : InterruptibleByFallTask {
 	private Player player;
 	private float duration;
 	private float timeRemaining;
@@ -17,7 +17,8 @@ public class AbilityCooldownTask : Task {
 
 	protected override void Init ()
 	{
-		player.abilitiesOnCooldown.Add (ability);
+        base.Init();
+        player.abilitiesOnCooldown.Add (ability);
 	}
 
 	internal override void Update ()

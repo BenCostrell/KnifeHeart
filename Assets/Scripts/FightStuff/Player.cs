@@ -93,6 +93,15 @@ public class Player : MonoBehaviour {
 		Services.EventManager.Unregister<ButtonPressed> (AbilityActivated);
 		actionable = false;
 	}
+
+    public void ResetCooldowns()
+    {
+        foreach (Ability.Type ability in abilitiesOnCooldown)
+        {
+            Services.FightUIManager.UpdateCooldownUI(ability, 0, playerNum);
+        }
+        abilitiesOnCooldown.Clear();
+    }
  
 	void OnGameOver(GameOver e){
 		rb.velocity = Vector3.zero;

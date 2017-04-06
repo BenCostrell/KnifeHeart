@@ -12,7 +12,6 @@ public class ComicPanelManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        TurnOffComicPanels();
 	}
 	
 	// Update is called once per frame
@@ -20,7 +19,7 @@ public class ComicPanelManager : MonoBehaviour {
 		
 	}
 
-    void TurnOffComicPanels()
+    public void TurnOffComicPanels()
     {
         comicBackground.SetActive(false);
         continueButton.SetActive(false);

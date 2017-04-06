@@ -11,6 +11,19 @@ public class SlideInFightBackground : Task {
     protected override void Init()
     {
         Services.TransitionUIManager.fightBackground.SetActive(true);
+        for (int i = 0; i < 3; i++)
+        {
+            bool status;
+            if (i == Services.VisualNovelScene.currentRoundNum - 1)
+            {
+                status = true;
+            }
+            else
+            {
+                status = false;
+            }
+            Services.TransitionUIManager.fightBackground.transform.GetChild(i).gameObject.SetActive(status);
+        }
         Services.DialogueUIManager.dialogueContainer.SetActive(false);
         rectTransform = Services.TransitionUIManager.fightBackground.GetComponent<RectTransform>();
         duration = Services.TransitionUIManager.fightBackgroundSlideInTime;

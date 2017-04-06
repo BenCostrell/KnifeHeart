@@ -34,13 +34,13 @@ public class FightScene : Scene<TransitionData> {
     {
         InitializeFightServices();
         lastComic = false;
-        SetUpArenas();
-        InitiateFightSequence();
+        Services.TransitionComicManager.Init();
     }
 
     internal override void OnEnter(TransitionData data)
     {
         roundNum = data.roundNum;
+        SetUpArenas();
         InitiateFightSequence();
     }
 
@@ -81,7 +81,7 @@ public class FightScene : Scene<TransitionData> {
 
 	Player InitializePlayer(int playerNum){
         GameObject playerObj = Instantiate(Services.PrefabDB.Player, spawnPoints[roundNum - 1][playerNum - 1], 
-            Quaternion.identity) as GameObject;
+            Quaternion.identity, transform) as GameObject;
         Player player = playerObj.GetComponent<Player>();
 		List<Ability.Type> abilityList;
 
@@ -131,18 +131,14 @@ public class FightScene : Scene<TransitionData> {
         lastComic = true;
     }
 
-    void IncrementRoundNum()
-    {
-        roundNum += 1;
-    }
-
-    void PositionPlayers()
+    public void PositionPlayers(int roundNumber)
     {
         foreach(Player player in players)
         {
-            player.transform.position = spawnPoints[roundNum - 1][player.playerNum - 1];
+            player.transform.position = spawnPoints[roundNumber - 1][player.playerNum - 1];
             player.StartListeningForInput();
             player.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            player.ResetCooldowns();
         }
 
         fallenPlayer.TakeHit(fallDamage, 0, 0, Vector3.zero);
@@ -163,8 +159,8 @@ public class FightScene : Scene<TransitionData> {
             ActionTask transitionBackToVN = new ActionTask(TransitionBackToVN);
 
             initializePlayers
-                .Then(waitForFall)
-                .Then(transitionComic)
+                .Then(waitForFall);
+            transitionComic
                 .Then(transitionBackToVN);
 
             Services.TaskManager.AddTask(initializePlayers);
@@ -177,11 +173,11 @@ public class FightScene : Scene<TransitionData> {
         WaitForFall waitForRooftopFall = new WaitForFall();
         PlayerFallAnimation rooftopFallAnimation = new PlayerFallAnimation();
         Task transitionToParkingLot = ComicSequence(rooftopFallAnimation, 3);
-        ActionTask positionPlayersForParkingLot = new ActionTask(PositionPlayers);
+        PositionPlayersTask positionPlayersForParkingLot = new PositionPlayersTask(4);
         WaitForFall waitForParkingLotFall = new WaitForFall();
         PlayerFallAnimation parkingLotFallAnimation = new PlayerFallAnimation();
         Task transitionToHell = ComicSequence(parkingLotFallAnimation, 4);
-        ActionTask positionPlayersForHell = new ActionTask(PositionPlayers);
+        PositionPlayersTask positionPlayersForHell = new PositionPlayersTask(5);
         WaitForFall waitForHellFall = new WaitForFall();
         PlayerFallAnimation hellFallAnimation = new PlayerFallAnimation();
         Task winComic = ComicSequence(hellFallAnimation, 5);
@@ -213,8 +209,8 @@ public class FightScene : Scene<TransitionData> {
         precedingTask
             .Then(slideInComicBackground);
         Task currentTask = slideInComicBackground;
-        if (roundNumber != 1) {
-            Task turnOffPreviousArena = new SetObjectStatus(false, arenas[roundNumber - 2]);
+        if (roundNumber == 3 || roundNumber == 4) {
+            Task turnOffPreviousArena = new SetObjectStatus(false, arenas[roundNumber - 1]);
             currentTask.Then(turnOffPreviousArena);
             currentTask = turnOffPreviousArena;
         }
@@ -232,7 +228,7 @@ public class FightScene : Scene<TransitionData> {
             int numPanels = page.childCount;
             for (int j = 0; j < numPanels; j++)
             {
-                SetPanelImage setPanelImage = new SetPanelImage(page.GetChild(j).gameObject, j, i, arenas[roundNumber-1]);
+                SetPanelImage setPanelImage = new SetPanelImage(page.GetChild(j).gameObject);
                 SlideInPanel slideInPanel = new SlideInPanel(page.GetChild(j).gameObject, true, 
                     Services.TransitionComicManager.comicShifts[roundNumber-1][i][j], Services.TransitionComicManager.panelAppearTime);
                 currentTask
@@ -254,14 +250,12 @@ public class FightScene : Scene<TransitionData> {
         }
         if (roundNumber == 3 || roundNumber == 4)
         {
-            Task turnOnNextArena = new SetObjectStatus(true, arenas[roundNumber - 1]);
+            Task turnOnNextArena = new SetObjectStatus(true, arenas[roundNumber]);
             SetObjectStatus turnOffBackground = new SetObjectStatus(false, Services.TransitionComicManager.comicBackground);
-            ActionTask incrementRoundNum = new ActionTask(IncrementRoundNum);
             currentTask
                 .Then(turnOnNextArena)
-                .Then(turnOffBackground)
-                .Then(incrementRoundNum);
-            currentTask = incrementRoundNum;
+                .Then(turnOffBackground);
+            currentTask = turnOffBackground;
         }
         
         return currentTask;

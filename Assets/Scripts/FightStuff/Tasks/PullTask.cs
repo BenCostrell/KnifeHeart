@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PullTask : Task {
+public class PullTask : InterruptibleByFallTask {
 	private Player player;
 	private Pull pull;
 	private Rigidbody2D pullRb;
@@ -20,7 +20,8 @@ public class PullTask : Task {
 
 	protected override void Init ()
 	{
-		timeElapsed = 0;
+        base.Init();
+        timeElapsed = 0;
 		retract = false;
 		Services.EventManager.Register<PlayerHooked> (OnPlayerHooked);
 		player.StopListeningForInput ();
@@ -74,7 +75,8 @@ public class PullTask : Task {
 
 	protected override void CleanUp ()
 	{
-		Services.EventManager.Unregister<PlayerHooked> (OnPlayerHooked);
+        base.CleanUp();
+        Services.EventManager.Unregister<PlayerHooked> (OnPlayerHooked);
 		Services.EventManager.Unregister<GameOver> (OnGameOver);
 		pull.OnFinish ();
 		player.StartListeningForInput ();

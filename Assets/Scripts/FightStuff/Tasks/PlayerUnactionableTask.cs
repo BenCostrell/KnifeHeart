@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerUnactionableTask : Task {
+public class PlayerUnactionableTask : InterruptibleByFallTask {
 	protected float duration;
 	protected Player player;
 
@@ -13,7 +13,8 @@ public class PlayerUnactionableTask : Task {
 
 	protected override void Init ()
 	{
-		Services.EventManager.Fire (new PlayerInputPaused (player));
+        base.Init();
+        Services.EventManager.Fire (new PlayerInputPaused (player));
 		Services.EventManager.Register<PlayerInputPaused> (AnotherInputPauseTaskWasStarted);
 		Services.EventManager.Register<GameOver> (OnGameOver);
 		player.StopListeningForInput ();
@@ -39,7 +40,8 @@ public class PlayerUnactionableTask : Task {
 
 	protected override void CleanUp ()
 	{
-		Services.EventManager.Unregister<GameOver> (OnGameOver);
+        base.CleanUp();
+        Services.EventManager.Unregister<GameOver> (OnGameOver);
 		Services.EventManager.Unregister<PlayerInputPaused> (AnotherInputPauseTaskWasStarted);
 		player.StartListeningForInput ();
 	}
