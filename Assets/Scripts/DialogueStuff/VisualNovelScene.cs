@@ -8,17 +8,18 @@ public class VisualNovelScene : Scene<TransitionData> {
     public TextAsset rpsDialogueFile;
 	private List<Ability.Type> abilityPool;
 	private List<Ability.Type> currentRoundAbilityPool;
-	private List<Ability.Type> abilityList_P1;
-	private List<Ability.Type> abilityList_P2;
+    public List<Ability.Type>[] abilityLists;
 	public int currentTurnPlayerNum;
 	public int currentRoundNum;
     public int initiatingPlayer;
     public string[] rpsDialogueArray;
     private Vector2[,,] comicShiftArray;
+    public GameObject canvas;
 
     internal override void Init()
     {
         InitializeVNServices();
+        canvas = GameObject.FindGameObjectWithTag("Canvas");
         currentRoundNum = 0;
         GenerateDialogueData();
         GenerateRpsDialogueData();
@@ -82,8 +83,11 @@ public class VisualNovelScene : Scene<TransitionData> {
 			Ability.Type.Wallop, 
 			Ability.Type.Pull
 		};
-		abilityList_P1 = new List<Ability.Type> ();
-		abilityList_P2 = new List<Ability.Type> ();
+        abilityLists = new List<Ability.Type>[2]
+        {
+            new List<Ability.Type>(),
+            new List<Ability.Type>()
+        };
 	}
 
 	Ability.Type GetRandomAbility(List<Ability.Type> abilityList){
@@ -199,12 +203,14 @@ public class VisualNovelScene : Scene<TransitionData> {
 		HighlightSelectedOption highlightFirstChoice = new HighlightSelectedOption ();
 		TypeDialogue typeFirstDialogue = new TypeDialogue (false);
 		WaitToContinueDialogue waitAfterFirstDialogue = new WaitToContinueDialogue ();
+        ShowAbilityPicked showFirstAbility = new ShowAbilityPicked();
         SetObjectStatus turnOffDialogueBox2 = new SetObjectStatus(false, Services.DialogueUIManager.dialogueContainer);
 		ShowDialogueOptions showSecondOptions = new ShowDialogueOptions (false);
 		WaitForDialogueChoiceTask waitForSecondChoice = new WaitForDialogueChoiceTask ();
 		HighlightSelectedOption highlightSecondChoice = new HighlightSelectedOption ();
 		TypeDialogue typeSecondDialogue = new TypeDialogue (false);
 		WaitToContinueDialogue waitAfterSecondDialogue = new WaitToContinueDialogue ();
+        ShowAbilityPicked showSecondAbility = new ShowAbilityPicked();
 		DialogueTransitionTask transition = new DialogueTransitionTask ();
 
         precedingTask
@@ -214,12 +220,14 @@ public class VisualNovelScene : Scene<TransitionData> {
             .Then(highlightFirstChoice)
             .Then(typeFirstDialogue)
             .Then(waitAfterFirstDialogue)
+            .Then(showFirstAbility)
             .Then(turnOffDialogueBox2)
             .Then(showSecondOptions)
             .Then(waitForSecondChoice)
             .Then(highlightSecondChoice)
             .Then(typeSecondDialogue)
             .Then(waitAfterSecondDialogue)
+            .Then(showSecondAbility)
             .Then(transition);
 
         return transition;
@@ -231,11 +239,7 @@ public class VisualNovelScene : Scene<TransitionData> {
 		List<Ability.Type> playerContext = null;
 		List<Ability.Type> fullAbilityKey;
 
-		if (currentTurnPlayerNum == 1) {
-			playerContext = new List<Ability.Type> (abilityList_P1);
-		} else if (currentTurnPlayerNum == 2) {
-			playerContext = new List<Ability.Type> (abilityList_P2);
-		}
+        playerContext = new List<Ability.Type>(abilityLists[currentTurnPlayerNum - 1]);
 
 		if (firstChoice) {
 			abilityList = new List<Ability.Type> (abilityPool);
@@ -258,11 +262,7 @@ public class VisualNovelScene : Scene<TransitionData> {
 	void PickAbility(DialoguePicked e){
 		int playerNum = e.pickedByPlayerNum;
 		Ability.Type ability = e.dialogue.abilityGiven;
-		if (playerNum == 1) {
-			abilityList_P1.Add (ability);
-		} else if (playerNum == 2) {
-			abilityList_P2.Add (ability);
-		}
+        abilityLists[playerNum - 1].Add(ability);
 		abilityPool.Remove (ability);
 		currentRoundAbilityPool.Remove (ability);
 		Debug.Log (ability.ToString () + " picked");
@@ -406,8 +406,8 @@ public class VisualNovelScene : Scene<TransitionData> {
     }
 
 	Task TransitionToFightSequence(Task precedingTask){
-		Services.GameInfo.player1Abilities = abilityList_P1;
-		Services.GameInfo.player2Abilities = abilityList_P2;
+		Services.GameInfo.player1Abilities = abilityLists[0];
+		Services.GameInfo.player2Abilities = abilityLists[1];
 
         SlideOutCrowd slideOutCrowd = new SlideOutCrowd();
         SlideInFightBackground slideInBG = new SlideInFightBackground ();

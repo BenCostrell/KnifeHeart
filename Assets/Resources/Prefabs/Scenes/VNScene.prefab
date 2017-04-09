@@ -1621,7 +1621,7 @@ GameObject:
   - component: {fileID: 114892548959558224}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3026,6 +3026,12 @@ MonoBehaviour:
   arrow_P2: {fileID: 1164360981558032}
   ponytail: {fileID: 1223633663446668}
   pigtails: {fileID: 1691888352517684}
+  fireballSymbol: {fileID: 21300000, guid: 854f76d72f1d9a147947a560bef051e3, type: 3}
+  shieldSymbol: {fileID: 21300000, guid: 49aa51cb2e1c10f4da271def23115799, type: 3}
+  pullSymbol: {fileID: 21300000, guid: dc1957744407dc94c900f5734f26d5e9, type: 3}
+  wallopSymbol: {fileID: 21300000, guid: 67389b1fc1fac04448aba1354331ece4, type: 3}
+  singSymbol: {fileID: 21300000, guid: 10d7e9aec44e40c42afb8be59c7722f4, type: 3}
+  lungeSymbol: {fileID: 21300000, guid: ce1b64f72c359494187b6ecd432f14e9, type: 3}
   selectedOption: {fileID: 0}
   textBox: {fileID: 21300000, guid: 01dee82d857cb414aba8b1351bd1e4ea, type: 3}
   textBoxHighlighted: {fileID: 21300000, guid: d1df86a98a62ae645be76a1dbf25bfd6, type: 3}
@@ -3038,6 +3044,9 @@ MonoBehaviour:
   crowdSlideTime: 0.5
   rpsWaitTime: 5
   rpsDialogueDelay: 0.5
+  symbolGrowthTime: 1
+  symbolAbsorbTime: 0.5
+  symbolTargetScale: 3
 --- !u!114 &114537562247466778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3163,6 +3172,7 @@ MonoBehaviour:
   currentRoundNum: 0
   initiatingPlayer: 0
   rpsDialogueArray: []
+  canvas: {fileID: 0}
 --- !u!114 &114570705969573306
 MonoBehaviour:
   m_ObjectHideFlags: 1

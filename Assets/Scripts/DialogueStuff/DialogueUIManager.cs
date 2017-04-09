@@ -19,6 +19,15 @@ public class DialogueUIManager : MonoBehaviour {
 	public GameObject arrow_P2;
 	public GameObject ponytail;
 	public GameObject pigtails;
+
+    public Sprite fireballSymbol;
+    public Sprite shieldSymbol;
+    public Sprite pullSymbol;
+    public Sprite wallopSymbol;
+    public Sprite singSymbol;
+    public Sprite lungeSymbol;
+    public Dictionary<Ability.Type, Sprite> spriteDict;
+
     private Vector2 defaultPosPonytail;
     private Vector2 defaultPosPigtails;
 
@@ -42,6 +51,9 @@ public class DialogueUIManager : MonoBehaviour {
 	public float crowdSlideTime;
     public float rpsWaitTime;
     public float rpsDialogueDelay;
+    public float symbolGrowthTime;
+    public float symbolAbsorbTime;
+    public float symbolTargetScale;
 
 	// Use this for initialization
 	void Start () {
@@ -58,6 +70,7 @@ public class DialogueUIManager : MonoBehaviour {
         Services.EventManager.Register<DialoguePicked>(QueueDialogue);
         defaultPosPonytail = ponytail.GetComponent<RectTransform>().anchoredPosition;
         defaultPosPigtails = pigtails.GetComponent<RectTransform>().anchoredPosition;
+        InitializeSpriteDict();
     }
 
 	public void SetUpUI(){
@@ -146,4 +159,28 @@ public class DialogueUIManager : MonoBehaviour {
 		queuedDialogue = e.dialogue;
 		selectedOption = e.optionObject;
 	}
+
+    void InitializeSpriteDict()
+    {
+        spriteDict = new Dictionary<Ability.Type, Sprite>();
+        spriteDict.Add(Ability.Type.Fireball, fireballSymbol);
+        spriteDict.Add(Ability.Type.Lunge, lungeSymbol);
+        spriteDict.Add(Ability.Type.Shield, shieldSymbol);
+        spriteDict.Add(Ability.Type.Sing, shieldSymbol);
+        spriteDict.Add(Ability.Type.Wallop, wallopSymbol);
+        spriteDict.Add(Ability.Type.Pull, pullSymbol);
+    }
+
+    public GameObject CreateAbilitySymbol(Ability.Type ability)
+    {
+        GameObject symbol = Instantiate(Services.PrefabDB.GenericImage, Services.VisualNovelScene.canvas.transform) as GameObject;
+        symbol.GetComponent<Image>().sprite = spriteDict[ability];
+        return symbol;
+    }
+
+    public void DestroySymbol(GameObject obj)
+    {
+        Destroy(obj);
+    }
 }
+
