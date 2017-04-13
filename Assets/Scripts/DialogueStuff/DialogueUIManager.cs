@@ -175,6 +175,7 @@ public class DialogueUIManager : MonoBehaviour {
     {
         GameObject symbol = Instantiate(Services.PrefabDB.GenericImage, Services.VisualNovelScene.canvas.transform) as GameObject;
         symbol.GetComponent<Image>().sprite = spriteDict[ability];
+        symbol.GetComponent<Image>().color = Color.black;
         return symbol;
     }
 

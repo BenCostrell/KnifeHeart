@@ -152,6 +152,9 @@ public class Player : MonoBehaviour {
 
 			CastAbilityTask castTimeLockout = new CastAbilityTask (ability.castDuration, this, ability);
 			AbilityCooldownTask abilityCooldown = new AbilityCooldownTask (type, ability.cooldown, this);
+            HighlightAbilityOffCooldown highlightCooldownEnd = new HighlightAbilityOffCooldown(type, this, 
+                Services.FightUIManager.abCDHighlightTime);
+            abilityCooldown.Then(highlightCooldownEnd);
 
 			Services.TaskManager.AddTask (castTimeLockout);
 			Services.TaskManager.AddTask (abilityCooldown);

@@ -23,8 +23,12 @@ public class FightUIManager : MonoBehaviour {
 	private Dictionary<Ability.Type, Sprite> spriteDict;
 	private Dictionary<Ability.Type, GameObject> cooldownBarDict;
 
-	// Use this for initialization
-	void Start () {
+    public float abCDHighlightScale;
+    public float abCDHighlightTime;
+
+
+    // Use this for initialization
+    void Start () {
 		InitializeSpriteDict ();
 		InitializeUI ();
 	}
@@ -73,7 +77,8 @@ public class FightUIManager : MonoBehaviour {
 		}
 	}
 
-	public void UpdateCooldownUI(Ability.Type ability, float fractionRemaining, int playerNum){
+    GameObject GetTimer(Ability.Type ability, int playerNum)
+    {
         GameObject timer;
         if (ability != Ability.Type.BasicAttack)
         {
@@ -90,16 +95,39 @@ public class FightUIManager : MonoBehaviour {
                 timer = cooldownUI_P2[3].transform.GetChild(0).gameObject;
             }
         }
-		Image image = timer.GetComponent<Image> ();
+
+        return timer;
+    }
+
+	public void UpdateCooldownUI(Ability.Type ability, float fractionRemaining, int playerNum){
+        Image timerImage = GetTimer(ability, playerNum).GetComponent<Image>();
 		float alpha;
-		image.fillAmount = 1 - fractionRemaining;
+        Color iconColor;
+		timerImage.fillAmount = 1 - fractionRemaining;
 		if (fractionRemaining > 0) {
 			alpha = 0.5f;
+            iconColor = new Color(0.5f, 0.5f, 0.5f, 0.5f);
 		} else {
 			alpha = 1;
+            iconColor = Color.black;
 		}
-		image.color = new Color (image.color.r, image.color.g, image.color.b, alpha);
-	}
+		timerImage.color = new Color (timerImage.color.r, timerImage.color.g, timerImage.color.b, alpha);
+        timerImage.transform.parent.GetChild(1).GetComponent<Image>().color = iconColor;
+    }
+
+    public void ScaleCooldownUI(Ability.Type ability, int playerNum, float scale)
+    {
+        Transform timerTransform = GetTimer(ability, playerNum).transform;
+        timerTransform.localScale = scale * Vector3.one;
+        if (scale == 1)
+        {
+            timerTransform.parent.GetChild(1).GetComponent<Image>().color = Color.black;
+        }
+        else
+        {
+            timerTransform.parent.GetChild(1).GetComponent<Image>().color = Color.white;
+        }
+    }
 
 	public void UpdateDamageUI(GameObject player){
 		Player pc = player.GetComponent<Player> ();
