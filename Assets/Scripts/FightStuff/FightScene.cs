@@ -47,9 +47,10 @@ public class FightScene : Scene<TransitionData> {
     void InitializeFightServices()
     {
         Services.FightScene = this;
-        Services.FightUIManager = GameObject.FindGameObjectWithTag("FightUIManager").GetComponent<FightUIManager>();
-        Services.WinScreenUIManager = GameObject.FindGameObjectWithTag("WinScreenUIManager").GetComponent<WinScreenUIManager>();
-        Services.TransitionComicManager = GameObject.FindGameObjectWithTag("TransitionComicManager").GetComponent<TransitionComicManager>();
+        Transform servicesObj = transform.FindChild("Services");
+        Services.FightUIManager = servicesObj.FindChild("FightUIManager").gameObject.GetComponent<FightUIManager>();
+        Services.WinScreenUIManager = servicesObj.FindChild("WinScreenUIManager").gameObject.GetComponent<WinScreenUIManager>();
+        Services.TransitionComicManager = servicesObj.FindChild("TransitionComicManager").gameObject.GetComponent<TransitionComicManager>();
         if (Services.GameInfo.player1Abilities.Count == 0)
         {
             SetPlayerAbilities();
@@ -123,7 +124,7 @@ public class FightScene : Scene<TransitionData> {
 
     void GameOver()
     {
-        Services.EventManager.Fire(new GameOver(fallenPlayer));
+        //Services.EventManager.Fire(new GameOver(fallenPlayer));
     }
 
     void LastComic()
@@ -181,8 +182,9 @@ public class FightScene : Scene<TransitionData> {
         WaitForFall waitForHellFall = new WaitForFall();
         PlayerFallAnimation hellFallAnimation = new PlayerFallAnimation();
         Task winComic = ComicSequence(hellFallAnimation, 5);
-        ActionTask gameOver = new ActionTask(GameOver);
-        winComic.Then(gameOver);
+        //ActionTask gameOver = new ActionTask(GameOver);
+        SetObjectStatus turnOnResetText = new SetObjectStatus(true, Services.WinScreenUIManager.uiResetText);
+        winComic.Then(turnOnResetText);
 
         initializePlayersForRooftop
             .Then(waitForRooftopFall)
@@ -250,7 +252,7 @@ public class FightScene : Scene<TransitionData> {
         }
         if (roundNumber == 3 || roundNumber == 4)
         {
-            Task turnOnNextArena = new SetObjectStatus(true, arenas[roundNumber]);
+            SetObjectStatus turnOnNextArena = new SetObjectStatus(true, arenas[roundNumber]);
             SetObjectStatus turnOffBackground = new SetObjectStatus(false, Services.TransitionComicManager.comicBackground);
             currentTask
                 .Then(turnOnNextArena)

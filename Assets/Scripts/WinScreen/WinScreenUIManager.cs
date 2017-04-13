@@ -52,9 +52,9 @@ public class WinScreenUIManager : MonoBehaviour {
 
 		Services.TaskManager.AddTask (slideOutFightUI);*/
 
-        SetObjectStatus turnOnResetText = new SetObjectStatus(true, uiResetText);
+        //SetObjectStatus turnOnResetText = new SetObjectStatus(true, uiResetText);
 
-        Services.TaskManager.AddTask(turnOnResetText);
+        //Services.TaskManager.AddTask(turnOnResetText);
 
 	}
 }

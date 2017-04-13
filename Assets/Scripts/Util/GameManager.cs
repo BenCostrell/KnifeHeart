@@ -35,10 +35,13 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Reset(Reset e){
-		Services.EventManager.Clear ();
-		Services.TaskManager.Clear ();
-		if (Input.GetButton ("HardReset")) {
-            Services.SceneStackManager.Swap<FightScene>(new TransitionData(3));
+		if (Input.GetButton ("SoftReset") && Services.SceneStackManager.CurrentScene.GetType() == typeof(FightScene)) {
+            if (Services.FightScene.roundNum == 3)
+            {
+                Services.EventManager.Clear();
+                Services.TaskManager.Clear();
+                Services.SceneStackManager.Swap<FightScene>(new TransitionData(3));
+            }
         } else {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
