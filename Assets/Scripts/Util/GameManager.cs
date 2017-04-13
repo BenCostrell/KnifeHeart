@@ -14,7 +14,16 @@ public class GameManager : MonoBehaviour {
 	
     void Start()
     {
-        Services.SceneStackManager.PushScene<TitleScreen>();
+        // for testing purposes, so you can load straight into the fight without picking abilities
+        if (SceneManager.GetActiveScene().name == "fightRoom")
+        {
+            GetComponentInChildren<FightScene>().Init();
+            GetComponentInChildren<FightScene>().OnEnter(new TransitionData(3));
+        }
+        else
+        {
+            Services.SceneStackManager.PushScene<TitleScreen>();
+        }
     }
 
 	// Update is called once per frame

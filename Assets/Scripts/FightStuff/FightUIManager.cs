@@ -20,6 +20,7 @@ public class FightUIManager : MonoBehaviour {
 	public Sprite singUI;
 	public Sprite wallopUI;
 	public Sprite pullUI;
+    public Sprite blinkUI;
 	private Dictionary<Ability.Type, Sprite> spriteDict;
 	private Dictionary<Ability.Type, GameObject> cooldownBarDict;
 
@@ -46,6 +47,7 @@ public class FightUIManager : MonoBehaviour {
 		spriteDict.Add (Ability.Type.Sing, singUI);
 		spriteDict.Add (Ability.Type.Wallop, wallopUI);
 		spriteDict.Add (Ability.Type.Pull, pullUI);
+        spriteDict.Add(Ability.Type.Blink, blinkUI);
 	}
 
 	void InitializeUI(){

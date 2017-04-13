@@ -66,7 +66,7 @@ public class FightScene : Scene<TransitionData> {
             Ability.Type.Pull
         };
         Services.GameInfo.player2Abilities = new List<Ability.Type>() {
-            Ability.Type.Shield,
+            Ability.Type.Blink,
             Ability.Type.Sing,
             Ability.Type.Wallop
         };
@@ -120,6 +120,15 @@ public class FightScene : Scene<TransitionData> {
                 arenas[i].SetActive(false);
             }
         }
+    }
+
+    public GameObject GetActiveArena()
+    {
+        for (int i = 0; i < arenas.Length; i++)
+        {
+            if (arenas[i].activeSelf) return arenas[i];
+        }
+        return null;
     }
 
     void GameOver()

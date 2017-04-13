@@ -37,6 +37,10 @@ public class PrefabDB : ScriptableObject {
 	public GameObject Pull { get { return pull; } }
 
     [SerializeField]
+    private GameObject blink;
+    public GameObject Blink { get { return blink; } }
+
+    [SerializeField]
     private GameObject[] scenes;
     public GameObject[] Scenes { get { return scenes; } }
 
@@ -60,6 +64,8 @@ public class PrefabDB : ScriptableObject {
 			return sing;
 		case Ability.Type.Wallop:
 			return wallop;
+        case Ability.Type.Blink:
+            return blink;
 		default:
 			return null;
 		}
