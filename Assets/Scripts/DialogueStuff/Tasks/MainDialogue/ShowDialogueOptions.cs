@@ -27,6 +27,7 @@ public class ShowDialogueOptions : Task {
         timeElapsed = 0;
         Services.VisualNovelScene.GenerateDialogueOptions (firstChoice);
 		GameObject[] optObjects = Services.DialogueUIManager.optionObjects;
+        optObjects[0].transform.parent.localRotation = Quaternion.identity;
 		numAvailOptions = 0;
 		for (int i = 0; i < optObjects.Length; i++) {
 			if (optObjects [i].GetComponentInChildren<Text> ().text != "") {
@@ -37,6 +38,14 @@ public class ShowDialogueOptions : Task {
 				optObjects [i].SetActive (false);
 			}
 		}
+        for (int i = 0; i < numAvailOptions; i++)
+        {
+            optObjects[i].GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0,
+                Mathf.Sin(i * 360 / numAvailOptions * Mathf.Deg2Rad),
+                -Mathf.Cos(i * 360 / numAvailOptions * Mathf.Deg2Rad))
+                * Services.DialogueUIManager.optionWheelRadius;
+            optObjects[i].transform.localRotation = Quaternion.identity;
+        }
 
         if (Services.VisualNovelScene.currentTurnPlayerNum == 1)
         {

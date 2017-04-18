@@ -54,6 +54,8 @@ public class DialogueUIManager : MonoBehaviour {
     public float symbolGrowthTime;
     public float symbolAbsorbTime;
     public float symbolTargetScale;
+    public float dialogueRotationTime;
+    public float optionWheelRadius;
 
 	// Use this for initialization
 	void Start () {
@@ -182,6 +184,11 @@ public class DialogueUIManager : MonoBehaviour {
     public void DestroySymbol(GameObject obj)
     {
         Destroy(obj);
+    }
+
+    public void RotateDialogueOptions()
+    {
+
     }
 }
 

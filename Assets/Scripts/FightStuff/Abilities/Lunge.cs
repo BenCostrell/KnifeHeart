@@ -30,13 +30,18 @@ public class Lunge : Attack {
 
 		base.Init (player);
 
-		float angle = player.GetComponent<Player>().effectiveRotation;
-		Vector3 direction = new Vector3 (-Mathf.Cos(angle*Mathf.Deg2Rad), -Mathf.Sin(angle*Mathf.Deg2Rad));
-
-		player.GetComponent<Rigidbody2D> ().velocity = speed * direction;
+        Dash();
 	}
 
 	protected override Vector3 GetDirectionHit(GameObject playerHit){
 		return (playerHit.transform.position - parentPlayer.transform.position).normalized;
 	}
+
+    void Dash()
+    {
+        float angle = parentPlayer.GetComponent<Player>().effectiveRotation;
+        Vector3 direction = new Vector3(-Mathf.Cos(angle * Mathf.Deg2Rad), -Mathf.Sin(angle * Mathf.Deg2Rad));
+
+        parentPlayer.GetComponent<Rigidbody2D>().velocity = speed * direction;
+    }
 }

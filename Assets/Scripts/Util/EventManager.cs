@@ -13,6 +13,17 @@ public class ButtonPressed : Event {
 	}
 }
 
+public class AxisPressed : Event {
+    public int direction;
+    public int playerNum;
+    public AxisPressed(int dir, int num)
+    {
+        direction = dir;
+        playerNum = num;
+    }
+}
+
+
 public class PlayerInputPaused : Event {
 	public Player player;
 	public PlayerInputPaused(Player pl){

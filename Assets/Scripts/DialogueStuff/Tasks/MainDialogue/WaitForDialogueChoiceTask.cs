@@ -7,6 +7,7 @@ public class WaitForDialogueChoiceTask : Task {
 	protected override void Init ()
 	{
 		Services.EventManager.Register<ButtonPressed> (OnInputReceived);
+        Services.EventManager.Register<AxisPressed>(OnAxisPressed);
 	}
 
 	internal override void Update ()
@@ -17,6 +18,23 @@ public class WaitForDialogueChoiceTask : Task {
 	protected override void OnSuccess ()
 	{
         Services.EventManager.Unregister<ButtonPressed>(OnInputReceived);
+    }
+
+    private void OnAxisPressed(AxisPressed e)
+    {
+        if (e.playerNum == Services.VisualNovelScene.currentTurnPlayerNum)
+        {
+            Services.EventManager.Unregister<AxisPressed>(OnAxisPressed);
+            RotateDialogueOptions rotateDialogue = new RotateDialogueOptions(Services.DialogueUIManager.dialogueRotationTime, -e.direction);
+            ActionTask reregister = new ActionTask(Reregister);
+            rotateDialogue.Then(reregister);
+            Services.TaskManager.AddTask(rotateDialogue);
+        }
+    }
+
+    void Reregister()
+    {
+        Services.EventManager.Register<AxisPressed>(OnAxisPressed);
     }
 
     private void OnInputReceived(ButtonPressed e){
