@@ -201,6 +201,7 @@ public class VisualNovelScene : Scene<TransitionData> {
         ShowDialogueOptions showFirstOptions = new ShowDialogueOptions (true);
 		WaitForDialogueChoiceTask waitForFirstChoice = new WaitForDialogueChoiceTask ();
 		HighlightSelectedOption highlightFirstChoice = new HighlightSelectedOption ();
+        ActionTask posePlayerAfterFirstChoice = new ActionTask(Services.DialogueUIManager.SetPose);
 		TypeDialogue typeFirstDialogue = new TypeDialogue (false);
 		WaitToContinueDialogue waitAfterFirstDialogue = new WaitToContinueDialogue ();
         ShowAbilityPicked showFirstAbility = new ShowAbilityPicked();
@@ -208,7 +209,8 @@ public class VisualNovelScene : Scene<TransitionData> {
 		ShowDialogueOptions showSecondOptions = new ShowDialogueOptions (false);
 		WaitForDialogueChoiceTask waitForSecondChoice = new WaitForDialogueChoiceTask ();
 		HighlightSelectedOption highlightSecondChoice = new HighlightSelectedOption ();
-		TypeDialogue typeSecondDialogue = new TypeDialogue (false);
+        ActionTask posePlayerAfterSecondChoice = new ActionTask(Services.DialogueUIManager.SetPose);
+        TypeDialogue typeSecondDialogue = new TypeDialogue (false);
 		WaitToContinueDialogue waitAfterSecondDialogue = new WaitToContinueDialogue ();
         ShowAbilityPicked showSecondAbility = new ShowAbilityPicked();
 		DialogueTransitionTask transition = new DialogueTransitionTask ();
@@ -218,6 +220,7 @@ public class VisualNovelScene : Scene<TransitionData> {
             .Then(showFirstOptions)
             .Then(waitForFirstChoice)
             .Then(highlightFirstChoice)
+            .Then(posePlayerAfterFirstChoice)
             .Then(typeFirstDialogue)
             .Then(waitAfterFirstDialogue)
             .Then(showFirstAbility)
@@ -225,6 +228,7 @@ public class VisualNovelScene : Scene<TransitionData> {
             .Then(showSecondOptions)
             .Then(waitForSecondChoice)
             .Then(highlightSecondChoice)
+            .Then(posePlayerAfterSecondChoice)
             .Then(typeSecondDialogue)
             .Then(waitAfterSecondDialogue)
             .Then(showSecondAbility)

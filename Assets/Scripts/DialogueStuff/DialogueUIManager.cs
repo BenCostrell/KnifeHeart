@@ -31,7 +31,6 @@ public class DialogueUIManager : MonoBehaviour {
     private Vector2 defaultPosPonytail;
     private Vector2 defaultPosPigtails;
 
-
 	public GameObject selectedOption;
 
 	private Dialogue[] optionDialogues;
@@ -142,6 +141,20 @@ public class DialogueUIManager : MonoBehaviour {
 		}
 	}
 
+    public Dialogue GetDialogueFromSelectedOption()
+    {
+        for (int i = 0; i < optionObjects.Length; i++)
+        {
+            if (optionObjects[i] == selectedOption)
+            {
+                return optionDialogues[i];
+            }
+
+        }
+
+        return null;
+    }
+
 	public GameObject GetOptionObjectFromInput(string buttonName){
 		switch (buttonName) {
 		case "Y":
@@ -159,7 +172,6 @@ public class DialogueUIManager : MonoBehaviour {
 
 	public void QueueDialogue(DialoguePicked e){
 		queuedDialogue = e.dialogue;
-		selectedOption = e.optionObject;
 	}
 
     void InitializeSpriteDict()
@@ -168,7 +180,7 @@ public class DialogueUIManager : MonoBehaviour {
         spriteDict.Add(Ability.Type.Fireball, fireballSymbol);
         spriteDict.Add(Ability.Type.Lunge, lungeSymbol);
         spriteDict.Add(Ability.Type.Shield, shieldSymbol);
-        spriteDict.Add(Ability.Type.Sing, shieldSymbol);
+        spriteDict.Add(Ability.Type.Sing, singSymbol);
         spriteDict.Add(Ability.Type.Wallop, wallopSymbol);
         spriteDict.Add(Ability.Type.Pull, pullSymbol);
     }
@@ -186,9 +198,17 @@ public class DialogueUIManager : MonoBehaviour {
         Destroy(obj);
     }
 
-    public void RotateDialogueOptions()
+    public void SetPose()
     {
-
+        GameObject characterToPose;
+        if (Services.VisualNovelScene.currentTurnPlayerNum == 1)
+        {
+            characterToPose = ponytail;
+        }
+        else
+        {
+            //characterToPose
+        }
     }
 }
 

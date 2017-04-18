@@ -40,7 +40,8 @@ public class ShowDialogueOptions : Task {
 		}
         for (int i = 0; i < numAvailOptions; i++)
         {
-            optObjects[i].GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0,
+            optObjects[i].GetComponent<RectTransform>().anchoredPosition3D = new Vector3(
+                0,
                 Mathf.Sin(i * 360 / numAvailOptions * Mathf.Deg2Rad),
                 -Mathf.Cos(i * 360 / numAvailOptions * Mathf.Deg2Rad))
                 * Services.DialogueUIManager.optionWheelRadius;
@@ -100,4 +101,9 @@ public class ShowDialogueOptions : Task {
 		}
 
 	}
+
+    protected override void OnSuccess()
+    {
+        Services.DialogueUIManager.selectedOption = Services.DialogueUIManager.optionObjects[0];
+    }
 }

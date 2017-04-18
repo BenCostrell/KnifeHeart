@@ -15,6 +15,7 @@ public class RotateDialogueOptions : Task
     private Vector3 previousRotation;
     private Vector3 previousOptionRotation;
     private int numAvailableOptions;
+    private GameObject selectedOption;
 
     public RotateDialogueOptions(float dur, int dir)
     {
@@ -71,6 +72,7 @@ public class RotateDialogueOptions : Task
         {
             optionObjects[i].transform.SetAsFirstSibling();
         }
+        selectedOption = optionObjects[0];
 
         if (timeElapsed == duration)
         {
@@ -81,5 +83,6 @@ public class RotateDialogueOptions : Task
 
     protected override void OnSuccess()
     {
+        Services.DialogueUIManager.selectedOption = selectedOption;
     }
 }

@@ -60,10 +60,9 @@ public class DialoguePicked : Event {
 	public Dialogue dialogue;
 	public int pickedByPlayerNum;
 	public GameObject optionObject;
-	public DialoguePicked(Dialogue dia, int playerNum, GameObject optionObjectSelected){
+	public DialoguePicked(Dialogue dia, int playerNum){
 		dialogue = dia;
 		pickedByPlayerNum = playerNum;
-		optionObject = optionObjectSelected;
 	}
 }
 

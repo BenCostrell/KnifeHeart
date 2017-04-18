@@ -18,6 +18,7 @@ public class WaitForDialogueChoiceTask : Task {
 	protected override void OnSuccess ()
 	{
         Services.EventManager.Unregister<ButtonPressed>(OnInputReceived);
+        Services.EventManager.Unregister<AxisPressed>(OnAxisPressed);
     }
 
     private void OnAxisPressed(AxisPressed e)
@@ -25,6 +26,7 @@ public class WaitForDialogueChoiceTask : Task {
         if (e.playerNum == Services.VisualNovelScene.currentTurnPlayerNum)
         {
             Services.EventManager.Unregister<AxisPressed>(OnAxisPressed);
+            Services.EventManager.Unregister<ButtonPressed>(OnInputReceived);
             RotateDialogueOptions rotateDialogue = new RotateDialogueOptions(Services.DialogueUIManager.dialogueRotationTime, -e.direction);
             ActionTask reregister = new ActionTask(Reregister);
             rotateDialogue.Then(reregister);
@@ -35,14 +37,14 @@ public class WaitForDialogueChoiceTask : Task {
     void Reregister()
     {
         Services.EventManager.Register<AxisPressed>(OnAxisPressed);
+        Services.EventManager.Register<ButtonPressed>(OnInputReceived);
     }
 
     private void OnInputReceived(ButtonPressed e){
-		if (e.playerNum == Services.VisualNovelScene.currentTurnPlayerNum) {
-			Dialogue dialogueSelected = Services.DialogueUIManager.GetDialogueFromInput (e.buttonTitle);
-			GameObject optionObjectSelected = Services.DialogueUIManager.GetOptionObjectFromInput (e.buttonTitle);
+		if (e.playerNum == Services.VisualNovelScene.currentTurnPlayerNum && e.buttonTitle == "A") {
+			Dialogue dialogueSelected = Services.DialogueUIManager.GetDialogueFromSelectedOption ();
 			if (dialogueSelected != null) {
-				Services.EventManager.Fire (new DialoguePicked (dialogueSelected, e.playerNum, optionObjectSelected));
+				Services.EventManager.Fire (new DialoguePicked (dialogueSelected, e.playerNum));
 				SetStatus (TaskStatus.Success);
 			}
 		}

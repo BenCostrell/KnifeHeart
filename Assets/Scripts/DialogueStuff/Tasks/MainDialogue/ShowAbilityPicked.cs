@@ -9,7 +9,7 @@ public class ShowAbilityPicked : Task {
     private float timeElapsed;
     private float growthTime;
     private float absorbTime;
-    private Vector2 targetPosition;
+    private Vector3 targetPosition;
     private float targetScale;
 
     protected override void Init()
@@ -20,17 +20,17 @@ public class ShowAbilityPicked : Task {
         symbolRectTransform = symbol.GetComponent<RectTransform>();
         timeElapsed = 0;
         symbol.transform.localScale = Vector3.zero;
-        symbolRectTransform.anchoredPosition = Vector2.zero;
+        symbolRectTransform.anchoredPosition3D = Vector3.zero;
         growthTime = Services.DialogueUIManager.symbolGrowthTime;
         absorbTime = Services.DialogueUIManager.symbolAbsorbTime;
         targetScale = Services.DialogueUIManager.symbolTargetScale;
         if (playerNum == 1)
         {
-            targetPosition = Services.DialogueUIManager.ponytail.GetComponent<RectTransform>().anchoredPosition;
+            targetPosition = Services.DialogueUIManager.ponytail.GetComponent<RectTransform>().anchoredPosition3D;
         }
         else
         {
-            targetPosition = Services.DialogueUIManager.pigtails.GetComponent<RectTransform>().anchoredPosition;
+            targetPosition = Services.DialogueUIManager.pigtails.GetComponent<RectTransform>().anchoredPosition3D;
         }
     }
 
@@ -45,7 +45,7 @@ public class ShowAbilityPicked : Task {
         }
         else if (timeElapsed <= (growthTime + absorbTime))
         {
-            symbolRectTransform.anchoredPosition = Vector2.Lerp(Vector2.zero, targetPosition, 
+            symbolRectTransform.anchoredPosition3D = Vector3.Lerp(Vector2.zero, targetPosition, 
                 Easing.ExpoEaseOut((timeElapsed - growthTime) / absorbTime));
             symbol.transform.localScale = Vector3.Lerp(targetScale * Vector3.one, Vector3.zero,
                 Easing.ExpoEaseOut((timeElapsed - growthTime) / absorbTime));
