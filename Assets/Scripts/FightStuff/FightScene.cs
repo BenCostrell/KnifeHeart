@@ -40,6 +40,7 @@ public class FightScene : Scene<TransitionData> {
     internal override void OnEnter(TransitionData data)
     {
         roundNum = data.roundNum;
+        Services.FightUIManager.Init();
         SetUpArenas();
         InitiateFightSequence();
     }
@@ -149,10 +150,11 @@ public class FightScene : Scene<TransitionData> {
             player.StartListeningForInput();
             player.gameObject.GetComponent<SpriteRenderer>().enabled = true;
             player.ResetCooldowns();
+            if (player == fallenPlayer) player.damage = fallDamage;
+            else player.damage = 0;
+            Services.FightUIManager.UpdateDamageUI(player.gameObject);
+            foreach (Ability.Type ability in player.abilityList) Services.FightUIManager.ScaleCooldownUI(ability, player.playerNum, 1);
         }
-
-        fallenPlayer.TakeHit(fallDamage, 0, 0, Vector3.zero);
-
     }
 
     void InitiateFightSequence()

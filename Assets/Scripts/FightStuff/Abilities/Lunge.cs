@@ -16,6 +16,11 @@ public class Lunge : Attack {
 		
 	}
 
+    void FixedUpdate()
+    {
+        CheckIfGoingOffStage();
+    }
+
 	public override void Init(GameObject player){
 		animTrigger = "Lunge";
 		cooldown = 1f;
@@ -43,5 +48,16 @@ public class Lunge : Attack {
         Vector3 direction = new Vector3(-Mathf.Cos(angle * Mathf.Deg2Rad), -Mathf.Sin(angle * Mathf.Deg2Rad));
 
         parentPlayer.GetComponent<Rigidbody2D>().velocity = speed * direction;
+    }
+
+    void CheckIfGoingOffStage()
+    {
+        Vector3 positionDelta = parentPlayer.GetComponent<Rigidbody2D>().velocity * Time.fixedDeltaTime;
+        Bounds previousFeetBounds = parentPlayer.GetComponentInChildren<Feet>().gameObject.GetComponent<BoxCollider2D>().bounds;
+        Bounds nextFeetBounds = new Bounds(previousFeetBounds.center + positionDelta, previousFeetBounds.size);
+
+        if (!Services.FightScene.GetActiveArena().GetComponentInChildren<Collider2D>().bounds.Intersects(nextFeetBounds)) {
+            parentPlayer.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        }
     }
 }

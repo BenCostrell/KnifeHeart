@@ -29,7 +29,7 @@ public class FightUIManager : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    public void Init () {
 		InitializeSpriteDict ();
 		InitializeUI ();
 	}
@@ -47,7 +47,7 @@ public class FightUIManager : MonoBehaviour {
 		spriteDict.Add (Ability.Type.Sing, singUI);
 		spriteDict.Add (Ability.Type.Wallop, wallopUI);
 		spriteDict.Add (Ability.Type.Pull, pullUI);
-        spriteDict.Add(Ability.Type.Blink, blinkUI);
+        spriteDict.Add (Ability.Type.Blink, blinkUI);
 	}
 
 	void InitializeUI(){
@@ -57,7 +57,6 @@ public class FightUIManager : MonoBehaviour {
             GameObject obj_P2 = cooldownUI_P2[i];
             if (i < Services.FightScene.roundNum)
             {
-                
                 GameObject timer_P1 = obj_P1.transform.GetChild(0).gameObject;
                 GameObject timer_P2 = obj_P2.transform.GetChild(0).gameObject;
                 GameObject icon_P1 = obj_P1.transform.GetChild(1).gameObject;
