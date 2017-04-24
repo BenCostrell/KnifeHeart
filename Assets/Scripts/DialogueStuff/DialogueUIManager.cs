@@ -9,14 +9,15 @@ public class DialogueUIManager : MonoBehaviour {
 	public GameObject dialogueContainer;
 	public GameObject dialogueText;
 	public GameObject dialogueTextBox;
+    public Sprite[] dialogueTextBoxImages;
 	public GameObject[] optionObjects;
     public GameObject[] rpsOptionObjects;
+    public GameObject[] rpsArrows;
+    public GameObject[] optionArrows;
     public GameObject rpsTimer;
     public GameObject rpsReady_P1;
     public GameObject rpsReady_P2;
 	public GameObject continueIndicator;
-	public GameObject arrow_P1;
-	public GameObject arrow_P2;
 	public GameObject ponytail;
 	public GameObject pigtails;
 
@@ -26,19 +27,22 @@ public class DialogueUIManager : MonoBehaviour {
     public Sprite wallopSymbol;
     public Sprite singSymbol;
     public Sprite lungeSymbol;
+    public Sprite blinkSymbol;
+    [HideInInspector]
     public Dictionary<Ability.Type, Sprite> spriteDict;
+    [HideInInspector]
+    public Dictionary<Ability.Type, string> poseTriggerDict;
 
-    private Vector2 defaultPosPonytail;
-    private Vector2 defaultPosPigtails;
+    [HideInInspector]
+    public Vector2 defaultPosPonytail;
+    [HideInInspector]
+    public Vector2 defaultPosPigtails;
 
 	public GameObject selectedOption;
 
 	private Dialogue[] optionDialogues;
 
 	public Dialogue queuedDialogue;
-
-	public Sprite textBox;
-	public Sprite textBoxHighlighted;
 
 	public string initialDialogue;
 
@@ -55,6 +59,9 @@ public class DialogueUIManager : MonoBehaviour {
     public float symbolTargetScale;
     public float dialogueRotationTime;
     public float optionWheelRadius;
+    public float backgroundOptionFadeOutAlpha;
+    public float optionArrowBounceTime;
+    public float optionArrowBounceDistance;
 
 	// Use this for initialization
 	void Start () {
@@ -71,15 +78,13 @@ public class DialogueUIManager : MonoBehaviour {
         Services.EventManager.Register<DialoguePicked>(QueueDialogue);
         defaultPosPonytail = ponytail.GetComponent<RectTransform>().anchoredPosition;
         defaultPosPigtails = pigtails.GetComponent<RectTransform>().anchoredPosition;
-        InitializeSpriteDict();
+        InitializeDictionaries();
     }
 
 	public void SetUpUI(){
 		dialogueText.GetComponent<Text> ().text = "";
 		optionDialogues = new Dialogue[4];
 		continueIndicator.SetActive (false);
-		arrow_P1.SetActive (false);
-		arrow_P2.SetActive (false);
 		crowdImage.SetActive (false);
 		SetOptionUIStatus (false);
         SetRpsOptionUIStatus(false);
@@ -97,6 +102,10 @@ public class DialogueUIManager : MonoBehaviour {
 				optionObjects [i].SetActive (false);
 			}
 		}
+        for (int i = 0; i < optionArrows.Length; i++)
+        {
+            optionArrows[i].SetActive(active);
+        }
 	}
 
     public void SetRpsOptionUIStatus(bool active)
@@ -104,6 +113,7 @@ public class DialogueUIManager : MonoBehaviour {
         for (int i = 0; i < rpsOptionObjects.Length; i++)
         {
             rpsOptionObjects[i].SetActive(active);
+            rpsArrows[i].SetActive(active);
         }
     }
 
@@ -174,15 +184,29 @@ public class DialogueUIManager : MonoBehaviour {
 		queuedDialogue = e.dialogue;
 	}
 
-    void InitializeSpriteDict()
+    void InitializeDictionaries()
     {
-        spriteDict = new Dictionary<Ability.Type, Sprite>();
-        spriteDict.Add(Ability.Type.Fireball, fireballSymbol);
-        spriteDict.Add(Ability.Type.Lunge, lungeSymbol);
-        spriteDict.Add(Ability.Type.Shield, shieldSymbol);
-        spriteDict.Add(Ability.Type.Sing, singSymbol);
-        spriteDict.Add(Ability.Type.Wallop, wallopSymbol);
-        spriteDict.Add(Ability.Type.Pull, pullSymbol);
+        spriteDict = new Dictionary<Ability.Type, Sprite>()
+        {
+            { Ability.Type.Fireball, fireballSymbol },
+            { Ability.Type.Lunge, lungeSymbol },
+            { Ability.Type.Shield, shieldSymbol },
+            { Ability.Type.Sing, singSymbol },
+            { Ability.Type.Wallop, wallopSymbol },
+            { Ability.Type.Pull, pullSymbol },
+            { Ability.Type.Blink, blinkSymbol }
+    };
+
+        poseTriggerDict = new Dictionary<Ability.Type, string>()
+        {
+            { Ability.Type.Fireball, "fireballPicked" },
+            { Ability.Type.Lunge, "lungePicked" },
+            { Ability.Type.Shield, "shieldPicked" },
+            { Ability.Type.Sing, "singPicked" },
+            { Ability.Type.Wallop, "wallopPicked" },
+            { Ability.Type.Pull, "pullPicked" },
+            { Ability.Type.Blink, "blinkPicked" }
+        };
     }
 
     public GameObject CreateAbilitySymbol(Ability.Type ability)
@@ -201,14 +225,19 @@ public class DialogueUIManager : MonoBehaviour {
     public void SetPose()
     {
         GameObject characterToPose;
+        List<Ability.Type> abilityList = Services.VisualNovelScene.abilityLists[Services.VisualNovelScene.currentTurnPlayerNum - 1];
+        Ability.Type abilityPicked = abilityList[abilityList.Count - 1];
         if (Services.VisualNovelScene.currentTurnPlayerNum == 1)
         {
             characterToPose = ponytail;
         }
         else
         {
-            //characterToPose
+            characterToPose = pigtails;
         }
+        string animTrigger = poseTriggerDict[abilityPicked];
+
+        characterToPose.GetComponent<Animator>().SetTrigger(animTrigger);
     }
 }
 

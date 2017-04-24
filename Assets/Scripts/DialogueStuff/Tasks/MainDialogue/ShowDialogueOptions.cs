@@ -38,6 +38,7 @@ public class ShowDialogueOptions : Task {
 				optObjects [i].SetActive (false);
 			}
 		}
+        List<GameObject> sortedOptObjects = new List<GameObject>();
         for (int i = 0; i < numAvailOptions; i++)
         {
             optObjects[i].GetComponent<RectTransform>().anchoredPosition3D = new Vector3(
@@ -46,6 +47,36 @@ public class ShowDialogueOptions : Task {
                 -Mathf.Cos(i * 360 / numAvailOptions * Mathf.Deg2Rad))
                 * Services.DialogueUIManager.optionWheelRadius;
             optObjects[i].transform.localRotation = Quaternion.identity;
+            sortedOptObjects.Add(optObjects[i]);
+        }
+
+        sortedOptObjects.Sort(delegate (GameObject a, GameObject b)
+        {
+            if (a.transform.position.z > b.transform.position.z) return 1;
+            else if (a.transform.position.z < b.transform.position.z) return -1;
+            else return 0;
+
+        });
+
+        for (int i = 0; i < sortedOptObjects.Count; i++)
+        {
+            sortedOptObjects[i].transform.SetAsFirstSibling();
+            Image optionImage = sortedOptObjects[i].GetComponentInChildren<Image>();
+            Text optionText = sortedOptObjects[i].GetComponentInChildren<Text>();
+            Color imageColor = optionImage.color;
+            Color textColor = optionText.color;
+            if (i != 0)
+            {
+                optionImage.color = new Color(imageColor.r, imageColor.g, imageColor.b,
+                    Services.DialogueUIManager.backgroundOptionFadeOutAlpha);
+                optionText.color = new Color(textColor.r, textColor.g, textColor.b,
+                    Services.DialogueUIManager.backgroundOptionFadeOutAlpha);
+            }
+            else
+            {
+                optionImage.color = new Color(imageColor.r, imageColor.g, imageColor.b, 1);
+                optionText.color = new Color(textColor.r, textColor.g, textColor.b, 1);
+            }
         }
 
         if (Services.VisualNovelScene.currentTurnPlayerNum == 1)
@@ -60,12 +91,12 @@ public class ShowDialogueOptions : Task {
         }
         activeInitialScale = activePlayer.localScale;
         inactiveInitialScale = inactivePlayer.localScale;
-        activeScaleTarget = 1.5f * Vector3.one;
-        inactiveScaleTarget = 1.2f * Vector3.one;
+        activeScaleTarget = Vector3.one;
+        inactiveScaleTarget = 0.7f * Vector3.one;
         activeInitialPos = activePlayer.anchoredPosition;
         inactiveInitialPos = inactivePlayer.anchoredPosition;
-        activePosTarget = new Vector2(activeInitialPos.x, 10);
-        inactivePosTarget = new Vector2(inactiveInitialPos.x, -80);
+        activePosTarget = new Vector2(activeInitialPos.x, -25);
+        inactivePosTarget = new Vector2(inactiveInitialPos.x, -70);
         activePlayer.gameObject.GetComponent<Image>().color = Color.white;
         inactivePlayer.gameObject.GetComponent<Image>().color = Color.gray;
 	}
@@ -105,5 +136,6 @@ public class ShowDialogueOptions : Task {
     protected override void OnSuccess()
     {
         Services.DialogueUIManager.selectedOption = Services.DialogueUIManager.optionObjects[0];
+        Services.DialogueUIManager.SetOptionUIStatus(true);
     }
 }

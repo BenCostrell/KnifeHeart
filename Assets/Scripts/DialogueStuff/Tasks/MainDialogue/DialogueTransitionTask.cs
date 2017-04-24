@@ -26,9 +26,9 @@ public class DialogueTransitionTask : Task {
         ponytailInitialScale = ponytail.localScale;
         pigtailsInitialPos = pigtails.anchoredPosition;
         pigtailsInitialScale = pigtails.localScale;
-        scaleTarget = 1.4f * Vector3.one;
-        ponytailPosTarget = new Vector2(-550, -20);
-        pigtailsPosTarget = new Vector2(550, -20);
+        scaleTarget = 0.8f * Vector3.one;
+        ponytailPosTarget = Services.DialogueUIManager.defaultPosPonytail;
+        pigtailsPosTarget = Services.DialogueUIManager.defaultPosPigtails;
         ponytail.gameObject.GetComponent<Image>().color = Color.white;
         pigtails.gameObject.GetComponent<Image>().color = Color.white;
 	}

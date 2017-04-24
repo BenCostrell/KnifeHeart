@@ -20,18 +20,14 @@ public class TypeDialogue : Task {
         Services.DialogueUIManager.dialogueText.GetComponent<Text>().text = "";
         if (!crowdDialogue) {
 			dialogueText = Services.DialogueUIManager.queuedDialogue.mainText;
-			if (playerNum == 1) {
-				Services.DialogueUIManager.arrow_P1.SetActive (true);
-				Services.DialogueUIManager.arrow_P2.SetActive (false);
-			} else if (playerNum == 2) {
-				Services.DialogueUIManager.arrow_P1.SetActive (false);
-				Services.DialogueUIManager.arrow_P2.SetActive (true);
-			}
+            Services.DialogueUIManager.dialogueTextBox.GetComponent<Image>().sprite =
+                Services.DialogueUIManager.dialogueTextBoxImages[playerNum - 1];
+
 		} else {
             dialogueText = "CROWD: " + Services.VisualNovelScene.rpsDialogueArray[2];
-            Services.DialogueUIManager.arrow_P1.SetActive(false);
-            Services.DialogueUIManager.arrow_P2.SetActive(false);
-		}
+            Services.DialogueUIManager.dialogueTextBox.GetComponent<Image>().sprite =
+                Services.DialogueUIManager.dialogueTextBoxImages[2];
+        }
 	}
 
 	internal override void Update ()

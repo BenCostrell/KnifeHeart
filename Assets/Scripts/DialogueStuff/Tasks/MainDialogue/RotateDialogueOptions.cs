@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RotateDialogueOptions : Task
 {
@@ -44,14 +45,14 @@ public class RotateDialogueOptions : Task
         timeElapsed = Mathf.Min(duration, timeElapsed + Time.deltaTime);
 
         Vector3 targetRotation = Vector3.LerpUnclamped(initialRotation, initialRotation + (360/numAvailableOptions * direction * Vector3.right),
-            Easing.BackEaseOut(timeElapsed / duration));
+            Easing.QuadEaseOut(timeElapsed / duration));
         optionBaseTransform.Rotate(targetRotation - previousRotation);
         previousRotation = targetRotation;
 
         List<GameObject> optionObjects = new List<GameObject>();
 
         Vector3 targetOptionRotation = Vector3.LerpUnclamped(initialOptionRotation,
-                initialOptionRotation + (360/numAvailableOptions * -direction * Vector3.right), Easing.BackEaseOut(timeElapsed / duration));
+                initialOptionRotation + (360/numAvailableOptions * -direction * Vector3.right), Easing.QuadEaseOut(timeElapsed / duration));
         foreach (GameObject optionObj in Services.DialogueUIManager.optionObjects)
         {
             optionObj.transform.Rotate(targetOptionRotation - previousOptionRotation);
@@ -73,6 +74,25 @@ public class RotateDialogueOptions : Task
             optionObjects[i].transform.SetAsFirstSibling();
         }
         selectedOption = optionObjects[0];
+        foreach(GameObject obj in optionObjects)
+        {
+            Image optionImage = obj.GetComponentInChildren<Image>();
+            Text optionText = obj.GetComponentInChildren<Text>();
+            Color imageColor = optionImage.color;
+            Color textColor = optionText.color;
+            if (obj != selectedOption)
+            {
+                optionImage.color = new Color(imageColor.r, imageColor.g, imageColor.b, 
+                    Services.DialogueUIManager.backgroundOptionFadeOutAlpha);
+                optionText.color = new Color(textColor.r, textColor.g, textColor.b,
+                    Services.DialogueUIManager.backgroundOptionFadeOutAlpha);
+            }
+            else
+            {
+                optionImage.color = new Color(imageColor.r, imageColor.g, imageColor.b, 1);
+                optionText.color = new Color(textColor.r, textColor.g, textColor.b, 1);
+            }
+        }
 
         if (timeElapsed == duration)
         {
