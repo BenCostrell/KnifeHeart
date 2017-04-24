@@ -2763,8 +2763,8 @@ MonoBehaviour:
   fightBackgroundSlideInTime: 0.5
   fightWordGrowthTime: 0.3
   fightWordStaggerTime: 0.2
-  readyPromptGrowTime: 0.15
-  readyPromptShrinkTime: 0.5
+  readyPromptGrowTime: 0.25
+  readyPromptShrinkTime: 0.25
   uiScaleOutTime: 0.5
   transitionEndTime: 1
 --- !u!114 &114486314672602970
@@ -2873,9 +2873,10 @@ MonoBehaviour:
   defaultPosPigtails: {x: 0, y: 0}
   selectedOption: {fileID: 0}
   initialDialogue: Holy shit, it's going down!
+  dialogueTextBoxPopUpTime: 0.3
   optionAppearanceStaggerTime: 0.2
   optionAppearanceTime: 0.3
-  indicatorFlashUptime: 0.5
+  indicatorFlashUptime: 0.6
   unselectedOptionShrinkTime: 0.4
   selectedOptionHighlightTime: 0.5
   crowdSlideTime: 0.5
@@ -4432,7 +4433,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 260, y: -85}
+  m_AnchoredPosition: {x: 250, y: -75}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224023191489673598

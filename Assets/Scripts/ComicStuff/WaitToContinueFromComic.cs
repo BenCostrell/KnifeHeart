@@ -38,13 +38,13 @@ public class WaitToContinueFromComic : Task {
             totalScaleTime = growTime;
             startScale = Vector3.one;
             targetScale = 1.2f * Vector3.one;
-            easedTime = Easing.ExpoEaseOut(scaleTime / totalScaleTime);
+            easedTime = Easing.QuadEaseOut(scaleTime / totalScaleTime);
         }
         else {
             totalScaleTime = shrinkTime;
             startScale = 1.2f * Vector3.one;
             targetScale = Vector3.one;
-            easedTime = Easing.QuadEaseOut(scaleTime / totalScaleTime);
+            easedTime = Easing.QuadEaseIn(scaleTime / totalScaleTime);
         }
         if (scaleTime < totalScaleTime)
         {

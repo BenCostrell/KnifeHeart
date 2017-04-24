@@ -174,10 +174,13 @@ public class VisualNovelScene : Scene<TransitionData> {
         ShowRpsDialogueOptions showOptions = new ShowRpsDialogueOptions();
         WaitForRpsDialogueSelection waitForSelection = new WaitForRpsDialogueSelection();
         TransitionFromSelectionToDialogue transition = new TransitionFromSelectionToDialogue();
+        PopUpDialogueBox popUpDialogue1 = new PopUpDialogueBox(false);
         TypeRpsDialogue loserDialogue = new TypeRpsDialogue();
         WaitToContinueDialogue waitForInput1 = new WaitToContinueDialogue();
+        PopUpDialogueBox popUpDialogue2 = new PopUpDialogueBox(false);
         TypeRpsDialogue winnerDialogue = new TypeRpsDialogue();
         WaitToContinueDialogue waitForInput2 = new WaitToContinueDialogue();
+        PopUpDialogueBox popUpDialogue3 = new PopUpDialogueBox(true);
         TypeDialogue crowdReaction = new TypeDialogue(true);
         WaitToContinueDialogue waitForInput3 = new WaitToContinueDialogue();
 
@@ -186,10 +189,13 @@ public class VisualNovelScene : Scene<TransitionData> {
             .Then(showOptions)
             .Then(waitForSelection)
             .Then(transition)
+            .Then(popUpDialogue1)
             .Then(loserDialogue)
             .Then(waitForInput1)
+            .Then(popUpDialogue2)
             .Then(winnerDialogue)
             .Then(waitForInput2)
+            .Then(popUpDialogue3)
             .Then(crowdReaction)
             .Then(waitForInput3);
 
@@ -202,7 +208,8 @@ public class VisualNovelScene : Scene<TransitionData> {
 		WaitForDialogueChoiceTask waitForFirstChoice = new WaitForDialogueChoiceTask ();
 		HighlightSelectedOption highlightFirstChoice = new HighlightSelectedOption ();
         ActionTask posePlayerAfterFirstChoice = new ActionTask(Services.DialogueUIManager.SetPose);
-		TypeDialogue typeFirstDialogue = new TypeDialogue (false);
+        PopUpDialogueBox popUpDialogue1 = new PopUpDialogueBox(false);
+        TypeDialogue typeFirstDialogue = new TypeDialogue (false);
 		WaitToContinueDialogue waitAfterFirstDialogue = new WaitToContinueDialogue ();
         ShowAbilityPicked showFirstAbility = new ShowAbilityPicked();
         SetObjectStatus turnOffDialogueBox2 = new SetObjectStatus(false, Services.DialogueUIManager.dialogueContainer);
@@ -210,6 +217,7 @@ public class VisualNovelScene : Scene<TransitionData> {
 		WaitForDialogueChoiceTask waitForSecondChoice = new WaitForDialogueChoiceTask ();
 		HighlightSelectedOption highlightSecondChoice = new HighlightSelectedOption ();
         ActionTask posePlayerAfterSecondChoice = new ActionTask(Services.DialogueUIManager.SetPose);
+        PopUpDialogueBox popUpDialogue2 = new PopUpDialogueBox(false);
         TypeDialogue typeSecondDialogue = new TypeDialogue (false);
 		WaitToContinueDialogue waitAfterSecondDialogue = new WaitToContinueDialogue ();
         ShowAbilityPicked showSecondAbility = new ShowAbilityPicked();
@@ -221,6 +229,7 @@ public class VisualNovelScene : Scene<TransitionData> {
             .Then(waitForFirstChoice)
             .Then(highlightFirstChoice)
             .Then(posePlayerAfterFirstChoice)
+            .Then(popUpDialogue1)
             .Then(typeFirstDialogue)
             .Then(waitAfterFirstDialogue)
             .Then(showFirstAbility)
@@ -229,6 +238,7 @@ public class VisualNovelScene : Scene<TransitionData> {
             .Then(waitForSecondChoice)
             .Then(highlightSecondChoice)
             .Then(posePlayerAfterSecondChoice)
+            .Then(popUpDialogue2)
             .Then(typeSecondDialogue)
             .Then(waitAfterSecondDialogue)
             .Then(showSecondAbility)

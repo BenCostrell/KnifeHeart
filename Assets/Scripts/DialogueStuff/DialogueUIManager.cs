@@ -46,6 +46,7 @@ public class DialogueUIManager : MonoBehaviour {
 
 	public string initialDialogue;
 
+    public float dialogueTextBoxPopUpTime;
 	public float optionAppearanceStaggerTime;
 	public float optionAppearanceTime;
 	public float indicatorFlashUptime;

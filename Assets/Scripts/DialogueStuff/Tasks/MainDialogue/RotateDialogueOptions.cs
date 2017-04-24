@@ -37,7 +37,7 @@ public class RotateDialogueOptions : Task
         {
             if (optionObj.activeSelf) numAvailableOptions += 1;
         }
-        duration *= 4 / numAvailableOptions;
+        //duration *= 4 / numAvailableOptions;
     }
 
     internal override void Update()

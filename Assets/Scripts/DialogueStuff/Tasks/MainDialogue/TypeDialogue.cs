@@ -16,17 +16,12 @@ public class TypeDialogue : Task {
 	{
 		int playerNum = Services.VisualNovelScene.currentTurnPlayerNum;
 		characterIndex = 0;
-        Services.DialogueUIManager.dialogueContainer.SetActive(true);
         Services.DialogueUIManager.dialogueText.GetComponent<Text>().text = "";
         if (!crowdDialogue) {
 			dialogueText = Services.DialogueUIManager.queuedDialogue.mainText;
-            Services.DialogueUIManager.dialogueTextBox.GetComponent<Image>().sprite =
-                Services.DialogueUIManager.dialogueTextBoxImages[playerNum - 1];
 
 		} else {
             dialogueText = "CROWD: " + Services.VisualNovelScene.rpsDialogueArray[2];
-            Services.DialogueUIManager.dialogueTextBox.GetComponent<Image>().sprite =
-                Services.DialogueUIManager.dialogueTextBoxImages[2];
         }
 	}
 

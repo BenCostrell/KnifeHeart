@@ -11,7 +11,6 @@ public class TypeRpsDialogue : Task {
     {
         int playerNum = Services.VisualNovelScene.currentTurnPlayerNum;
         characterIndex = 0;
-        Services.DialogueUIManager.dialogueContainer.SetActive(true);
         if (playerNum == Services.VisualNovelScene.initiatingPlayer)
         {
             dialogueText = Services.VisualNovelScene.rpsDialogueArray[1];
@@ -21,8 +20,6 @@ public class TypeRpsDialogue : Task {
             dialogueText = Services.VisualNovelScene.rpsDialogueArray[0];
         }
         Services.DialogueUIManager.dialogueText.GetComponent<Text>().text = "";
-        Services.DialogueUIManager.dialogueTextBox.GetComponent<Image>().sprite =
-                Services.DialogueUIManager.dialogueTextBoxImages[playerNum - 1];
     }
 
     internal override void Update()
