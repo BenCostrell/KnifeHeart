@@ -19,11 +19,13 @@ public class FightScene : Scene<TransitionData> {
 
     public GameObject[] arenas;
 
+    public bool fightActive;
     public Player fallenPlayer;
     public int fallDamage;
     public float fallAnimationTime;
     public int roundNum;
     public bool lastComic;
+    public float hitLagRatio;
 
 	// Use this for initialization
 	void Start () {
@@ -52,6 +54,7 @@ public class FightScene : Scene<TransitionData> {
         Services.FightUIManager = servicesObj.FindChild("FightUIManager").gameObject.GetComponent<FightUIManager>();
         Services.WinScreenUIManager = servicesObj.FindChild("WinScreenUIManager").gameObject.GetComponent<WinScreenUIManager>();
         Services.TransitionComicManager = servicesObj.FindChild("TransitionComicManager").gameObject.GetComponent<TransitionComicManager>();
+        Services.CameraController = Camera.main.GetComponent<CameraController>();
         if (Services.GameInfo.player1Abilities.Count == 0)
         {
             SetPlayerAbilities();
@@ -79,9 +82,10 @@ public class FightScene : Scene<TransitionData> {
             InitializePlayer(1),
             InitializePlayer(2)
         };
-	}
+        fightActive = true;
+    }
 
-	Player InitializePlayer(int playerNum){
+    Player InitializePlayer(int playerNum){
         GameObject playerObj = Instantiate(Services.PrefabDB.Player, spawnPoints[roundNum - 1][playerNum - 1], 
             Quaternion.identity, transform) as GameObject;
         Player player = playerObj.GetComponent<Player>();
@@ -152,9 +156,9 @@ public class FightScene : Scene<TransitionData> {
             player.ResetCooldowns();
             if (player == fallenPlayer) player.damage = fallDamage;
             else player.damage = 0;
-            Services.FightUIManager.UpdateDamageUI(player.gameObject);
             foreach (Ability.Type ability in player.abilityList) Services.FightUIManager.ScaleCooldownUI(ability, player.playerNum, 1);
         }
+        Services.FightUIManager.UpdateDamageUI();
     }
 
     void InitiateFightSequence()
@@ -185,10 +189,12 @@ public class FightScene : Scene<TransitionData> {
         WaitForFall waitForRooftopFall = new WaitForFall();
         PlayerFallAnimation rooftopFallAnimation = new PlayerFallAnimation();
         Task transitionToParkingLot = ComicSequence(rooftopFallAnimation, 3);
+        ActionTask resumeCameraFollow1 = new ActionTask(Services.CameraController.ResumeCameraFollow);
         PositionPlayersTask positionPlayersForParkingLot = new PositionPlayersTask(4);
         WaitForFall waitForParkingLotFall = new WaitForFall();
         PlayerFallAnimation parkingLotFallAnimation = new PlayerFallAnimation();
         Task transitionToHell = ComicSequence(parkingLotFallAnimation, 4);
+        ActionTask resumeCameraFollow2 = new ActionTask(Services.CameraController.ResumeCameraFollow);
         PositionPlayersTask positionPlayersForHell = new PositionPlayersTask(5);
         WaitForFall waitForHellFall = new WaitForFall();
         PlayerFallAnimation hellFallAnimation = new PlayerFallAnimation();
@@ -202,11 +208,13 @@ public class FightScene : Scene<TransitionData> {
             .Then(rooftopFallAnimation);
 
         transitionToParkingLot
+            .Then(resumeCameraFollow1)
             .Then(positionPlayersForParkingLot)
             .Then(waitForParkingLotFall)
             .Then(parkingLotFallAnimation);
 
         transitionToHell
+            .Then(resumeCameraFollow2)
             .Then(positionPlayersForHell)
             .Then(waitForHellFall)
             .Then(hellFallAnimation);
@@ -219,9 +227,11 @@ public class FightScene : Scene<TransitionData> {
         Transform comicTransform = Services.TransitionComicManager.fightEndComics[roundNumber - 1].transform;
         SlideInPanel slideInComicBackground = new SlideInPanel(Services.TransitionComicManager.comicBackground, true, 1600 * Vector2.right,
             Services.TransitionComicManager.panelAppearTime);
+        ActionTask resetCamera = new ActionTask(Services.CameraController.ResetCamera);
         precedingTask
-            .Then(slideInComicBackground);
-        Task currentTask = slideInComicBackground;
+            .Then(slideInComicBackground)
+            .Then(resetCamera);
+        Task currentTask = resetCamera;
         if (roundNumber == 3 || roundNumber == 4) {
             Task turnOffPreviousArena = new SetObjectStatus(false, arenas[roundNumber - 1]);
             currentTask.Then(turnOffPreviousArena);

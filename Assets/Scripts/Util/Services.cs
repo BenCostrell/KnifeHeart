@@ -27,4 +27,5 @@ public static class Services {
     public static FightScene FightScene { get; set; }
 	public static FightUIManager FightUIManager { get; set; }
     public static ComicPanelManager ComicPanelManager { get; set; }
+    public static CameraController CameraController { get; set; }
 }

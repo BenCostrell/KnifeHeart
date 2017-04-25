@@ -177,9 +177,15 @@ public class Player : MonoBehaviour {
 		float knockbackMagnitude = baseKnockback + (knockbackGrowth * damage * knockbackDamageGrowthFactor);
 		float hitstunDuration = knockbackMagnitude * hitstunFactor;
 		Vector3 knockbackVector = knockbackMagnitude * knockbackDirection;
+        HitLag hitLag = new HitLag(damageTaken);
 		KnockbackTask startKnockback = new KnockbackTask (hitstunDuration, this, knockbackVector);
-		Services.TaskManager.AddTask (startKnockback);
-		Services.FightUIManager.UpdateDamageUI (gameObject);
+        ActionTask updateDamageUI = new ActionTask(Services.FightUIManager.UpdateDamageUI);
+
+        hitLag
+            .Then(startKnockback)
+            .Then(updateDamageUI);
+
+		Services.TaskManager.AddTask (hitLag);
 	}
 
 	public void Stun(float hitstun){

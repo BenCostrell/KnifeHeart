@@ -14,8 +14,8 @@ public class SlideOutFightUI : Task {
 	{
 		duration = Services.WinScreenUIManager.UISlideOffTime;
 		timeElapsed = 0;
-		uiTransformP1 = Services.FightUIManager.UI_P1.GetComponent<RectTransform> ();
-		uiTransformP2 = Services.FightUIManager.UI_P2.GetComponent<RectTransform> ();
+		uiTransformP1 = Services.FightUIManager.UIContainers[0].GetComponent<RectTransform> ();
+		uiTransformP2 = Services.FightUIManager.UIContainers[1].GetComponent<RectTransform> ();
 		uiInitialPos_P1 = uiTransformP1.anchoredPosition;
 		uiInitialPos_P2 = uiTransformP2.anchoredPosition;
 	}

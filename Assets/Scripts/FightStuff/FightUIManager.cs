@@ -5,14 +5,12 @@ using UnityEngine.UI;
 
 public class FightUIManager : MonoBehaviour {
 
-	public GameObject UI_P1;
-	public GameObject UI_P2;
+    public GameObject[] UIContainers;
 
 	public GameObject[] cooldownUI_P1;
 	public GameObject[] cooldownUI_P2;
 
-	public GameObject damageUIP1;
-	public GameObject damageUIP2;
+    public GameObject[] damageUIs;
 
 	public Sprite fireballUI;
 	public Sprite lungeUI;
@@ -130,16 +128,10 @@ public class FightUIManager : MonoBehaviour {
         }
     }
 
-	public void UpdateDamageUI(GameObject player){
-		Player pc = player.GetComponent<Player> ();
-		GameObject damageUI = null;
-		if (pc.playerNum == 1) {
-			damageUI = damageUIP1;
-		} else if (pc.playerNum == 2) {
-			damageUI = damageUIP2;
-		}
-		if (damageUI != null) {
-			damageUI.GetComponentInChildren<Text> ().text = pc.damage.ToString();
-		}
+	public void UpdateDamageUI(){
+        for (int i = 0; i < 2; i++)
+        {
+            damageUIs[i].GetComponentInChildren<Text>().text = Services.FightScene.players[i].damage.ToString();
+        }
 	}
 }

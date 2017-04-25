@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour {
             if (Services.FightScene.roundNum == 3)
             {
                 Services.EventManager.Clear();
+                Services.EventManager.Register<Reset>(Reset);
                 Services.TaskManager.Clear();
                 Services.SceneStackManager.Swap<FightScene>(new TransitionData(3));
             }

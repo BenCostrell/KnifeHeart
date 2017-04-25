@@ -23,9 +23,9 @@ public class FinishTransition : Task {
 	internal override void Update ()
 	{
 		float duration = Services.TransitionUIManager.transitionEndTime;
-		ponytailRectTransform.anchoredPosition = Vector2.Lerp (ponytailInitialPosition, ponytailInitialPosition + 500 * Vector2.left, 
+		ponytailRectTransform.anchoredPosition = Vector2.Lerp (ponytailInitialPosition, ponytailInitialPosition + 700 * Vector2.left, 
 			Easing.BackEaseIn (timeElapsed / duration));
-		pigtailsRectTransform.anchoredPosition = Vector2.Lerp (pigtailsInitialPosition, pigtailsInitialPosition + 500 * Vector2.right, 
+		pigtailsRectTransform.anchoredPosition = Vector2.Lerp (pigtailsInitialPosition, pigtailsInitialPosition + 700 * Vector2.right, 
 			Easing.BackEaseIn (timeElapsed / duration));
 		timeElapsed += Time.deltaTime;
 

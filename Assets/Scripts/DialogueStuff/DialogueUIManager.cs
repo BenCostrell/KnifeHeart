@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class DialogueUIManager : MonoBehaviour {
 
-	public GameObject crowdImage;
+    public GameObject background;
+    public GameObject crowdImage;
 	public GameObject dialogueContainer;
 	public GameObject dialogueText;
 	public GameObject dialogueTextBox;
+    public Sprite[] backgroundImages;
     public Sprite[] dialogueTextBoxImages;
 	public GameObject[] optionObjects;
     public GameObject[] rpsOptionObjects;
@@ -93,6 +95,7 @@ public class DialogueUIManager : MonoBehaviour {
         rpsReady_P2.SetActive(false);
         ponytail.GetComponent<RectTransform>().anchoredPosition = defaultPosPonytail;
         pigtails.GetComponent<RectTransform>().anchoredPosition = defaultPosPigtails;
+        background.GetComponent<Image>().sprite = backgroundImages[Services.VisualNovelScene.currentRoundNum - 1];
 	}
 
 	public void SetOptionUIStatus(bool active){

@@ -859,6 +859,7 @@ GameObject:
   - component: {fileID: 124002400583494754}
   - component: {fileID: 81442068241799826}
   - component: {fileID: 82341053282008040}
+  - component: {fileID: 114834267816118300}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2636,8 +2637,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a67cf39a6fc3545bb4508eb04bc89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UI_P1: {fileID: 1768603899470986}
-  UI_P2: {fileID: 1566550895333984}
+  UIContainers:
+  - {fileID: 1768603899470986}
+  - {fileID: 1566550895333984}
   cooldownUI_P1:
   - {fileID: 1745515931204138}
   - {fileID: 1706766924130228}
@@ -2648,8 +2650,9 @@ MonoBehaviour:
   - {fileID: 1631479316511806}
   - {fileID: 1245309127258482}
   - {fileID: 1345836429521536}
-  damageUIP1: {fileID: 1042199113488954}
-  damageUIP2: {fileID: 1403199048634620}
+  damageUIs:
+  - {fileID: 1042199113488954}
+  - {fileID: 1403199048634620}
   fireballUI: {fileID: 21300000, guid: eef964426c937a2429c25a603adcc141, type: 3}
   lungeUI: {fileID: 21300000, guid: 785d3f28c98fec64e840f1373beee8a1, type: 3}
   shieldUI: {fileID: 21300000, guid: e53a4d428dee1134682684b5bb5fd8c8, type: 3}
@@ -2902,6 +2905,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ponytailWinPanel: {fileID: 21300000, guid: 6561a5451148ad6468ec434d81aa4ca6, type: 3}
   pigtailsWinPanel: {fileID: 21300000, guid: d3e6491aabc71774d9a225ed4269f4eb, type: 3}
+--- !u!114 &114834267816118300
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1704435416079890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33894bcc7875a145831f9aa63068258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 5
+  minSizeFactor: 0.85
+  maxSizeFactor: 1.02
+  playerDistToCameraSizeRatio: 0.8
+  sizeAdjustSpeed: 0.03
+  bottomLeftCorner_MinCameraPos: {x: -8, y: -4.5}
+  topRightCorner_MaxCameraPos: {x: 8, y: 4.5}
 --- !u!114 &114840981883040658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3022,11 +3043,13 @@ MonoBehaviour:
   - {fileID: 1815763206878114}
   - {fileID: 1309837977532598}
   - {fileID: 1366695513095794}
+  fightActive: 0
   fallenPlayer: {fileID: 0}
   fallDamage: 20
   fallAnimationTime: 0.7
   roundNum: 0
   lastComic: 0
+  hitLagRatio: 0.03
 --- !u!114 &114915377337201436
 MonoBehaviour:
   m_ObjectHideFlags: 1

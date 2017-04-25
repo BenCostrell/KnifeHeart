@@ -1666,7 +1666,7 @@ GameObject:
   - component: {fileID: 222306440205971720}
   - component: {fileID: 114551785995958654}
   m_Layer: 5
-  m_Name: LockerBackground
+  m_Name: VNBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2832,10 +2832,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9890bb23d42939b43af4b42fc8165f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background: {fileID: 1965461841185604}
   crowdImage: {fileID: 1788830557157520}
   dialogueContainer: {fileID: 1611063217737420}
   dialogueText: {fileID: 1399311942749442}
   dialogueTextBox: {fileID: 1059729812587320}
+  backgroundImages:
+  - {fileID: 21300000, guid: ffc7169cb57a79c4abd2c9914258c6eb, type: 3}
+  - {fileID: 21300000, guid: 969547e355fd66642ad940784620f6a9, type: 3}
+  - {fileID: 21300000, guid: 45c8591c69ea0c74f9baa8eeef633ae0, type: 3}
   dialogueTextBoxImages:
   - {fileID: 21300000, guid: cadb7dd8b54f04b4f92bb8c49bc5404c, type: 3}
   - {fileID: 21300000, guid: 686825b4d282c654e875fb125ea1a203, type: 3}
@@ -2990,7 +2995,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 0e7b7b0e2759a48459ce3defb865d488, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ffc7169cb57a79c4abd2c9914258c6eb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4963,7 +4968,7 @@ RectTransform:
   m_GameObject: {fileID: 1965461841185604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.85, y: 0.85, z: 1}
   m_Children: []
   m_Father: {fileID: 224870046394334380}
   m_RootOrder: 0
@@ -4971,7 +4976,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1600, y: 900}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224388651454089732
 RectTransform:
