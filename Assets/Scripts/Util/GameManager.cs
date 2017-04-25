@@ -44,17 +44,32 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Reset(Reset e){
-		if (Input.GetButton ("SoftReset") && Services.SceneStackManager.CurrentScene.GetType() == typeof(FightScene)) {
-            if (Services.FightScene.roundNum == 3)
+		if (Input.GetButton ("SoftReset")) {
+            if (Services.SceneStackManager.CurrentScene != null)
             {
-                Services.EventManager.Clear();
-                Services.EventManager.Register<Reset>(Reset);
-                Services.TaskManager.Clear();
-                Services.SceneStackManager.Swap<FightScene>(new TransitionData(3));
+                if (Services.SceneStackManager.CurrentScene.GetType() == typeof(FightScene))
+                {
+                    if (Services.FightScene.roundNum == 3) SoftReset();
+                }
             }
+            else HardReset();
         } else {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            HardReset();
         }
+    }
+
+    void SoftReset()
+    {
+        Services.EventManager.Clear();
+        Services.EventManager.Register<Reset>(Reset);
+        Services.TaskManager.Clear();
+        Services.SceneStackManager.Swap<FightScene>(new TransitionData(3));
+    }
+
+    void HardReset()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
     }
 
 

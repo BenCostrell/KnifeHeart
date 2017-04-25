@@ -23,7 +23,7 @@ public class Shield : Ability {
 
 		base.Init (player);
 
-		player.GetComponent<Player> ().isInvulnerable = true;
+        GetComponent<Collider2D>().enabled = false;
 	}
 
 	void OnTriggerEnter2D(Collider2D collider){
@@ -47,4 +47,10 @@ public class Shield : Ability {
 		base.OnCastFinish ();
 		parentPlayer.GetComponent<Player> ().isInvulnerable = false;
 	}
+
+    public override void SetActive()
+    {
+        GetComponent<Collider2D>().enabled = true;
+        parentPlayer.GetComponent<Player>().isInvulnerable = true;
+    }
 }

@@ -15,7 +15,6 @@ public class CameraController : MonoBehaviour {
 
 	void Awake()
     {
-        baseSize = Camera.main.orthographicSize;
     }
     
     // Use this for initialization
@@ -34,6 +33,11 @@ public class CameraController : MonoBehaviour {
 
         }
 	}
+
+    public void Init()
+    {
+        baseSize = Camera.main.orthographicSize;
+    }
 
     void FollowPlayers()
     {

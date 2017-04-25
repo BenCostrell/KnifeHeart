@@ -20,7 +20,7 @@ public class HitLag : Task
         timeElapsed = 0;
         duration = Services.FightScene.hitLagRatio * knockback;
         Time.timeScale = 0;
-        Debug.Log(duration);
+        //Debug.Log(duration);
     }
 
     internal override void Update()

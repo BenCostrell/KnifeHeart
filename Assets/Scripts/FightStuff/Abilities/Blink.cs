@@ -20,7 +20,8 @@ public class Blink : Ability
 
         distance = 5f;
 
-        Teleport();
+        // temporary until animation
+        SetActive();
     }
 
     void Teleport()
@@ -36,5 +37,10 @@ public class Blink : Ability
             Bounds feetBounds = parentPlayer.GetComponentInChildren<Feet>().gameObject.GetComponent<BoxCollider2D>().bounds;
             if (feetBounds.Intersects(arena.bounds)) break;
         }
+    }
+
+    public override void SetActive()
+    {
+        Teleport();
     }
 }

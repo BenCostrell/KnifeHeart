@@ -20,6 +20,8 @@ public class Player : MonoBehaviour {
 	public bool isInvulnerable;
 	public float effectiveRotation;
 
+    private Ability currentActiveAbility;
+
 	public List <Ability.Type> abilitiesOnCooldown;
 
     // Use this for initialization
@@ -147,11 +149,11 @@ public class Player : MonoBehaviour {
 		if (!abilitiesOnCooldown.Contains (type)) {
 			GameObject abilityObj = Instantiate (Services.PrefabDB.GetPrefabFromAbilityType (type), 
 				transform.position, Quaternion.identity) as GameObject;
-			Ability ability = abilityObj.GetComponent<Ability> ();
-			ability.Init (gameObject);
+			currentActiveAbility = abilityObj.GetComponent<Ability> ();
+			currentActiveAbility.Init (gameObject);
 
-			CastAbilityTask castTimeLockout = new CastAbilityTask (ability.castDuration, this, ability);
-			AbilityCooldownTask abilityCooldown = new AbilityCooldownTask (type, ability.cooldown, this);
+			CastAbilityTask castTimeLockout = new CastAbilityTask (currentActiveAbility.castDuration, this, currentActiveAbility);
+			AbilityCooldownTask abilityCooldown = new AbilityCooldownTask (type, currentActiveAbility.cooldown, this);
             HighlightAbilityOffCooldown highlightCooldownEnd = new HighlightAbilityOffCooldown(type, this, 
                 Services.FightUIManager.abCDHighlightTime);
             abilityCooldown.Then(highlightCooldownEnd);
@@ -192,4 +194,9 @@ public class Player : MonoBehaviour {
 		HitstunTask startHitstun = new HitstunTask (hitstun, this);
 		Services.TaskManager.AddTask (startHitstun);
 	}
+
+    public void SetAbilityActive()
+    {
+        currentActiveAbility.SetActive();
+    }
 }

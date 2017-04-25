@@ -51,4 +51,9 @@ public class Ability : MonoBehaviour {
 		}
 		Destroy (gameObject);
 	}
+
+    public virtual void SetActive()
+    {
+
+    }
 }

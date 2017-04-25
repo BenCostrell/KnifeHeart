@@ -51,4 +51,15 @@ public class Attack : Ability {
 			}
 		}
 	}
+
+    public override void Init(GameObject player)
+    {
+        base.Init(player);
+        GetComponent<Collider2D>().enabled = false;
+    }
+
+    public override void SetActive()
+    {
+        GetComponent<Collider2D>().enabled = true;
+    }
 }

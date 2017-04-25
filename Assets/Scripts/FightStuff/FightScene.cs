@@ -37,6 +37,7 @@ public class FightScene : Scene<TransitionData> {
         InitializeFightServices();
         lastComic = false;
         Services.TransitionComicManager.Init();
+        Services.CameraController.Init();
     }
 
     internal override void OnEnter(TransitionData data)
