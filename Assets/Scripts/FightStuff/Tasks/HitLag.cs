@@ -8,18 +8,19 @@ public class HitLag : Task
 {
     private float timeElapsed;
     private float duration;
-    private float damage;
+    private float knockback;
 
-    public HitLag(float dmg)
+    public HitLag(float kb)
     {
-        damage = dmg;
+        knockback = kb;
     }
 
     protected override void Init()
     {
         timeElapsed = 0;
-        duration = Services.FightScene.hitLagRatio * damage;
+        duration = Services.FightScene.hitLagRatio * knockback;
         Time.timeScale = 0;
+        Debug.Log(duration);
     }
 
     internal override void Update()
