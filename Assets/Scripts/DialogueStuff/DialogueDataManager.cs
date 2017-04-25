@@ -129,6 +129,8 @@ public class DialogueDataManager {
 			return Ability.Type.Wallop;
 		case "PULL":
 			return Ability.Type.Pull;
+        case "BLINK":
+            return Ability.Type.Blink;
 		default:
 			return Ability.Type.None;
 		}

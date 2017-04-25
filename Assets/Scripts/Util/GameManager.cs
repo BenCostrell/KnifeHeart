@@ -69,7 +69,6 @@ public class GameManager : MonoBehaviour {
     void HardReset()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
     }
 
 

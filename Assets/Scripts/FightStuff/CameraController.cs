@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
-    private float baseSize;
+    public float baseSize;
     public float movementSpeed;
     public float minSizeFactor;
     public float maxSizeFactor;
@@ -28,15 +28,11 @@ public class CameraController : MonoBehaviour {
         {
             FollowPlayers();
         }
-        else
-        {
-
-        }
 	}
 
     public void Init()
     {
-        baseSize = Camera.main.orthographicSize;
+        //baseSize = Camera.main.orthographicSize;
     }
 
     void FollowPlayers()

@@ -81,7 +81,8 @@ public class VisualNovelScene : Scene<TransitionData> {
 			Ability.Type.Shield, 
 			Ability.Type.Sing, 
 			Ability.Type.Wallop, 
-			Ability.Type.Pull
+			Ability.Type.Pull,
+            Ability.Type.Blink
 		};
         abilityLists = new List<Ability.Type>[2]
         {
@@ -232,7 +233,7 @@ public class VisualNovelScene : Scene<TransitionData> {
             .Then(popUpDialogue1)
             .Then(typeFirstDialogue)
             .Then(waitAfterFirstDialogue)
-            .Then(showFirstAbility)
+            //.Then(showFirstAbility)
             .Then(turnOffDialogueBox2)
             .Then(showSecondOptions)
             .Then(waitForSecondChoice)
@@ -241,7 +242,7 @@ public class VisualNovelScene : Scene<TransitionData> {
             .Then(popUpDialogue2)
             .Then(typeSecondDialogue)
             .Then(waitAfterSecondDialogue)
-            .Then(showSecondAbility)
+            //.Then(showSecondAbility)
             .Then(transition);
 
         return transition;
