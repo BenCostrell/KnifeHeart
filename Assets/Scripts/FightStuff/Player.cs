@@ -203,4 +203,13 @@ public class Player : MonoBehaviour {
     {
         currentActiveAbility.SetActive();
     }
+
+    public void TurnOffHitbox()
+    {
+        if (currentActiveAbility.GetType() == typeof(Attack))
+        {
+            Attack currentActiveAttack = currentActiveAbility as Attack;
+            currentActiveAttack.TurnOffHitbox();
+        }
+    }
 }
