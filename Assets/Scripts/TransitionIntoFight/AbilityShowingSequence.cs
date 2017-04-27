@@ -12,6 +12,8 @@ public class AbilityShowingSequence : Task
     private float flipDuration;
     private float delayDuration;
     private List<GameObject>[] blurbAbilityBoxes;
+    private List<Vector2>[] targetPositions;
+    private List<Vector2>[] initialPositions;
     
     public AbilityShowingSequence(float scaleInDur, float flipDur, float delayDur)
     {
@@ -28,22 +30,39 @@ public class AbilityShowingSequence : Task
             new List<GameObject>(),
             new List<GameObject>()
         };
+        targetPositions = new List<Vector2>[2]
+        {
+            new List<Vector2>(),
+            new List<Vector2>()
+        };
+        initialPositions = new List<Vector2>[2]
+        {
+            new List<Vector2>(),
+            new List<Vector2>()
+        };
 
         for (int i = 0; i < 2; i++)
         {
-            float xPos = Services.TransitionUIManager.blurbXSpacing;
+            float shiftDirection = 1;
             if (i == 0)
             {
-                xPos *= -1;
+                shiftDirection *= -1;
             }
             float yPos = 0;
-
-            foreach (Dialogue dialogue in Services.TransitionUIManager.dialoguesAccumulated[i])
+            float xStagger = 0;
+            for (int j = 0; j < Services.TransitionUIManager.dialoguesAccumulated[i].Count; j++)
             {
+                xStagger = (j % 2) * Services.TransitionUIManager.blurbXStagger;
+                Dialogue dialogue = Services.TransitionUIManager.dialoguesAccumulated[i][j];
                 GameObject blurb = GameObject.Instantiate(Services.PrefabDB.Blurb, 
                     Services.TransitionUIManager.abilityBlurbs.transform) as GameObject;
+                blurb.GetComponentInChildren<Image>().sprite = Services.TransitionUIManager.blurbBoxes[j];
                 blurb.GetComponentInChildren<Text>().text = dialogue.blurb;
-                blurb.GetComponent<RectTransform>().anchoredPosition = new Vector2(xPos, yPos);
+                Vector2 targetPos = new Vector2((Services.TransitionUIManager.blurbXSpacing + xStagger) * shiftDirection, yPos);
+                Vector2 initialPos = targetPos + (Services.TransitionUIManager.blurbInitialOffset * shiftDirection * Vector2.right);
+                initialPositions[i].Add(initialPos);
+                targetPositions[i].Add(targetPos);
+                blurb.GetComponent<RectTransform>().anchoredPosition = initialPos;
                 yPos -= Services.TransitionUIManager.blurbYSpacing;
                 blurb.transform.localScale = Vector2.zero;
                 blurbAbilityBoxes[i].Add(blurb);
@@ -61,9 +80,12 @@ public class AbilityShowingSequence : Task
         {
             for (int i = 0; i < 2; i++)
             {
-                foreach (GameObject blurb in blurbAbilityBoxes[i])
+                for (int j = 0; j < blurbAbilityBoxes[i].Count; j++)
                 {
+                    GameObject blurb = blurbAbilityBoxes[i][j];
                     blurb.transform.localScale = Vector2.Lerp(Vector2.zero, Services.TransitionUIManager.blurbScale * Vector2.one,
+                        Easing.QuadEaseOut(timeElapsed / scaleInDuration));
+                    blurb.GetComponent<RectTransform>().anchoredPosition = Vector2.Lerp(initialPositions[i][j], targetPositions[i][j],
                         Easing.QuadEaseOut(timeElapsed / scaleInDuration));
                 }
             }

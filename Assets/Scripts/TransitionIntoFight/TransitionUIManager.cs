@@ -16,6 +16,8 @@ public class TransitionUIManager : MonoBehaviour {
     public float blurbXSpacing;
     public float blurbYSpacing;
     public float blurbScale;
+    public float blurbInitialOffset;
+    public float blurbXStagger;
     public int numBlurbRotations;
 
 	public GameObject readyPrompt_P1;

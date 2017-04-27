@@ -11,8 +11,8 @@ public class Blink : Ability
     public override void Init(GameObject player)
     {
         animTrigger = "Blink";
-        castDuration = 0.3f;
-        cooldown = 2f;
+        castDuration = 0.15f;
+        cooldown = 3f;
         isMelee = false;
         onCastAudio = Resources.Load("Sounds/Abilities/Shield") as AudioClip;
 
