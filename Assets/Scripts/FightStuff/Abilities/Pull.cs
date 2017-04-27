@@ -41,7 +41,7 @@ public class Pull : Attack {
 		GetComponent<Rigidbody2D> ().velocity = speed * direction;
 
 		PullTask pullTask = new PullTask (player.GetComponent<Player> (), this);
-		Services.TaskManager.AddTask (pullTask);
+		player.GetComponent<Player>().taskManager.AddTask (pullTask);
 	}
 
 	protected override Vector3 GetDirectionHit(GameObject playerHit){

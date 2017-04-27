@@ -24,11 +24,14 @@ public class Player : MonoBehaviour {
 
 	public List <Ability.Type> abilitiesOnCooldown;
 
+    public TaskManager taskManager;
+
     // Use this for initialization
     void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
 		sr = GetComponent<SpriteRenderer> ();
+        taskManager = new TaskManager();
 
 		abilitiesOnCooldown = new List<Ability.Type> ();
 
@@ -39,7 +42,8 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (actionable) {
+        taskManager.Update();
+        if (actionable) {
 			anim.SetBool ("neutral", true);
 			Move ();
 		} else {
@@ -158,8 +162,8 @@ public class Player : MonoBehaviour {
                 Services.FightUIManager.abCDHighlightTime);
             abilityCooldown.Then(highlightCooldownEnd);
 
-			Services.TaskManager.AddTask (castTimeLockout);
-			Services.TaskManager.AddTask (abilityCooldown);
+			taskManager.AddTask (castTimeLockout);
+			taskManager.AddTask (abilityCooldown);
 		}
 	}
 
@@ -187,12 +191,12 @@ public class Player : MonoBehaviour {
             .Then(startKnockback)
             .Then(updateDamageUI);
 
-		Services.TaskManager.AddTask (hitLag);
+		taskManager.AddTask (hitLag);
 	}
 
 	public void Stun(float hitstun){
 		HitstunTask startHitstun = new HitstunTask (hitstun, this);
-		Services.TaskManager.AddTask (startHitstun);
+		taskManager.AddTask (startHitstun);
 	}
 
     public void SetAbilityActive()

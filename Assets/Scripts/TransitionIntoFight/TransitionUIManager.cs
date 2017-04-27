@@ -9,12 +9,30 @@ public class TransitionUIManager : MonoBehaviour {
 	public GameObject[] fightWords;
 
 	public GameObject transitionUI;
+    public GameObject abilityBlurbs;
+    public float blurbScaleInTime;
+    public float blurbDelayBeforeFlipping;
+    public float blurbFlipTime;
+    public float blurbXSpacing;
+    public float blurbYSpacing;
+    public float blurbScale;
+    public int numBlurbRotations;
+
 	public GameObject readyPrompt_P1;
 	public GameObject readyPrompt_P2;
 	public GameObject ready_P1;
 	public GameObject ready_P2;
 
-	public float fightBackgroundSlideInTime;
+    public Sprite[] blurbBoxes;
+
+    [HideInInspector]
+    public List<Dialogue>[] dialoguesAccumulated;
+    [HideInInspector]
+    public Dictionary<Ability.Type, string> abilityNameDict;
+    [HideInInspector]
+    public List<GameObject>[] blurbAbilityBoxes;
+
+    public float fightBackgroundSlideInTime;
 	public float fightWordGrowthTime;
 	public float fightWordStaggerTime;
 	public float readyPromptGrowTime;
@@ -25,7 +43,12 @@ public class TransitionUIManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        dialoguesAccumulated = new List<Dialogue>[2]
+        {
+            new List<Dialogue>(),
+            new List<Dialogue>()
+        };
+        InitializeAbilityNameDict();
 	}
 	
 	// Update is called once per frame
@@ -40,6 +63,10 @@ public class TransitionUIManager : MonoBehaviour {
         wordsContainer.GetComponent<RectTransform>().localScale = Vector2.one;
         ready_P1.GetComponent<RectTransform>().localScale = Vector2.one;
         ready_P2.GetComponent<RectTransform>().localScale = Vector2.one;
+        readyPrompt_P1.SetActive(false);
+        readyPrompt_P2.SetActive(false);
+        ready_P1.SetActive(false);
+        ready_P2.SetActive(false);
         transitionUI.SetActive(false);
     }
 
@@ -48,4 +75,18 @@ public class TransitionUIManager : MonoBehaviour {
 			fightWords [i].SetActive (active);
 		}
 	}
+
+    void InitializeAbilityNameDict()
+    {
+        abilityNameDict = new Dictionary<Ability.Type, string>
+        {
+            { Ability.Type.Blink, "Blink" },
+            { Ability.Type.Fireball, "Fireball" },
+            { Ability.Type.Lunge, "Lunge" },
+            { Ability.Type.Pull, "Pull" },
+            { Ability.Type.Shield, "Shield" },
+            { Ability.Type.Sing, "Sing" },
+            { Ability.Type.Wallop, "Wallop" }
+        };
+    }
 }

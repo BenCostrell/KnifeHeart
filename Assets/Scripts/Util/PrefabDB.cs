@@ -48,6 +48,10 @@ public class PrefabDB : ScriptableObject {
     private GameObject genericImage;
     public GameObject GenericImage { get { return genericImage; } }
 
+    [SerializeField]
+    private GameObject blurb;
+    public GameObject Blurb { get { return blurb; } }
+
 	public GameObject GetPrefabFromAbilityType(Ability.Type type){
 		switch (type) {
 		case Ability.Type.BasicAttack:

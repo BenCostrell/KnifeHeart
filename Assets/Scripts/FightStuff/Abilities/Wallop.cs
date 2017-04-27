@@ -30,7 +30,7 @@ public class Wallop : Attack {
 
 		base.Init (player);
 		WallopTask delayHitbox = new WallopTask (player.GetComponent<Player> (), this);
-		Services.TaskManager.AddTask (delayHitbox);
+		player.GetComponent<Player>().taskManager.AddTask (delayHitbox);
 	}
 
 	protected override Vector3 GetDirectionHit(GameObject playerHit){

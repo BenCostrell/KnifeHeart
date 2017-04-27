@@ -40,13 +40,16 @@ public class DialogueUIManager : MonoBehaviour {
     [HideInInspector]
     public Vector2 defaultPosPigtails;
 
+    [HideInInspector]
 	public GameObject selectedOption;
 
 	private Dialogue[] optionDialogues;
 
+    [HideInInspector]
 	public Dialogue queuedDialogue;
 
-	public string initialDialogue;
+    [HideInInspector]
+    public bool inRpsStage;
 
     public float dialogueTextBoxPopUpTime;
 	public float optionAppearanceStaggerTime;
@@ -242,6 +245,16 @@ public class DialogueUIManager : MonoBehaviour {
         string animTrigger = poseTriggerDict[abilityPicked];
 
         characterToPose.GetComponent<Animator>().SetTrigger(animTrigger);
+    }
+
+    public void InRpsStage()
+    {
+        inRpsStage = true;
+    }
+
+    public void NotInRpsStage()
+    {
+        inRpsStage = false;
     }
 }
 

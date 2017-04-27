@@ -30,11 +30,6 @@ public class CameraController : MonoBehaviour {
         }
 	}
 
-    public void Init()
-    {
-        //baseSize = Camera.main.orthographicSize;
-    }
-
     void FollowPlayers()
     {
         Vector3 player1Pos = Services.FightScene.players[0].transform.position;

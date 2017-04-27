@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour {
                 {
                     if (Services.FightScene.roundNum == 3) SoftReset();
                 }
+                else SoftReset();
             }
             else HardReset();
         } else {

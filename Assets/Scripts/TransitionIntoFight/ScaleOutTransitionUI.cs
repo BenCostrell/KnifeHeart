@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class ScaleOutTransitionUI : Task {
 	private float timeElapsed;
+    private float duration;
 	private List<GameObject> objectsToScale;
 
 	protected override void Init ()
 	{
 		timeElapsed = 0;
-		objectsToScale = new List<GameObject> ();
+        duration = Services.TransitionUIManager.uiScaleOutTime;
+
+        objectsToScale = new List<GameObject> ();
 		objectsToScale.Add (Services.TransitionUIManager.wordsContainer);
 		objectsToScale.Add (Services.TransitionUIManager.ready_P1);
 		objectsToScale.Add (Services.TransitionUIManager.ready_P2);
@@ -17,14 +20,23 @@ public class ScaleOutTransitionUI : Task {
 
 	internal override void Update ()
 	{
-		float duration = Services.TransitionUIManager.uiScaleOutTime;
-		foreach (GameObject obj in objectsToScale) {
+        timeElapsed = Mathf.Min(timeElapsed + Time.deltaTime, duration);
+
+        foreach (GameObject obj in objectsToScale) {
 			obj.transform.localScale = Vector3.Lerp (Vector3.one, Vector3.zero, 
 				Easing.BackEaseIn (timeElapsed / duration));
 		}
-		timeElapsed += Time.deltaTime;
+        for (int i = 0; i < 2; i++)
+        {
+            foreach (GameObject blurb in Services.TransitionUIManager.blurbAbilityBoxes[i])
+            {
+                blurb.transform.localScale = Vector3.Lerp(Services.TransitionUIManager.blurbScale * Vector3.one, Vector3.zero,
+                    Easing.BackEaseIn(timeElapsed / duration));
+            }
 
-		if (objectsToScale[0].transform.localScale == Vector3.zero) {
+        }
+
+		if (timeElapsed == duration) {
 			SetStatus (TaskStatus.Success);
 		}
 	}
@@ -32,6 +44,14 @@ public class ScaleOutTransitionUI : Task {
 	protected override void OnSuccess ()
 	{
 		Services.TransitionUIManager.transitionUI.SetActive (false);
-	}
+        for (int i = 0; i < 2; i++)
+        {
+            foreach (GameObject blurb in Services.TransitionUIManager.blurbAbilityBoxes[i])
+            {
+                GameObject.Destroy(blurb);
+            }
+
+        }
+    }
 
 }

@@ -32,12 +32,15 @@ public class FightScene : Scene<TransitionData> {
         
 	}
 
+    void Update()
+    {
+    }
+
     internal override void Init()
     {
         InitializeFightServices();
         lastComic = false;
         Services.TransitionComicManager.Init();
-        Services.CameraController.Init();
     }
 
     internal override void OnEnter(TransitionData data)
@@ -51,11 +54,11 @@ public class FightScene : Scene<TransitionData> {
     void InitializeFightServices()
     {
         Services.FightScene = this;
-        Transform servicesObj = transform.FindChild("Services");
-        Services.FightUIManager = servicesObj.FindChild("FightUIManager").gameObject.GetComponent<FightUIManager>();
-        Services.WinScreenUIManager = servicesObj.FindChild("WinScreenUIManager").gameObject.GetComponent<WinScreenUIManager>();
-        Services.TransitionComicManager = servicesObj.FindChild("TransitionComicManager").gameObject.GetComponent<TransitionComicManager>();
-        Services.CameraController = Camera.main.GetComponent<CameraController>();
+        Services.FightUIManager = GetComponentInChildren<FightUIManager>();
+        Services.WinScreenUIManager = GetComponentInChildren<WinScreenUIManager>();
+        Services.TransitionComicManager = GetComponentInChildren<TransitionComicManager>();
+        Services.CameraController = GetComponentInChildren<CameraController>();
+        Debug.Assert(Services.CameraController != null);
         if (Services.GameInfo.player1Abilities.Count == 0)
         {
             SetPlayerAbilities();

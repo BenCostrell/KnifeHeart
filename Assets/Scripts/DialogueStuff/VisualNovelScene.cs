@@ -171,6 +171,7 @@ public class VisualNovelScene : Scene<TransitionData> {
 
     Task RpsSequence(Task precedingTask)
     {
+        ActionTask enterRpsStage = new ActionTask(Services.DialogueUIManager.InRpsStage);
         SlideInCrowd slideInCrowd = new SlideInCrowd();
         ShowRpsDialogueOptions showOptions = new ShowRpsDialogueOptions();
         WaitForRpsDialogueSelection waitForSelection = new WaitForRpsDialogueSelection();
@@ -184,8 +185,10 @@ public class VisualNovelScene : Scene<TransitionData> {
         PopUpDialogueBox popUpDialogue3 = new PopUpDialogueBox(true);
         TypeDialogue crowdReaction = new TypeDialogue(true);
         WaitToContinueDialogue waitForInput3 = new WaitToContinueDialogue();
+        ActionTask exitRpsStage = new ActionTask(Services.DialogueUIManager.NotInRpsStage);
 
         precedingTask
+            .Then(enterRpsStage)
             .Then(slideInCrowd)
             .Then(showOptions)
             .Then(waitForSelection)
@@ -198,9 +201,10 @@ public class VisualNovelScene : Scene<TransitionData> {
             .Then(waitForInput2)
             .Then(popUpDialogue3)
             .Then(crowdReaction)
-            .Then(waitForInput3);
+            .Then(waitForInput3)
+            .Then(exitRpsStage);
 
-        return waitForInput3;
+        return exitRpsStage;
     }
 
     Task DialogueExchangeSequence(Task precedingTask){
@@ -280,6 +284,7 @@ public class VisualNovelScene : Scene<TransitionData> {
         abilityLists[playerNum - 1].Add(ability);
 		abilityPool.Remove (ability);
 		currentRoundAbilityPool.Remove (ability);
+        Services.TransitionUIManager.dialoguesAccumulated[playerNum - 1].Add(e.dialogue);
 		Debug.Log (ability.ToString () + " picked");
 	}
 
@@ -427,6 +432,8 @@ public class VisualNovelScene : Scene<TransitionData> {
         SlideOutCrowd slideOutCrowd = new SlideOutCrowd();
         SlideInFightBackground slideInBG = new SlideInFightBackground ();
 		ShowFightinWords showWords = new ShowFightinWords ();
+        AbilityShowingSequence showAbiltiies = new AbilityShowingSequence(Services.TransitionUIManager.blurbScaleInTime, 
+            Services.TransitionUIManager.blurbFlipTime, Services.TransitionUIManager.blurbDelayBeforeFlipping);
 		WaitForReady waitForReady = new WaitForReady ();
 		ScaleOutTransitionUI scaleOut = new ScaleOutTransitionUI ();
 		FinishTransition finish = new FinishTransition ();
@@ -436,6 +443,7 @@ public class VisualNovelScene : Scene<TransitionData> {
             .Then(slideOutCrowd)
             .Then(slideInBG)
             .Then(showWords)
+            .Then(showAbiltiies)
             .Then(waitForReady)
             .Then(scaleOut)
             .Then(finish)

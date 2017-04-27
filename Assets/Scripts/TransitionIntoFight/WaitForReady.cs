@@ -7,6 +7,7 @@ public class WaitForReady : Task {
 	private bool p1Ready;
 	private bool p2Ready;
 	private bool grow;
+    private Vector3 baseScale;
 
 	protected override void Init ()
 	{
@@ -17,6 +18,7 @@ public class WaitForReady : Task {
 		grow = true;
 		Services.TransitionUIManager.readyPrompt_P1.SetActive (true);
 		Services.TransitionUIManager.readyPrompt_P2.SetActive (true);
+        baseScale = Services.TransitionUIManager.readyPrompt_P1.transform.localScale;
 	}
 
 	internal override void Update ()
@@ -25,19 +27,19 @@ public class WaitForReady : Task {
 		GameObject indicator_P2 = Services.TransitionUIManager.readyPrompt_P2;
 		GameObject readyP1 = Services.TransitionUIManager.ready_P1;
 		GameObject readyP2 = Services.TransitionUIManager.ready_P2;
-		float totalScaleTime; 
-		Vector3 startScale;
+		float totalScaleTime;
+        Vector3 startScale;
 		Vector3 targetScale;
 		float easedTime;
 		if (grow) {
 			totalScaleTime = Services.TransitionUIManager.readyPromptGrowTime;
-			startScale = Vector3.one;
-			targetScale = 1.2f * Vector3.one;
+            startScale = baseScale;
+			targetScale = 1.2f * baseScale;
 			easedTime = Easing.ExpoEaseOut (scaleTime / totalScaleTime);
 		} else {
 			totalScaleTime = Services.TransitionUIManager.readyPromptShrinkTime;
-			startScale = 1.2f * Vector3.one;
-			targetScale = Vector3.one;
+			startScale = 1.2f * baseScale;
+			targetScale = baseScale;
 			easedTime = Easing.QuadEaseOut (scaleTime / totalScaleTime);
 		}
 		if (scaleTime < totalScaleTime) {
@@ -75,6 +77,8 @@ public class WaitForReady : Task {
 
 	protected override void OnSuccess ()
 	{
-		Services.EventManager.Unregister<ButtonPressed> (Continue);
+        Services.TransitionUIManager.readyPrompt_P1.transform.localScale = baseScale;
+        Services.TransitionUIManager.readyPrompt_P2.transform.localScale = baseScale;
+        Services.EventManager.Unregister<ButtonPressed> (Continue); 
 	}
 }

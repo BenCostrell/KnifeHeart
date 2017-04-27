@@ -27,3 +27,4 @@ MonoBehaviour:
   - {fileID: 1310405074517078, guid: 18e2b5a8c7a286f42992a38d82922774, type: 2}
   genericImage: {fileID: 1845426410841892, guid: a542004b738397549b2d4f8973e46a24,
     type: 2}
+  blurb: {fileID: 1728505097209552, guid: 2471af3fd4928a747af2cf3a91428802, type: 2}
