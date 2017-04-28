@@ -18,7 +18,7 @@ public class Blink : Ability
 
         base.Init(player);
 
-        distance = 5f;
+        distance = 3f;
 
         // temporary until animation
         SetActive();
@@ -29,13 +29,20 @@ public class Blink : Ability
         parentPlayer.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         float angle = parentPlayer.GetComponent<Player>().effectiveRotation;
         Vector3 direction = new Vector3(-Mathf.Cos(angle * Mathf.Deg2Rad), -Mathf.Sin(angle * Mathf.Deg2Rad));
-        Collider2D arena = Services.FightScene.GetActiveArena().GetComponentInChildren<Collider2D>();
+        Collider2D[] blinkBoundaries = Services.FightScene.GetActiveArena().GetComponentsInChildren<BoxCollider2D>();
         Vector3 initialPosition = parentPlayer.transform.position;
         for (int i = 0; i < 11; i++)
         {
+            bool inRange = false;
             parentPlayer.transform.position = initialPosition + (distance * (1 - i/10f) * direction);
             Bounds feetBounds = parentPlayer.GetComponentInChildren<Feet>().gameObject.GetComponent<BoxCollider2D>().bounds;
-            if (feetBounds.Intersects(arena.bounds)) break;
+            foreach (Collider2D col in blinkBoundaries) {
+                if (feetBounds.Intersects(col.bounds))
+                {
+                    inRange = true;
+                }
+            }
+            if (inRange) break;
         }
     }
 

@@ -184,12 +184,12 @@ public class Player : MonoBehaviour {
 		float hitstunDuration = knockbackMagnitude * hitstunFactor;
 		Vector3 knockbackVector = knockbackMagnitude * knockbackDirection;
         HitLag hitLag = new HitLag(knockbackMagnitude);
-		KnockbackTask startKnockback = new KnockbackTask (hitstunDuration, this, knockbackVector);
-        ActionTask updateDamageUI = new ActionTask(Services.FightUIManager.UpdateDamageUI);
-
-        hitLag
-            .Then(startKnockback)
-            .Then(updateDamageUI);
+        if (knockbackMagnitude > 0)
+        {
+            KnockbackTask startKnockback = new KnockbackTask(hitstunDuration, this, knockbackVector);
+            hitLag
+            .Then(startKnockback);
+        }
 
 		taskManager.AddTask (hitLag);
 	}

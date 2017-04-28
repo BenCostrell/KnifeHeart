@@ -66,6 +66,15 @@ public class DialoguePicked : Event {
 	}
 }
 
+public class PlayerDamaged : Event
+{
+    public int playerNum;
+    public PlayerDamaged(int num)
+    {
+        playerNum = num;
+    }
+}
+
 public class EventManager {
 
 	public delegate void EventDelegate<T>(T e) where T: Event;

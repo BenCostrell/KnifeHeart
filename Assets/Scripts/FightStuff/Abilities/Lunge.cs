@@ -56,8 +56,18 @@ public class Lunge : Attack {
         Bounds previousFeetBounds = parentPlayer.GetComponentInChildren<Feet>().gameObject.GetComponent<BoxCollider2D>().bounds;
         Bounds nextFeetBounds = new Bounds(previousFeetBounds.center + positionDelta, previousFeetBounds.size);
 
-        if (!Services.FightScene.GetActiveArena().GetComponentInChildren<Collider2D>().bounds.Intersects(nextFeetBounds)) {
-            parentPlayer.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        Collider2D[] lungeBoundaries = Services.FightScene.GetActiveArena().GetComponentsInChildren<BoxCollider2D>();
+        bool stop = true;
+        foreach (Collider2D col in lungeBoundaries)
+        {
+            if (col.bounds.Intersects(nextFeetBounds))
+            {
+                stop = false;
+                break;
+            }
         }
+
+        if (stop) parentPlayer.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        
     }
 }

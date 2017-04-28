@@ -24,6 +24,10 @@ public class FightUIManager : MonoBehaviour {
 
     public float abCDHighlightScale;
     public float abCDHighlightTime;
+    public float dmgTextScaleTime;
+    public float dmgTextScaleFactor;
+    public float dmgRotationMin;
+    public float dmgRotationMax;
 
 
     // Use this for initialization
@@ -131,6 +135,11 @@ public class FightUIManager : MonoBehaviour {
 	public void UpdateDamageUI(){
         for (int i = 0; i < 2; i++)
         {
+            if (int.Parse(damageUIs[i].GetComponentInChildren<Text>().text) < Services.FightScene.players[i].damage)
+            {
+                DamageUIAnimation animateUI = new DamageUIAnimation(damageUIs[i].GetComponent<RectTransform>(), dmgTextScaleTime, i + 1);
+                Services.TaskManager.AddTask(animateUI);
+            }
             damageUIs[i].GetComponentInChildren<Text>().text = Services.FightScene.players[i].damage.ToString();
         }
 	}

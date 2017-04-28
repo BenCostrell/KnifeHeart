@@ -22,6 +22,7 @@ public class PlayerUnactionableTask : InterruptibleByFallTask {
 
 	protected void AnotherInputPauseTaskWasStarted(PlayerInputPaused e){
 		if (e.player == player) {
+            Debug.Log("interrupted");
 			Abort ();
 		}
 	}

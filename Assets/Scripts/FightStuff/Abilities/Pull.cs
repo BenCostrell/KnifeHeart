@@ -26,7 +26,7 @@ public class Pull : Attack {
 		damage = 2;
 		speed = 20;
 		distanceToPullTo = 2f;
-		hitstun = 0.2f;
+		hitstun = 0.3f;
 		isProjectile = true;
 		isMelee = false;
 		onCastAudio = Resources.Load ("Sounds/Abilities/Fireball") as AudioClip;
