@@ -23,8 +23,12 @@ public class Attack : Ability {
 
 	protected virtual void HitPlayer(GameObject player){
 		player.GetComponent<Player> ().TakeHit (damage, baseKnockback, knockbackGrowth, GetDirectionHit(player));
+        Vector3 collisionPoint = player.transform.position + (transform.position - player.transform.position) / 2;
+        GameObject hitParticle = Instantiate(Services.PrefabDB.HitParticle,
+                collisionPoint, Quaternion.identity, player.transform) as GameObject;
+        Destroy(hitParticle, hitParticle.GetComponent<ParticleSystem>().main.duration);
 
-	}
+    }
 
 	protected virtual Vector3 GetDirectionHit (GameObject playerHit){
 		return Vector3.zero;

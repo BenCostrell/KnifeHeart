@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
 
 	public float maxSpeed;
 	public float accel;
+    public float dashSpeed;
 	public float hitstunFactor;
 	public float knockbackDamageGrowthFactor;
 
@@ -52,6 +53,11 @@ public class Player : MonoBehaviour {
 
 	void Move(){
 		Vector2 direction = new Vector2 (Input.GetAxis ("Horizontal_P" + playerNum), Input.GetAxis ("Vertical_P" + playerNum));
+
+        if(Vector2.Dot(direction, rb.velocity) <= 0)
+        {
+            rb.velocity = dashSpeed * direction.normalized;
+        }
 
 		rb.AddForce (accel * direction);
 

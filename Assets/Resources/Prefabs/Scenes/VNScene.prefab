@@ -2790,7 +2790,7 @@ MonoBehaviour:
   blurbFlipTime: 0.5
   blurbXSpacing: 120
   blurbYSpacing: 90
-  blurbScale: 0.3
+  blurbScale: 0.4
   blurbInitialOffset: 430
   blurbXStagger: 30
   numBlurbRotations: 1
@@ -5071,7 +5071,7 @@ RectTransform:
   m_GameObject: {fileID: 1416253944741070}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 224551781588072740}
   m_RootOrder: 0
@@ -5678,7 +5678,7 @@ RectTransform:
   m_GameObject: {fileID: 1728256321458136}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 224000913483890706}
   m_RootOrder: 0

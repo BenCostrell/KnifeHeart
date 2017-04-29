@@ -171,6 +171,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   maxSpeed: 10
   accel: 80
+  dashSpeed: 8
   hitstunFactor: 0.01
   knockbackDamageGrowthFactor: 0.3
   damage: 0

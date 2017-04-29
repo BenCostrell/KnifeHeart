@@ -29,15 +29,9 @@ public class Fireball : Attack {
 		isProjectile = true;
 		isMelee = false;
 		onCastAudio = Resources.Load ("Sounds/Abilities/Fireball") as AudioClip;
+        GetComponent<SpriteRenderer>().enabled = false;
 
 		base.Init (player);
-
-		float angle = player.GetComponent<Player>().effectiveRotation;
-		Vector3 direction = new Vector3 (-Mathf.Cos(angle*Mathf.Deg2Rad), -Mathf.Sin(angle*Mathf.Deg2Rad));
-
-		GetComponent<Rigidbody2D> ().velocity = speed * direction;
-		transform.rotation = Quaternion.Euler (0, 0, angle);
-		transform.position += 1.5f * direction;
 	}
 
 	protected override Vector3 GetDirectionHit(GameObject playerHit){
@@ -49,7 +43,19 @@ public class Fireball : Attack {
 		Destroy (gameObject);
 	}
 
-	public override void OnCastFinish ()
+    public override void SetActive()
+    {
+        base.SetActive();
+        GetComponent<SpriteRenderer>().enabled = true;
+        float angle = parentPlayer.GetComponent<Player>().effectiveRotation;
+        Vector3 direction = new Vector3(-Mathf.Cos(angle * Mathf.Deg2Rad), -Mathf.Sin(angle * Mathf.Deg2Rad));
+
+        GetComponent<Rigidbody2D>().velocity = speed * direction;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+        transform.position += 1.5f * direction;
+    }
+
+    public override void OnCastFinish ()
 	{
 	}
 }
