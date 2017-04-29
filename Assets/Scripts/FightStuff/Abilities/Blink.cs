@@ -37,7 +37,7 @@ public class Blink : Ability
             parentPlayer.transform.position = initialPosition + (distance * (1 - i/10f) * direction);
             Bounds feetBounds = parentPlayer.GetComponentInChildren<Feet>().gameObject.GetComponent<BoxCollider2D>().bounds;
             foreach (Collider2D col in blinkBoundaries) {
-                if (feetBounds.Intersects(col.bounds))
+                if (feetBounds.Intersects(col.bounds) && (col.gameObject.tag == "Arena" || col.gameObject.tag == "LungeBlinkBoundary"))
                 {
                     inRange = true;
                 }

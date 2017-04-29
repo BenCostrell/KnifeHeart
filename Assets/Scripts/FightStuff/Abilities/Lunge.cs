@@ -60,7 +60,7 @@ public class Lunge : Attack {
         bool stop = true;
         foreach (Collider2D col in lungeBoundaries)
         {
-            if (col.bounds.Intersects(nextFeetBounds))
+            if (col.bounds.Intersects(nextFeetBounds) && (col.gameObject.tag == "Arena" || col.gameObject.tag == "LungeBlinkBoundary"))
             {
                 stop = false;
                 break;

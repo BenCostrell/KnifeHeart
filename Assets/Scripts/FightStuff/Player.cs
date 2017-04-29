@@ -9,6 +9,9 @@ public class Player : MonoBehaviour {
 	private Rigidbody2D rb;
 	public Animator anim;
 	private SpriteRenderer sr;
+    [HideInInspector]
+    public Collider2D stageEdgeBoundaryCollider;
+    public LayerMask stageEdgeBoundaryLayer;
 
 	public float maxSpeed;
 	public float accel;
@@ -33,6 +36,14 @@ public class Player : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		sr = GetComponent<SpriteRenderer> ();
         taskManager = new TaskManager();
+        foreach(Collider2D col in GetComponentsInChildren<Collider2D>())
+        {
+            if (col.gameObject.tag == "stageEdgeBoundaryCollider")
+            {
+                stageEdgeBoundaryCollider = col;
+                break;
+            }
+        }
 
 		abilitiesOnCooldown = new List<Ability.Type> ();
 
@@ -177,6 +188,7 @@ public class Player : MonoBehaviour {
 	public void Fall(){
         rb.velocity = Vector2.zero;
         Services.EventManager.Fire (new PlayerFall (this));
+        stageEdgeBoundaryCollider.enabled = false;
     }
 
     void OnPlayerFall(PlayerFall e)

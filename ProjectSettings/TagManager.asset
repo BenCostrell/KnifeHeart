@@ -18,6 +18,8 @@ TagManager:
   - DeathZone
   - SceneRoot
   - Canvas
+  - LungeBlinkBoundary
+  - stageEdgeBoundaryCollider
   layers:
   - Default
   - TransparentFX
@@ -28,8 +30,8 @@ TagManager:
   - 
   - 
   - Player
-  - 
-  - 
+  - StageEdgeBoundary
+  - StageEdgeCollider
   - 
   - 
   - 

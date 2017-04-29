@@ -162,6 +162,7 @@ public class FightScene : Scene<TransitionData> {
             else player.damage = 0;
             foreach (Ability.Type ability in player.abilityList) Services.FightUIManager.ScaleCooldownUI(ability, player.playerNum, 1);
             Services.FightUIManager.ScaleCooldownUI(Ability.Type.BasicAttack, player.playerNum, 1);
+            player.stageEdgeBoundaryCollider.enabled = true;
         }
         Services.FightUIManager.UpdateDamageUI();
     }
