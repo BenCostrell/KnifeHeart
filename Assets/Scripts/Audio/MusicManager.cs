@@ -19,12 +19,6 @@ public class MusicManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-        Services.EventManager.Register<SceneTransition>(OnSceneTransition);
-        Services.EventManager.Register<FightAdvance>(OnFightAdvance);
-	}
-	
-    void Start()
-    {
         currentActiveSources = new List<AudioSource>();
         titleSource = InitializeAudio(titleTrack);
         baseSource = InitializeAudio(baseTrack);
@@ -33,6 +27,12 @@ public class MusicManager : MonoBehaviour {
         {
             fightSources[i] = InitializeAudio(fightTracks[i]);
         }
+        Services.EventManager.Register<SceneTransition>(OnSceneTransition);
+        Services.EventManager.Register<FightAdvance>(OnFightAdvance);
+	}
+	
+    void Start()
+    {
     }
 
 	// Update is called once per frame

@@ -92,8 +92,5 @@ MonoBehaviour:
   castDuration: 0.2
   animTrigger: basicAttack
   onCastAudio: {fileID: 0}
-  isMelee: 1
-  baseKnockback: 16
-  knockbackGrowth: 2
-  damage: 2
+  onCastAudio: {fileID: 8300000, guid: 2bb8ab2614a34e549bdee102f20fc535, type: 3}
   isProjectile: 0

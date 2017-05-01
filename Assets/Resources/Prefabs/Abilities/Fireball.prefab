@@ -93,12 +93,9 @@ MonoBehaviour:
   castDuration: 0.2
   animTrigger: ThrowFireball
   onCastAudio: {fileID: 0}
+  onCastAudio: {fileID: 8300000, guid: 510b49aff33c6c54b93ba78908a495e9, type: 3}
   isMelee: 0
-  baseKnockback: 8
-  knockbackGrowth: 0.5
-  damage: 1
   isProjectile: 1
-  speed: 10
 --- !u!212 &212668589737223458
 SpriteRenderer:
   m_ObjectHideFlags: 1
