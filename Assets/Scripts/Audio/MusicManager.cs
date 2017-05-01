@@ -78,7 +78,7 @@ public class MusicManager : MonoBehaviour {
 
     void StartPlayingTrack(AudioSource source)
     {
-        ActionTask playTrack = new ActionTask(source.Play);
+        PlayTrack playTrack = new PlayTrack(source);
         FadeInAudio fadeIn = new FadeInAudio(source, fadeInTime);
         playTrack.Then(fadeIn);
 
