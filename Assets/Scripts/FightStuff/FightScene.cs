@@ -49,6 +49,7 @@ public class FightScene : Scene<TransitionData> {
         Services.FightUIManager.Init();
         SetUpArenas();
         InitiateFightSequence();
+        Services.EventManager.Fire(new SceneTransition("FightScene"));
     }
 
     void InitializeFightServices()

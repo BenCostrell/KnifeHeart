@@ -89,15 +89,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e7a47ba2f8e8b64ebc789296cf9b822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
   parentPlayer: {fileID: 0}
-  castDuration: 0
-  animTrigger: 
-  hitPlayer1: 0
-  hitPlayer2: 0
-  isProjectile: 0
-  distanceToPullTo: 0
-  hitstun: 0
+  cooldown: 3
+  castDuration: 0.5
+  animTrigger: Pull
+  onCastAudio: {fileID: 0}
+  isMelee: 0
+  baseKnockback: 0
+  knockbackGrowth: 0
+  damage: 2
+  isProjectile: 1
+  speed: 20
+  distanceToPullTo: 2
+  hitstun: 0.3
 --- !u!120 &120232303718718666
 LineRenderer:
   m_ObjectHideFlags: 1

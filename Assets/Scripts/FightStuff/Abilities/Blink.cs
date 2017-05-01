@@ -6,20 +6,11 @@ using UnityEngine;
 
 public class Blink : Ability
 {
-    private float distance;
+    public float distance;
 
     public override void Init(GameObject player)
     {
-        animTrigger = "Blink";
-        castDuration = 0.15f;
-        cooldown = 3f;
-        isMelee = false;
-        onCastAudio = Resources.Load("Sounds/Abilities/Shield") as AudioClip;
-
         base.Init(player);
-
-        distance = 3f;
-
         // temporary until animation
         SetActive();
     }

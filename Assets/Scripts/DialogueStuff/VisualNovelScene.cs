@@ -36,6 +36,7 @@ public class VisualNovelScene : Scene<TransitionData> {
         Services.DialogueUIManager.SetUpUI();
         Services.TransitionUIManager.SetUpUI();
         StartSequence();
+        Services.EventManager.Fire(new SceneTransition("VisualNovelScene"));
     }
 
     // Update is called once per frame

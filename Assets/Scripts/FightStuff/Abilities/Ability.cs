@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class Ability : MonoBehaviour {
 
+    [HideInInspector]
     public enum Type { None, BasicAttack, Fireball, Lunge, Sing, Shield, Wallop, Pull, Blink };
-
-	public float cooldown;
+    [HideInInspector]
 	public GameObject parentPlayer;
-	public float castDuration;
-	public string animTrigger;
-	protected AudioSource audioSource;
-	protected AudioClip onCastAudio;
-	protected bool isMelee;
 
-	// Use this for initialization
-	void Start () {
+    public float cooldown;
+    public float castDuration;
+	public string animTrigger;
+	public AudioClip onCastAudio;
+	public bool isMelee;
+
+    protected AudioSource audioSource;
+
+    // Use this for initialization
+    void Start () {
 	}
 	
 	// Update is called once per frame

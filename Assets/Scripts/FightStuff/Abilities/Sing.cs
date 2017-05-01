@@ -24,18 +24,7 @@ public class Sing : Attack {
 	}
 
 	public override void Init(GameObject player){
-		animTrigger = "Sing";
-		cooldown = 4;
-		castDuration = 0.2f;
-		baseKnockback = 0;
-		knockbackGrowth = 0;
-		damage = 0;
-		isProjectile = true;
-
 		base.Init (player);
-
-		stunDuration = 0.8f;
-		lifeDuration = 2;
 		timeElapsed = 0;
         GetComponent<SpriteRenderer>().enabled = false;
         activated = false;

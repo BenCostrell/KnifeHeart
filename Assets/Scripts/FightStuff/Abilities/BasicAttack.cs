@@ -13,16 +13,6 @@ public class BasicAttack : Attack {
 	}
 
 	public override void Init(GameObject player){
-		animTrigger = "basicAttack";
-		cooldown = 0.6f;
-		castDuration = 0.2f;
-		baseKnockback = 16;
-		knockbackGrowth = 2;
-		damage = 2;
-		isProjectile = false;
-		isMelee = true;
-		onCastAudio = Resources.Load ("Sounds/Abilities/Sword") as AudioClip;
-
 		base.Init (player);
 	}
 

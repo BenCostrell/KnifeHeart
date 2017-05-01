@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShowFightinWords : Task {
 
 	private float timeElapsed;
-	private int numWords;
+    private List<Transform> wordObjects;
 
 	protected override void Init ()
 	{
@@ -15,12 +16,19 @@ public class ShowFightinWords : Task {
 		Services.TransitionUIManager.ready_P1.SetActive (false);
 		Services.TransitionUIManager.ready_P2.SetActive (false);
 
-		GameObject[] words = Services.TransitionUIManager.fightWords;
-		numWords = words.Length;
-		for (int i = 0; i < numWords; i++) {
-			words [i].SetActive(true);
-			words [i].transform.localScale = Vector3.zero;
-		}
+        wordObjects = new List<Transform>();
+
+        GameObject wordContainerForThisRound = Services.TransitionUIManager.wordGroups[Services.VisualNovelScene.currentRoundNum - 1];
+        foreach(Image image in wordContainerForThisRound.GetComponentsInChildren<Image>(true))
+        {
+            wordObjects.Add(image.transform);
+        }
+
+        for (int i = 0; i < wordObjects.Count; i++)
+        {
+            wordObjects[i].gameObject.SetActive(true);
+            wordObjects[i].localScale = Vector3.zero;
+        }
 		timeElapsed = 0;
 	}
 
@@ -28,13 +36,11 @@ public class ShowFightinWords : Task {
 	{
 		float duration = Services.TransitionUIManager.fightWordGrowthTime;
 		float staggerTime = Services.TransitionUIManager.fightWordStaggerTime;
-		float totalDuration = duration + ((numWords - 1) * staggerTime);
-		GameObject[] wordObjects = Services.TransitionUIManager.fightWords;
-		for (int i = 0; i < numWords; i++) {
+		float totalDuration = duration + ((wordObjects.Count - 1) * staggerTime);
+		for (int i = 0; i < wordObjects.Count; i++) {
 			float totalStaggerTime = i * staggerTime;
-			GameObject word = wordObjects [i];
 			if ((timeElapsed <= duration + totalStaggerTime) && (timeElapsed >= totalStaggerTime)) {
-				word.transform.localScale = Vector3.LerpUnclamped (Vector3.zero, Vector3.one, 
+				wordObjects[i].localScale = Vector3.LerpUnclamped (Vector3.zero, Vector3.one, 
 					Easing.BackEaseOut ((timeElapsed - totalStaggerTime) / duration));
 			}
 		} 

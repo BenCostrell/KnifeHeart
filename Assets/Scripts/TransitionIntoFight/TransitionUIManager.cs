@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TransitionUIManager : MonoBehaviour {
 
 	public GameObject fightBackground;
-	public GameObject wordsContainer;
-	public GameObject[] fightWords;
+    public GameObject[] wordGroups;
 
 	public GameObject transitionUI;
     public GameObject abilityBlurbs;
@@ -74,9 +74,13 @@ public class TransitionUIManager : MonoBehaviour {
     }
 
 	public void SetFightWordsStatus(bool active){
-		for (int i = 0; i < fightWords.Length; i++) {
-			fightWords [i].SetActive (active);
-		}
+		foreach(GameObject wordGroup in wordGroups)
+        {
+            foreach(Image wordImage in wordGroup.GetComponentsInChildren<Image>())
+            {
+                wordImage.gameObject.SetActive(active);
+            }
+        }
 	}
 
     void InitializeAbilityNameDict()

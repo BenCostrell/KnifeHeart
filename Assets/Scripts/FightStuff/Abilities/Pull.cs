@@ -18,19 +18,6 @@ public class Pull : Attack {
 	}
 
 	public override void Init(GameObject player){
-		animTrigger = "Pull";
-		cooldown = 3f;
-		castDuration = 0.5f;
-		baseKnockback = 0;
-		knockbackGrowth = 0f;
-		damage = 2;
-		speed = 20;
-		distanceToPullTo = 2f;
-		hitstun = 0.3f;
-		isProjectile = true;
-		isMelee = false;
-		onCastAudio = Resources.Load ("Sounds/Abilities/Fireball") as AudioClip;
-
 		base.Init (player);
 
 		float angle = player.GetComponent<Player>().effectiveRotation;

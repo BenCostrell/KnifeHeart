@@ -23,6 +23,15 @@ public class AxisPressed : Event {
     }
 }
 
+public class SceneTransition : Event
+{
+    public string sceneName;
+    public SceneTransition(string name)
+    {
+        sceneName = name;
+    }
+}
+
 
 public class PlayerInputPaused : Event {
 	public Player player;

@@ -87,10 +87,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bfbee74ae8ad644782a4fbf7a109ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
   parentPlayer: {fileID: 0}
-  castDuration: 0
-  animTrigger: 
-  hitPlayer1: 0
-  hitPlayer2: 0
+  cooldown: 1
+  castDuration: 0.4
+  animTrigger: Lunge
+  onCastAudio: {fileID: 0}
+  isMelee: 1
+  baseKnockback: 16
+  knockbackGrowth: 2
+  damage: 2
   isProjectile: 0
+  speed: 40

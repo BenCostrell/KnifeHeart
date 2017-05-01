@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fireball : Attack {
 
-	private float speed;
+	public float speed;
 
 
 	// Use this for initialization
@@ -19,16 +19,6 @@ public class Fireball : Attack {
 	}
 
 	public override void Init(GameObject player){
-		animTrigger = "ThrowFireball";
-		cooldown = 1;
-		castDuration = 0.2f;
-		baseKnockback = 8;
-		knockbackGrowth = 0.5f;
-		damage = 1;
-		speed = 10;
-		isProjectile = true;
-		isMelee = false;
-		onCastAudio = Resources.Load ("Sounds/Abilities/Fireball") as AudioClip;
         GetComponent<SpriteRenderer>().enabled = false;
 
 		base.Init (player);

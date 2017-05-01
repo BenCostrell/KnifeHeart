@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Attack : Ability {
 
-	protected float baseKnockback;
-	protected float knockbackGrowth;
-	protected int damage;
-	public bool hitPlayer1;
-	public bool hitPlayer2;
+	public float baseKnockback;
+	public float knockbackGrowth;
+	public int damage;
 	public bool isProjectile;
 
-	// Use this for initialization
-	void Start () {
+    protected bool hitPlayer1;
+    protected bool hitPlayer2;
+
+    // Use this for initialization
+    void Start () {
 		hitPlayer1 = false;
 		hitPlayer2 = false;
 	}

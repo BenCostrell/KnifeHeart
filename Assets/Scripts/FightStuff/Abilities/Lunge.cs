@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Lunge : Attack {
 
-	private float speed;
+	public float speed;
 
 	// Use this for initialization
 	void Start () {
@@ -22,17 +22,6 @@ public class Lunge : Attack {
     }
 
 	public override void Init(GameObject player){
-		animTrigger = "Lunge";
-		cooldown = 1f;
-		castDuration = 0.4f;
-		baseKnockback = 16;
-		knockbackGrowth = 2;
-		damage = 2;
-		speed = 40;
-		isProjectile = false;
-		isMelee = true;
-		onCastAudio = Resources.Load ("Sounds/Abilities/Lunge") as AudioClip;
-
 		base.Init (player);
 
         Dash();

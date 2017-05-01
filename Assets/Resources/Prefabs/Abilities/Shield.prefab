@@ -88,10 +88,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6f3bc5d244cdb42a4912f40a326a95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
   parentPlayer: {fileID: 0}
-  castDuration: 0
-  animTrigger: 
+  cooldown: 2
+  castDuration: 0.5
+  animTrigger: Shield
+  onCastAudio: {fileID: 0}
+  isMelee: 1
 --- !u!212 &212586019797389198
 SpriteRenderer:
   m_ObjectHideFlags: 1
