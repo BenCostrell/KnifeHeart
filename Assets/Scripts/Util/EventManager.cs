@@ -32,6 +32,15 @@ public class SceneTransition : Event
     }
 }
 
+public class FightAdvance : Event
+{
+    public int roundNum;
+    public FightAdvance(int num)
+    {
+        roundNum = num;
+    }
+}
+
 
 public class PlayerInputPaused : Event {
 	public Player player;
