@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TransitionUIManager : MonoBehaviour {
 
 	public GameObject fightBackground;
-	public GameObject wordsContainer;
-	public GameObject[] fightWords;
+    public GameObject[] wordGroups;
 
 	public GameObject transitionUI;
     public GameObject abilityBlurbs;
@@ -18,6 +18,7 @@ public class TransitionUIManager : MonoBehaviour {
     public float blurbScale;
     public float blurbInitialOffset;
     public float blurbXStagger;
+    public float blurbStaggerTime;
     public int numBlurbRotations;
 
 	public GameObject readyPrompt_P1;
@@ -62,7 +63,7 @@ public class TransitionUIManager : MonoBehaviour {
     {
         fightBackground.SetActive(false);
         SetFightWordsStatus(false);
-        wordsContainer.GetComponent<RectTransform>().localScale = Vector2.one;
+        transitionUI.GetComponent<RectTransform>().localScale = Vector2.one;
         ready_P1.GetComponent<RectTransform>().localScale = Vector2.one;
         ready_P2.GetComponent<RectTransform>().localScale = Vector2.one;
         readyPrompt_P1.SetActive(false);
@@ -73,9 +74,13 @@ public class TransitionUIManager : MonoBehaviour {
     }
 
 	public void SetFightWordsStatus(bool active){
-		for (int i = 0; i < fightWords.Length; i++) {
-			fightWords [i].SetActive (active);
-		}
+		foreach(GameObject wordGroup in wordGroups)
+        {
+            foreach(Image wordImage in wordGroup.GetComponentsInChildren<Image>())
+            {
+                wordImage.gameObject.SetActive(active);
+            }
+        }
 	}
 
     void InitializeAbilityNameDict()

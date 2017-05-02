@@ -88,13 +88,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a81dc34bfc5c074d9afbc025435652c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
   parentPlayer: {fileID: 0}
-  castDuration: 0
-  animTrigger: 
-  hitPlayer1: 0
-  hitPlayer2: 0
-  isProjectile: 0
+  cooldown: 1
+  castDuration: 0.2
+  animTrigger: ThrowFireball
+  onCastAudio: {fileID: 8300000, guid: e2773eea0729c5a42afed177eba57ea7, type: 3}
+  isMelee: 0
+  baseKnockback: 8
+  knockbackGrowth: 0.5
+  damage: 1
+  isProjectile: 1
+  onImpactAudio: {fileID: 8300000, guid: e6da6118125f54d438225f79bfd69606, type: 3}
+  speed: 10
 --- !u!212 &212668589737223458
 SpriteRenderer:
   m_ObjectHideFlags: 1

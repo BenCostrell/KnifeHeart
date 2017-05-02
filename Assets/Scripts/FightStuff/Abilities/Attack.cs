@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Attack : Ability {
 
-	protected float baseKnockback;
-	protected float knockbackGrowth;
-	protected int damage;
-	public bool hitPlayer1;
-	public bool hitPlayer2;
+	public float baseKnockback;
+	public float knockbackGrowth;
+	public int damage;
 	public bool isProjectile;
+    public AudioClip onImpactAudio;
 
-	// Use this for initialization
-	void Start () {
+    protected bool hitPlayer1;
+    protected bool hitPlayer2;
+
+    // Use this for initialization
+    void Start () {
 		hitPlayer1 = false;
 		hitPlayer2 = false;
 	}
@@ -23,8 +25,24 @@ public class Attack : Ability {
 
 	protected virtual void HitPlayer(GameObject player){
 		player.GetComponent<Player> ().TakeHit (damage, baseKnockback, knockbackGrowth, GetDirectionHit(player));
+        PlayImpactSound(player);
+        PlayHitParticleEffect(player);
+    }
 
-	}
+    void PlayHitParticleEffect(GameObject player)
+    {
+        Vector3 collisionPoint = player.transform.position + (transform.position - player.transform.position) / 2;
+        GameObject hitParticle = Instantiate(Services.PrefabDB.HitParticle,
+                collisionPoint, Quaternion.identity, player.transform) as GameObject;
+        Destroy(hitParticle, hitParticle.GetComponent<ParticleSystem>().main.duration);
+    }
+
+    void PlayImpactSound(GameObject player)
+    {
+        AudioSource source = player.GetComponent<Player>().impactAudioSource;
+        source.clip = onImpactAudio;
+        source.Play();
+    }
 
 	protected virtual Vector3 GetDirectionHit (GameObject playerHit){
 		return Vector3.zero;

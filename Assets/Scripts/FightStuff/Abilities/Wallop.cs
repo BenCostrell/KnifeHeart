@@ -17,17 +17,6 @@ public class Wallop : Attack {
 	}
 
 	public override void Init(GameObject player){
-		animTrigger = "Wallop";
-		cooldown = 2f;
-		castDuration = 1f;
-		baseKnockback = 25;
-		knockbackGrowth = 5;
-		damage = 5;
-		isProjectile = false;
-		isMelee = true;
-		onCastAudio = Resources.Load ("Sounds/Abilities/Sword") as AudioClip;
-		delay = 0.5f;
-
 		base.Init (player);
 		WallopTask delayHitbox = new WallopTask (player.GetComponent<Player> (), this);
 		player.GetComponent<Player>().taskManager.AddTask (delayHitbox);

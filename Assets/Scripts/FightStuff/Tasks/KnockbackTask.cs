@@ -13,5 +13,14 @@ public class KnockbackTask : HitstunTask {
 	{
 		base.Init ();
 		player.GetComponent<Rigidbody2D> ().velocity = knockback;
-	}
+        ActionTask updateDamageUI = new ActionTask(Services.FightUIManager.UpdateDamageUI);
+        Services.TaskManager.AddTask(updateDamageUI);
+        player.stageEdgeBoundaryCollider.enabled = false;
+    }
+
+    protected override void CleanUp()
+    {
+        base.CleanUp();
+        player.stageEdgeBoundaryCollider.enabled = true;
+    }
 }

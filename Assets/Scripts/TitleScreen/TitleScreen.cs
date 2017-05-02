@@ -23,6 +23,11 @@ public class TitleScreen : Scene<TransitionData> {
 		
 	}
 
+    internal override void OnEnter(TransitionData data)
+    {
+        Services.EventManager.Fire(new SceneTransition("TitleScreen"));
+    }
+
     void StartGame()
     {
         Services.SceneStackManager.Swap<VisualNovelScene>();

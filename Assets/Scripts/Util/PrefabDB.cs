@@ -52,6 +52,10 @@ public class PrefabDB : ScriptableObject {
     private GameObject blurb;
     public GameObject Blurb { get { return blurb; } }
 
+    [SerializeField]
+    private GameObject hitParticle;
+    public GameObject HitParticle { get { return hitParticle; } }
+
 	public GameObject GetPrefabFromAbilityType(Ability.Type type){
 		switch (type) {
 		case Ability.Type.BasicAttack:

@@ -9,9 +9,13 @@ public class Player : MonoBehaviour {
 	private Rigidbody2D rb;
 	public Animator anim;
 	private SpriteRenderer sr;
+    [HideInInspector]
+    public Collider2D stageEdgeBoundaryCollider;
+    public LayerMask stageEdgeBoundaryLayer;
 
 	public float maxSpeed;
 	public float accel;
+    public float dashSpeed;
 	public float hitstunFactor;
 	public float knockbackDamageGrowthFactor;
 
@@ -21,10 +25,15 @@ public class Player : MonoBehaviour {
 	public float effectiveRotation;
 
     private Ability currentActiveAbility;
-
+    [HideInInspector]
 	public List <Ability.Type> abilitiesOnCooldown;
-
+    [HideInInspector]
     public TaskManager taskManager;
+
+    [HideInInspector]
+    public AudioSource castAudioSource;
+    [HideInInspector]
+    public AudioSource impactAudioSource;
 
     // Use this for initialization
     void Start () {
@@ -32,12 +41,22 @@ public class Player : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		sr = GetComponent<SpriteRenderer> ();
         taskManager = new TaskManager();
+        foreach(Collider2D col in GetComponentsInChildren<Collider2D>())
+        {
+            if (col.gameObject.tag == "stageEdgeBoundaryCollider")
+            {
+                stageEdgeBoundaryCollider = col;
+                break;
+            }
+        }
 
 		abilitiesOnCooldown = new List<Ability.Type> ();
 
 		StartListeningForInput ();
 		Services.EventManager.Register<GameOver> (OnGameOver);
         Services.EventManager.Register<PlayerFall>(OnPlayerFall);
+        castAudioSource = gameObject.AddComponent<AudioSource>();
+        impactAudioSource = gameObject.AddComponent<AudioSource>();
 
 		anim.SetBool ("sideFacing", true);
 	}
@@ -56,6 +75,11 @@ public class Player : MonoBehaviour {
 
 	void Move(){
 		Vector2 direction = new Vector2 (Input.GetAxis ("Horizontal_P" + playerNum), Input.GetAxis ("Vertical_P" + playerNum));
+
+        if(Vector2.Dot(direction, rb.velocity) <= 0)
+        {
+            rb.velocity = dashSpeed * direction.normalized;
+        }
 
 		rb.AddForce (accel * direction);
 
@@ -181,6 +205,7 @@ public class Player : MonoBehaviour {
 	public void Fall(){
         rb.velocity = Vector2.zero;
         Services.EventManager.Fire (new PlayerFall (this));
+        stageEdgeBoundaryCollider.enabled = false;
     }
 
     void OnPlayerFall(PlayerFall e)
@@ -194,12 +219,12 @@ public class Player : MonoBehaviour {
 		float hitstunDuration = knockbackMagnitude * hitstunFactor;
 		Vector3 knockbackVector = knockbackMagnitude * knockbackDirection;
         HitLag hitLag = new HitLag(knockbackMagnitude);
-		KnockbackTask startKnockback = new KnockbackTask (hitstunDuration, this, knockbackVector);
-        ActionTask updateDamageUI = new ActionTask(Services.FightUIManager.UpdateDamageUI);
-
-        hitLag
-            .Then(startKnockback)
-            .Then(updateDamageUI);
+        if (knockbackMagnitude > 0)
+        {
+            KnockbackTask startKnockback = new KnockbackTask(hitstunDuration, this, knockbackVector);
+            hitLag
+            .Then(startKnockback);
+        }
 
 		taskManager.AddTask (hitLag);
 	}

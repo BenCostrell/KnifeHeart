@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Lunge : Attack {
 
-	private float speed;
+	public float speed;
 
 	// Use this for initialization
 	void Start () {
@@ -22,17 +22,6 @@ public class Lunge : Attack {
     }
 
 	public override void Init(GameObject player){
-		animTrigger = "Lunge";
-		cooldown = 1f;
-		castDuration = 0.4f;
-		baseKnockback = 16;
-		knockbackGrowth = 2;
-		damage = 2;
-		speed = 40;
-		isProjectile = false;
-		isMelee = true;
-		onCastAudio = Resources.Load ("Sounds/Abilities/Lunge") as AudioClip;
-
 		base.Init (player);
 
         Dash();
@@ -56,8 +45,18 @@ public class Lunge : Attack {
         Bounds previousFeetBounds = parentPlayer.GetComponentInChildren<Feet>().gameObject.GetComponent<BoxCollider2D>().bounds;
         Bounds nextFeetBounds = new Bounds(previousFeetBounds.center + positionDelta, previousFeetBounds.size);
 
-        if (!Services.FightScene.GetActiveArena().GetComponentInChildren<Collider2D>().bounds.Intersects(nextFeetBounds)) {
-            parentPlayer.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        Collider2D[] lungeBoundaries = Services.FightScene.GetActiveArena().GetComponentsInChildren<BoxCollider2D>();
+        bool stop = true;
+        foreach (Collider2D col in lungeBoundaries)
+        {
+            if (col.bounds.Intersects(nextFeetBounds) && (col.gameObject.tag == "Arena" || col.gameObject.tag == "LungeBlinkBoundary"))
+            {
+                stop = false;
+                break;
+            }
         }
+
+        if (stop) parentPlayer.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        
     }
 }

@@ -75,41 +75,50 @@ public class AbilityShowingSequence : Task
     internal override void Update()
     {
         timeElapsed += Time.deltaTime;
+        float staggerTime = 0;
 
-        if (timeElapsed <= scaleInDuration)
+        for (int i = 0; i < 2; i++)
         {
-            for (int i = 0; i < 2; i++)
+            staggerTime = 0;
+            for (int j = 0; j < blurbAbilityBoxes[i].Count; j++)
             {
-                for (int j = 0; j < blurbAbilityBoxes[i].Count; j++)
+                if (timeElapsed >= staggerTime && timeElapsed <= (scaleInDuration + staggerTime))
                 {
-                    GameObject blurb = blurbAbilityBoxes[i][j];
-                    blurb.transform.localScale = Vector2.Lerp(Vector2.zero, Services.TransitionUIManager.blurbScale * Vector2.one,
-                        Easing.QuadEaseOut(timeElapsed / scaleInDuration));
-                    blurb.GetComponent<RectTransform>().anchoredPosition = Vector2.Lerp(initialPositions[i][j], targetPositions[i][j],
-                        Easing.QuadEaseOut(timeElapsed / scaleInDuration));
+                    RectTransform blurbTransform = blurbAbilityBoxes[i][j].GetComponent<RectTransform>();
+                    blurbTransform.localScale = Vector2.Lerp(Vector2.zero, Services.TransitionUIManager.blurbScale * Vector2.one,
+                        Easing.QuadEaseOut((timeElapsed - staggerTime) / scaleInDuration));
+                    blurbTransform.anchoredPosition = Vector2.Lerp(initialPositions[i][j], targetPositions[i][j],
+                        Easing.QuadEaseOut((timeElapsed - staggerTime) / scaleInDuration));
                 }
+                staggerTime += Services.TransitionUIManager.blurbStaggerTime;
             }
         }
-        if (timeElapsed >= scaleInDuration + delayDuration)
+
+
+        for (int i = 0; i < 2; i++)
         {
-            for (int i = 0; i < 2; i++)
+            staggerTime = 0;
+            for (int j = 0; j < blurbAbilityBoxes[i].Count; j++)
             {
-                for (int j = 0; j < blurbAbilityBoxes[i].Count; j++)
+                if (timeElapsed >= (scaleInDuration + delayDuration + staggerTime) 
+                    && timeElapsed <= (scaleInDuration+delayDuration+staggerTime+flipDuration))
                 {
                     GameObject blurb = blurbAbilityBoxes[i][j];
-                    if ((timeElapsed - scaleInDuration - delayDuration) > flipDuration / 2)
+                    if ((timeElapsed - scaleInDuration - delayDuration - staggerTime) > flipDuration / 2)
                     {
                         blurb.GetComponentInChildren<Text>().text =
                             Services.TransitionUIManager.abilityNameDict[Services.TransitionUIManager.dialoguesAccumulated[i][j].abilityGiven];
                     }
                     blurb.transform.localRotation = Quaternion.Euler(Vector3.Lerp(Vector3.zero,
                         Services.TransitionUIManager.numBlurbRotations * 360 * Vector3.right,
-                        Easing.QuadEaseOut((timeElapsed - scaleInDuration - delayDuration) / flipDuration)));
+                        Easing.QuadEaseOut((timeElapsed - scaleInDuration - delayDuration - staggerTime) / flipDuration)));
                 }
+                staggerTime += Services.TransitionUIManager.blurbStaggerTime;
             }
         }
+        
 
-        if (timeElapsed >= scaleInDuration + flipDuration + delayDuration)
+        if (timeElapsed >= (scaleInDuration + flipDuration + delayDuration + staggerTime))
         {
             SetStatus(TaskStatus.Success);
         }

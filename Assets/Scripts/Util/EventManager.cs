@@ -23,6 +23,23 @@ public class AxisPressed : Event {
     }
 }
 
+public class SceneTransition : Event
+{
+    public string sceneName;
+    public SceneTransition(string name)
+    {
+        sceneName = name;
+    }
+}
+
+public class FightAdvance : Event
+{
+    public int roundNum;
+    public FightAdvance(int num)
+    {
+        roundNum = num;
+    }
+}
 
 public class PlayerInputPaused : Event {
 	public Player player;
@@ -64,6 +81,15 @@ public class DialoguePicked : Event {
 		dialogue = dia;
 		pickedByPlayerNum = playerNum;
 	}
+}
+
+public class PlayerDamaged : Event
+{
+    public int playerNum;
+    public PlayerDamaged(int num)
+    {
+        playerNum = num;
+    }
 }
 
 public class EventManager {
