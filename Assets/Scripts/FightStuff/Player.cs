@@ -18,6 +18,7 @@ public class Player : MonoBehaviour {
     public float dashSpeed;
 	public float hitstunFactor;
 	public float knockbackDamageGrowthFactor;
+    public float wallBounceFactor;
 
 	public int damage;
 	public bool actionable;
@@ -121,6 +122,14 @@ public class Player : MonoBehaviour {
 		}
 		//Debug.Log (rb.velocity);
 	}
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Wall" && !stageEdgeBoundaryCollider.enabled)
+        {
+            rb.velocity = Vector2.Reflect(rb.velocity, collision.contacts[0].normal);
+        }
+    }
 
 	public void StartListeningForInput(){
 		Services.EventManager.Register<ButtonPressed> (AbilityActivated);

@@ -21,6 +21,7 @@ TagManager:
   - LungeBlinkBoundary
   - stageEdgeBoundaryCollider
   - MusicManager
+  - Wall
   layers:
   - Default
   - TransparentFX
