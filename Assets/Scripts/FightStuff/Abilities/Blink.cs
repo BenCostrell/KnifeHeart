@@ -20,8 +20,8 @@ public class Blink : Ability
 
         distance = 5f;
 
-        // temporary until animation
-        SetActive();
+//        // temporary until animation
+//        SetActive();
     }
 
     void Teleport()

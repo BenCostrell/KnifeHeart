@@ -53,4 +53,8 @@ public class Shield : Ability {
         GetComponent<Collider2D>().enabled = true;
         parentPlayer.GetComponent<Player>().isInvulnerable = true;
     }
+
+	public void ShieldAnimationStarted(){
+		Debug.Log ("shield animation started");
+	}
 }

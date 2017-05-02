@@ -1,0 +1,300 @@
+fileFormatVersion: 2
+guid: 72a18030395b643c5a37b8fabf400de6
+timeCreated: 1492141007
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PigTailsPull_0
+    21300002: PigTailsPull_1
+    21300004: PigTailsPull_2
+    21300006: PigTailsPull_3
+    21300008: PigTailsPull_4
+    21300010: PigTailsPull_5
+    21300012: PigTailsPull_6
+    21300014: PigTailsPull_7
+    21300016: PigTailsPull_8
+    21300018: PigTailsPull_9
+    21300020: PigTailsPull_10
+    21300022: PigTailsPull_11
+    21300024: PigTailsPull_12
+    21300026: PigTailsPull_13
+    21300028: PigTailsPull_14
+    21300030: PigTailsPull_15
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 500
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PigTailsPull_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8397
+        width: 2736
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PigTailsPull_1
+      rect:
+        serializedVersion: 2
+        x: 2736
+        y: 8397
+        width: 2736
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PigTailsPull_2
+      rect:
+        serializedVersion: 2
+        x: 5472
+        y: 8397
+        width: 2736
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PigTailsPull_3
+      rect:
+        serializedVersion: 2
+        x: 8208
+        y: 8397
+        width: 2736
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PigTailsPull_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5598
+        width: 2736
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PigTailsPull_5
+      rect:
+        serializedVersion: 2
+        x: 2736
+        y: 5598
+        width: 2736
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PigTailsPull_6
+      rect:
+        serializedVersion: 2
+        x: 5472
+        y: 5598
+        width: 2736
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PigTailsPull_7
+      rect:
+        serializedVersion: 2
+        x: 8208
+        y: 5598
+        width: 2736
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PigTailsPull_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2799
+        width: 2736
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PigTailsPull_9
+      rect:
+        serializedVersion: 2
+        x: 2736
+        y: 2799
+        width: 2736
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PigTailsPull_10
+      rect:
+        serializedVersion: 2
+        x: 5472
+        y: 2799
+        width: 2736
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PigTailsPull_11
+      rect:
+        serializedVersion: 2
+        x: 8208
+        y: 2799
+        width: 2736
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PigTailsPull_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2736
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PigTailsPull_13
+      rect:
+        serializedVersion: 2
+        x: 2736
+        y: 0
+        width: 2736
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PigTailsPull_14
+      rect:
+        serializedVersion: 2
+        x: 5472
+        y: 0
+        width: 2736
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PigTailsPull_15
+      rect:
+        serializedVersion: 2
+        x: 8208
+        y: 0
+        width: 2736
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

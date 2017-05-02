@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour {
         {
             GetComponentInChildren<FightScene>().Init();
             GetComponentInChildren<FightScene>().OnEnter(new TransitionData(3));
+			GameObject.Find ("PrefabEditor").SetActive (false);
         }
         else
         {

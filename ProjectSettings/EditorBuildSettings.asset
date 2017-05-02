@@ -9,3 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/VisualNovelStage.unity
   - enabled: 1
     path: Assets/Scenes/fightRoom.unity
+  - enabled: 1
+    path: Assets/Scenes/main.unity
+  - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
