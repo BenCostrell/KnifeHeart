@@ -92,7 +92,7 @@ MonoBehaviour:
   cooldown: 1
   castDuration: 0.2
   animTrigger: ThrowFireball
-  onCastAudio: {fileID: 8300000, guid: 510b49aff33c6c54b93ba78908a495e9, type: 3}
+  onCastAudio: {fileID: 8300000, guid: e2773eea0729c5a42afed177eba57ea7, type: 3}
   isMelee: 0
   baseKnockback: 8
   knockbackGrowth: 0.5
