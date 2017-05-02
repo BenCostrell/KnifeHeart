@@ -195,7 +195,9 @@ public class Player : MonoBehaviour {
                 Services.FightUIManager.abCDHighlightTime);
             abilityCooldown.Then(highlightCooldownEnd);
 
-			taskManager.AddTask (castTimeLockout);
+
+			StopListeningForInput ();
+//			taskManager.AddTask (castTimeLockout);
 			taskManager.AddTask (abilityCooldown);
 		}
 	}
