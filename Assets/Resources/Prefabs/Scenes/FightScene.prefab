@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 61078622316171182}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 61935662737522448}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 61306120313402976}
   m_Layer: 0
   m_Name: Building
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2836,7 +2836,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1038784904368592}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 31ffdd8f3c3b5bb4aae88b5062378422, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: -29.7}
@@ -2850,7 +2850,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1038784904368592}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 31ffdd8f3c3b5bb4aae88b5062378422, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 32, y: -28}
@@ -2920,7 +2920,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1493066261056726}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 31ffdd8f3c3b5bb4aae88b5062378422, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -2948,7 +2948,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1038784904368592}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 31ffdd8f3c3b5bb4aae88b5062378422, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: -32, y: -28}
@@ -2976,7 +2976,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1053852195106218}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 31ffdd8f3c3b5bb4aae88b5062378422, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: -33, y: 0}
@@ -3144,7 +3144,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1053852195106218}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 31ffdd8f3c3b5bb4aae88b5062378422, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 33, y: 0}
