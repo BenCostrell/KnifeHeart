@@ -92,7 +92,6 @@ MonoBehaviour:
   cooldown: 4
   castDuration: 0.2
   animTrigger: Sing
-  onCastAudio: {fileID: 0}
   onCastAudio: {fileID: 8300000, guid: 100d3deccdfa9c54d9dfdd8b75e98703, type: 3}
   isMelee: 0
   baseKnockback: 0
