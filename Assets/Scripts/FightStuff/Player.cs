@@ -57,7 +57,7 @@ public class Player : MonoBehaviour {
         Services.EventManager.Register<PlayerFall>(OnPlayerFall);
         castAudioSource = gameObject.AddComponent<AudioSource>();
         impactAudioSource = gameObject.AddComponent<AudioSource>();
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {

@@ -42,11 +42,11 @@ public class WaitForDialogueChoiceTask : Task {
             upArrow.anchoredPosition = Vector2.Lerp(
                 upArrowBasePos + Services.DialogueUIManager.optionArrowBounceDistance * Vector2.up,
                 upArrowBasePos,
-                Easing.QuadEaseIn((timeSinceArrowPulse - (period/2)) / (period / 2)));
+                Easing.QuadEaseIn((timeSinceArrowPulse - (period / 2)) / (period / 2)));
             downArrow.anchoredPosition = Vector2.Lerp(
-                downArrowBasePos + Services.DialogueUIManager.optionArrowBounceDistance * Vector2.down, 
+                downArrowBasePos + Services.DialogueUIManager.optionArrowBounceDistance * Vector2.down,
                 downArrowBasePos,
-                Easing.QuadEaseIn((timeSinceArrowPulse - (period/2)) / (period / 2)));
+                Easing.QuadEaseIn((timeSinceArrowPulse - (period / 2)) / (period / 2)));
         }
         else
         {

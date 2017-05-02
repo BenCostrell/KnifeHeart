@@ -41,7 +41,6 @@ public class FightAdvance : Event
     }
 }
 
-
 public class PlayerInputPaused : Event {
 	public Player player;
 	public PlayerInputPaused(Player pl){

@@ -68,6 +68,8 @@ public class DialogueUIManager : MonoBehaviour {
     public float backgroundOptionFadeOutAlpha;
     public float optionArrowBounceTime;
     public float optionArrowBounceDistance;
+    public float optObjNoiseMag;
+    public float optObjNoiseSpd;
 
 	// Use this for initialization
 	void Start () {
