@@ -98,6 +98,7 @@ MonoBehaviour:
   knockbackGrowth: 0.5
   damage: 1
   isProjectile: 1
+  onImpactAudio: {fileID: 8300000, guid: e6da6118125f54d438225f79bfd69606, type: 3}
   speed: 10
 --- !u!212 &212668589737223458
 SpriteRenderer:

@@ -92,12 +92,13 @@ MonoBehaviour:
   cooldown: 2
   castDuration: 1
   animTrigger: Wallop
-  onCastAudio: {fileID: 0}
+  onCastAudio: {fileID: 8300000, guid: b648b9266fe243e48a6ec59619977e97, type: 3}
   isMelee: 1
   baseKnockback: 25
   knockbackGrowth: 5
   damage: 5
   isProjectile: 0
+  onImpactAudio: {fileID: 8300000, guid: e6da6118125f54d438225f79bfd69606, type: 3}
   delay: 0.5
 --- !u!212 &212875424328164428
 SpriteRenderer:
