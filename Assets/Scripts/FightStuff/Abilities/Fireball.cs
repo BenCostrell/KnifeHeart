@@ -13,7 +13,7 @@ public class Fireball : Attack {
 
 	// Update is called once per frame
 	void Update () {
-		if (!GetComponent<Renderer> ().isVisible) {
+		if (!GetComponent<Renderer> ().isVisible && GetComponent<SpriteRenderer>().enabled) {
 			Destroy (gameObject);
 		}
 	}
@@ -35,7 +35,7 @@ public class Fireball : Attack {
 
     public override void SetActive()
     {
-        base.SetActive();
+		base.SetActive();
         GetComponent<SpriteRenderer>().enabled = true;
         float angle = parentPlayer.GetComponent<Player>().effectiveRotation;
         Vector3 direction = new Vector3(-Mathf.Cos(angle * Mathf.Deg2Rad), -Mathf.Sin(angle * Mathf.Deg2Rad));

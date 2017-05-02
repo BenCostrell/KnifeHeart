@@ -172,9 +172,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: downFacing
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102410011310623438}
   m_Solo: 0
@@ -229,9 +226,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: downFacing
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102775457002255776}
   m_Solo: 0
@@ -258,9 +252,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: upFacing
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102852012851033890}
@@ -313,9 +304,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: sideFacing
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102270534201581128}
   m_Solo: 0
@@ -342,9 +330,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: sideFacing
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102183602768733884}
@@ -448,9 +433,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: downFacing
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102494906377829030}
   m_Solo: 0
@@ -492,36 +474,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1101 &1101312125930286532
-AnimatorStateTransition:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: basicAttack
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: sideFacing
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
-    m_EventTreshold: 0
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 1102448970354728024}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0
-  m_TransitionOffset: 1e-12
-  m_ExitTime: 1e-13
-  m_HasExitTime: 0
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 0
 --- !u!1101 &1101322652559931194
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -535,16 +487,13 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: upFacing
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102706461406411102}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.07563031
+  m_TransitionDuration: 0.054621935
   m_TransitionOffset: 0
   m_ExitTime: 0.9
   m_HasExitTime: 0
@@ -588,9 +537,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: downFacing
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102974199877367290}
@@ -664,9 +610,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: upFacing
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102279661598609190}
   m_Solo: 0
@@ -694,9 +637,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: sideFacing
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102063976855922546}
   m_Solo: 0
@@ -723,9 +663,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: sideFacing
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102590763006302792}
@@ -828,9 +765,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: sideFacing
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102977793194779650}
@@ -936,9 +870,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: sideFacing
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102207547192749516}
@@ -1261,9 +1192,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: downFacing
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102762592659767432}
   m_Solo: 0
@@ -1290,9 +1218,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: upFacing
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102786468341126276}
@@ -1369,9 +1294,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: upFacing
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102497756408336906}
   m_Solo: 0
@@ -1398,9 +1320,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: downFacing
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102203101902871108}
@@ -1555,16 +1474,13 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: upFacing
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102830923761948716}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.07399106
+  m_TransitionDuration: 0.05998546
   m_TransitionOffset: 0
   m_ExitTime: 0.9
   m_HasExitTime: 0
@@ -1584,9 +1500,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: downFacing
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102939256237851906}
@@ -1626,6 +1539,33 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1101 &1101838442432352318
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: basicAttack
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: sideFacing
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 1102448970354728024}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.030952275
+  m_TransitionOffset: 0
+  m_ExitTime: 0.9404763
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &1101849123412462462
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1638,9 +1578,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: downFacing
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102925009125146952}
@@ -1792,18 +1729,15 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: upFacing
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102159812622688512}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.07892382
+  m_TransitionDuration: 0.05091262
   m_TransitionOffset: 0
-  m_ExitTime: 0.90000004
+  m_ExitTime: 0.9000001
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1998,9 +1932,6 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: sideFacing
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: Actionable
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102107595455287860}
@@ -2853,7 +2784,6 @@ AnimatorStateMachine:
   - {fileID: 1101996406027892520}
   - {fileID: 1101403156081594830}
   - {fileID: 1101448201016040092}
-  - {fileID: 1101312125930286532}
   - {fileID: 1101136067666047498}
   - {fileID: 1101520081114945228}
   - {fileID: 1101188000407444638}
@@ -2873,6 +2803,7 @@ AnimatorStateMachine:
   - {fileID: 1101793581241584110}
   - {fileID: 1101630574018202902}
   - {fileID: 1101322652559931194}
+  - {fileID: 1101838442432352318}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []

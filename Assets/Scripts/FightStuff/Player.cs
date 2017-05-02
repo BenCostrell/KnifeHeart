@@ -159,7 +159,6 @@ public class Player : MonoBehaviour {
 			switch (e.buttonTitle){
 			case "A":	
 				DoAbility (Ability.Type.BasicAttack);
-				anim.SetTrigger ("basicAttack");
 				break;
 			case "X":
 				DoAbility (abilityList [0]);
