@@ -57,6 +57,8 @@ public class Player : MonoBehaviour {
         Services.EventManager.Register<PlayerFall>(OnPlayerFall);
         castAudioSource = gameObject.AddComponent<AudioSource>();
         impactAudioSource = gameObject.AddComponent<AudioSource>();
+
+		anim.SetBool ("sideFacing", true);
 	}
 	
 	// Update is called once per frame
@@ -67,6 +69,8 @@ public class Player : MonoBehaviour {
 			Move ();
 		} else {
 		}
+
+		anim.SetBool ("Actionable", actionable); 
 	}
 
 	void Move(){
@@ -82,6 +86,10 @@ public class Player : MonoBehaviour {
 		if (rb.velocity.magnitude > maxSpeed) {
 			rb.velocity = maxSpeed * direction.normalized;
 		}
+		anim.SetFloat ("Velocity", direction.magnitude);
+
+//		if (direction.magnitude > 0.1f)
+//			EndAbility ();
 
 		float angleFacing = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
 		if (direction.magnitude > 0.01f) {
@@ -177,6 +185,7 @@ public class Player : MonoBehaviour {
 		if (!abilitiesOnCooldown.Contains (type)) {
 			GameObject abilityObj = Instantiate (Services.PrefabDB.GetPrefabFromAbilityType (type), 
 				transform.position, Quaternion.identity) as GameObject;
+			EndAbility ();
 			currentActiveAbility = abilityObj.GetComponent<Ability> ();
 			currentActiveAbility.Init (gameObject);
 
@@ -226,7 +235,8 @@ public class Player : MonoBehaviour {
 
     public void SetAbilityActive()
     {
-        currentActiveAbility.SetActive();
+		if (currentActiveAbility != null)
+			currentActiveAbility.SetActive ();
     }
 
     public void TurnOffHitbox()
@@ -237,4 +247,10 @@ public class Player : MonoBehaviour {
             currentActiveAttack.TurnOffHitbox();
         }
     }
+
+	public void EndAbility(){
+		if (currentActiveAbility != null)
+			currentActiveAbility.OnCastFinish ();
+	}
+		
 }

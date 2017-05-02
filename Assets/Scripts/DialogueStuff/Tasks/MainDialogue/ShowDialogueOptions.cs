@@ -18,7 +18,7 @@ public class ShowDialogueOptions : Task {
     private Vector2 inactivePosTarget;
     private Vector2 activeInitialPos;
     private Vector2 inactiveInitialPos;
-	public ShowDialogueOptions(bool firstChc){
+    public ShowDialogueOptions(bool firstChc){
 		firstChoice = firstChc;
 	}
 
@@ -77,6 +77,8 @@ public class ShowDialogueOptions : Task {
                 optionImage.color = new Color(imageColor.r, imageColor.g, imageColor.b, 1);
                 optionText.color = new Color(textColor.r, textColor.g, textColor.b, 1);
             }
+
+            Services.TaskManager.AddTask(new FloatOptionObjects());
         }
 
         if (Services.VisualNovelScene.currentTurnPlayerNum == 1)
@@ -99,7 +101,7 @@ public class ShowDialogueOptions : Task {
         inactivePosTarget = new Vector2(inactiveInitialPos.x, -70);
         activePlayer.gameObject.GetComponent<Image>().color = Color.white;
         inactivePlayer.gameObject.GetComponent<Image>().color = Color.gray;
-	}
+    }
 
 	internal override void Update ()
 	{
@@ -127,7 +129,7 @@ public class ShowDialogueOptions : Task {
 
         timeElapsed = Mathf.Min (totalDuration, timeElapsed + Time.deltaTime);
 
-		if (timeElapsed == totalDuration) {
+        if (timeElapsed == totalDuration) {
 			SetStatus (TaskStatus.Success);
 		}
 

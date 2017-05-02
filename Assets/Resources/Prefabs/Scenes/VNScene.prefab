@@ -3281,6 +3281,8 @@ MonoBehaviour:
   backgroundOptionFadeOutAlpha: 0.5
   optionArrowBounceTime: 0.5
   optionArrowBounceDistance: 20
+  optObjNoiseMag: 20
+  optObjNoiseSpd: 0.6
 --- !u!114 &114537562247466778
 MonoBehaviour:
   m_ObjectHideFlags: 1

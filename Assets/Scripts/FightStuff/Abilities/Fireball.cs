@@ -5,6 +5,7 @@ using UnityEngine;
 public class Fireball : Attack {
 
 	public float speed;
+    private float angle;
 
 
 	// Use this for initialization
@@ -13,7 +14,7 @@ public class Fireball : Attack {
 
 	// Update is called once per frame
 	void Update () {
-		if (!GetComponent<Renderer> ().isVisible) {
+		if (!GetComponent<Renderer> ().isVisible && GetComponent<SpriteRenderer>().enabled) {
 			Destroy (gameObject);
 		}
 	}
@@ -22,7 +23,8 @@ public class Fireball : Attack {
         GetComponent<SpriteRenderer>().enabled = false;
 
 		base.Init (player);
-	}
+        angle = parentPlayer.GetComponent<Player>().effectiveRotation;
+    }
 
 	protected override Vector3 GetDirectionHit(GameObject playerHit){
 		return GetComponent<Rigidbody2D> ().velocity.normalized;
@@ -35,9 +37,9 @@ public class Fireball : Attack {
 
     public override void SetActive()
     {
-        base.SetActive();
+		base.SetActive();
         GetComponent<SpriteRenderer>().enabled = true;
-        float angle = parentPlayer.GetComponent<Player>().effectiveRotation;
+
         Vector3 direction = new Vector3(-Mathf.Cos(angle * Mathf.Deg2Rad), -Mathf.Sin(angle * Mathf.Deg2Rad));
 
         GetComponent<Rigidbody2D>().velocity = speed * direction;

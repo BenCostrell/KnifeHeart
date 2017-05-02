@@ -11,8 +11,7 @@ public class Blink : Ability
     public override void Init(GameObject player)
     {
         base.Init(player);
-        // temporary until animation
-        SetActive();
+
     }
 
     void Teleport()

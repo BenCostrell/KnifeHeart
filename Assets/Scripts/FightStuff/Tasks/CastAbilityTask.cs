@@ -18,7 +18,7 @@ public class CastAbilityTask : PlayerUnactionableTask {
 	protected override void CleanUp ()
 	{
 		base.CleanUp ();
-		ability.OnCastFinish ();
-		player.ResetToNeutral ();
+		//ability.OnCastFinish ();
+		//player.ResetToNeutral ();
 	}
 }
