@@ -159,9 +159,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleTrack: {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
-  baseTrack: {fileID: 8300000, guid: 3ffedee10506d8b4fa14467f356ceabd, type: 3}
+  baseTrack: {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
   fightTracks:
-  - {fileID: 8300000, guid: cbefd5d7486f10d4f99dae80c4de436f, type: 3}
+  - {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
   - {fileID: 8300000, guid: cbefd5d7486f10d4f99dae80c4de436f, type: 3}
   - {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
   - {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}

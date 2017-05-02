@@ -97,4 +97,4 @@ MonoBehaviour:
   knockbackGrowth: 2
   damage: 2
   isProjectile: 0
-  onImpactAudio: {fileID: 8300000, guid: e6da6118125f54d438225f79bfd69606, type: 3}
+  onImpactAudio: {fileID: 8300000, guid: e09e364b0d2c9a745bf11918c0f2c816, type: 3}
