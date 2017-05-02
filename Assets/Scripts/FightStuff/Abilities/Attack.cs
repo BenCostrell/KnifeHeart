@@ -8,6 +8,7 @@ public class Attack : Ability {
 	public float knockbackGrowth;
 	public int damage;
 	public bool isProjectile;
+    public AudioClip onImpactAudio;
 
     protected bool hitPlayer1;
     protected bool hitPlayer2;
@@ -24,11 +25,23 @@ public class Attack : Ability {
 
 	protected virtual void HitPlayer(GameObject player){
 		player.GetComponent<Player> ().TakeHit (damage, baseKnockback, knockbackGrowth, GetDirectionHit(player));
+        PlayImpactSound();
+        PlayHitParticleEffect(player);
+
+    }
+
+    void PlayHitParticleEffect(GameObject player)
+    {
         Vector3 collisionPoint = player.transform.position + (transform.position - player.transform.position) / 2;
         GameObject hitParticle = Instantiate(Services.PrefabDB.HitParticle,
                 collisionPoint, Quaternion.identity, player.transform) as GameObject;
         Destroy(hitParticle, hitParticle.GetComponent<ParticleSystem>().main.duration);
+    }
 
+    void PlayImpactSound()
+    {
+        audioSource.clip = onImpactAudio;
+        audioSource.Play();
     }
 
 	protected virtual Vector3 GetDirectionHit (GameObject playerHit){
