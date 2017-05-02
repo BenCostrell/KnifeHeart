@@ -38,6 +38,7 @@ public class Sing : Attack {
     public override void SetActive()
     {
         base.SetActive();
+		transform.position = parentPlayer.transform.position;
         GetComponent<SpriteRenderer>().enabled = true;
         Destroy(gameObject, lifeDuration);
         activated = true;
