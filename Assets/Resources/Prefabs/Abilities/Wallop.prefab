@@ -98,7 +98,7 @@ MonoBehaviour:
   knockbackGrowth: 5
   damage: 5
   isProjectile: 0
-  onImpactAudio: {fileID: 0}
+  onImpactAudio: {fileID: 8300000, guid: e6da6118125f54d438225f79bfd69606, type: 3}
   delay: 0.5
 --- !u!212 &212875424328164428
 SpriteRenderer:
