@@ -25,10 +25,15 @@ public class Player : MonoBehaviour {
 	public float effectiveRotation;
 
     private Ability currentActiveAbility;
-
+    [HideInInspector]
 	public List <Ability.Type> abilitiesOnCooldown;
-
+    [HideInInspector]
     public TaskManager taskManager;
+
+    [HideInInspector]
+    public AudioSource castAudioSource;
+    [HideInInspector]
+    public AudioSource impactAudioSource;
 
     // Use this for initialization
     void Start () {
@@ -50,6 +55,8 @@ public class Player : MonoBehaviour {
 		StartListeningForInput ();
 		Services.EventManager.Register<GameOver> (OnGameOver);
         Services.EventManager.Register<PlayerFall>(OnPlayerFall);
+        castAudioSource = gameObject.AddComponent<AudioSource>();
+        impactAudioSource = gameObject.AddComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame

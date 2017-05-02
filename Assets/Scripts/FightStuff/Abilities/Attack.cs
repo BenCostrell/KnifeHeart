@@ -25,7 +25,7 @@ public class Attack : Ability {
 
 	protected virtual void HitPlayer(GameObject player){
 		player.GetComponent<Player> ().TakeHit (damage, baseKnockback, knockbackGrowth, GetDirectionHit(player));
-        PlayImpactSound();
+        PlayImpactSound(player);
         PlayHitParticleEffect(player);
     }
 
@@ -37,10 +37,11 @@ public class Attack : Ability {
         Destroy(hitParticle, hitParticle.GetComponent<ParticleSystem>().main.duration);
     }
 
-    void PlayImpactSound()
+    void PlayImpactSound(GameObject player)
     {
-        impactAudioSource.clip = onImpactAudio;
-        impactAudioSource.Play();
+        AudioSource source = player.GetComponent<Player>().impactAudioSource;
+        source.clip = onImpactAudio;
+        source.Play();
     }
 
 	protected virtual Vector3 GetDirectionHit (GameObject playerHit){

@@ -15,9 +15,6 @@ public class Ability : MonoBehaviour {
 	public AudioClip onCastAudio;
     public bool isMelee;
 
-    protected AudioSource audioSource;
-    protected AudioSource impactAudioSource;
-
     // Use this for initialization
     void Start () {
 	}
@@ -38,15 +35,14 @@ public class Ability : MonoBehaviour {
 		}
 		player.GetComponent<Player> ().anim.SetTrigger (animTrigger);
 		player.GetComponent<Player> ().anim.SetBool ("neutral", false);
-		audioSource = gameObject.AddComponent<AudioSource> ();
-        impactAudioSource = gameObject.AddComponent<AudioSource>();
 		OnCast ();
 	}
 
 	protected virtual void OnCast(){
 		if (onCastAudio != null) {
-			audioSource.clip = onCastAudio;
-			audioSource.Play ();
+            AudioSource source = parentPlayer.GetComponent<Player>().castAudioSource;
+            source.clip = onCastAudio;
+			source.Play ();
 		}
 	}
 
