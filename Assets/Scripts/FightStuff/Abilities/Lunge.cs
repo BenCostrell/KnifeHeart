@@ -13,7 +13,6 @@ public class Lunge : Attack {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (parentPlayer.GetComponent<Rigidbody2D> ().velocity.magnitude);
 	}
 
     void FixedUpdate()

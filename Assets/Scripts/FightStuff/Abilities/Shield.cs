@@ -38,8 +38,8 @@ public class Shield : Ability {
 
 	public override void OnCastFinish ()
 	{
-		base.OnCastFinish ();
-		parentPlayer.GetComponent<Player> ().isInvulnerable = false;
+        parentPlayer.GetComponent<Player>().isInvulnerable = false;
+        base.OnCastFinish ();
 	}
 
     public override void SetActive()

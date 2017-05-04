@@ -293,6 +293,7 @@ public class FightScene : Scene<TransitionData> {
 
     void TransitionBackToVN()
     {
+        foreach (Player player in players) player.StopListeningForInput();
         Services.SceneStackManager.PopScene();
     }
 

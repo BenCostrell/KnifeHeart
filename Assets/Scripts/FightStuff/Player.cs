@@ -36,12 +36,15 @@ public class Player : MonoBehaviour {
     [HideInInspector]
     public AudioSource impactAudioSource;
 
+    private FSM<Player> stateMachine;
+
     // Use this for initialization
     void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
 		sr = GetComponent<SpriteRenderer> ();
         taskManager = new TaskManager();
+        stateMachine = new FSM<Player>(this);
         foreach(Collider2D col in GetComponentsInChildren<Collider2D>())
         {
             if (col.gameObject.tag == "stageEdgeBoundaryCollider")
@@ -69,9 +72,7 @@ public class Player : MonoBehaviour {
 			anim.SetBool ("neutral", true);
 			Move ();
 		} else {
-		}
-
-		anim.SetBool ("Actionable", actionable); 
+		} 
 	}
 
 	void Move(){
@@ -134,11 +135,15 @@ public class Player : MonoBehaviour {
 	public void StartListeningForInput(){
 		Services.EventManager.Register<ButtonPressed> (AbilityActivated);
 		actionable = true;
+        anim.SetBool("Actionable", true);
+        Debug.Log("started listening at time: " + Time.time);
 	}
 
 	public void StopListeningForInput(){
 		Services.EventManager.Unregister<ButtonPressed> (AbilityActivated);
 		actionable = false;
+        anim.SetBool("Actionable", false);
+        Debug.Log("stopped listening at time: " + Time.time);
 	}
 
     public void ResetCooldowns()
@@ -161,6 +166,7 @@ public class Player : MonoBehaviour {
 	public void ResetToNeutral(){
 		anim.SetTrigger ("ResetToNeutral");
 		isInvulnerable = false;
+        Debug.Log("resetting to neutral at time: " + Time.time);
 	}
 
 	void AbilityActivated(ButtonPressed e){
@@ -198,7 +204,7 @@ public class Player : MonoBehaviour {
 			currentActiveAbility = abilityObj.GetComponent<Ability> ();
 			currentActiveAbility.Init (gameObject);
 
-			CastAbilityTask castTimeLockout = new CastAbilityTask (currentActiveAbility.castDuration, this, currentActiveAbility);
+			//CastAbilityTask castTimeLockout = new CastAbilityTask (currentActiveAbility.castDuration, this, currentActiveAbility);
 			AbilityCooldownTask abilityCooldown = new AbilityCooldownTask (type, currentActiveAbility.cooldown, this);
             HighlightAbilityOffCooldown highlightCooldownEnd = new HighlightAbilityOffCooldown(type, this, 
                 Services.FightUIManager.abCDHighlightTime);
@@ -263,5 +269,42 @@ public class Player : MonoBehaviour {
 		if (currentActiveAbility != null)
 			currentActiveAbility.OnCastFinish ();
 	}
-		
+
+    public void DebugAnimationState(string state)
+    {
+        Debug.Log("entered state: " + state + " at time " + Time.time);
+    }
+
+    // STATES //
+    //private class PlayerState : FSM<Player>.State { }
+
+    //private class Actionable : PlayerState
+    //{
+    //    public override void OnEnter()
+    //    {
+    //        Context.StartListeningForInput();
+    //    }
+
+    //    public override void Update()
+    //    {
+    //        Context.anim.SetBool("neutral", true);
+    //        Context.anim.SetBool("Actionable", true);
+    //        Context.Move();
+    //    }
+    //}
+
+    //private class Unactionable : PlayerState
+    //{
+
+    //    public override void OnEnter()
+    //    {
+    //        Context.StopListeningForInput();
+    //    }
+
+    //    public override void Update()
+    //    {
+    //        base.Update();
+    //    }
+    //}
+
 }
