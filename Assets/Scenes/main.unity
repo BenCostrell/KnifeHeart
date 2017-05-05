@@ -161,13 +161,13 @@ MonoBehaviour:
   titleTrack: {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
   baseTrack: {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
   fightTracks:
-  - {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
+  - {fileID: 8300000, guid: 56d46d2e223416444bf5008b72685619, type: 3}
   - {fileID: 8300000, guid: cbefd5d7486f10d4f99dae80c4de436f, type: 3}
   - {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
   - {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
-  - {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
-  fadeInTime: 2
-  fadeOutTime: 2
+  - {fileID: 8300000, guid: 56d46d2e223416444bf5008b72685619, type: 3}
+  fadeInTime: 0.5
+  fadeOutTime: 0.5
 --- !u!4 &1659236841
 Transform:
   m_ObjectHideFlags: 0
