@@ -179,12 +179,12 @@ Prefab:
     - target: {fileID: 212000012149396008, guid: d3d140c6d5588c7488047f7573df5092,
         type: 2}
       propertyPath: m_Size.x
-      value: 3.6000004
+      value: 5.4719996
       objectReference: {fileID: 0}
     - target: {fileID: 212000012149396008, guid: d3d140c6d5588c7488047f7573df5092,
         type: 2}
       propertyPath: m_Size.y
-      value: 6.48
+      value: 5.598
       objectReference: {fileID: 0}
     - target: {fileID: 61237128564030822, guid: d3d140c6d5588c7488047f7573df5092,
         type: 2}
@@ -199,7 +199,7 @@ Prefab:
     - target: {fileID: 61237128564030822, guid: d3d140c6d5588c7488047f7573df5092,
         type: 2}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 5.472
+      value: 5.4719996
       objectReference: {fileID: 0}
     - target: {fileID: 61237128564030822, guid: d3d140c6d5588c7488047f7573df5092,
         type: 2}
@@ -209,7 +209,7 @@ Prefab:
     - target: {fileID: 61237128564030822, guid: d3d140c6d5588c7488047f7573df5092,
         type: 2}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 5.472
+      value: 5.4719996
       objectReference: {fileID: 0}
     - target: {fileID: 61237128564030822, guid: d3d140c6d5588c7488047f7573df5092,
         type: 2}
@@ -258,6 +258,21 @@ Prefab:
         type: 2}
       propertyPath: m_Color.a
       value: 0.769
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000012149396008, guid: d3d140c6d5588c7488047f7573df5092,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000012149396008, guid: d3d140c6d5588c7488047f7573df5092,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000012149396008, guid: d3d140c6d5588c7488047f7573df5092,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3d140c6d5588c7488047f7573df5092, type: 2}
