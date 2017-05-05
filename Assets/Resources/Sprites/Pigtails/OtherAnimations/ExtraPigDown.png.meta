@@ -1,0 +1,328 @@
+fileFormatVersion: 2
+guid: e7d43322cfd2b474a8d2bed2b5bab393
+timeCreated: 1493945126
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ExtraPigDown_0
+    21300002: ExtraPigDown_1
+    21300004: ExtraPigDown_2
+    21300006: ExtraPigDown_3
+    21300008: ExtraPigDown_4
+    21300010: ExtraPigDown_5
+    21300012: ExtraPigDown_6
+    21300014: ExtraPigDown_7
+    21300016: ExtraPigDown_8
+    21300018: ExtraPigDown_9
+    21300020: ExtraPigDown_10
+    21300022: ExtraPigDown_11
+    21300024: ExtraPigDown_12
+    21300026: ExtraPigDown_13
+    21300028: ExtraPigDown_14
+    21300030: ExtraPigDown_15
+    21300032: ExtraPigDown_16
+    21300034: ExtraPigDown_17
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 500
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ExtraPigDown_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8397
+        width: 1344
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ExtraPigDown_1
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 8397
+        width: 1344
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ExtraPigDown_2
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 8397
+        width: 1344
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ExtraPigDown_3
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 8397
+        width: 1344
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ExtraPigDown_4
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 8397
+        width: 1344
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ExtraPigDown_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5598
+        width: 1344
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ExtraPigDown_6
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 5598
+        width: 1344
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ExtraPigDown_7
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 5598
+        width: 1344
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ExtraPigDown_8
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 5598
+        width: 1344
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ExtraPigDown_9
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 5598
+        width: 1344
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ExtraPigDown_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2799
+        width: 1344
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ExtraPigDown_11
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 2799
+        width: 1344
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ExtraPigDown_12
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 2799
+        width: 1344
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ExtraPigDown_13
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 2799
+        width: 1344
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ExtraPigDown_14
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 2799
+        width: 1344
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ExtraPigDown_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1344
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ExtraPigDown_16
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 1344
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ExtraPigDown_17
+      rect:
+        serializedVersion: 2
+        x: 2688
+        y: 0
+        width: 1344
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
