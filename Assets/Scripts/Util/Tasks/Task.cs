@@ -116,11 +116,57 @@ public class Task {
 
 	protected virtual void CleanUp() {}
 
-	public Task nextTask{ get; private set; }
+    public Task nextTask { get; private set; }
 
 	public Task Then(Task task){
 		Debug.Assert (!task.IsAttached);
 		nextTask = task;
 		return task;
 	}
+
+    public Task Then(TaskQueue taskQueue)
+    {
+        foreach(Task task in taskQueue.tasks)
+        {
+            Debug.Assert(!task.IsAttached);
+        }
+
+        nextTask = taskQueue.tasks[0];
+
+        for (int i = 1; i < taskQueue.tasks.Count; i++)
+        {
+            taskQueue.tasks[i - 1].nextTask = taskQueue.tasks[i];
+        }
+        return taskQueue.tasks[taskQueue.tasks.Count - 1];
+    }
+
+    
+
+}
+
+public class TaskQueue
+{
+    public List<Task> tasks;
+
+    public TaskQueue (List<Task> taskList)
+    {
+        tasks = taskList;
+    }
+
+    public TaskQueue()
+    {
+        tasks = new List<Task>();
+    }
+
+    public TaskQueue Then(TaskQueue taskQueue)
+    {
+        tasks.AddRange(taskQueue.tasks);
+        return this;
+    }
+
+    public TaskQueue Add (Task task)
+    {
+        tasks.Add(task);
+        return this;
+    }
 }

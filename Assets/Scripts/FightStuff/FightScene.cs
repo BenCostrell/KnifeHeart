@@ -172,123 +172,113 @@ public class FightScene : Scene<TransitionData> {
     {
         if (roundNum == 3)
         {
-            InitiateFinalFightSequence();
+            Services.TaskManager.AddTaskQueue(FinalFightSequence());
         }
         else
         {
-            ActionTask initializePlayers = new ActionTask(InitializePlayers);
-            WaitForFall waitForFall = new WaitForFall();
-            Task transitionComic = ComicSequence(waitForFall, roundNum);
-            ActionTask transitionBackToVN = new ActionTask(TransitionBackToVN);
+            TaskQueue fightSequence = new TaskQueue(new List<Task>() {
+                new ActionTask(InitializePlayers),
+                new WaitForFall()
+            });
 
-            initializePlayers
-                .Then(waitForFall);
-            transitionComic
-                .Then(transitionBackToVN);
+            fightSequence
+                .Then(ComicSequence(roundNum)).Add(new ActionTask(TransitionBackToVN));
 
-            Services.TaskManager.AddTask(initializePlayers);
+            Services.TaskManager.AddTaskQueue(fightSequence);
         }
     }
 
-    void InitiateFinalFightSequence()
+    TaskQueue FinalFightSequence()
     {
-        ActionTask initializePlayersForRooftop = new ActionTask(InitializePlayers);
-        WaitForFall waitForRooftopFall = new WaitForFall();
-        PlayerFallAnimation rooftopFallAnimation = new PlayerFallAnimation();
-        Task transitionToParkingLot = ComicSequence(rooftopFallAnimation, 3);
-        ActionTask resumeCameraFollow1 = new ActionTask(Services.CameraController.ResumeCameraFollow);
-        PositionPlayersTask positionPlayersForParkingLot = new PositionPlayersTask(4);
-        WaitForFall waitForParkingLotFall = new WaitForFall();
-        PlayerFallAnimation parkingLotFallAnimation = new PlayerFallAnimation();
-        Task transitionToHell = ComicSequence(parkingLotFallAnimation, 4);
-        ActionTask resumeCameraFollow2 = new ActionTask(Services.CameraController.ResumeCameraFollow);
-        PositionPlayersTask positionPlayersForHell = new PositionPlayersTask(5);
-        WaitForFall waitForHellFall = new WaitForFall();
-        PlayerFallAnimation hellFallAnimation = new PlayerFallAnimation();
-        Task winComic = ComicSequence(hellFallAnimation, 5);
-        //ActionTask gameOver = new ActionTask(GameOver);
-        SetObjectStatus turnOnResetText = new SetObjectStatus(true, Services.WinScreenUIManager.uiResetText);
-        winComic.Then(turnOnResetText);
+        TaskQueue rooftopSequence = new TaskQueue(new List<Task>() {
+            new ActionTask(InitializePlayers),
+            new WaitForFall(),
+            new PlayerFallAnimation()
+        });
 
-        initializePlayersForRooftop
-            .Then(waitForRooftopFall)
-            .Then(rooftopFallAnimation);
+        rooftopSequence.Then(ComicSequence(3));
 
-        transitionToParkingLot
-            .Then(resumeCameraFollow1)
-            .Then(positionPlayersForParkingLot)
-            .Then(waitForParkingLotFall)
-            .Then(parkingLotFallAnimation);
+        TaskQueue parkingLotSequence = new TaskQueue(new List<Task>() {
+            new ActionTask(Services.CameraController.ResumeCameraFollow),
+            new PositionPlayersTask(4),
+            new WaitForFall(),
+            new PlayerFallAnimation()
+        });
 
-        transitionToHell
-            .Then(resumeCameraFollow2)
-            .Then(positionPlayersForHell)
-            .Then(waitForHellFall)
-            .Then(hellFallAnimation);
+        parkingLotSequence.Then(ComicSequence(4));
 
-        Services.TaskManager.AddTask(initializePlayersForRooftop);
+        TaskQueue hellSequence = new TaskQueue(new List<Task>()
+        {
+            new ActionTask(Services.CameraController.ResumeCameraFollow),
+            new PositionPlayersTask(5),
+            new WaitForFall(),
+            new PlayerFallAnimation()
+        });
+
+        hellSequence.Then(ComicSequence(5));
+
+        TaskQueue cleanUpSequence = new TaskQueue(new List<Task>()
+        {
+            new SetObjectStatus(true, Services.WinScreenUIManager.uiResetText)
+        });
+
+        TaskQueue finalFightSequence = rooftopSequence
+            .Then(parkingLotSequence)
+            .Then(hellSequence)
+            .Then(cleanUpSequence);
+
+        return finalFightSequence;
     }
 
-    Task ComicSequence(Task precedingTask, int roundNumber)
+    TaskQueue ComicSequence(int roundNumber)
     {
         Transform comicTransform = Services.TransitionComicManager.fightEndComics[roundNumber - 1].transform;
-        SlideInPanel slideInComicBackground = new SlideInPanel(Services.TransitionComicManager.comicBackground, true, 1600 * Vector2.right,
-            Services.TransitionComicManager.panelAppearTime);
-        ActionTask resetCamera = new ActionTask(Services.CameraController.ResetCamera);
-        precedingTask
-            .Then(slideInComicBackground)
-            .Then(resetCamera);
-        Task currentTask = resetCamera;
-        if (roundNumber == 3 || roundNumber == 4) {
-            Task turnOffPreviousArena = new SetObjectStatus(false, arenas[roundNumber - 1]);
-            currentTask.Then(turnOffPreviousArena);
-            currentTask = turnOffPreviousArena;
+
+        TaskQueue comicSequence = new TaskQueue(new List<Task>()
+        {
+            new SlideInPanel(Services.TransitionComicManager.comicBackground, true, 1600 * Vector2.right,
+            Services.TransitionComicManager.panelAppearTime),
+            new ActionTask(Services.CameraController.ResetCamera)
+
+        });
+        if (roundNumber == 3 || roundNumber == 4)
+        {
+            comicSequence.Add(new SetObjectStatus(false, arenas[roundNumber - 1]));
         }
-        SetObjectStatus turnOnTransition = new SetObjectStatus(true, comicTransform.gameObject);
-        currentTask
-            .Then(turnOnTransition);
+
+        comicSequence.Add(new SetObjectStatus(true, comicTransform.gameObject));
+
         int numPages = comicTransform.childCount;
-        currentTask = turnOnTransition;
         for (int i = 0; i < numPages; i++)
         {
             Transform page = comicTransform.GetChild(i);
-            SetObjectStatus turnOnPage = new SetObjectStatus(true, page.gameObject);
-            currentTask.Then(turnOnPage);
-            currentTask = turnOnPage;
+            comicSequence.Add(new SetObjectStatus(true, page.gameObject));
             int numPanels = page.childCount;
             for (int j = 0; j < numPanels; j++)
             {
-                SetPanelImage setPanelImage = new SetPanelImage(page.GetChild(j).gameObject);
-                SlideInPanel slideInPanel = new SlideInPanel(page.GetChild(j).gameObject, true, 
-                    Services.TransitionComicManager.comicShifts[roundNumber-1][i][j], Services.TransitionComicManager.panelAppearTime);
-                currentTask
-                    .Then(setPanelImage)
-                    .Then(slideInPanel);
-                currentTask = slideInPanel;
+                comicSequence.Then(new TaskQueue(new List<Task>() {
+                    new SetPanelImage(page.GetChild(j).gameObject),
+                    new SlideInPanel(page.GetChild(j).gameObject, true,
+                    Services.TransitionComicManager.comicShifts[roundNumber - 1][i][j], Services.TransitionComicManager.panelAppearTime)
+                }));
             }
             if ((i == numPages - 1) && (roundNumber == 5))
             {
-                ActionTask itsTheLastComic = new ActionTask(LastComic);
-                currentTask.Then(itsTheLastComic);
-                currentTask = itsTheLastComic;
+                comicSequence.Add(new ActionTask(LastComic));
             }
-            WaitToContinueFromComic waitToContinue = new WaitToContinueFromComic(page.gameObject,
-                Services.TransitionComicManager.continueButton, Services.TransitionComicManager.continuePromptGrowTime, 
-                Services.TransitionComicManager.continuePromptShrinkTime);
-            currentTask.Then(waitToContinue);
-            currentTask = waitToContinue;
+            comicSequence.Add(new WaitToContinueFromComic(page.gameObject,
+                Services.TransitionComicManager.continueButton, Services.TransitionComicManager.continuePromptGrowTime,
+                Services.TransitionComicManager.continuePromptShrinkTime));
         }
         if (roundNumber == 3 || roundNumber == 4)
         {
-            SetObjectStatus turnOnNextArena = new SetObjectStatus(true, arenas[roundNumber]);
-            SetObjectStatus turnOffBackground = new SetObjectStatus(false, Services.TransitionComicManager.comicBackground);
-            currentTask
-                .Then(turnOnNextArena)
-                .Then(turnOffBackground);
-            currentTask = turnOffBackground;
+            comicSequence.Then(new TaskQueue(new List<Task>() {
+                new SetObjectStatus(true, arenas[roundNumber]),
+                new SetObjectStatus(false, Services.TransitionComicManager.comicBackground)
+            }));
         }
-        
-        return currentTask;
+
+        return comicSequence;
     }
 
     void TransitionBackToVN()

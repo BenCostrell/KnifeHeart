@@ -116,142 +116,109 @@ public class VisualNovelScene : Scene<TransitionData> {
     void StartSequence()
     {
         Services.ComicPanelManager.comicBackground.SetActive(true);
-        Task startTask = new WaitTask(0);
-        Task comicSequence = ComicSequence(startTask, Services.ComicPanelManager.scenarios[currentRoundNum - 1].transform, 
-            currentRoundNum - 1);
-        Task roundSequence = RoundSequence(comicSequence);
-        Task transitionToFight = TransitionToFightSequence(roundSequence);
+        TaskQueue comicSequence = ComicSequence(Services.ComicPanelManager.scenarios[currentRoundNum - 1].transform, currentRoundNum - 1);
+        TaskQueue roundSequence = RoundSequence();
+        TaskQueue transitionSequence = TransitionToFightSequence();
 
-        Services.TaskManager.AddTask(startTask);
+        Services.TaskManager.AddTaskQueue(comicSequence.Then(roundSequence).Then(transitionSequence));
     }
 
-    Task ComicSequence(Task precedingTask, Transform scenarioTransform, int comicNum)
+    TaskQueue ComicSequence(Transform scenarioTransform, int comicNum)
     {
-        SetObjectStatus turnOnScenario = new SetObjectStatus(true, scenarioTransform.gameObject);
-        precedingTask
-            .Then(turnOnScenario);
         int numPages = scenarioTransform.childCount;
-        Task currentTask = turnOnScenario;
+        TaskQueue comicTasks = new TaskQueue();
+        comicTasks.Add(new SetObjectStatus(true, scenarioTransform.gameObject));
         for (int i = 0; i < numPages; i++)
         {
             Transform page = scenarioTransform.GetChild(i);
-            SetObjectStatus turnOnPage = new SetObjectStatus(true, page.gameObject);
-            currentTask.Then(turnOnPage);
-            currentTask = turnOnPage;
+            comicTasks.Add(new SetObjectStatus(true, page.gameObject));
             int numPanels = page.childCount;
             for (int j = 0; j < numPanels; j++)
             {
-                SlideInPanel slideInPanel = new SlideInPanel(page.GetChild(j).gameObject, true, comicShiftArray[comicNum, i, j], 
-                    Services.ComicPanelManager.panelAppearTime);
-                currentTask.Then(slideInPanel);
-                currentTask = slideInPanel;
+                comicTasks.Add (new SlideInPanel(page.GetChild(j).gameObject, true, comicShiftArray[comicNum, i, j],
+                    Services.ComicPanelManager.panelAppearTime));
             }
-            WaitToContinueFromComic waitToContinue = new WaitToContinueFromComic(page.gameObject, Services.ComicPanelManager.continueButton,
-                Services.TransitionUIManager.readyPromptGrowTime, Services.TransitionUIManager.readyPromptShrinkTime);
-            currentTask.Then(waitToContinue);
-            currentTask = waitToContinue;
+            comicTasks.Add(new WaitToContinueFromComic(page.gameObject, Services.ComicPanelManager.continueButton,
+                Services.TransitionUIManager.readyPromptGrowTime, Services.TransitionUIManager.readyPromptShrinkTime));
         }
-        SetObjectStatus turnOffDialogueBox = new SetObjectStatus(false, Services.DialogueUIManager.dialogueContainer);
-        SetObjectStatus turnOffBackground = new SetObjectStatus(false, Services.ComicPanelManager.comicBackground);
-        currentTask
-            .Then(turnOffDialogueBox)
-            .Then(turnOffBackground);
 
-        currentTask = turnOffBackground;
+        comicTasks.Then(new TaskQueue(new List<Task>() {
+            new SetObjectStatus(false, Services.DialogueUIManager.dialogueContainer),
+            new SetObjectStatus(false, Services.ComicPanelManager.comicBackground)
+        }));
 
-        return currentTask;
+        return comicTasks;
     }
 
-    Task RoundSequence(Task precedingTask)
+    TaskQueue RoundSequence()
     {
-        Task rpsSequence = RpsSequence(precedingTask);
-        Task dialogueExchangeSequence = DialogueExchangeSequence(rpsSequence);
-
-        return dialogueExchangeSequence;
+        return RpsSequence().Then(DialogueExchangeSequence());
     }
 
-    Task RpsSequence(Task precedingTask)
+    TaskQueue RpsSequence()
     {
-        ActionTask enterRpsStage = new ActionTask(Services.DialogueUIManager.InRpsStage);
-        SlideInCrowd slideInCrowd = new SlideInCrowd();
-        ShowRpsDialogueOptions showOptions = new ShowRpsDialogueOptions();
-        WaitForRpsDialogueSelection waitForSelection = new WaitForRpsDialogueSelection();
-        TransitionFromSelectionToDialogue transition = new TransitionFromSelectionToDialogue();
-        PopUpDialogueBox popUpDialogue1 = new PopUpDialogueBox(false);
-        TypeRpsDialogue loserDialogue = new TypeRpsDialogue();
-        WaitToContinueDialogue waitForInput1 = new WaitToContinueDialogue();
-        PopUpDialogueBox popUpDialogue2 = new PopUpDialogueBox(false);
-        TypeRpsDialogue winnerDialogue = new TypeRpsDialogue();
-        WaitToContinueDialogue waitForInput2 = new WaitToContinueDialogue();
-        PopUpDialogueBox popUpDialogue3 = new PopUpDialogueBox(true);
-        TypeDialogue crowdReaction = new TypeDialogue(true);
-        WaitToContinueDialogue waitForInput3 = new WaitToContinueDialogue();
-        ActionTask exitRpsStage = new ActionTask(Services.DialogueUIManager.NotInRpsStage);
-
-        precedingTask
-            .Then(enterRpsStage)
-            .Then(slideInCrowd)
-            .Then(showOptions)
-            .Then(waitForSelection)
-            .Then(transition)
-            .Then(popUpDialogue1)
-            .Then(loserDialogue)
-            .Then(waitForInput1)
-            .Then(popUpDialogue2)
-            .Then(winnerDialogue)
-            .Then(waitForInput2)
-            .Then(popUpDialogue3)
-            .Then(crowdReaction)
-            .Then(waitForInput3)
-            .Then(exitRpsStage);
-
-        return exitRpsStage;
+        return new TaskQueue(new List<Task>()
+        {
+            new ActionTask(Services.DialogueUIManager.InRpsStage),
+            new SlideInCrowd(),
+            new ShowRpsDialogueOptions(),
+            new WaitForRpsDialogueSelection(),
+            new TransitionFromSelectionToDialogue(),
+            new PopUpDialogueBox(false),
+            new TypeRpsDialogue(),
+            new WaitToContinueDialogue(),
+            new PopUpDialogueBox(true),
+            new TypeDialogue(true),
+            new WaitToContinueDialogue(),
+            new ActionTask(Services.DialogueUIManager.NotInRpsStage)
+        });
     }
 
-    Task DialogueExchangeSequence(Task precedingTask){
-        SetObjectStatus turnOffDialogueBox1 = new SetObjectStatus(false, Services.DialogueUIManager.dialogueContainer);
-        ShowDialogueOptions showFirstOptions = new ShowDialogueOptions (true);
-		WaitForDialogueChoiceTask waitForFirstChoice = new WaitForDialogueChoiceTask ();
-		HighlightSelectedOption highlightFirstChoice = new HighlightSelectedOption ();
-        ActionTask posePlayerAfterFirstChoice = new ActionTask(Services.DialogueUIManager.SetPose);
-        PopUpDialogueBox popUpDialogue1 = new PopUpDialogueBox(false);
-        TypeDialogue typeFirstDialogue = new TypeDialogue (false);
-		WaitToContinueDialogue waitAfterFirstDialogue = new WaitToContinueDialogue ();
-        ShowAbilityPicked showFirstAbility = new ShowAbilityPicked();
-        SetObjectStatus turnOffDialogueBox2 = new SetObjectStatus(false, Services.DialogueUIManager.dialogueContainer);
-		ShowDialogueOptions showSecondOptions = new ShowDialogueOptions (false);
-		WaitForDialogueChoiceTask waitForSecondChoice = new WaitForDialogueChoiceTask ();
-		HighlightSelectedOption highlightSecondChoice = new HighlightSelectedOption ();
-        ActionTask posePlayerAfterSecondChoice = new ActionTask(Services.DialogueUIManager.SetPose);
-        PopUpDialogueBox popUpDialogue2 = new PopUpDialogueBox(false);
-        TypeDialogue typeSecondDialogue = new TypeDialogue (false);
-		WaitToContinueDialogue waitAfterSecondDialogue = new WaitToContinueDialogue ();
-        ShowAbilityPicked showSecondAbility = new ShowAbilityPicked();
-		DialogueTransitionTask transition = new DialogueTransitionTask ();
+    TaskQueue DialogueExchangeSequence()
+    {
+        return new TaskQueue(new List<Task>() {
+            new SetObjectStatus(false, Services.DialogueUIManager.dialogueContainer),
+            new ShowDialogueOptions (true),
+            new WaitForDialogueChoiceTask (),
+            new HighlightSelectedOption (),
+            new ActionTask(Services.DialogueUIManager.SetPose),
+            new PopUpDialogueBox(false),
+            new TypeDialogue (false),
+            new WaitToContinueDialogue (),
+            new SetObjectStatus(false, Services.DialogueUIManager.dialogueContainer),
+            new ShowDialogueOptions (false),
+            new WaitForDialogueChoiceTask (),
+            new HighlightSelectedOption (),
+            new ActionTask(Services.DialogueUIManager.SetPose),
+            new PopUpDialogueBox(false),
+            new TypeDialogue (false),
+            new WaitToContinueDialogue (),
+            new DialogueTransitionTask ()
+        });
+    }
 
-        precedingTask
-            .Then(turnOffDialogueBox1)
-            .Then(showFirstOptions)
-            .Then(waitForFirstChoice)
-            .Then(highlightFirstChoice)
-            .Then(posePlayerAfterFirstChoice)
-            .Then(popUpDialogue1)
-            .Then(typeFirstDialogue)
-            .Then(waitAfterFirstDialogue)
-            //.Then(showFirstAbility)
-            .Then(turnOffDialogueBox2)
-            .Then(showSecondOptions)
-            .Then(waitForSecondChoice)
-            .Then(highlightSecondChoice)
-            .Then(posePlayerAfterSecondChoice)
-            .Then(popUpDialogue2)
-            .Then(typeSecondDialogue)
-            .Then(waitAfterSecondDialogue)
-            //.Then(showSecondAbility)
-            .Then(transition);
+    TaskQueue TransitionToFightSequence()
+    {
+        Services.GameInfo.player1Abilities = abilityLists[0];
+        Services.GameInfo.player2Abilities = abilityLists[1];
+        return new TaskQueue(new List<Task>()
+        {
+            new SlideOutCrowd(),
+            new SlideInFightBackground (),
+            new ShowFightinWords (),
+            new AbilityShowingSequence(Services.TransitionUIManager.blurbScaleInTime,
+            Services.TransitionUIManager.blurbFlipTime, Services.TransitionUIManager.blurbDelayBeforeFlipping),
+            new WaitForReady (),
+            new ScaleOutTransitionUI (),
+            new FinishTransition (),
+            new ActionTask(StartFight)
+        });
+    }
 
-        return transition;
-	}
+    void StartFight()
+    {
+        Services.SceneStackManager.PushScene<FightScene>(new TransitionData(currentRoundNum));
+    }
 
     public void GenerateDialogueOptions(bool firstChoice){
 		Dialogue[] dialogueOptions = new Dialogue[4];
@@ -426,35 +393,5 @@ public class VisualNovelScene : Scene<TransitionData> {
         rpsDialogueArray = dialogueArray;
     }
 
-	Task TransitionToFightSequence(Task precedingTask){
-		Services.GameInfo.player1Abilities = abilityLists[0];
-		Services.GameInfo.player2Abilities = abilityLists[1];
-
-        SlideOutCrowd slideOutCrowd = new SlideOutCrowd();
-        SlideInFightBackground slideInBG = new SlideInFightBackground ();
-		ShowFightinWords showWords = new ShowFightinWords ();
-        AbilityShowingSequence showAbiltiies = new AbilityShowingSequence(Services.TransitionUIManager.blurbScaleInTime, 
-            Services.TransitionUIManager.blurbFlipTime, Services.TransitionUIManager.blurbDelayBeforeFlipping);
-		WaitForReady waitForReady = new WaitForReady ();
-		ScaleOutTransitionUI scaleOut = new ScaleOutTransitionUI ();
-		FinishTransition finish = new FinishTransition ();
-        ActionTask startFight = new ActionTask(StartFight);
-
-        precedingTask
-            .Then(slideOutCrowd)
-            .Then(slideInBG)
-            .Then(showWords)
-            .Then(showAbiltiies)
-            .Then(waitForReady)
-            .Then(scaleOut)
-            .Then(finish)
-            .Then(startFight);
-
-        return startFight;
-	}
-
-    void StartFight()
-    {
-        Services.SceneStackManager.PushScene<FightScene>(new TransitionData(currentRoundNum));
-    }
+    
 }

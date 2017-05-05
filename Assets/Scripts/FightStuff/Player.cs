@@ -37,6 +37,8 @@ public class Player : MonoBehaviour {
     public AudioSource impactAudioSource;
 
     private FSM<Player> stateMachine;
+    private ParticleSystem movementDust;
+    private float baseMovementDustRotation;
 
     // Use this for initialization
     void Start () {
@@ -45,6 +47,8 @@ public class Player : MonoBehaviour {
 		sr = GetComponent<SpriteRenderer> ();
         taskManager = new TaskManager();
         stateMachine = new FSM<Player>(this);
+        movementDust = GetComponentInChildren<ParticleSystem>();
+        baseMovementDustRotation = movementDust.transform.localEulerAngles.z;
         foreach(Collider2D col in GetComponentsInChildren<Collider2D>())
         {
             if (col.gameObject.tag == "stageEdgeBoundaryCollider")
@@ -75,54 +79,65 @@ public class Player : MonoBehaviour {
 		} 
 	}
 
-	void Move(){
-		Vector2 direction = new Vector2 (Input.GetAxis ("Horizontal_P" + playerNum), Input.GetAxis ("Vertical_P" + playerNum));
+    void UpdateRotation(Vector2 direction)
+    {
+        float angleFacing = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        if (direction.magnitude > 0.01f)
+        {
+            if ((angleFacing >= -45) && (angleFacing < 45))
+            {
+                sr.flipX = true;
+                effectiveRotation = 180;
+                anim.SetBool("sideFacing", true);
+                anim.SetBool("upFacing", false);
+                anim.SetBool("downFacing", false);
+            }
+            else if ((angleFacing >= 45) && (angleFacing < 135))
+            {
+                sr.flipX = false;
+                effectiveRotation = -90;
+                anim.SetBool("sideFacing", false);
+                anim.SetBool("upFacing", true);
+                anim.SetBool("downFacing", false);
+            }
+            else if ((angleFacing >= 135) || ((angleFacing >= -180) && (angleFacing <= -135)))
+            {
+                sr.flipX = false;
+                effectiveRotation = 0;
+                anim.SetBool("sideFacing", true);
+                anim.SetBool("upFacing", false);
+                anim.SetBool("downFacing", false);
+            }
+            else {
+                sr.flipX = false;
+                effectiveRotation = 90;
+                anim.SetBool("sideFacing", false);
+                anim.SetBool("upFacing", false);
+                anim.SetBool("downFacing", true);
+            }
+        }
 
-        if(Vector2.Dot(direction, rb.velocity) <= 0)
+        movementDust.transform.localRotation = Quaternion.Euler(0, 0, baseMovementDustRotation + effectiveRotation);
+    }
+
+    void Move()
+    {
+        Vector2 direction = new Vector2(Input.GetAxis("Horizontal_P" + playerNum), Input.GetAxis("Vertical_P" + playerNum));
+
+        if (Vector2.Dot(direction, rb.velocity) <= 0)
         {
             rb.velocity = dashSpeed * direction.normalized;
         }
 
-		rb.AddForce (accel * direction);
+        rb.AddForce(accel * direction);
 
-		if (rb.velocity.magnitude > maxSpeed) {
-			rb.velocity = maxSpeed * direction.normalized;
-		}
-		anim.SetFloat ("Velocity", direction.magnitude);
-
-//		if (direction.magnitude > 0.1f)
-//			EndAbility ();
-
-		float angleFacing = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
-		if (direction.magnitude > 0.01f) {
-			if ((angleFacing >= -45) && (angleFacing < 45)) {
-				sr.flipX = true;
-				effectiveRotation = 180;
-				anim.SetBool ("sideFacing", true);
-				anim.SetBool ("upFacing", false);
-				anim.SetBool ("downFacing", false);
-			} else if ((angleFacing >= 45) && (angleFacing < 135)) {
-				sr.flipX = false;
-				effectiveRotation = -90;
-				anim.SetBool ("sideFacing", false);
-				anim.SetBool ("upFacing", true);
-				anim.SetBool ("downFacing", false);
-			} else if ((angleFacing >= 135) || ((angleFacing >= -180) && (angleFacing <= -135))) {
-				sr.flipX = false;
-				effectiveRotation = 0;
-				anim.SetBool ("sideFacing", true);
-				anim.SetBool ("upFacing", false);
-				anim.SetBool ("downFacing", false);
-			} else {
-				sr.flipX = false;
-				effectiveRotation = 90;
-				anim.SetBool ("sideFacing", false);
-				anim.SetBool ("upFacing", false);
-				anim.SetBool ("downFacing", true);
-			}
-		}
-		//Debug.Log (rb.velocity);
-	}
+        if (rb.velocity.magnitude > maxSpeed)
+        {
+            rb.velocity = maxSpeed * direction.normalized;
+        }
+        anim.SetFloat("Velocity", direction.magnitude);
+        UpdateRotation(direction);
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -273,6 +288,11 @@ public class Player : MonoBehaviour {
     public void DebugAnimationState(string state)
     {
         Debug.Log("entered state: " + state + " at time " + Time.time);
+    }
+
+    public void CreateDustCloud()
+    {
+        movementDust.Emit(1);
     }
 
     // STATES //
