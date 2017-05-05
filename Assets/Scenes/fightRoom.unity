@@ -309,6 +309,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114543626297634862, guid: 7113b7853415cca4b9c5c64d085a3dbe,
+        type: 2}
+      propertyPath: fightTracks.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 56d46d2e223416444bf5008b72685619, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7113b7853415cca4b9c5c64d085a3dbe, type: 2}
   m_IsPrefabParent: 0
