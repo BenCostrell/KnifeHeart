@@ -11,6 +11,7 @@ public static class Services {
     public static GameInfo GameInfo { get; set; }
     public static InputManager InputManager { get; set; }
     public static SceneStackManager<TransitionData> SceneStackManager { get; set; }
+    public static MusicManager MusicManager { get; set; }
 
     /// TITLE SCREEN ///
     public static TitleScreen TitleScreen { get; set; }

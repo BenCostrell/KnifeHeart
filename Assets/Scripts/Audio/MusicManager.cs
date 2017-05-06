@@ -18,7 +18,7 @@ public class MusicManager : MonoBehaviour {
     private List<AudioSource> currentActiveSources;
 
 	// Use this for initialization
-	void Awake () {
+	public void Init () {
         currentActiveSources = new List<AudioSource>();
         titleSource = InitializeAudio(titleTrack);
         baseSource = InitializeAudio(baseTrack);

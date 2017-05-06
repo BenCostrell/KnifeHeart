@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		InitializeUniversalServices ();
-
-		Services.EventManager.Register<Reset> (Reset);
+        Services.MusicManager.Init();
+        Services.EventManager.Register<Reset> (Reset);
 	}
 	
     void Start()
@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
         {
             Services.SceneStackManager.PushScene<TitleScreen>();
         }
+
     }
 
 	// Update is called once per frame
@@ -42,6 +43,7 @@ public class GameManager : MonoBehaviour {
 		Services.InputManager = new InputManager ();
         Services.SceneStackManager = new SceneStackManager<TransitionData>(GameObject.FindGameObjectWithTag("SceneRoot"), 
             Services.PrefabDB.Scenes);
+        Services.MusicManager = GameObject.FindWithTag("MusicManager").GetComponent<MusicManager>();
 	}
 
 	void Reset(Reset e){
