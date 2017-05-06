@@ -35,8 +35,6 @@ public class Blink : Ability
                     foreach (Collider2D wall in walls) if (feetBounds.Intersects(wall.bounds)) inRange = false;
                 }
             }
-            Debug.Log(i);
-            Debug.Log(direction);
             if (inRange) break;
         }
     }

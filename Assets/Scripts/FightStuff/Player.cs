@@ -163,7 +163,6 @@ public class Player : MonoBehaviour {
         if (collision.gameObject.tag == "Wall" && !stageEdgeBoundaryCollider.enabled)
         {
             rb.velocity = Vector2.Reflect(previousVelocity, collision.contacts[0].normal);
-            Debug.Log("bounced off wall");
         }
     }
 
@@ -171,14 +170,14 @@ public class Player : MonoBehaviour {
 		Services.EventManager.Register<ButtonPressed> (AbilityActivated);
 		actionable = true;
         anim.SetBool("Actionable", true);
-        Debug.Log("started listening at time: " + Time.time);
+        //Debug.Log("started listening at time: " + Time.time);
 	}
 
 	public void StopListeningForInput(){
 		Services.EventManager.Unregister<ButtonPressed> (AbilityActivated);
 		actionable = false;
         anim.SetBool("Actionable", false);
-        Debug.Log("stopped listening at time: " + Time.time);
+        //Debug.Log("stopped listening at time: " + Time.time);
 	}
 
     public void ResetCooldowns()
@@ -199,9 +198,9 @@ public class Player : MonoBehaviour {
 	}
 
 	public void ResetToNeutral(){
-		anim.SetTrigger ("ResetToNeutral");
-		isInvulnerable = false;
-        Debug.Log("resetting to neutral at time: " + Time.time);
+		//anim.SetTrigger ("ResetToNeutral");
+		//isInvulnerable = false;
+  //      Debug.Log("resetting to neutral at time: " + Time.time);
 	}
 
 	void AbilityActivated(ButtonPressed e){
@@ -237,6 +236,7 @@ public class Player : MonoBehaviour {
 				transform.position, Quaternion.identity) as GameObject;
 			EndAbility ();
 			currentActiveAbility = abilityObj.GetComponent<Ability> ();
+            Debug.Assert(currentActiveAbility != null);
 			currentActiveAbility.Init (gameObject);
 
 			//CastAbilityTask castTimeLockout = new CastAbilityTask (currentActiveAbility.castDuration, this, currentActiveAbility);
@@ -287,8 +287,10 @@ public class Player : MonoBehaviour {
 
     public void SetAbilityActive()
     {
-		if (currentActiveAbility != null)
-			currentActiveAbility.SetActive ();
+        if (currentActiveAbility != null)
+        {
+            currentActiveAbility.SetActive();
+        }
     }
 
     public void TurnOffHitbox()

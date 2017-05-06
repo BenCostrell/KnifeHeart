@@ -57,4 +57,4 @@ MonoBehaviour:
   animTrigger: Blink
   onCastAudio: {fileID: 8300000, guid: ac99f52545e09034fb59e5a173e5b4ce, type: 3}
   isMelee: 0
-  distance: 3
+  distance: 3.5
