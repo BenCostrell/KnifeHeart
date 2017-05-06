@@ -43,7 +43,7 @@ AnimationClip:
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       - serializedVersion: 2
-        time: 0.18333334
+        time: 0.16666667
         value: {x: 0.5, y: 0.20148773, z: 0.5}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
@@ -69,9 +69,9 @@ AnimationClip:
       value: {fileID: 21300006, guid: 886beaef66b2849449871a9ac79061f8, type: 3}
     - time: 0.2
       value: {fileID: 21300004, guid: 82e32b1c264764dafb1ccd03e0fa5299, type: 3}
-    - time: 0.26666668
+    - time: 0.5
       value: {fileID: 21300002, guid: 82e32b1c264764dafb1ccd03e0fa5299, type: 3}
-    - time: 0.33333334
+    - time: 0.5833333
       value: {fileID: 21300000, guid: 82e32b1c264764dafb1ccd03e0fa5299, type: 3}
     attribute: m_Sprite
     path: 
@@ -110,7 +110,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.35000002
+    m_StopTime: 0.59999996
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -154,7 +154,7 @@ AnimationClip:
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.18333334
+        time: 0.16666667
         value: 0.5
         inSlope: 0
         outSlope: 0
@@ -200,7 +200,7 @@ AnimationClip:
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.18333334
+        time: 0.16666667
         value: 0.20148773
         inSlope: 0
         outSlope: 0
@@ -246,7 +246,7 @@ AnimationClip:
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.18333334
+        time: 0.16666667
         value: 0.5
         inSlope: 0
         outSlope: 0
@@ -290,15 +290,15 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.33333334
-    functionName: EndAbility
+  - time: 0.5833333
+    functionName: ResetToNeutral
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.33333334
-    functionName: ResetToNeutral
+  - time: 0.5833333
+    functionName: EndAbility
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
