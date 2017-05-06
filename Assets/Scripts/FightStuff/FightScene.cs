@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class FightScene : Scene<TransitionData> {
-
+    [HideInInspector]
 	public Player[] players;
     public Sprite[] playerSprites;
     public RuntimeAnimatorController[] playerAnimators;
+    private SpriteRenderer[] playerSpriteRenderers;
 
     public Vector3[] hallwaySpawns;
     public Vector3[] cafeteriaSpawns;
@@ -19,11 +20,16 @@ public class FightScene : Scene<TransitionData> {
 
     public GameObject[] arenas;
 
+    [HideInInspector]
     public bool fightActive;
+    [HideInInspector]
     public Player fallenPlayer;
     public int fallDamage;
     public float fallAnimationTime;
+    public float additionalFallDistance;
+    [HideInInspector]
     public int roundNum;
+    [HideInInspector]
     public bool lastComic;
     public float hitLagRatio;
 
@@ -34,6 +40,7 @@ public class FightScene : Scene<TransitionData> {
 
     void Update()
     {
+        if (fightActive) SortPlayers();
     }
 
     internal override void Init()
@@ -77,7 +84,7 @@ public class FightScene : Scene<TransitionData> {
         Services.GameInfo.player2Abilities = new List<Ability.Type>() {
 			Ability.Type.Lunge,
 			Ability.Type.Blink,
-			Ability.Type.Shield
+			Ability.Type.Wallop
         };
     }
 
@@ -86,6 +93,12 @@ public class FightScene : Scene<TransitionData> {
         {
             InitializePlayer(1),
             InitializePlayer(2)
+        };
+
+        playerSpriteRenderers = new SpriteRenderer[2]
+        {
+            players[0].GetComponent<SpriteRenderer>(),
+            players[1].GetComponent<SpriteRenderer>()
         };
         fightActive = true;
     }
@@ -144,6 +157,20 @@ public class FightScene : Scene<TransitionData> {
     void GameOver()
     {
         //Services.EventManager.Fire(new GameOver(fallenPlayer));
+    }
+
+    void SortPlayers()
+    {
+        if (players[0].transform.position.y > players[1].transform.position.y)
+        {
+            playerSpriteRenderers[0].sortingOrder = 1;
+            playerSpriteRenderers[1].sortingOrder = 2;
+        }
+        else
+        {
+            playerSpriteRenderers[0].sortingOrder = 2;
+            playerSpriteRenderers[1].sortingOrder = 1;
+        }
     }
 
     void LastComic()

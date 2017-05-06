@@ -29,11 +29,21 @@ public class Attack : Ability {
         PlayHitParticleEffect(player);
     }
 
-    void PlayHitParticleEffect(GameObject player)
+    void PlayHitParticleEffect(GameObject playerObj)
     {
+        Player player = playerObj.GetComponent<Player>();
         Vector3 collisionPoint = player.transform.position + (transform.position - player.transform.position) / 2;
         GameObject hitParticle = Instantiate(Services.PrefabDB.HitParticle,
                 collisionPoint, Quaternion.identity, player.transform) as GameObject;
+        float knockbackMagnitude = baseKnockback + (knockbackGrowth * damage * player.knockbackDamageGrowthFactor);
+        ParticleSystem[] particleSystems = hitParticle.GetComponentsInChildren<ParticleSystem>();
+        for (int i = 0; i < particleSystems.Length; i++)
+        {
+            ParticleSystem.MainModule main;
+            main = particleSystems[i].main;
+            main.startSize = main.startSize.constant * player.hitParticleScalingFactor * knockbackMagnitude;
+            main.startSpeed = main.startSpeed.constant * player.hitParticleScalingFactor * knockbackMagnitude;
+        }
         Destroy(hitParticle, hitParticle.GetComponent<ParticleSystem>().main.duration);
     }
 

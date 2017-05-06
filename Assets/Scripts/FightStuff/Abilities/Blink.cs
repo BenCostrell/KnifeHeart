@@ -20,6 +20,8 @@ public class Blink : Ability
         float angle = parentPlayer.GetComponent<Player>().effectiveRotation;
         Vector3 direction = new Vector3(-Mathf.Cos(angle * Mathf.Deg2Rad), -Mathf.Sin(angle * Mathf.Deg2Rad));
         Collider2D[] blinkBoundaries = Services.FightScene.GetActiveArena().GetComponentsInChildren<BoxCollider2D>();
+        List<Collider2D> walls = new List<Collider2D>();
+        foreach(Collider2D col in blinkBoundaries) if (col.gameObject.tag == "Wall") walls.Add(col);
         Vector3 initialPosition = parentPlayer.transform.position;
         for (int i = 0; i < 11; i++)
         {
@@ -30,8 +32,11 @@ public class Blink : Ability
                 if (feetBounds.Intersects(col.bounds) && (col.gameObject.tag == "Arena" || col.gameObject.tag == "LungeBlinkBoundary"))
                 {
                     inRange = true;
+                    foreach (Collider2D wall in walls) if (feetBounds.Intersects(wall.bounds)) inRange = false;
                 }
             }
+            Debug.Log(i);
+            Debug.Log(direction);
             if (inRange) break;
         }
     }

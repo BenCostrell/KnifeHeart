@@ -2965,9 +2965,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 15.6, y: 0}
+  m_Offset: {x: 15.560773, y: 0}
   serializedVersion: 2
-  m_Size: {x: 20, y: 20}
+  m_Size: {x: 20.078457, y: 20}
 --- !u!61 &61556486277150248
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -3035,9 +3035,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.25, y: -0.3}
+  m_Offset: {x: -0.21640491, y: -0.73281}
   serializedVersion: 2
-  m_Size: {x: 12.5, y: 7}
+  m_Size: {x: 12.164047, y: 6.1752067}
 --- !u!61 &61658176746011502
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -3063,9 +3063,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -16.1, y: 0}
+  m_Offset: {x: -16.00758, y: 0}
   serializedVersion: 2
-  m_Size: {x: 20, y: 20}
+  m_Size: {x: 20.184845, y: 20}
 --- !u!61 &61674988540997732
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -3077,9 +3077,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 8}
+  m_Offset: {x: 0, y: 7.6115584}
   serializedVersion: 2
-  m_Size: {x: 20, y: 10}
+  m_Size: {x: 20, y: 10.776894}
 --- !u!61 &61691076333073362
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -4379,6 +4379,7 @@ MonoBehaviour:
   fallenPlayer: {fileID: 0}
   fallDamage: 10
   fallAnimationTime: 0.7
+  additionalFallDistance: 0.5
   roundNum: 0
   lastComic: 0
   hitLagRatio: 0.002

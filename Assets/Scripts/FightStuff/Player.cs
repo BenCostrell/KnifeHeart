@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Player : MonoBehaviour {
-	public int playerNum;
+    [HideInInspector]
+    public int playerNum;
+    [HideInInspector]
 	public List<Ability.Type> abilityList;
-
-	private Rigidbody2D rb;
+    [HideInInspector]
+	public Rigidbody2D rb;
 	public Animator anim;
 	private SpriteRenderer sr;
     [HideInInspector]
@@ -20,10 +22,18 @@ public class Player : MonoBehaviour {
 	public float knockbackDamageGrowthFactor;
     public float wallBounceFactor;
 
-	public int damage;
+    [HideInInspector]
+    public int damage;
+    [HideInInspector]
 	public bool actionable;
+    [HideInInspector]
 	public bool isInvulnerable;
+    [HideInInspector]
 	public float effectiveRotation;
+    [HideInInspector]
+    public Vector3 previousVelocity;
+    [HideInInspector]
+    public Vector3 velocityAtDeath;
 
     private Ability currentActiveAbility;
     [HideInInspector]
@@ -39,6 +49,9 @@ public class Player : MonoBehaviour {
     private FSM<Player> stateMachine;
     private ParticleSystem movementDust;
     private float baseMovementDustRotation;
+    public int dustEmissionCount;
+    public float animationVelocityFactor;
+    public float hitParticleScalingFactor;
 
     // Use this for initialization
     void Start () {
@@ -76,8 +89,13 @@ public class Player : MonoBehaviour {
 			anim.SetBool ("neutral", true);
 			Move ();
 		} else {
-		} 
+		}
 	}
+
+    void LateUpdate()
+    {
+        previousVelocity = rb.velocity;
+    }
 
     void UpdateRotation(Vector2 direction)
     {
@@ -135,7 +153,8 @@ public class Player : MonoBehaviour {
         {
             rb.velocity = maxSpeed * direction.normalized;
         }
-        anim.SetFloat("Velocity", direction.magnitude);
+        anim.SetFloat("InputMagnitude", direction.magnitude);
+        anim.SetFloat("Velocity", Easing.QuadEaseOut(rb.velocity.magnitude/maxSpeed) * animationVelocityFactor);
         UpdateRotation(direction);
     }
 
@@ -143,7 +162,8 @@ public class Player : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Wall" && !stageEdgeBoundaryCollider.enabled)
         {
-            rb.velocity = Vector2.Reflect(rb.velocity, collision.contacts[0].normal);
+            rb.velocity = Vector2.Reflect(previousVelocity, collision.contacts[0].normal);
+            Debug.Log("bounced off wall");
         }
     }
 
@@ -234,7 +254,7 @@ public class Player : MonoBehaviour {
 
 
 	public void Fall(){
-        rb.velocity = Vector2.zero;
+        velocityAtDeath = previousVelocity;
         Services.EventManager.Fire (new PlayerFall (this));
         stageEdgeBoundaryCollider.enabled = false;
     }
@@ -287,12 +307,12 @@ public class Player : MonoBehaviour {
 
     public void DebugAnimationState(string state)
     {
-        Debug.Log("entered state: " + state + " at time " + Time.time);
+        //Debug.Log("entered state: " + state + " at time " + Time.time);
     }
 
     public void CreateDustCloud()
     {
-        movementDust.Emit(1);
+        movementDust.Emit(dustEmissionCount);
     }
 
     // STATES //
