@@ -58,7 +58,7 @@ public class VisualNovelScene : Scene<TransitionData> {
         comicShiftArray = new Vector2[3, 3, 3]
         {
             {
-                {900 * Vector2.up, 900 * Vector2.left, 900 * Vector2.right },
+                {1600 * Vector2.left, 1600 * Vector2.right, 900 * Vector2.up },
                 {1600 * Vector2.right, 1600 * Vector2.left, 1600 * Vector2.right },
                 {Vector2.zero, Vector2.zero, Vector2.zero }
             },

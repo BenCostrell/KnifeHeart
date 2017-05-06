@@ -7,6 +7,7 @@ public class TransitionComicManager : MonoBehaviour {
     public GameObject comicBackground;
     public GameObject[] fightEndComics;
     public GameObject continueButton;
+    public GameObject resetText;
 
     public List<List<List<Vector2>>> comicShifts;
 
@@ -44,6 +45,8 @@ public class TransitionComicManager : MonoBehaviour {
                 t.gameObject.SetActive(false);
             }
         }
+
+        resetText.SetActive(false);
     }
 
     void InitializeComicShiftArray()
@@ -52,7 +55,8 @@ public class TransitionComicManager : MonoBehaviour {
         {
             /// hallway end comic
             new List<List<Vector2>>{
-                new List<Vector2>{1600 * Vector2.left}
+                new List<Vector2>{1600 * Vector2.left},
+                new List<Vector2> {1600 * Vector2.left, 900 * Vector2.up, 1600 * Vector2.right }
             },
             /// cafeteria end comic
             new List<List<Vector2>>

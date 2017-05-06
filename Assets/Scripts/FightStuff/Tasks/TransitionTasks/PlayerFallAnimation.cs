@@ -17,8 +17,6 @@ public class PlayerFallAnimation : Task {
         duration = Services.FightScene.fallAnimationTime;
         initialScale = playerTransform.localScale;
         initialDirection = Services.FightScene.fallenPlayer.velocityAtDeath.normalized;
-        Debug.Log(initialDirection);
-        Debug.Log(Services.FightScene.fallenPlayer.stageEdgeBoundaryCollider.enabled);
         initialPos = playerTransform.position;
     }
 

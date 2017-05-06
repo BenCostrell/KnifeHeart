@@ -246,7 +246,7 @@ public class FightScene : Scene<TransitionData> {
 
         TaskQueue cleanUpSequence = new TaskQueue(new List<Task>()
         {
-            new SetObjectStatus(true, Services.WinScreenUIManager.uiResetText)
+            new SetObjectStatus(true, Services.TransitionComicManager.resetText)
         });
 
         TaskQueue finalFightSequence = rooftopSequence

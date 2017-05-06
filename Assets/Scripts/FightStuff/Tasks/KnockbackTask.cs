@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KnockbackTask : HitstunTask {
 	private Vector3 knockback;
+    private bool emitted;
 
 	public KnockbackTask(float hitstunDur, Player pl, Vector3 knockbackVector) : base(hitstunDur, pl){
 		knockback = knockbackVector;
@@ -12,10 +13,17 @@ public class KnockbackTask : HitstunTask {
 	protected override void Init ()
 	{
 		base.Init ();
+        emitted = false;
 		player.GetComponent<Rigidbody2D> ().velocity = knockback;
         ActionTask updateDamageUI = new ActionTask(Services.FightUIManager.UpdateDamageUI);
         Services.TaskManager.AddTask(updateDamageUI);
-        player.stageEdgeBoundaryCollider.enabled = false;
+        player.stageEdgeBoundaryCollider.enabled = false;        
+    }
+
+    internal override void Update()
+    {
+        base.Update();
+        player.UpdateRotation(-player.rb.velocity);
     }
 
     protected override void CleanUp()

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerUnactionableTask : InterruptibleByFallTask {
 	protected float duration;
+    protected float timeElapsed;
 	protected Player player;
 
 	public PlayerUnactionableTask(float dur, Player pl){
@@ -14,6 +15,7 @@ public class PlayerUnactionableTask : InterruptibleByFallTask {
 	protected override void Init ()
 	{
         base.Init();
+        timeElapsed = 0;
         Services.EventManager.Fire (new PlayerInputPaused (player));
 		Services.EventManager.Register<PlayerInputPaused> (AnotherInputPauseTaskWasStarted);
 		Services.EventManager.Register<GameOver> (OnGameOver);
@@ -32,8 +34,8 @@ public class PlayerUnactionableTask : InterruptibleByFallTask {
 
 	internal override void Update ()
 	{
-		duration -= Time.deltaTime;
-		if (duration <= 0) {
+		timeElapsed += Time.deltaTime;
+		if (timeElapsed >= duration) {
 			SetStatus (TaskStatus.Success);
 		}
 	}

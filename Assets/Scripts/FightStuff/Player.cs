@@ -52,6 +52,10 @@ public class Player : MonoBehaviour {
     public int dustEmissionCount;
     public float animationVelocityFactor;
     public float hitParticleScalingFactor;
+    [HideInInspector]
+    public ParticleSystem knockbackTrail;
+    private float baseKnockbackTrailRotation;
+    public int knockbackTrailEmissionCount;
 
     // Use this for initialization
     void Start () {
@@ -60,7 +64,8 @@ public class Player : MonoBehaviour {
 		sr = GetComponent<SpriteRenderer> ();
         taskManager = new TaskManager();
         stateMachine = new FSM<Player>(this);
-        movementDust = GetComponentInChildren<ParticleSystem>();
+        movementDust = GetComponentsInChildren<ParticleSystem>()[0];
+        knockbackTrail = GetComponentsInChildren<ParticleSystem>()[1];
         baseMovementDustRotation = movementDust.transform.localEulerAngles.z;
         foreach(Collider2D col in GetComponentsInChildren<Collider2D>())
         {
@@ -97,7 +102,7 @@ public class Player : MonoBehaviour {
         previousVelocity = rb.velocity;
     }
 
-    void UpdateRotation(Vector2 direction)
+    public void UpdateRotation(Vector2 direction)
     {
         float angleFacing = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         if (direction.magnitude > 0.01f)
@@ -278,6 +283,7 @@ public class Player : MonoBehaviour {
         }
 
 		taskManager.AddTask (hitLag);
+        EmitKnockbackTrail(knockbackDirection);
 	}
 
 	public void Stun(float hitstun){
@@ -315,6 +321,14 @@ public class Player : MonoBehaviour {
     public void CreateDustCloud()
     {
         movementDust.Emit(dustEmissionCount);
+    }
+
+    public void EmitKnockbackTrail(Vector2 knockbackDirection)
+    {
+        knockbackTrail.transform.parent.localRotation =
+           Quaternion.Euler(0, 0, Mathf.Atan2(knockbackDirection.y, knockbackDirection.x) * Mathf.Rad2Deg);
+        knockbackTrail.Emit(knockbackTrailEmissionCount);
+        //Debug.Log("emitting at time: " + Time.time);
     }
 
     // STATES //
