@@ -52,11 +52,7 @@ public class MusicManager : MonoBehaviour {
                 StartPlayingTrack(baseSource);
                 break;
             case "FightScene":
-                if (Services.FightScene.roundNum != 3) StartPlayingTrack(fightSources[Services.FightScene.roundNum - 1]);
-                else {
-                    StartFinalFightTracks();
-                    FadeInTrack(fightSources[2]);
-                }
+                StartPlayingTrack(fightSources[Services.FightScene.roundNum - 1]);
                 break;
             default:
                 break;
@@ -65,7 +61,8 @@ public class MusicManager : MonoBehaviour {
 
     void OnFightAdvance(FightAdvance e)
     {
-        FadeInTrack(fightSources[e.roundNum - 1]);
+        //FadeInTrack(fightSources[e.roundNum - 1]);
+        StartPlayingTrack(fightSources[e.roundNum - 1]);
     }
 
     AudioSource InitializeAudio(AudioClip clip)

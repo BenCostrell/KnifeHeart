@@ -229,6 +229,7 @@ public class FightScene : Scene<TransitionData> {
         rooftopSequence.Then(ComicSequence(3));
 
         TaskQueue parkingLotSequence = new TaskQueue(new List<Task>() {
+            new ActionTask(FightAdvanced),
             new ActionTask(Services.CameraController.ResumeCameraFollow),
             new PositionPlayersTask(4),
             new WaitForFall(),
@@ -239,6 +240,7 @@ public class FightScene : Scene<TransitionData> {
 
         TaskQueue hellSequence = new TaskQueue(new List<Task>()
         {
+            new ActionTask(FightAdvanced),
             new ActionTask(Services.CameraController.ResumeCameraFollow),
             new PositionPlayersTask(5),
             new WaitForFall(),
@@ -317,4 +319,9 @@ public class FightScene : Scene<TransitionData> {
         Services.SceneStackManager.PopScene();
     }
 
+
+    void FightAdvanced()
+    {
+        Services.EventManager.Fire(new FightAdvance(roundNum));
+    }
 }
