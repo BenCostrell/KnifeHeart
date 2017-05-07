@@ -360,6 +360,7 @@ MonoBehaviour:
   hitParticleScalingFactor: 2
   knockbackTrail: {fileID: 0}
   knockbackTrailEmissionCount: 0
+  castAudioFadeOutTime: 0.1
 --- !u!114 &114067011813444754
 MonoBehaviour:
   m_ObjectHideFlags: 1
