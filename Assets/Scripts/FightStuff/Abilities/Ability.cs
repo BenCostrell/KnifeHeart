@@ -14,6 +14,7 @@ public class Ability : MonoBehaviour {
 	public string animTrigger;
 	public AudioClip onCastAudio;
     public bool isMelee;
+    public AudioClip specialAudio;
 
     // Use this for initialization
     void Start () {
@@ -57,5 +58,15 @@ public class Ability : MonoBehaviour {
     public virtual void SetActive()
     {
 
+    }
+
+    public virtual void PlaySpecialAudio()
+    {
+        if (specialAudio != null)
+        {
+            GameObject specialAudioSource = Instantiate(Services.PrefabDB.GenericAudioSource);
+            specialAudioSource.GetComponent<AudioSource>().clip = specialAudio;
+            Destroy(specialAudioSource, specialAudio.length);
+        }
     }
 }

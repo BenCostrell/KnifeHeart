@@ -25,4 +25,10 @@ public class Wallop : Attack {
 	protected override Vector3 GetDirectionHit(GameObject playerHit){
 		return (playerHit.transform.position - parentPlayer.transform.position).normalized;
 	}
+
+    public override void SetActive()
+    {
+        base.SetActive();
+        PlaySpecialAudio();
+    }
 }
