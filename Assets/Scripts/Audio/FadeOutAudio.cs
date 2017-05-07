@@ -34,6 +34,7 @@ public class FadeOutAudio : Task
     protected override void OnSuccess()
     {
         source.Stop();
+        source.volume = initialVolume;
     }
 
 }

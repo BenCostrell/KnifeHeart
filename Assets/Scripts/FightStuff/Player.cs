@@ -57,6 +57,7 @@ public class Player : MonoBehaviour {
     public ParticleSystem knockbackTrail;
     private float baseKnockbackTrailRotation;
     public int knockbackTrailEmissionCount;
+    public float castAudioFadeOutTime;
 
     private Vector3 baseScale;
     private Color baseColor;
@@ -187,9 +188,9 @@ public class Player : MonoBehaviour {
 	public void StopListeningForInput(){
 		Services.EventManager.Unregister<ButtonPressed> (AbilityActivated);
 		actionable = false;
-        anim.SetBool("Actionable", false);
+        if (anim != null) anim.SetBool("Actionable", false);
         //Debug.Log("stopped listening at time: " + Time.time);
-	}
+    }
 
     public void ResetCooldowns()
     {
@@ -265,9 +266,12 @@ public class Player : MonoBehaviour {
 
 
 	public void Fall(){
-        velocityAtDeath = previousVelocity;
-        Services.EventManager.Fire (new PlayerFall (this));
-        stageEdgeBoundaryCollider.enabled = false;
+        if (Services.FightScene.fallenPlayer == null)
+        {
+            velocityAtDeath = previousVelocity;
+            Services.EventManager.Fire(new PlayerFall(this));
+            stageEdgeBoundaryCollider.enabled = false;
+        }
     }
 
     void OnPlayerFall(PlayerFall e)
@@ -290,6 +294,7 @@ public class Player : MonoBehaviour {
 
 		taskManager.AddTask (hitLag);
         EmitKnockbackTrail(knockbackDirection);
+        if (castAudioSource.isPlaying) taskManager.AddTask(new FadeOutAudio(castAudioSource, castAudioFadeOutTime));
 	}
 
 	public void Stun(float hitstun){

@@ -181,7 +181,8 @@ public class FightScene : Scene<TransitionData> {
 
     public void PositionPlayers(int roundNumber)
     {
-        foreach(Player player in players)
+        fallenPlayer = null;
+        foreach (Player player in players)
         {
             player.transform.position = spawnPoints[roundNumber - 1][player.playerNum - 1];
             player.StartListeningForInput();
@@ -198,6 +199,7 @@ public class FightScene : Scene<TransitionData> {
 
     void InitiateFightSequence()
     {
+        fallenPlayer = null;
         if (roundNum == 3)
         {
             Services.TaskManager.AddTaskQueue(FinalFightSequence());
