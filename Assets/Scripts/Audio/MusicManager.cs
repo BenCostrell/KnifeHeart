@@ -14,6 +14,7 @@ public class MusicManager : MonoBehaviour {
 
     public float fadeInTime;
     public float fadeOutTime;
+    public float musicVolume;
 
     private List<AudioSource> currentActiveSources;
 
@@ -79,7 +80,7 @@ public class MusicManager : MonoBehaviour {
     void StartPlayingTrack(AudioSource source)
     {
         PlayTrack playTrack = new PlayTrack(source);
-        FadeInAudio fadeIn = new FadeInAudio(source, fadeInTime);
+        FadeInAudio fadeIn = new FadeInAudio(source, fadeInTime, musicVolume);
         playTrack.Then(fadeIn);
 
         if (currentActiveSources.Count > 0)
@@ -102,7 +103,7 @@ public class MusicManager : MonoBehaviour {
 
     void FadeInTrack(AudioSource source)
     {
-        Services.TaskManager.AddTask(new FadeInAudio(source, fadeInTime));
+        Services.TaskManager.AddTask(new FadeInAudio(source, fadeInTime, musicVolume));
     }
 
     void StartFinalFightTracks()
