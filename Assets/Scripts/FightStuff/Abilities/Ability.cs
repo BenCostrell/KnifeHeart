@@ -65,7 +65,9 @@ public class Ability : MonoBehaviour {
         if (specialAudio != null)
         {
             GameObject specialAudioSource = Instantiate(Services.PrefabDB.GenericAudioSource);
-            specialAudioSource.GetComponent<AudioSource>().clip = specialAudio;
+            AudioSource source = specialAudioSource.GetComponent<AudioSource>();
+            source.clip = specialAudio;
+            source.Play();
             Destroy(specialAudioSource, specialAudio.length);
         }
     }
