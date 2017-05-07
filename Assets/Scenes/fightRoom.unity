@@ -355,6 +355,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114543626297634862, guid: 7113b7853415cca4b9c5c64d085a3dbe,
+        type: 2}
+      propertyPath: fightTracks.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
+    - target: {fileID: 114543626297634862, guid: 7113b7853415cca4b9c5c64d085a3dbe,
+        type: 2}
+      propertyPath: fightTracks.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0c7735f7b21103f4bb77a4dfb9bdfcd4, type: 3}
+    - target: {fileID: 114543626297634862, guid: 7113b7853415cca4b9c5c64d085a3dbe,
+        type: 2}
+      propertyPath: musicVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7113b7853415cca4b9c5c64d085a3dbe, type: 2}
   m_IsPrefabParent: 0
