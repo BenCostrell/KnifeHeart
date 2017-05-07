@@ -32,7 +32,7 @@ public class Sing : Attack {
 
     protected override void HitPlayer(GameObject player){
 		player.GetComponent<Player> ().Stun (stunDuration);
-		Destroy (gameObject);
+        TurnOffHitbox();
 	}
 
     public override void SetActive()
@@ -42,6 +42,11 @@ public class Sing : Attack {
         GetComponent<SpriteRenderer>().enabled = true;
         Destroy(gameObject, lifeDuration);
         activated = true;
+        ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
+        ParticleSystem.MainModule main = ps.main;
+        main.startLifetime = lifeDuration;
+
+        ps.Play();
     }
 
     public override void OnCastFinish ()

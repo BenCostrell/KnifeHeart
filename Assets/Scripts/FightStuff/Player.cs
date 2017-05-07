@@ -58,6 +58,9 @@ public class Player : MonoBehaviour {
     private float baseKnockbackTrailRotation;
     public int knockbackTrailEmissionCount;
 
+    private Vector3 baseScale;
+    private Color baseColor;
+
     // Use this for initialization
     void Start () {
 		rb = GetComponent<Rigidbody2D> ();
@@ -84,6 +87,8 @@ public class Player : MonoBehaviour {
         Services.EventManager.Register<PlayerFall>(OnPlayerFall);
         castAudioSource = gameObject.AddComponent<AudioSource>();
         impactAudioSource = gameObject.AddComponent<AudioSource>();
+        baseScale = transform.localScale;
+        baseColor = sr.color;
 
 		anim.SetBool ("sideFacing", true);
 	}
@@ -310,7 +315,8 @@ public class Player : MonoBehaviour {
     }
 
 	public void EndAbility(){
-		if (currentActiveAbility != null)
+        ResetProperties();
+        if (currentActiveAbility != null)
 			currentActiveAbility.OnCastFinish ();
 	}
 
@@ -330,6 +336,12 @@ public class Player : MonoBehaviour {
            Quaternion.Euler(0, 0, Mathf.Atan2(knockbackDirection.y, knockbackDirection.x) * Mathf.Rad2Deg);
         knockbackTrail.Emit(knockbackTrailEmissionCount);
         //Debug.Log("emitting at time: " + Time.time);
+    }
+
+    public void ResetProperties()
+    {
+        transform.localScale = baseScale;
+        sr.color = baseColor;
     }
 
     // STATES //
