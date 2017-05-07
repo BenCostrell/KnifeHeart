@@ -7,6 +7,7 @@ public class FadeOutAudio : Task
 
     private float timeElapsed;
     private float duration;
+    private float initialVolume;
     private AudioSource source;
 
     public FadeOutAudio(AudioSource src, float dur)
@@ -18,13 +19,14 @@ public class FadeOutAudio : Task
     protected override void Init()
     {
         timeElapsed = 0;
+        initialVolume = source.volume;
     }
 
     internal override void Update()
     {
         timeElapsed += Time.deltaTime;
 
-        source.volume = Mathf.Lerp(1, 0, Easing.QuadEaseIn(timeElapsed / duration));
+        source.volume = Mathf.Lerp(initialVolume, 0, Easing.QuadEaseIn(timeElapsed / duration));
 
         if (timeElapsed >= duration) SetStatus(TaskStatus.Success);
     }
