@@ -73,6 +73,7 @@ public class WaitForDialogueChoiceTask : Task {
             ActionTask reregister = new ActionTask(Reregister);
             rotateDialogue.Then(reregister);
             Services.TaskManager.AddTask(rotateDialogue);
+            Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.scrollSound);
         }
     }
 
@@ -87,6 +88,7 @@ public class WaitForDialogueChoiceTask : Task {
 			Dialogue dialogueSelected = Services.DialogueUIManager.GetDialogueFromSelectedOption ();
 			if (dialogueSelected != null) {
 				Services.EventManager.Fire (new DialoguePicked (dialogueSelected, e.playerNum));
+                Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.selectSound);
 				SetStatus (TaskStatus.Success);
 			}
 		}
