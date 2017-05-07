@@ -17,7 +17,9 @@ public class KnockbackTask : HitstunTask {
 		player.GetComponent<Rigidbody2D> ().velocity = knockback;
         ActionTask updateDamageUI = new ActionTask(Services.FightUIManager.UpdateDamageUI);
         Services.TaskManager.AddTask(updateDamageUI);
-        player.stageEdgeBoundaryCollider.enabled = false;        
+        player.stageEdgeBoundaryCollider.enabled = false;
+        player.UpdateRotation(-knockback);
+        player.anim.SetTrigger("Stunned");
     }
 
     internal override void Update()

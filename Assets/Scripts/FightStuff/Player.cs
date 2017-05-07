@@ -295,7 +295,8 @@ public class Player : MonoBehaviour {
 	public void Stun(float hitstun){
 		HitstunTask startHitstun = new HitstunTask (hitstun, this);
 		taskManager.AddTask (startHitstun);
-	}
+        anim.SetTrigger("SingStunned");
+    }
 
     public void SetAbilityActive()
     {
