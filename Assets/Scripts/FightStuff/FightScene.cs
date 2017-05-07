@@ -322,6 +322,7 @@ public class FightScene : Scene<TransitionData> {
 
     void FightAdvanced()
     {
+        roundNum += 1;
         Services.EventManager.Fire(new FightAdvance(roundNum));
     }
 }
