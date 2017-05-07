@@ -93,14 +93,14 @@ MonoBehaviour:
   cooldown: 3
   castDuration: 0.5
   animTrigger: Pull
-  onCastAudio: {fileID: 8300000, guid: 5af90efbaee91724cb7df5e50c905fa6, type: 3}
+  onCastAudio: {fileID: 8300000, guid: ddd78c43ddd66cd47a4cfd7270691a54, type: 3}
   isMelee: 0
   specialAudio: {fileID: 0}
   baseKnockback: 0
   knockbackGrowth: 0
   damage: 2
   isProjectile: 1
-  onImpactAudio: {fileID: 8300000, guid: e7b4b178c67dbfb4a8ea91ad9ee7df27, type: 3}
+  onImpactAudio: {fileID: 8300000, guid: f2db3ad3ee6c31247b6ec2b79727a973, type: 3}
   speed: 20
   distanceToPullTo: 2
   hitstun: 0.3
