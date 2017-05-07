@@ -5,10 +5,10 @@ using UnityEngine;
 public class Lunge : Attack {
 
 	public float speed;
+    public float upDownTrailWidth;
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -34,6 +34,11 @@ public class Lunge : Attack {
     {
         float angle = parentPlayer.GetComponent<Player>().effectiveRotation;
         Vector3 direction = new Vector3(-Mathf.Cos(angle * Mathf.Deg2Rad), -Mathf.Sin(angle * Mathf.Deg2Rad));
+        if (angle == 90 || angle == -90)
+        {
+            TrailRenderer trail = GetComponent<TrailRenderer>();
+            trail.widthMultiplier = upDownTrailWidth;
+        }
 
         parentPlayer.GetComponent<Rigidbody2D>().velocity = speed * direction;
     }

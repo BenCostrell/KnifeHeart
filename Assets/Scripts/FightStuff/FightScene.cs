@@ -77,14 +77,15 @@ public class FightScene : Scene<TransitionData> {
     void SetPlayerAbilities()
     {
         Services.GameInfo.player1Abilities = new List<Ability.Type>() {
-			Ability.Type.Sing,
-			Ability.Type.Fireball,
-			Ability.Type.Pull
+            Ability.Type.Lunge,
+            Ability.Type.Blink,
+            Ability.Type.Wallop
         };
         Services.GameInfo.player2Abilities = new List<Ability.Type>() {
-			Ability.Type.Lunge,
-			Ability.Type.Blink,
-			Ability.Type.Wallop
+            Ability.Type.Sing,
+            Ability.Type.Fireball,
+            Ability.Type.Pull
+            
         };
     }
 
@@ -116,7 +117,7 @@ public class FightScene : Scene<TransitionData> {
 			abilityList = Services.GameInfo.player2Abilities;
 		}
 		player.playerNum = playerNum;
-        playerObj.GetComponent<SpriteRenderer>().sprite = playerSprites[playerNum - 1];
+        //playerObj.GetComponent<SpriteRenderer>().sprite = playerSprites[playerNum - 1];
         playerObj.GetComponent<Animator>().runtimeAnimatorController = playerAnimators[playerNum - 1];
 		player.abilityList = abilityList;
         return player;

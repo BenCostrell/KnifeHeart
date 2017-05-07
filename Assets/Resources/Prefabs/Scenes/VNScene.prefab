@@ -3490,7 +3490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0640cbeb14bbe4f93feceb610c6c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueFile: {fileID: 4900000, guid: f657316284cff4440ae6e22434c7f8cb, type: 3}
+  dialogueFile: {fileID: 4900000, guid: be1f01c60e10d664e9f32e94c7880039, type: 3}
   rpsDialogueFile: {fileID: 4900000, guid: 7fdd98a4c80389348876260e7aade8ab, type: 3}
   currentTurnPlayerNum: 0
   currentRoundNum: 0

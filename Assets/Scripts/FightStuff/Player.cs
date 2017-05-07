@@ -21,6 +21,7 @@ public class Player : MonoBehaviour {
 	public float hitstunFactor;
 	public float knockbackDamageGrowthFactor;
     public float wallBounceFactor;
+    public float expectedHighKnockback;
 
     [HideInInspector]
     public int damage;

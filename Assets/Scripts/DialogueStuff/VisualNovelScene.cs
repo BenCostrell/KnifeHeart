@@ -8,12 +8,18 @@ public class VisualNovelScene : Scene<TransitionData> {
     public TextAsset rpsDialogueFile;
 	private List<Ability.Type> abilityPool;
 	private List<Ability.Type> currentRoundAbilityPool;
+    [HideInInspector]
     public List<Ability.Type>[] abilityLists;
+    [HideInInspector]
 	public int currentTurnPlayerNum;
+    [HideInInspector]
 	public int currentRoundNum;
+    [HideInInspector]
     public int initiatingPlayer;
+    [HideInInspector]
     public string[] rpsDialogueArray;
     private Vector2[,,] comicShiftArray;
+    [HideInInspector]
     public GameObject canvas;
 
     internal override void Init()

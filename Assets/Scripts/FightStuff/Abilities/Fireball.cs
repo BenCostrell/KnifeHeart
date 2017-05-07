@@ -39,6 +39,7 @@ public class Fireball : Attack {
     {
 		base.SetActive();
         GetComponent<SpriteRenderer>().enabled = true;
+        GetComponentInChildren<ParticleSystem>().Play();
 
         Vector3 direction = new Vector3(-Mathf.Cos(angle * Mathf.Deg2Rad), -Mathf.Sin(angle * Mathf.Deg2Rad));
 

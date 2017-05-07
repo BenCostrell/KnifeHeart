@@ -47,7 +47,8 @@ public class Ability : MonoBehaviour {
 	}
 
 	public virtual void OnCastFinish(){
-		if (isMelee) {
+        //Debug.Log("ending ability at time " + Time.time);
+        if (isMelee) {
 			Destroy (parentPlayer.GetComponent<FixedJoint2D> ());
 		}
 		Destroy (gameObject);
