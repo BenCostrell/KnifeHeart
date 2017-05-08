@@ -12,6 +12,11 @@ public class CameraController : MonoBehaviour {
     public float sizeAdjustSpeed;
     public Vector2 bottomLeftCorner_MinCameraPos;
     public Vector2 topRightCorner_MaxCameraPos;
+    [HideInInspector]
+    public bool shaking;
+    public float screenShakeMagFactor;
+    public float screenShakeSpeedFactor;
+    public float screenShakeDurFactor;
 
 	void Awake()
     {
@@ -24,7 +29,7 @@ public class CameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Services.FightScene.fightActive)
+        if (Services.FightScene.fightActive && !shaking)
         {
             FollowPlayers();
         }
@@ -56,5 +61,17 @@ public class CameraController : MonoBehaviour {
     public void ResumeCameraFollow()
     {
         Services.FightScene.fightActive = true;
+    }
+
+    public void ShakeScreen(float intensity)
+    {
+        Services.TaskManager.AddTask(new ScreenShake(
+            screenShakeSpeedFactor * intensity, 
+            screenShakeMagFactor * intensity, 
+            screenShakeDurFactor * intensity));
+        Debug.Log("intensity level: " + intensity + "\n" +
+            "     speed: " + screenShakeSpeedFactor * intensity + "\n" +
+            "     magnitude: " + screenShakeMagFactor * intensity + "\n" +
+            "     duration: " + screenShakeDurFactor * intensity);
     }
 }
