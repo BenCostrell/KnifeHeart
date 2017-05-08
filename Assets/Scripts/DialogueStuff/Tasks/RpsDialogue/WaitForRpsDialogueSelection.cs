@@ -58,6 +58,7 @@ public class WaitForRpsDialogueSelection : Task {
             choice_P1 = choice;
             if (choice != "")
             {
+                Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.rpsReadySoundP1);
                 choiceTime_P1 = timeElapsed;
                 Services.DialogueUIManager.rpsReady_P1.SetActive(true);
             }
@@ -67,6 +68,7 @@ public class WaitForRpsDialogueSelection : Task {
             choice_P2 = choice;
             if (choice != "")
             {
+                Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.rpsReadySoundP2);
                 choiceTime_P2 = timeElapsed;
                 Services.DialogueUIManager.rpsReady_P2.SetActive(true);
             }

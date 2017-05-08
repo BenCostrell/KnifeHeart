@@ -85,7 +85,7 @@ public class WaitForDialogueChoiceTask : Task {
 
     private void OnInputReceived(ButtonPressed e){
 		if (e.playerNum == Services.VisualNovelScene.currentTurnPlayerNum && e.buttonTitle == "A") {
-			Dialogue dialogueSelected = Services.DialogueUIManager.GetDialogueFromSelectedOption ();
+            Dialogue dialogueSelected = Services.DialogueUIManager.GetDialogueFromSelectedOption ();
 			if (dialogueSelected != null) {
 				Services.EventManager.Fire (new DialoguePicked (dialogueSelected, e.playerNum));
                 Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.selectSound);

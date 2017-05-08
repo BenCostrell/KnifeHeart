@@ -120,6 +120,7 @@ public class FightScene : Scene<TransitionData> {
         //playerObj.GetComponent<SpriteRenderer>().sprite = playerSprites[playerNum - 1];
         playerObj.GetComponent<Animator>().runtimeAnimatorController = playerAnimators[playerNum - 1];
 		player.abilityList = abilityList;
+        player.Init();
         return player;
 	}
 

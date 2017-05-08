@@ -81,7 +81,7 @@ public class TransitionUIManager : MonoBehaviour {
                 wordImage.gameObject.SetActive(active);
             }
         }
-	}
+    }
 
     void InitializeAbilityNameDict()
     {

@@ -38,13 +38,13 @@ public class ScaleOutTransitionUI : Task {
         }
 
 		if (timeElapsed == duration) {
-			SetStatus (TaskStatus.Success);
+            SetStatus (TaskStatus.Success);
 		}
 	}
 
 	protected override void OnSuccess ()
 	{
-		Services.TransitionUIManager.transitionUI.SetActive (false);
+        Services.TransitionUIManager.transitionUI.SetActive (false);
         for (int i = 0; i < 2; i++)
         {
             foreach (GameObject blurb in Services.TransitionUIManager.blurbAbilityBoxes[i])
