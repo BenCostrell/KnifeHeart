@@ -14,7 +14,7 @@
 [LOG] SystemI::init                            : create the stream thread
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000000002F6F0BE8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000000010C38198 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -28,14 +28,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 3577792
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 14176
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000000322CFBF8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006367FBF8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE3E026730
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE3E026700
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE3E026800
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE3E0268B0
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000002F863068
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000002FBB9B88
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
 [LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
@@ -43,7 +43,7 @@
 [LOG] SystemI::createSoundInternal             : creating subsound 0/1
 [LOG] SystemI::createSample                    : mode 0a000202 length 3627845 samples, lengthbytes 1112480
 [LOG] SystemI::createSample                    : channels = 2
-[LOG] SystemI::createSample                    : output = 000000000075D5D8
+[LOG] SystemI::createSample                    : output = 000000002F57FA58
 [LOG] OutputSoftware::createSample             : lengthpcm 3627845, lengthbytes 1112480, channels 2, format 2, freq 48000, mode 0a00020a
 [LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
 
@@ -52,14 +52,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 3577792
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 14176
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000000322CFBF8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006367FBF8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE3E026730
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE3E026700
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE3E026800
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE3E0268B0
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000002F863068
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000002FBB9B88
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
 [LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
@@ -67,7 +67,7 @@
 [LOG] SystemI::createSoundInternal             : creating subsound 0/1
 [LOG] SystemI::createSample                    : mode 0a000202 length 318232 samples, lengthbytes 60352
 [LOG] SystemI::createSample                    : channels = 2
-[LOG] SystemI::createSample                    : output = 000000000075D5D8
+[LOG] SystemI::createSample                    : output = 000000002F57FA58
 [LOG] OutputSoftware::createSample             : lengthpcm 318232, lengthbytes 60352, channels 2, format 2, freq 48000, mode 0a00020a
 [LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
 
@@ -76,14 +76,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 3577792
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 14176
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000000322CFBF8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006367FBF8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE3E026730
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE3E026700
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE3E026800
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE3E0268B0
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000002F863068
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000002FBB9B88
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
 [LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
@@ -91,7 +91,7 @@
 [LOG] SystemI::createSoundInternal             : creating subsound 0/1
 [LOG] SystemI::createSample                    : mode 0a000202 length 127292 samples, lengthbytes 38688
 [LOG] SystemI::createSample                    : channels = 2
-[LOG] SystemI::createSample                    : output = 000000000075D5D8
+[LOG] SystemI::createSample                    : output = 000000002F57FA58
 [LOG] OutputSoftware::createSample             : lengthpcm 127292, lengthbytes 38688, channels 2, format 2, freq 48000, mode 0a00020a
 [LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
 
@@ -100,14 +100,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 3577792
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 14176
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000000322CFBF8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006367FBF8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE3E026730
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE3E026700
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE3E026800
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE3E0268B0
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000002F863068
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000002FBB9B88
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
 [LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
@@ -115,7 +115,7 @@
 [LOG] SystemI::createSoundInternal             : creating subsound 0/1
 [LOG] SystemI::createSample                    : mode 0a000202 length 127293 samples, lengthbytes 40032
 [LOG] SystemI::createSample                    : channels = 2
-[LOG] SystemI::createSample                    : output = 000000000075D5D8
+[LOG] SystemI::createSample                    : output = 000000002F57FA58
 [LOG] OutputSoftware::createSample             : lengthpcm 127293, lengthbytes 40032, channels 2, format 2, freq 48000, mode 0a00020a
 [LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
 
@@ -124,14 +124,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 3577792
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 14176
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000000322CFBF8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006367FBF8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE3E026730
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE3E026700
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE3E026800
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE3E0268B0
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000002F863068
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000002FBB9B88
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
 [LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
@@ -139,7 +139,7 @@
 [LOG] SystemI::createSoundInternal             : creating subsound 0/1
 [LOG] SystemI::createSample                    : mode 0a000202 length 4073370 samples, lengthbytes 1265696
 [LOG] SystemI::createSample                    : channels = 2
-[LOG] SystemI::createSample                    : output = 000000000075D5D8
+[LOG] SystemI::createSample                    : output = 000000002F57FA58
 [LOG] OutputSoftware::createSample             : lengthpcm 4073370, lengthbytes 1265696, channels 2, format 2, freq 48000, mode 0a00020a
 [LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
 
@@ -148,14 +148,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 3577792
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 14176
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000000322CFBF8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006367FBF8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE3E026730
 [LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE3E026700
 [LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE3E026800
 [LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE3E0268B0
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000002F863068
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000002FBB9B88
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
 [LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
@@ -163,45 +163,392 @@
 [LOG] SystemI::createSoundInternal             : creating subsound 0/1
 [LOG] SystemI::createSample                    : mode 0a000202 length 3474285 samples, lengthbytes 1046272
 [LOG] SystemI::createSample                    : channels = 2
-[LOG] SystemI::createSample                    : output = 000000000075D5D8
+[LOG] SystemI::createSample                    : output = 000000002F57FA58
 [LOG] OutputSoftware::createSample             : lengthpcm 3474285, lengthbytes 1046272, channels 2, format 2, freq 48000, mode 0a00020a
 [LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] SoundI::release                          : (null) (000000002FA2BE38)
-[LOG] SoundI::release                          : release subsounds. (000000002FA2BE38)
-[LOG] SoundI::release                          :     (null) (000000002F6AF708)
+[LOG] SoundI::release                          : (null) (000000002FDBD968)
+[LOG] SoundI::release                          : release subsounds. (000000002FDBD968)
+[LOG] SoundI::release                          :     (null) (000000002F6B0C28)
 [LOG] SoundI::release                          :     done
-[LOG] SoundI::release                          : release codec. (000000002FA2BE38)
+[LOG] SoundI::release                          : release codec. (000000002FDBD968)
 [LOG] SoundI::release                          : done
-[LOG] SoundI::release                          : (null) (0000000010B9CD38)
-[LOG] SoundI::release                          : release subsounds. (0000000010B9CD38)
+[LOG] SoundI::release                          : (null) (000000002FDBCC78)
+[LOG] SoundI::release                          : release subsounds. (000000002FDBCC78)
+[LOG] SoundI::release                          :     (null) (000000002F6B0268)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (000000002FDBCC78)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          : (null) (000000002FDBC3D8)
+[LOG] SoundI::release                          : release subsounds. (000000002FDBC3D8)
 [LOG] SoundI::release                          :     (null) (000000002F6AFA48)
 [LOG] SoundI::release                          :     done
-[LOG] SoundI::release                          : release codec. (0000000010B9CD38)
+[LOG] SoundI::release                          : release codec. (000000002FDBC3D8)
 [LOG] SoundI::release                          : done
-[LOG] SoundI::release                          : (null) (000000002FA2CB28)
-[LOG] SoundI::release                          : release subsounds. (000000002FA2CB28)
+[LOG] SoundI::release                          : (null) (000000002FDBC998)
+[LOG] SoundI::release                          : release subsounds. (000000002FDBC998)
+[LOG] SoundI::release                          :     (null) (000000002F6AFBE8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (000000002FDBC998)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          : (null) (000000002FDBD518)
+[LOG] SoundI::release                          : release subsounds. (000000002FDBD518)
+[LOG] SoundI::release                          :     (null) (000000002F6B0A88)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (000000002FDBD518)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          : (null) (000000002FDBD238)
+[LOG] SoundI::release                          : release subsounds. (000000002FDBD238)
+[LOG] SoundI::release                          :     (null) (000000002F6B0748)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (000000002FDBD238)
+[LOG] SoundI::release                          : done
+[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 88)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] SystemI::createSoundInternal             : filename =  : mode 0a000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 3577792
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 14176
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006367FBF8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE3E026730
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE3E026700
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE3E026800
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE3E0268B0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000002FBB9B88
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 0a000202 length 3627845 samples, lengthbytes 1112480
+[LOG] SystemI::createSample                    : channels = 2
+[LOG] SystemI::createSample                    : output = 000000002F57FA58
+[LOG] OutputSoftware::createSample             : lengthpcm 3627845, lengthbytes 1112480, channels 2, format 2, freq 48000, mode 0a00020a
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] SystemI::createSoundInternal             : filename =  : mode 0a000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 3577792
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 14176
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006367FBF8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE3E026730
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE3E026700
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE3E026800
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE3E0268B0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000002FBB9B88
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 0a000202 length 318232 samples, lengthbytes 60352
+[LOG] SystemI::createSample                    : channels = 2
+[LOG] SystemI::createSample                    : output = 000000002F57FA58
+[LOG] OutputSoftware::createSample             : lengthpcm 318232, lengthbytes 60352, channels 2, format 2, freq 48000, mode 0a00020a
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] SystemI::createSoundInternal             : filename =  : mode 0a000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 3577792
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 14176
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006367FBF8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE3E026730
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE3E026700
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE3E026800
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE3E0268B0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000002FBB9B88
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 0a000202 length 127292 samples, lengthbytes 38688
+[LOG] SystemI::createSample                    : channels = 2
+[LOG] SystemI::createSample                    : output = 000000002F57FA58
+[LOG] OutputSoftware::createSample             : lengthpcm 127292, lengthbytes 38688, channels 2, format 2, freq 48000, mode 0a00020a
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] SystemI::createSoundInternal             : filename =  : mode 0a000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 3577792
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 14176
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006367FBF8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE3E026730
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE3E026700
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE3E026800
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE3E0268B0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000002FBB9B88
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 0a000202 length 127293 samples, lengthbytes 40032
+[LOG] SystemI::createSample                    : channels = 2
+[LOG] SystemI::createSample                    : output = 000000002F57FA58
+[LOG] OutputSoftware::createSample             : lengthpcm 127293, lengthbytes 40032, channels 2, format 2, freq 48000, mode 0a00020a
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] SystemI::createSoundInternal             : filename =  : mode 0a000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 3577792
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 14176
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006367FBF8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE3E026730
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE3E026700
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE3E026800
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE3E0268B0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000002FBB9B88
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 0a000202 length 4073370 samples, lengthbytes 1265696
+[LOG] SystemI::createSample                    : channels = 2
+[LOG] SystemI::createSample                    : output = 000000002F57FA58
+[LOG] OutputSoftware::createSample             : lengthpcm 4073370, lengthbytes 1265696, channels 2, format 2, freq 48000, mode 0a00020a
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] SystemI::createSoundInternal             : filename =  : mode 0a000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 3577792
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 14176
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006367FBF8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE3E026730
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE3E026700
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE3E026800
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE3E0268B0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000002FBB9B88
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 0a000202 length 3474285 samples, lengthbytes 1046272
+[LOG] SystemI::createSample                    : channels = 2
+[LOG] SystemI::createSample                    : output = 000000002F57FA58
+[LOG] OutputSoftware::createSample             : lengthpcm 3474285, lengthbytes 1046272, channels 2, format 2, freq 48000, mode 0a00020a
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[WRN] TimelineInstance::performScheduling      : 101 instantaneous transitions encountered; bailing out to avoid scheduler hang (last transition was to 'End')
+[LOG] SoundI::release                          : (null) (000000002FDBC6B8)
+[LOG] SoundI::release                          : release subsounds. (000000002FDBC6B8)
 [LOG] SoundI::release                          :     (null) (000000002F6AFD88)
 [LOG] SoundI::release                          :     done
-[LOG] SoundI::release                          : release codec. (000000002FA2CB28)
+[LOG] SoundI::release                          : release codec. (000000002FDBC6B8)
 [LOG] SoundI::release                          : done
-[LOG] SoundI::release                          : (null) (0000000010B9C048)
-[LOG] SoundI::release                          : release subsounds. (0000000010B9C048)
-[LOG] SoundI::release                          :     (null) (000000002F6AF228)
+[LOG] SoundI::release                          : (null) (000000002FDBCDE8)
+[LOG] SoundI::release                          : release subsounds. (000000002FDBCDE8)
+[LOG] SoundI::release                          :     (null) (000000002F6B0C28)
 [LOG] SoundI::release                          :     done
-[LOG] SoundI::release                          : release codec. (0000000010B9C048)
+[LOG] SoundI::release                          : release codec. (000000002FDBCDE8)
 [LOG] SoundI::release                          : done
-[LOG] SoundI::release                          : (null) (000000002FA2C9B8)
-[LOG] SoundI::release                          : release subsounds. (000000002FA2C9B8)
-[LOG] SoundI::release                          :     (null) (000000002F6AF568)
+[LOG] SoundI::release                          : (null) (000000002FDBC828)
+[LOG] SoundI::release                          : release subsounds. (000000002FDBC828)
+[LOG] SoundI::release                          :     (null) (000000002F6B0268)
 [LOG] SoundI::release                          :     done
-[LOG] SoundI::release                          : release codec. (000000002FA2C9B8)
+[LOG] SoundI::release                          : release codec. (000000002FDBC828)
 [LOG] SoundI::release                          : done
-[LOG] SoundI::release                          : (null) (0000000010B9C778)
-[LOG] SoundI::release                          : release subsounds. (0000000010B9C778)
-[LOG] SoundI::release                          :     (null) (000000002F6AF3C8)
+[LOG] SoundI::release                          : (null) (000000002FDBD968)
+[LOG] SoundI::release                          : release subsounds. (000000002FDBD968)
+[LOG] SoundI::release                          :     (null) (000000002F6B0DC8)
 [LOG] SoundI::release                          :     done
-[LOG] SoundI::release                          : release codec. (0000000010B9C778)
+[LOG] SoundI::release                          : release codec. (000000002FDBD968)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          : (null) (000000002FDBD518)
+[LOG] SoundI::release                          : release subsounds. (000000002FDBD518)
+[LOG] SoundI::release                          :     (null) (000000002F6AF708)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (000000002FDBD518)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          : (null) (000000002FDBD3A8)
+[LOG] SoundI::release                          : release subsounds. (000000002FDBD3A8)
+[LOG] SoundI::release                          :     (null) (000000002F6AFBE8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (000000002FDBD3A8)
 [LOG] SoundI::release                          : done
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.

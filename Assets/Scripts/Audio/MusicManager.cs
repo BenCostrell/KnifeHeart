@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FMODUnity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,6 +27,7 @@ public class MusicManager : MonoBehaviour {
     public AudioClip vnSelect;
     public AudioClip fightinWordsSwirl;
 
+
     // Use this for initialization
     public void Init () {
         currentActiveSources = new List<AudioSource>();
@@ -42,7 +44,6 @@ public class MusicManager : MonoBehaviour {
 	
     void Start()
     {
-        
     }
 
 	// Update is called once per frame
@@ -62,7 +63,10 @@ public class MusicManager : MonoBehaviour {
                 break;
             case "FightScene":
                 StartPlayingTrack(fightSources[Services.FightScene.roundNum - 1]);
-                StartRooftop();
+                //if(Services.FightScene.roundNum == 3)
+                //{
+                //    StartRooftop();
+                //}
                 break;
             default:
                 break;
@@ -73,6 +77,10 @@ public class MusicManager : MonoBehaviour {
     {
         //FadeInTrack(fightSources[e.roundNum - 1]);
         StartPlayingTrack(fightSources[e.roundNum - 1]);
+        //if(fightSources[e.roundNum = 4])
+        //{
+        //    StartParkingLot();
+        //}
     }
 
     AudioSource InitializeAudio(AudioClip clip)
@@ -132,9 +140,16 @@ public class MusicManager : MonoBehaviour {
         Destroy(specialAudioSource, clip.length);
     }
 
-    public void StartRooftop()
-    {
-        GetComponent<FMOD_StudioEventEmitter>().enabled = true;   
-    }
+    //public void StartRooftop()
+    //{
+    //    this.GetComponent<StudioEventEmitter>().enabled = true;   
+    //}
+
+    //public void StartParkingLot()
+    //{
+    //    FMOD.Studio.EventInstance parkingLot = FMODUnity.RuntimeManager.CreateInstance("Final Battle");
+    //    parkingLot.setParameterValue("Level 2", 1.0f);
+    //    parkingLot.start();
+    //}
 
 }
