@@ -91,71 +91,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &10488568 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1842748047688638, guid: 7113b7853415cca4b9c5c64d085a3dbe,
-    type: 2}
-  m_PrefabInternal: {fileID: 2063000189}
---- !u!114 &10488571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 10488568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ListenerNumber: 0
---- !u!114 &10488572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 10488568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: event:/Final Battle
-  PlayEvent: 11
-  StopEvent: 0
-  CollisionTag: 
-  AllowFadeout: 1
-  TriggerOnce: 1
-  Preload: 1
-  Params:
-  - Name: Level 2
-    Value: 0.598
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &10488574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 10488568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: event:/Final Battle
-  PlayEvent: 12
-  StopEvent: 0
-  CollisionTag: 
-  AllowFadeout: 1
-  TriggerOnce: 1
-  Preload: 1
-  Params:
-  - Name: Level 3
-    Value: 0.565
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &1544608879
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,31 +197,6 @@ Prefab:
     - target: {fileID: 4530927707061854, guid: 7113b7853415cca4b9c5c64d085a3dbe, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114543626297634862, guid: 7113b7853415cca4b9c5c64d085a3dbe,
-        type: 2}
-      propertyPath: vnSelect
-      value: 
-      objectReference: {fileID: 8300000, guid: 85a9038d4d9c2ad40a1e13910f550bac, type: 3}
-    - target: {fileID: 114543626297634862, guid: 7113b7853415cca4b9c5c64d085a3dbe,
-        type: 2}
-      propertyPath: fightTracks.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114543626297634862, guid: 7113b7853415cca4b9c5c64d085a3dbe,
-        type: 2}
-      propertyPath: fightTracks.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114543626297634862, guid: 7113b7853415cca4b9c5c64d085a3dbe,
-        type: 2}
-      propertyPath: fightTracks.Array.data[4]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114543626297634862, guid: 7113b7853415cca4b9c5c64d085a3dbe,
-        type: 2}
-      propertyPath: titleTrack
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7113b7853415cca4b9c5c64d085a3dbe, type: 2}

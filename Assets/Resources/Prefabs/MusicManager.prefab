@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4530927707061854}
   - component: {fileID: 114543626297634862}
+  - component: {fileID: 114460863029031308}
+  - component: {fileID: 114182339889483792}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: MusicManager
@@ -40,6 +42,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114182339889483792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1842748047688638}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/Final Battle
+  PlayEvent: 1
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 1
+  Preload: 1
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &114460863029031308
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1842748047688638}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: 0
 --- !u!114 &114543626297634862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -56,9 +92,9 @@ MonoBehaviour:
   fightTracks:
   - {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
   - {fileID: 8300000, guid: e2fd9627553970d428813ae978beb5ba, type: 3}
-  - {fileID: 8300000, guid: 5322247777d2173488c2ec5ab2c7ea27, type: 3}
-  - {fileID: 8300000, guid: 0c7735f7b21103f4bb77a4dfb9bdfcd4, type: 3}
-  - {fileID: 8300000, guid: 56d46d2e223416444bf5008b72685619, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   fadeInTime: 0.1
   fadeOutTime: 0.1
   musicVolume: 0.5
@@ -68,5 +104,5 @@ MonoBehaviour:
   readyP2: {fileID: 8300000, guid: 300818595703b034e83e50262a39e875, type: 3}
   rpsReadySoundP1: {fileID: 8300000, guid: 03ef0047e2175c640b4b6b1a1a044c9c, type: 3}
   rpsReadySoundP2: {fileID: 8300000, guid: f16ff24620c022a41bf2b004e2420ac3, type: 3}
-  vnSelect: {fileID: 8300000, guid: 410f5f370de86264fa72d1b431d47496, type: 3}
+  vnSelect: {fileID: 8300000, guid: 85a9038d4d9c2ad40a1e13910f550bac, type: 3}
   fightinWordsSwirl: {fileID: 8300000, guid: 021a2a2a69655fc4d903b4c40b5c9668, type: 3}
