@@ -19,6 +19,7 @@ public class VisualNovelScene : Scene<TransitionData> {
     [HideInInspector]
     public string[] rpsDialogueArray;
     private Vector2[,,] comicShiftArray;
+    public List<List<List<Vector2>>> comicShifts;
     [HideInInspector]
     public GameObject canvas;
 
@@ -61,24 +62,45 @@ public class VisualNovelScene : Scene<TransitionData> {
 
     void InitializeComicShiftArray()
     {
-        comicShiftArray = new Vector2[3, 3, 3]
+        comicShifts = new List<List<List<Vector2>>>
         {
-            {
-                {1600 * Vector2.left, 1600 * Vector2.right, 900 * Vector2.up },
-                {1600 * Vector2.right, 1600 * Vector2.left, 1600 * Vector2.right },
-                {Vector2.zero, Vector2.zero, Vector2.zero }
+            /// hallway prefight comic
+            new List<List<Vector2>>{
+                new List<Vector2> {1600 * Vector2.left, 1600 * Vector2.right, 900 * Vector2.up },
+                new List<Vector2> {1600 * Vector2.right, 1600 * Vector2.left, 1600 * Vector2.right }
             },
+            /// cafeteria prefight comic
+            new List<List<Vector2>>
             {
-                {1600 * Vector2.left, 1600 * Vector2.right, Vector2.zero },
-                {1600 * Vector2.left, 1600 * Vector2.right, Vector2.zero },
-                {1600 * Vector2.left, 1600 * Vector2.right, Vector2.zero }
+                new List<Vector2> { 1600 * Vector2.left, 1600 * Vector2.right, 1600 * Vector2.left, 1600 * Vector2.right },
+                new List<Vector2> {900 * Vector2.down, 900 * Vector2.up, 900 * Vector2.down}
             },
+            /// rooftop prefight comic
+            new List<List<Vector2>>
             {
-                {900 * Vector2.up, 1600 * Vector2.left, 1600 * Vector2.right },
-                {1600 * Vector2.left, Vector2.zero, Vector2.zero },
-                {1600 * Vector2.left, 1600 * Vector2.right, Vector2.zero }
-            }
-        };
+                new List<Vector2> {900 * Vector2.up, 1600 * Vector2.left, 1600 * Vector2.right },
+                new List<Vector2> {1600 * Vector2.left},
+                new List<Vector2> {1600 * Vector2.left, 1600 * Vector2.right}
+            },
+         };
+        //new Vector2[3, 3, 3]
+        //{
+        //    {
+        //        {1600 * Vector2.left, 1600 * Vector2.right, 900 * Vector2.up },
+        //        {1600 * Vector2.right, 1600 * Vector2.left, 1600 * Vector2.right },
+        //        {Vector2.zero, Vector2.zero, Vector2.zero }
+        //    },
+        //    {
+        //        {1600 * Vector2.left, 1600 * Vector2.right, Vector2.zero },
+        //        {1600 * Vector2.left, 1600 * Vector2.right, Vector2.zero },
+        //        {1600 * Vector2.left, 1600 * Vector2.right, Vector2.zero }
+        //    },
+        //    {
+        //        {900 * Vector2.up, 1600 * Vector2.left, 1600 * Vector2.right },
+        //        {1600 * Vector2.left, Vector2.zero, Vector2.zero },
+        //        {1600 * Vector2.left, 1600 * Vector2.right, Vector2.zero }
+        //    }
+        //};
     }
 
     void InitializeAbilityPool(){
@@ -141,7 +163,7 @@ public class VisualNovelScene : Scene<TransitionData> {
             int numPanels = page.childCount;
             for (int j = 0; j < numPanels; j++)
             {
-                comicTasks.Add (new SlideInPanel(page.GetChild(j).gameObject, true, comicShiftArray[comicNum, i, j],
+                comicTasks.Add (new SlideInPanel(page.GetChild(j).gameObject, true, comicShifts[comicNum][i][j],
                     Services.ComicPanelManager.panelAppearTime));
             }
             comicTasks.Add(new WaitToContinueFromComic(page.gameObject, Services.ComicPanelManager.continueButton,
