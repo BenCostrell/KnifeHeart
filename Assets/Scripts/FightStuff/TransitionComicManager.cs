@@ -61,7 +61,8 @@ public class TransitionComicManager : MonoBehaviour {
             /// cafeteria end comic
             new List<List<Vector2>>
             {
-                new List<Vector2> {1600 * Vector2.left }
+                new List<Vector2> {1600 * Vector2.left },
+                new List<Vector2>{ 1600 * Vector2.left, 1600 * Vector2.right }
             },
             /// rooftop end comic
             new List<List<Vector2>>
