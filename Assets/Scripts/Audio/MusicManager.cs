@@ -17,6 +17,8 @@ public class MusicManager : MonoBehaviour {
     public float musicVolume;
 
     private List<AudioSource> currentActiveSources;
+    public AudioClip scrollSound;
+    public AudioClip selectSound;
 
 	// Use this for initialization
 	public void Init () {
@@ -111,5 +113,14 @@ public class MusicManager : MonoBehaviour {
             fightSources[i].Play();
             currentActiveSources.Add(fightSources[i]);
         }
+    }
+
+    public void GenerateSourceAndPlay(AudioClip clip)
+    {
+        GameObject specialAudioSource = Instantiate(Services.PrefabDB.GenericAudioSource);
+        AudioSource source = specialAudioSource.GetComponent<AudioSource>();
+        source.clip = clip;
+        source.Play();
+        Destroy(specialAudioSource, clip.length);
     }
 }

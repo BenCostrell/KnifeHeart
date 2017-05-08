@@ -40,11 +40,16 @@ public class PlayerUnactionableTask : InterruptibleByFallTask {
 		}
 	}
 
-	protected override void CleanUp ()
+    protected override void OnSuccess()
+    {
+        base.OnSuccess();
+        player.StartListeningForInput();
+    }
+
+    protected override void CleanUp ()
 	{
         base.CleanUp();
         Services.EventManager.Unregister<GameOver> (OnGameOver);
-		Services.EventManager.Unregister<PlayerInputPaused> (AnotherInputPauseTaskWasStarted);
-		player.StartListeningForInput ();
+        Services.EventManager.Unregister<PlayerInputPaused>(AnotherInputPauseTaskWasStarted);
 	}
 }
