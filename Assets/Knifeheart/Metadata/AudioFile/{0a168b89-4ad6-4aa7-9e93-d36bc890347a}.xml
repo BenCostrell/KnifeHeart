@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="AudioFile" id="{0a168b89-4ad6-4aa7-9e93-d36bc890347a}">
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>2.6519274376417235</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/To Parking Lot2 {b06f0e4b-8370-4b37-8ff1-cc5770f24445}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{41306f2b-a3d0-47a8-88f2-51a43efbcb84}</destination>
+        </relationship>
+    </object>
+</objects>

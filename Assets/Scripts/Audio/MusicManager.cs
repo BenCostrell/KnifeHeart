@@ -42,6 +42,7 @@ public class MusicManager : MonoBehaviour {
 	
     void Start()
     {
+        
     }
 
 	// Update is called once per frame
@@ -61,6 +62,7 @@ public class MusicManager : MonoBehaviour {
                 break;
             case "FightScene":
                 StartPlayingTrack(fightSources[Services.FightScene.roundNum - 1]);
+                StartFMODEvent();
                 break;
             default:
                 break;
@@ -129,4 +131,10 @@ public class MusicManager : MonoBehaviour {
         source.Play();
         Destroy(specialAudioSource, clip.length);
     }
+
+    public void StartFMODEvent()
+    {
+
+    }
+
 }
