@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleTrack: {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
-  baseTrack: {fileID: 8300000, guid: dd95403cedf3f324ba1d3acec93e3454, type: 3}
+  baseTrack: {fileID: 8300000, guid: 8388f4845cf219b43acca343056aa1f1, type: 3}
   fightTracks:
   - {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
   - {fileID: 8300000, guid: e2fd9627553970d428813ae978beb5ba, type: 3}
@@ -64,3 +64,6 @@ MonoBehaviour:
   musicVolume: 0.5
   scrollSound: {fileID: 8300000, guid: fe491debb31ccfe438fff7881402d628, type: 3}
   selectSound: {fileID: 8300000, guid: 4401fc56e38ad2e42bab3d72ef33ec76, type: 3}
+  readySound: {fileID: 8300000, guid: 300818595703b034e83e50262a39e875, type: 3}
+  rpsReadySoundP1: {fileID: 8300000, guid: 03ef0047e2175c640b4b6b1a1a044c9c, type: 3}
+  rpsReadySoundP2: {fileID: 8300000, guid: f16ff24620c022a41bf2b004e2420ac3, type: 3}
