@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.09.00">
+    <object class="AudioFile" id="{86d867ee-3321-4e6d-b837-43af05765dfd}">
+        <property name="assetPath">
+            <value>Final Battle Hell 2.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>72.38095238095238</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{41306f2b-a3d0-47a8-88f2-51a43efbcb84}</destination>
+        </relationship>
+    </object>
+</objects>
