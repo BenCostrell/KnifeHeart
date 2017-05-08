@@ -56,9 +56,11 @@ MonoBehaviour:
   fightTracks:
   - {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
   - {fileID: 8300000, guid: e2fd9627553970d428813ae978beb5ba, type: 3}
-  - {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
+  - {fileID: 8300000, guid: 5322247777d2173488c2ec5ab2c7ea27, type: 3}
   - {fileID: 8300000, guid: 0c7735f7b21103f4bb77a4dfb9bdfcd4, type: 3}
   - {fileID: 8300000, guid: 56d46d2e223416444bf5008b72685619, type: 3}
-  fadeInTime: 0.2
-  fadeOutTime: 0.2
+  fadeInTime: 0.1
+  fadeOutTime: 0.1
   musicVolume: 0.5
+  scrollSound: {fileID: 8300000, guid: fe491debb31ccfe438fff7881402d628, type: 3}
+  selectSound: {fileID: 8300000, guid: 4401fc56e38ad2e42bab3d72ef33ec76, type: 3}

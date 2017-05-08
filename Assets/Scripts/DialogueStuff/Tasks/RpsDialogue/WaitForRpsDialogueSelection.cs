@@ -43,12 +43,15 @@ public class WaitForRpsDialogueSelection : Task {
         {
             case "Y":
                 choice = "BE AGGRESSIVE";
+                Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.selectSound);
                 break;
             case "X":
                 choice = "BE NICE";
+                Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.selectSound);
                 break;
             case "B":
                 choice = "BE PASSIVE AGGRESSIVE";
+                Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.selectSound);
                 break;
             default:
                 break;
