@@ -19,6 +19,7 @@ public class MusicManager : MonoBehaviour {
     private List<AudioSource> currentActiveSources;
     public AudioClip scrollSound;
     public AudioClip selectSound;
+    public AudioClip readySound;
 
 	// Use this for initialization
 	public void Init () {
