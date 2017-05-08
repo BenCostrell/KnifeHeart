@@ -62,7 +62,7 @@ public class MusicManager : MonoBehaviour {
                 break;
             case "FightScene":
                 StartPlayingTrack(fightSources[Services.FightScene.roundNum - 1]);
-                StartFMODEvent();
+                StartRooftop();
                 break;
             default:
                 break;
@@ -132,9 +132,9 @@ public class MusicManager : MonoBehaviour {
         Destroy(specialAudioSource, clip.length);
     }
 
-    public void StartFMODEvent()
+    public void StartRooftop()
     {
-
+        GetComponent<FMOD_StudioEventEmitter>().enabled = true;   
     }
 
 }
