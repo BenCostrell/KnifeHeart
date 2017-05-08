@@ -52,12 +52,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleTrack: {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
-  baseTrack: {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
+  baseTrack: {fileID: 8300000, guid: dd95403cedf3f324ba1d3acec93e3454, type: 3}
   fightTracks:
   - {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
-  - {fileID: 0}
-  - {fileID: 8300000, guid: 56d46d2e223416444bf5008b72685619, type: 3}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: e2fd9627553970d428813ae978beb5ba, type: 3}
+  - {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
+  - {fileID: 8300000, guid: 0c7735f7b21103f4bb77a4dfb9bdfcd4, type: 3}
   - {fileID: 8300000, guid: 56d46d2e223416444bf5008b72685619, type: 3}
   fadeInTime: 0.2
   fadeOutTime: 0.2
