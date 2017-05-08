@@ -43,15 +43,12 @@ public class WaitForRpsDialogueSelection : Task {
         {
             case "Y":
                 choice = "BE AGGRESSIVE";
-                Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.selectSound);
                 break;
             case "X":
                 choice = "BE NICE";
-                Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.selectSound);
                 break;
             case "B":
                 choice = "BE PASSIVE AGGRESSIVE";
-                Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.selectSound);
                 break;
             default:
                 break;
@@ -61,6 +58,7 @@ public class WaitForRpsDialogueSelection : Task {
             choice_P1 = choice;
             if (choice != "")
             {
+                Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.selectSound);
                 choiceTime_P1 = timeElapsed;
                 Services.DialogueUIManager.rpsReady_P1.SetActive(true);
             }
@@ -70,6 +68,7 @@ public class WaitForRpsDialogueSelection : Task {
             choice_P2 = choice;
             if (choice != "")
             {
+                Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.selectSound);
                 choiceTime_P2 = timeElapsed;
                 Services.DialogueUIManager.rpsReady_P2.SetActive(true);
             }

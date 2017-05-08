@@ -63,7 +63,7 @@ public class Player : MonoBehaviour {
     private Color baseColor;
 
     // Use this for initialization
-    void Start () {
+    public void Init () {
 		rb = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
 		sr = GetComponent<SpriteRenderer> ();
@@ -179,10 +179,13 @@ public class Player : MonoBehaviour {
     }
 
 	public void StartListeningForInput(){
-		Services.EventManager.Register<ButtonPressed> (AbilityActivated);
-		actionable = true;
-        anim.SetBool("Actionable", true);
-        //Debug.Log("started listening at time: " + Time.time);
+        if (Services.FightScene.fallenPlayer == null)
+        {
+            Services.EventManager.Register<ButtonPressed>(AbilityActivated);
+            actionable = true;
+            anim.SetBool("Actionable", true);
+            //Debug.Log("started listening at time: " + Time.time);
+        }
 	}
 
 	public void StopListeningForInput(){
