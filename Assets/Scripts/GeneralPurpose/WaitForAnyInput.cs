@@ -10,7 +10,8 @@ public class WaitForAnyInput : Task {
 	}
 
 	void Continue (ButtonPressed e){
-		SetStatus (TaskStatus.Success);
+        Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.vnSelect);
+        SetStatus (TaskStatus.Success);
 	}
 
 	protected override void OnSuccess ()

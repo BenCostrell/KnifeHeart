@@ -20,9 +20,12 @@ public class MusicManager : MonoBehaviour {
     public AudioClip scrollSound;
     public AudioClip selectSound;
     public AudioClip readySound;
+    public AudioClip rpsReadySoundP1;
+    public AudioClip rpsReadySoundP2;
+    public AudioClip vnSelect;
 
-	// Use this for initialization
-	public void Init () {
+    // Use this for initialization
+    public void Init () {
         currentActiveSources = new List<AudioSource>();
         titleSource = InitializeAudio(titleTrack);
         baseSource = InitializeAudio(baseTrack);

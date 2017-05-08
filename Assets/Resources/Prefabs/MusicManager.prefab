@@ -65,3 +65,5 @@ MonoBehaviour:
   scrollSound: {fileID: 8300000, guid: fe491debb31ccfe438fff7881402d628, type: 3}
   selectSound: {fileID: 8300000, guid: 4401fc56e38ad2e42bab3d72ef33ec76, type: 3}
   readySound: {fileID: 8300000, guid: 300818595703b034e83e50262a39e875, type: 3}
+  rpsReadySoundP1: {fileID: 8300000, guid: 03ef0047e2175c640b4b6b1a1a044c9c, type: 3}
+  rpsReadySoundP2: {fileID: 8300000, guid: f16ff24620c022a41bf2b004e2420ac3, type: 3}
