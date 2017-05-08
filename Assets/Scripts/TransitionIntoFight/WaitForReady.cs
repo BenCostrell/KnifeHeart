@@ -62,12 +62,12 @@ public class WaitForReady : Task {
 		if (e.buttonTitle == "A") {
 			if (e.playerNum == 1) {
 				p1Ready = true;
-                Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.readySound);
+                Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.readyP1);
                 Services.TransitionUIManager.readyPrompt_P1.SetActive (false);
 				Services.TransitionUIManager.ready_P1.SetActive (true);
 			} else if (e.playerNum == 2) {
 				p2Ready = true;
-                Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.readySound);
+                Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.readyP2);
                 Services.TransitionUIManager.readyPrompt_P2.SetActive (false);
 				Services.TransitionUIManager.ready_P2.SetActive (true);
 			}
