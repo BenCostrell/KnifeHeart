@@ -182,6 +182,11 @@ public class FightScene : Scene<TransitionData> {
 
     public void PositionPlayers(int roundNumber)
     {
+        foreach(Player player in players)
+        {
+            if (player == fallenPlayer) player.damage = fallDamage;
+            else player.damage = 0;
+        }
         fallenPlayer = null;
         foreach (Player player in players)
         {
@@ -189,8 +194,6 @@ public class FightScene : Scene<TransitionData> {
             player.StartListeningForInput();
             player.gameObject.GetComponent<SpriteRenderer>().enabled = true;
             player.ResetCooldowns();
-            if (player == fallenPlayer) player.damage = fallDamage;
-            else player.damage = 0;
             foreach (Ability.Type ability in player.abilityList) Services.FightUIManager.ScaleCooldownUI(ability, player.playerNum, 1);
             Services.FightUIManager.ScaleCooldownUI(Ability.Type.BasicAttack, player.playerNum, 1);
             player.stageEdgeBoundaryCollider.enabled = true;
