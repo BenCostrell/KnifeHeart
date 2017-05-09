@@ -298,6 +298,7 @@ public class Player : MonoBehaviour {
 		taskManager.AddTask (hitLag);
         EmitKnockbackTrail(knockbackDirection);
         if (castAudioSource.isPlaying) taskManager.AddTask(new FadeOutAudio(castAudioSource, castAudioFadeOutTime));
+        Services.CameraController.ShakeScreen(Easing.QuadEaseOut(knockbackMagnitude/expectedHighKnockback));
 	}
 
 	public void Stun(float hitstun){

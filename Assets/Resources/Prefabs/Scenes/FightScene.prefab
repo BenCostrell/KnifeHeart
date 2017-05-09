@@ -4635,6 +4635,10 @@ MonoBehaviour:
   sizeAdjustSpeed: 0.03
   bottomLeftCorner_MinCameraPos: {x: -8, y: -4.5}
   topRightCorner_MaxCameraPos: {x: 8, y: 4.5}
+  shaking: 0
+  screenShakeMagFactor: 1.5
+  screenShakeSpeedFactor: 100
+  screenShakeDurFactor: 0.5
 --- !u!114 &114840981883040658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4766,7 +4770,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0860ac1bc7bc9cb4ea76877ad74b996a, type: 3}
   - {fileID: 21300000, guid: 9b65937c8c3b886479606cc6db653482, type: 3}
   playerAnimators:
-  - {fileID: 9100000, guid: 67eaf806daf2bf747b77e9e32629d312, type: 2}
+  - {fileID: 9100000, guid: 24cd367b2c85043f9aac2341f1e9abef, type: 2}
   - {fileID: 9100000, guid: 67eaf806daf2bf747b77e9e32629d312, type: 2}
   hallwaySpawns:
   - {x: -5, y: 0, z: 0}

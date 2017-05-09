@@ -15,6 +15,7 @@ public class MusicManager : MonoBehaviour {
     public float fadeInTime;
     public float fadeOutTime;
     public float musicVolume;
+    public float jankyHeadstart;
 
     private List<AudioSource> currentActiveSources;
     public AudioClip scrollSound;
@@ -25,6 +26,8 @@ public class MusicManager : MonoBehaviour {
     public AudioClip rpsReadySoundP2;
     public AudioClip vnSelect;
     public AudioClip fightinWordsSwirl;
+    public AudioClip fightTransition;
+
 
     // Use this for initialization
     public void Init () {
@@ -60,7 +63,11 @@ public class MusicManager : MonoBehaviour {
                 StartPlayingTrack(baseSource);
                 break;
             case "FightScene":
-                StartPlayingTrack(fightSources[Services.FightScene.roundNum - 1]);
+                //StartPlayingTrack(fightSources[Services.FightScene.roundNum - 1]);
+                //if(Services.FightScene.roundNum == 3)
+                //{
+                //    StartRooftop();
+                //}
                 break;
             default:
                 break;
@@ -71,6 +78,10 @@ public class MusicManager : MonoBehaviour {
     {
         //FadeInTrack(fightSources[e.roundNum - 1]);
         StartPlayingTrack(fightSources[e.roundNum - 1]);
+        //if(fightSources[e.roundNum = 4])
+        //{
+        //    StartParkingLot();
+        //}
     }
 
     AudioSource InitializeAudio(AudioClip clip)
@@ -82,7 +93,7 @@ public class MusicManager : MonoBehaviour {
         return source;
     }
 
-    void StartPlayingTrack(AudioSource source)
+    public void StartPlayingTrack(AudioSource source)
     {
         PlayTrack playTrack = new PlayTrack(source);
         FadeInAudio fadeIn = new FadeInAudio(source, fadeInTime, musicVolume);
@@ -129,4 +140,26 @@ public class MusicManager : MonoBehaviour {
         source.Play();
         Destroy(specialAudioSource, clip.length);
     }
+
+    public void StartPlayingTransition()
+    {
+        baseSource.Stop();
+        PlayTransitionMusic transitionMusic = new PlayTransitionMusic(fightSources[Services.VisualNovelScene.currentRoundNum - 1]);
+        Services.TaskManager.AddTask(transitionMusic);
+        currentActiveSources.Add(fightSources[Services.VisualNovelScene.currentRoundNum - 1]);
+        currentActiveSources.Remove(baseSource);
+    }
+
+    //public void StartRooftop()
+    //{
+    //    this.GetComponent<StudioEventEmitter>().enabled = true;   
+    //}
+
+    //public void StartParkingLot()
+    //{
+    //    FMOD.Studio.EventInstance parkingLot = FMODUnity.RuntimeManager.CreateInstance("Final Battle");
+    //    parkingLot.setParameterValue("Level 2", 1.0f);
+    //    parkingLot.start();
+    //}
+
 }

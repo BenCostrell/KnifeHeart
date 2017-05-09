@@ -198,11 +198,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114543626297634862, guid: 7113b7853415cca4b9c5c64d085a3dbe,
-        type: 2}
-      propertyPath: vnSelect
-      value: 
-      objectReference: {fileID: 8300000, guid: 85a9038d4d9c2ad40a1e13910f550bac, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7113b7853415cca4b9c5c64d085a3dbe, type: 2}
   m_IsPrefabParent: 0

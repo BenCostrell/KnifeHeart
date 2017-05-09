@@ -195,6 +195,9 @@ public class VisualNovelScene : Scene<TransitionData> {
             new PopUpDialogueBox(false),
             new TypeRpsDialogue(),
             new WaitToContinueDialogue(),
+            new PopUpDialogueBox(false),
+            new TypeRpsDialogue(),
+            new WaitToContinueDialogue(),
             new PopUpDialogueBox(true),
             new TypeDialogue(true),
             new WaitToContinueDialogue(),
@@ -231,6 +234,7 @@ public class VisualNovelScene : Scene<TransitionData> {
         Services.GameInfo.player2Abilities = abilityLists[1];
         return new TaskQueue(new List<Task>()
         {
+            new ActionTask(Services.MusicManager.StartPlayingTransition),
             new SlideOutCrowd(),
             new SlideInFightBackground (),
             new ShowFightinWords (),
