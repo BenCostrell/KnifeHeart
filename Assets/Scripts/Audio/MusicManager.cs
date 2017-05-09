@@ -25,6 +25,7 @@ public class MusicManager : MonoBehaviour {
     public AudioClip rpsReadySoundP2;
     public AudioClip vnSelect;
     public AudioClip fightinWordsSwirl;
+    public AudioClip fightTransition;
 
 
     // Use this for initialization
@@ -61,7 +62,7 @@ public class MusicManager : MonoBehaviour {
                 StartPlayingTrack(baseSource);
                 break;
             case "FightScene":
-                StartPlayingTrack(fightSources[Services.FightScene.roundNum - 1]);
+                //StartPlayingTrack(fightSources[Services.FightScene.roundNum - 1]);
                 //if(Services.FightScene.roundNum == 3)
                 //{
                 //    StartRooftop();
@@ -91,7 +92,7 @@ public class MusicManager : MonoBehaviour {
         return source;
     }
 
-    void StartPlayingTrack(AudioSource source)
+    public void StartPlayingTrack(AudioSource source)
     {
         PlayTrack playTrack = new PlayTrack(source);
         FadeInAudio fadeIn = new FadeInAudio(source, fadeInTime, musicVolume);
@@ -137,6 +138,15 @@ public class MusicManager : MonoBehaviour {
         source.clip = clip;
         source.Play();
         Destroy(specialAudioSource, clip.length);
+    }
+
+    public void StartPlayingTransition()
+    {
+        baseSource.Stop();
+        PlayTransitionMusic transitionMusic = new PlayTransitionMusic();
+        PlayTrack playTrack = new PlayTrack(fightSources[Services.VisualNovelScene.currentRoundNum - 1]);
+        transitionMusic.Then(playTrack);
+        Services.TaskManager.AddTask(transitionMusic);
     }
 
     //public void StartRooftop()
