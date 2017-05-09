@@ -62,6 +62,7 @@ MonoBehaviour:
   fadeInTime: 0.1
   fadeOutTime: 0.1
   musicVolume: 0.5
+  jankyHeadstart: 0.165
   scrollSound: {fileID: 8300000, guid: fe491debb31ccfe438fff7881402d628, type: 3}
   selectSound: {fileID: 8300000, guid: 4401fc56e38ad2e42bab3d72ef33ec76, type: 3}
   readyP1: {fileID: 8300000, guid: 065522469fdd0104e891ada8d874fd85, type: 3}

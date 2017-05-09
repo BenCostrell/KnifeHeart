@@ -15,6 +15,7 @@ public class MusicManager : MonoBehaviour {
     public float fadeInTime;
     public float fadeOutTime;
     public float musicVolume;
+    public float jankyHeadstart;
 
     private List<AudioSource> currentActiveSources;
     public AudioClip scrollSound;
@@ -143,10 +144,10 @@ public class MusicManager : MonoBehaviour {
     public void StartPlayingTransition()
     {
         baseSource.Stop();
-        PlayTransitionMusic transitionMusic = new PlayTransitionMusic();
-        PlayTrack playTrack = new PlayTrack(fightSources[Services.VisualNovelScene.currentRoundNum - 1]);
-        transitionMusic.Then(playTrack);
+        PlayTransitionMusic transitionMusic = new PlayTransitionMusic(fightSources[Services.VisualNovelScene.currentRoundNum - 1]);
         Services.TaskManager.AddTask(transitionMusic);
+        currentActiveSources.Add(fightSources[Services.VisualNovelScene.currentRoundNum - 1]);
+        currentActiveSources.Remove(baseSource);
     }
 
     //public void StartRooftop()
