@@ -49,7 +49,11 @@ public class Pull : Attack {
     public override void OnCastFinish()
     {
         Services.EventManager.Fire(new AbilityEnded(this));
-        base.OnCastFinish();
+    }
+
+    public void DestroyPull()
+    {
+        Destroy(gameObject);
     }
 
 }

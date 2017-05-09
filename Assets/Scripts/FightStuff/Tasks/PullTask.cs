@@ -29,11 +29,14 @@ public class PullTask : InterruptibleByFallTask {
 	{
         if (retract) {
             if (pullRb == null) SetStatus(TaskStatus.Fail);
-			pullRb.velocity = pull.speed * (player.transform.position - hookedPlayer.transform.position).normalized;
-			hookedPlayer.gameObject.GetComponent<Rigidbody2D> ().MovePosition (pull.transform.position);
-			if (InPosition ()) {
-				SetStatus (TaskStatus.Success);
-			}
+            else {
+                pullRb.velocity = pull.speed * (player.transform.position - hookedPlayer.transform.position).normalized;
+                hookedPlayer.gameObject.GetComponent<Rigidbody2D>().MovePosition(pull.transform.position);
+                if (InPosition())
+                {
+                    SetStatus(TaskStatus.Success);
+                }
+            }
 		} 
 	}
 
@@ -69,8 +72,7 @@ public class PullTask : InterruptibleByFallTask {
     protected override void OnAbort()
     {
         base.OnAbort();
-        if (hookedPlayer != null) hookedPlayer.StartListeningForInput();
-        player.EndAbility();
+        if (hookedPlayer != null) hookedPlayer.Stun(pull.hitstun);
     }
 
 
@@ -80,5 +82,7 @@ public class PullTask : InterruptibleByFallTask {
         Services.EventManager.Unregister<PlayerHooked> (OnPlayerHooked);
 		Services.EventManager.Unregister<GameOver> (OnGameOver);
         Services.EventManager.Unregister<AbilityEnded>(OnAbilityEnded);
+        player.EndAbility();
+        pull.DestroyPull();
 	}
 }

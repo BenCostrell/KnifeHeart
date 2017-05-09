@@ -79,13 +79,12 @@ public class FightScene : Scene<TransitionData> {
         Services.GameInfo.player1Abilities = new List<Ability.Type>() {
 			Ability.Type.Blink,
 			Ability.Type.Fireball,
-			Ability.Type.Pull
+            Ability.Type.Shield
         };
         Services.GameInfo.player2Abilities = new List<Ability.Type>() {
-			Ability.Type.Lunge,
+            Ability.Type.Pull,
 			Ability.Type.Wallop,
-			Ability.Type.Shield
-            
+            Ability.Type.Lunge
         };
     }
 
