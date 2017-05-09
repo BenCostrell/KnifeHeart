@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasSourceProject: 1
   HasPlatforms: 1
-  SourceProjectPath: Assets\Knifeheart\Knifeheart.fspro
-  SourceBankPath: Assets\Knifeheart\Build
+  SourceProjectPath: 4173736574735c4b6e69666568656172745c4b6e69666568656172742e667370726f
+  SourceBankPath: 4173736574735c4b6e69666568656172745c4275696c64
   AutomaticEventLoading: 1
   AutomaticSampleLoading: 0
   ImportType: 0
@@ -42,7 +42,7 @@ MonoBehaviour:
     Value: 0
   BankDirectorySettings:
   - Platform: 2
-    Value: Desktop
+    Value: 4465736b746f70
   VirtualChannelSettings:
   - Platform: 1
     Value: 1024
@@ -54,5 +54,5 @@ MonoBehaviour:
   - Platform: 2
     Value: 32
   Plugins: []
-  MasterBank: Master Bank
+  MasterBank: 
   Banks: []

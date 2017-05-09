@@ -1,4 +1,0 @@
-{d9fe8d28-d529-45da-92e2-0623d802f007} event:/Final Battle
-{859f9a56-6f65-4168-9d2a-02a8430f2adb} bus:/
-{d0638ca6-9dfd-4a99-8d1c-8342d8d950fc} bus:/Reverb
-{43663026-6dfd-4a2d-821c-7e95a32eee49} bank:/Master Bank
