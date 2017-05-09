@@ -1,0 +1,342 @@
+fileFormatVersion: 2
+guid: ec4b6235194534812899e862de4d2ef8
+timeCreated: 1494316254
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PonytailWallopDOWN_0
+    21300002: PonytailWallopDOWN_1
+    21300004: PonytailWallopDOWN_2
+    21300006: PonytailWallopDOWN_3
+    21300008: PonytailWallopDOWN_4
+    21300010: PonytailWallopDOWN_5
+    21300012: PonytailWallopDOWN_6
+    21300014: PonytailWallopDOWN_7
+    21300016: PonytailWallopDOWN_8
+    21300018: PonytailWallopDOWN_9
+    21300020: PonytailWallopDOWN_10
+    21300022: PonytailWallopDOWN_11
+    21300024: PonytailWallopDOWN_12
+    21300026: PonytailWallopDOWN_13
+    21300028: PonytailWallopDOWN_14
+    21300030: PonytailWallopDOWN_15
+    21300032: PonytailWallopDOWN_16
+    21300034: PonytailWallopDOWN_17
+    21300036: PonytailWallopDOWN_18
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 500
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PonytailWallopDOWN_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8397
+        width: 1800
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PonytailWallopDOWN_1
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 8397
+        width: 1800
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PonytailWallopDOWN_2
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 8397
+        width: 1800
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PonytailWallopDOWN_3
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 8397
+        width: 1800
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PonytailWallopDOWN_4
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 8397
+        width: 1800
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PonytailWallopDOWN_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5598
+        width: 1800
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PonytailWallopDOWN_6
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 5598
+        width: 1800
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PonytailWallopDOWN_7
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 5598
+        width: 1800
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PonytailWallopDOWN_8
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 5598
+        width: 1800
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PonytailWallopDOWN_9
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 5598
+        width: 1800
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PonytailWallopDOWN_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2799
+        width: 1800
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PonytailWallopDOWN_11
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 2799
+        width: 1800
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PonytailWallopDOWN_12
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 2799
+        width: 1800
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PonytailWallopDOWN_13
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 2799
+        width: 1800
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PonytailWallopDOWN_14
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 2799
+        width: 1800
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PonytailWallopDOWN_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1800
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PonytailWallopDOWN_16
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 1800
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PonytailWallopDOWN_17
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 0
+        width: 1800
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PonytailWallopDOWN_18
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 0
+        width: 1800
+        height: 2799
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
