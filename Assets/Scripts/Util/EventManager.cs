@@ -32,6 +32,16 @@ public class SceneTransition : Event
     }
 }
 
+public class AbilityEnded : Event
+{
+    public Ability ability;
+    public AbilityEnded(Ability ab)
+    {
+        ability = ab;
+    }
+}
+
+
 public class FightAdvance : Event
 {
     public int roundNum;

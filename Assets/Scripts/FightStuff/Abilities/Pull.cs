@@ -6,6 +6,7 @@ public class Pull : Attack {
 	public float speed;
 	public float distanceToPullTo;
 	public float hitstun;
+    public float positionOffset;
 
 	// Use this for initialization
 	void Start () {
@@ -38,18 +39,17 @@ public class Pull : Attack {
         Vector3 direction = new Vector3(-Mathf.Cos(angle * Mathf.Deg2Rad), -Mathf.Sin(angle * Mathf.Deg2Rad));
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
-        transform.localPosition += 0.5f * direction;
+        transform.localPosition += positionOffset * direction;
         GetComponent<Rigidbody2D>().velocity = speed * direction;
 
         PullTask pullTask = new PullTask(parentPlayer.GetComponent<Player>(), this);
         parentPlayer.GetComponent<Player>().taskManager.AddTask(pullTask);
     }
 
-    public override void OnCastFinish ()
-	{
-	}
+    public override void OnCastFinish()
+    {
+        Services.EventManager.Fire(new AbilityEnded(this));
+        base.OnCastFinish();
+    }
 
-	public void OnFinish(){
-		Destroy (gameObject);
-	}
 }

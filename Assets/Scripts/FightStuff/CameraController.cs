@@ -69,9 +69,5 @@ public class CameraController : MonoBehaviour {
             screenShakeSpeedFactor * intensity, 
             screenShakeMagFactor * intensity, 
             screenShakeDurFactor * intensity));
-        Debug.Log("intensity level: " + intensity + "\n" +
-            "     speed: " + screenShakeSpeedFactor * intensity + "\n" +
-            "     magnitude: " + screenShakeMagFactor * intensity + "\n" +
-            "     duration: " + screenShakeDurFactor * intensity);
     }
 }
