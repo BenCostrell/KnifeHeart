@@ -62,6 +62,7 @@ public class PullTask : InterruptibleByFallTask {
 	{
 		hookedPlayer.Stun (pull.hitstun);
         pull.OnCastFinish();
+        player.StartListeningForInput();
         //Debug.Log("pull stun");
     }
 
