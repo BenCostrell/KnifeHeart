@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
 		InitializeUniversalServices ();
         Services.MusicManager.Init();
         Services.EventManager.Register<Reset> (Reset);
+        Cursor.visible = false;
 	}
 	
     void Start()
