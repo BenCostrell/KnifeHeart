@@ -28,7 +28,7 @@ public class PullTask : InterruptibleByFallTask {
 	internal override void Update ()
 	{
         if (retract) {
-            if (pullRb == null) SetStatus(TaskStatus.Fail);
+            if (pullRb == null || pull == null || hookedPlayer == null || player == null) SetStatus(TaskStatus.Fail);
             else {
                 pullRb.velocity = pull.speed * (player.transform.position - hookedPlayer.transform.position).normalized;
                 hookedPlayer.gameObject.GetComponent<Rigidbody2D>().MovePosition(pull.transform.position);
@@ -59,6 +59,7 @@ public class PullTask : InterruptibleByFallTask {
     void OnAbilityEnded(AbilityEnded e)
     {
         if (e.ability == pull && hookedPlayer == null) SetStatus(TaskStatus.Aborted);
+        if (e.ability == pull && e.ability.parentPlayer.GetComponent<Player>().stunned) SetStatus(TaskStatus.Aborted);
     }
 
 	protected override void OnSuccess ()
@@ -82,7 +83,6 @@ public class PullTask : InterruptibleByFallTask {
         Services.EventManager.Unregister<PlayerHooked> (OnPlayerHooked);
 		Services.EventManager.Unregister<GameOver> (OnGameOver);
         Services.EventManager.Unregister<AbilityEnded>(OnAbilityEnded);
-        player.EndAbility();
-        pull.DestroyPull();
+        if (pull != null) pull.DestroyPull();
 	}
 }

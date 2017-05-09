@@ -35,6 +35,8 @@ public class Player : MonoBehaviour {
     public Vector3 previousVelocity;
     [HideInInspector]
     public Vector3 velocityAtDeath;
+    [HideInInspector]
+    public bool stunned;
 
     private Ability currentActiveAbility;
     [HideInInspector]
@@ -184,6 +186,7 @@ public class Player : MonoBehaviour {
             Services.EventManager.Register<ButtonPressed>(AbilityActivated);
             actionable = true;
             anim.SetBool("Actionable", true);
+            stunned = false;
             //Debug.Log("started listening at time: " + Time.time);
         }
 	}
@@ -299,6 +302,14 @@ public class Player : MonoBehaviour {
         EmitKnockbackTrail(knockbackDirection);
         if (castAudioSource.isPlaying) taskManager.AddTask(new FadeOutAudio(castAudioSource, castAudioFadeOutTime));
         Services.CameraController.ShakeScreen(Easing.QuadEaseOut(knockbackMagnitude/expectedHighKnockback));
+        if (currentActiveAbility != null)
+        {
+            if (currentActiveAbility.GetType() == typeof(Pull))
+            {
+                currentActiveAbility.OnCastFinish();
+                Destroy(currentActiveAbility.gameObject);
+            }
+        }
 	}
 
 	public void Stun(float hitstun){

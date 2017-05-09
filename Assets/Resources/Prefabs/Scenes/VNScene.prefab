@@ -3597,8 +3597,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0640cbeb14bbe4f93feceb610c6c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueFile: {fileID: 4900000, guid: 5912b740862a60947b7bdf9727c76a51, type: 3}
-  rpsDialogueFile: {fileID: 4900000, guid: 7fdd98a4c80389348876260e7aade8ab, type: 3}
+  dialogueFile: {fileID: 4900000, guid: e87fa1a738c671e41af424c1d647dd38, type: 3}
+  rpsDialogueFile: {fileID: 4900000, guid: 361586caf961ba54e83268e0fb508566, type: 3}
   currentTurnPlayerNum: 0
   currentRoundNum: 0
   initiatingPlayer: 0

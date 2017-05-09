@@ -5,6 +5,11 @@ using UnityEngine;
 public class TaskManager {
 	private readonly List<Task> tasks = new List<Task>();
 
+    public bool hasActiveTasks()
+    {
+        return (tasks.Count > 0);
+    }
+
 	public void AddTask(Task task){
 		Debug.Assert (task != null);
 		Debug.Assert (!task.IsAttached);

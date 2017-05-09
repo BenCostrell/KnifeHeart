@@ -7,15 +7,19 @@ public class Pull : Attack {
 	public float distanceToPullTo;
 	public float hitstun;
     public float positionOffset;
+    private TaskManager pullTaskManager;
+    private bool pullFired;
 
 	// Use this for initialization
 	void Start () {
-		
+        pullTaskManager = new TaskManager();
+        pullFired = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        pullTaskManager.Update();
+        if (pullFired && !pullTaskManager.hasActiveTasks()) DestroyPull();
 	}
 
 	public override void Init(GameObject player){
@@ -43,7 +47,8 @@ public class Pull : Attack {
         GetComponent<Rigidbody2D>().velocity = speed * direction;
 
         PullTask pullTask = new PullTask(parentPlayer.GetComponent<Player>(), this);
-        parentPlayer.GetComponent<Player>().taskManager.AddTask(pullTask);
+        pullTaskManager.AddTask(pullTask);
+        pullFired = true;
     }
 
     public override void OnCastFinish()

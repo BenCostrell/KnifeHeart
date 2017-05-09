@@ -1,0 +1,31 @@
+Scenario	Winner	Loser	Losing Dialogue	Winning Dialogue	Crowd Dialogue
+1			...	...	...
+1	Be aggressive		...	MOVE BITCH!	Get out the way! Get out the way!
+1	Be nice		...	Um...hi?	You could hear a pin drop in here...
+1	Be passive aggressive		...	Oh, wow, silent treatment. Real Mature.	Silent treatment, that's SO freshmen.
+1	Be aggressive	Be passive aggressive	Uh, maybe get out of the way? Thanks.	What did you just say to me, bitch?!	Whoa! This chick's is so hardcore!
+1	Be aggressive	Be aggressive	Get out of my--	MOVE BITCH!	Get out the way! Get out the way!
+1	Be nice	Be aggressive	Are you literally blind?!	I'm sorry, I'm having an ocular migraine.	Awwww, poor thing.
+1	Be nice	Be nice	S-sorry...	Oh no, I'M sorry.  It was TOTALLY my fault.	That girl is SO nice!
+1	Be passive aggressive	Be nice	Oh, my bad.	It's okay, some people are just clumsy.	Oh, she got kicked while she was down!
+1	Be passive aggressive	Be passive aggressive	Do you mind...	Don't worry.  It's never too late to learn how to walk.	Oh! She told her!
+2			...	...	...
+2	Be aggressive		...	What the fuck? Are you just STANDING there?	She IS just standing there!
+2	Be nice		...	Um...hi...again?	That hello was intense.
+2	Be passive aggressive		...	Speechless, I know.	Dude, she can't even respond!
+2	Be aggressive	Be passive aggressive	Ugh, YOU'RE here?	Yeah, what about it, BITCH?	OH! She doesn't hold back!! Get Snacks!
+2	Be aggressive	Be aggressive	Are you fucking...	The FUCK are YOU doing here?!	She was much louder. I agree with her.
+2	Be nice	Be aggressive	What the fuck are you doing here?!	I'm here to have a nice lunch!	Aw, I hope she gets her nice lunch!
+2	Be nice	Be nice	Oh..hey..	Oh hey! Are you also here to help clean up?	What a sweet girl!
+2	Be passive aggressive	Be nice	Lunch smells good!	Oh, wow, you DO have terrible taste!	I think she just called her ugly and dumb!
+2	Be passive aggressive	Be passive aggressive	Ugh, not...	Wow, that outfit is...unique.	Ooh! I think she means 'unique' in the bad way!
+3			...	...	...
+3	Be aggressive		...	You got something to say? SAY IT TO MY FACE!	YEAH, SAY IT TO HER FACE COWARD!
+3	Be nice		...	Oh...you're here too...just...staring...that's...cool.	YO THAT'S MAD AWKWARD!!!
+3	Be passive aggressive		...	You shouldn't stare, sweetheart.  It's rude.	YO SHE GOT TOLD SO HARD!!
+3	Be aggressive	Be passive aggressive	Great, here comes best part of my day...	Great, here comes a fucking loser.	HOLY SHIT! OMG! TOLLLLDDDDDD! 
+3	Be aggressive	Be aggressive	The fuck are...	This bitch AGAIN?!	OMG FIND THE POPCORN, HURRY.
+3	Be nice	Be aggressive	The fuck are YOU doing here?	Feeding the homeless.	BIGGEST SWEETHEART 20XX!
+3	Be nice	Be nice	I got free fo...	Free cupcakes for EVERYBODY!	OMG WE LOVE YOU!!! <3
+3	Be passive aggressive	Be nice	Do you need help with that?	No thanks, I actually work out.	SHE'S SO RIPPED!!!
+3	Be passive aggressive	Be passive aggressive	Ugh, you...	What's that smell? Oh hey, you!	Oh man! She said that she smells!
