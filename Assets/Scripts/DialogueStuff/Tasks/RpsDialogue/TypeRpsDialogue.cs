@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class TypeRpsDialogue : Task {
     private string dialogueText;
     private int characterIndex;
+    private Text textComponent;
 
     protected override void Init()
     {
+        textComponent = Services.DialogueUIManager.dialogueText.GetComponent<Text>();
         int playerNum = Services.VisualNovelScene.currentTurnPlayerNum;
         characterIndex = 0;
         if (playerNum == Services.VisualNovelScene.initiatingPlayer)
@@ -19,14 +21,16 @@ public class TypeRpsDialogue : Task {
         {
             dialogueText = Services.VisualNovelScene.rpsDialogueArray[0];
         }
+
+        dialogueText = Services.DialogueDataManager.ParseTextForLineBreaks(dialogueText, textComponent);
         Services.DialogueUIManager.dialogueText.GetComponent<Text>().text = "";
     }
 
     internal override void Update()
     {
-        Services.DialogueUIManager.dialogueText.GetComponent<Text>().text += dialogueText[characterIndex];
+        textComponent.text += dialogueText[characterIndex];
         characterIndex += 1;
-        if (Services.DialogueUIManager.dialogueText.GetComponent<Text>().text == dialogueText)
+        if (textComponent.text == dialogueText)
         {
             SetStatus(TaskStatus.Success);
         }
