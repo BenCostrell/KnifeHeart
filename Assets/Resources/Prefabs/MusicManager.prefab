@@ -56,9 +56,9 @@ MonoBehaviour:
   fightTracks:
   - {fileID: 8300000, guid: 65495994e63dcd849a05217b74496997, type: 3}
   - {fileID: 8300000, guid: e2fd9627553970d428813ae978beb5ba, type: 3}
-  - {fileID: 8300000, guid: 5322247777d2173488c2ec5ab2c7ea27, type: 3}
-  - {fileID: 8300000, guid: 0c7735f7b21103f4bb77a4dfb9bdfcd4, type: 3}
-  - {fileID: 8300000, guid: 56d46d2e223416444bf5008b72685619, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   fadeInTime: 0.1
   fadeOutTime: 0.1
   musicVolume: 0.5
@@ -72,3 +72,4 @@ MonoBehaviour:
   vnSelect: {fileID: 8300000, guid: 85a9038d4d9c2ad40a1e13910f550bac, type: 3}
   fightinWordsSwirl: {fileID: 8300000, guid: 021a2a2a69655fc4d903b4c40b5c9668, type: 3}
   fightTransition: {fileID: 8300000, guid: be153bead20784144a5ccd05ab01af66, type: 3}
+  FinalBattle: event:/Final Battle
