@@ -7,6 +7,7 @@ public class TypeDialogue : Task {
 	private string dialogueText;
 	private int characterIndex;
 	private bool crowdDialogue;
+    private Text textComponent;
 
 	public TypeDialogue(bool crowdDialog){
 		crowdDialogue = crowdDialog;
@@ -14,7 +15,8 @@ public class TypeDialogue : Task {
 
 	protected override void Init ()
 	{
-		int playerNum = Services.VisualNovelScene.currentTurnPlayerNum;
+        textComponent = Services.DialogueUIManager.dialogueText.GetComponent<Text>();
+        int playerNum = Services.VisualNovelScene.currentTurnPlayerNum;
 		characterIndex = 0;
         if (!crowdDialogue) {
 			dialogueText = Services.DialogueUIManager.queuedDialogue.mainText;
@@ -22,13 +24,14 @@ public class TypeDialogue : Task {
 		} else {
             dialogueText = "CROWD: " + Services.VisualNovelScene.rpsDialogueArray[2];
         }
+        dialogueText = Services.DialogueDataManager.ParseTextForLineBreaks(dialogueText, textComponent);
 	}
 
 	internal override void Update ()
 	{
-		Services.DialogueUIManager.dialogueText.GetComponent<Text> ().text += dialogueText [characterIndex];
+		textComponent.text += dialogueText [characterIndex];
 		characterIndex += 1;
-		if (Services.DialogueUIManager.dialogueText.GetComponent<Text> ().text == dialogueText) {
+		if (textComponent.text == dialogueText) {
 			SetStatus (TaskStatus.Success);
 		}
 	}

@@ -341,11 +341,6 @@ public class Player : MonoBehaviour {
 			currentActiveAbility.OnCastFinish ();
 	}
 
-    public void EndPull()
-    {
-        if (currentActiveAbility != null) Services.EventManager.Fire(new AbilityEnded(currentActiveAbility));
-    }
-
     public void DebugAnimationState(string state)
     {
         //Debug.Log("entered state: " + state + " at time " + Time.time);

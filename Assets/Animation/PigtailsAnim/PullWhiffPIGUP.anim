@@ -104,7 +104,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.5833333
-    functionName: EndPull
+    functionName: EndAbility
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

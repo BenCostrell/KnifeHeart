@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class DialogueDataManager {
 
@@ -94,7 +95,7 @@ public class DialogueDataManager {
 				}
 			}
 			string callBlurbText = lineEntries [4];
-			string callMainText = lineEntries [5];
+            string callMainText = lineEntries[5];
             string responseBlurbText = lineEntries[6];
             string responseMainText = lineEntries[7];
 			Dialogue callDialogue = new Dialogue (callMainText, callBlurbText, abilityList [abilityList.Count - 1]);
@@ -103,6 +104,54 @@ public class DialogueDataManager {
             AddDialogueEntry(abilityList, responseDialogue, responseDialogueDict);
 		}
 	}
+
+    public string ParseTextForLineBreaks(string inputText, Text textComponent)
+    {
+        string parsedText = "";
+        Font font = textComponent.font;
+        int size = textComponent.fontSize;
+        font.RequestCharactersInTexture(" ", size, FontStyle.Normal);
+        string[] words = inputText.Split(new char[] { " "[0] });
+        float lineWidth = textComponent.gameObject.GetComponent<RectTransform>().rect.width;
+        float spaceLeft = lineWidth;
+        float wordWidth = 0;
+        float spaceWidth = StringWidth(" ", textComponent);
+        for (int i = 0; i < words.Length; i++)
+        {
+            wordWidth = StringWidth(words[i], textComponent);
+            if (wordWidth > spaceLeft)
+            {
+                parsedText += "\n" + words[i] + " ";
+                spaceLeft = lineWidth - (wordWidth + spaceWidth);
+            }
+            else
+            {
+                parsedText += words[i] + " ";
+                spaceLeft -= (wordWidth + spaceWidth);
+            }
+        }
+
+        return parsedText;
+    }
+
+    float StringWidth(string str, Text textComponent)
+    {
+        float width = 0;
+
+        CharacterInfo charInfo;
+        Font font = textComponent.font;
+        int size = textComponent.fontSize;
+        font.RequestCharactersInTexture(str, size, FontStyle.Normal);
+
+        for (int i = 0; i < str.Length; i++)
+        {
+            font.GetCharacterInfo(str[i], out charInfo, size, FontStyle.Normal);
+            width += charInfo.advance;
+        }
+
+        return width;
+    }
+
 
 	void AddDialogueEntry(List<Ability.Type> abilityList, Dialogue newDialogue, Dictionary<List<Ability.Type>, List<Dialogue>> dict){
         if (dict.ContainsKey (abilityList)) {
