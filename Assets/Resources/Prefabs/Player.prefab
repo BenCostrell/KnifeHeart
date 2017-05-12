@@ -270,7 +270,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 10
+  m_LinearDrag: 12
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -370,9 +370,9 @@ MonoBehaviour:
   stageEdgeBoundaryLayer:
     serializedVersion: 2
     m_Bits: 512
-  maxSpeed: 10
+  maxSpeed: 7.5
   accel: 80
-  dashSpeed: 8
+  dashSpeed: 6
   hitstunFactor: 0.01
   knockbackDamageGrowthFactor: 0.3
   wallBounceFactor: 0
@@ -3075,12 +3075,12 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1483769039
+  randomSeed: 1349540308
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
-      scalar: 0.25
+      scalar: 0.4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3861,7 +3861,7 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 2498226151
+          rgba: 15198183
         key1:
           serializedVersion: 2
           rgba: 2497699807
@@ -3892,9 +3892,9 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 32768
+        atime1: 16769
         atime2: 65535
-        atime3: 0
+        atime3: 65535
         atime4: 0
         atime5: 0
         atime6: 0

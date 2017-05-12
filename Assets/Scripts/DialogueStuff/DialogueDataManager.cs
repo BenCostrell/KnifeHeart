@@ -119,7 +119,12 @@ public class DialogueDataManager {
         for (int i = 0; i < words.Length; i++)
         {
             wordWidth = StringWidth(words[i], textComponent);
-            if (wordWidth > spaceLeft)
+            if (wordWidth > lineWidth)
+            {
+                parsedText += words[i] + " ";
+                spaceLeft = Mathf.Abs(wordWidth % lineWidth - spaceLeft);
+            }
+            else if (wordWidth > spaceLeft)
             {
                 parsedText += "\n" + words[i] + " ";
                 spaceLeft = lineWidth - (wordWidth + spaceWidth);

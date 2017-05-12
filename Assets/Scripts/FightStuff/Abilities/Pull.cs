@@ -155,6 +155,12 @@ public class Pull : Attack {
             return (Vector3.Distance(Context.parentPlayer.transform.position, Context.hookedPlayer.transform.position) 
                 <= Context.distanceToPullTo);
         }
+
+        protected override void EndPull()
+        {
+            Context.hookedPlayer.StartListeningForInput();
+            base.EndPull();
+        }
     }
 
 }

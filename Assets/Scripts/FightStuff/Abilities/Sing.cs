@@ -8,6 +8,9 @@ public class Sing : Attack {
 	public float lifeDuration;
 	private float timeElapsed;
     private bool activated;
+    public float maxSize;
+    private ParticleSystem ps;
+    public float particleFadeTimeAfterHit;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +22,7 @@ public class Sing : Attack {
         if (activated)
         {
             timeElapsed += Time.deltaTime;
-            transform.localScale = Vector3.Lerp(0.5f * Vector3.one, Vector3.one, timeElapsed / lifeDuration);
+            transform.localScale = Vector3.Lerp(0.5f * Vector3.one, maxSize * Vector3.one, timeElapsed / lifeDuration);
         }
 	}
 
@@ -28,11 +31,22 @@ public class Sing : Attack {
 		timeElapsed = 0;
         GetComponent<SpriteRenderer>().enabled = false;
         activated = false;
+        ps = GetComponentInChildren<ParticleSystem>();
     }
 
     protected override void HitPlayer(GameObject player){
 		player.GetComponent<Player> ().Stun (stunDuration);
         TurnOffHitbox();
+        ParticleSystem.Particle[] particles = new ParticleSystem.Particle[ps.main.maxParticles];
+        int numParticles = ps.GetParticles(particles);
+        
+        for (int i = 0; i < numParticles; i++)
+        {
+            ParticleSystem.Particle particle = particles[i];
+            if (particle.remainingLifetime > particleFadeTimeAfterHit) particle.remainingLifetime = particleFadeTimeAfterHit;
+            particles[i] = particle;
+        }
+        ps.SetParticles(particles, numParticles);
 	}
 
     public override void SetActive()
@@ -42,7 +56,6 @@ public class Sing : Attack {
         GetComponent<SpriteRenderer>().enabled = true;
         Destroy(gameObject, lifeDuration);
         activated = true;
-        ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
         ParticleSystem.MainModule main = ps.main;
         main.startLifetime = lifeDuration;
 

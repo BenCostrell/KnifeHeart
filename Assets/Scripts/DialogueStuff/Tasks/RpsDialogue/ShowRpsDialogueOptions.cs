@@ -49,4 +49,11 @@ public class ShowRpsDialogueOptions : Task {
         }
 
     }
+
+    protected override void OnSuccess()
+    {
+        base.OnSuccess();
+        foreach (GameObject obj in optObjects) obj.transform.localScale = Vector3.one;
+        foreach (GameObject arrow in arrowObjects) arrow.transform.localScale = Vector3.one;
+    }
 }

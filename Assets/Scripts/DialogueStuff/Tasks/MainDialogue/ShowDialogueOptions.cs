@@ -18,6 +18,7 @@ public class ShowDialogueOptions : Task {
     private Vector2 inactivePosTarget;
     private Vector2 activeInitialPos;
     private Vector2 inactiveInitialPos;
+    private GameObject[] optObjects;
     public ShowDialogueOptions(bool firstChc){
 		firstChoice = firstChc;
 	}
@@ -26,7 +27,7 @@ public class ShowDialogueOptions : Task {
 	{
         timeElapsed = 0;
         Services.VisualNovelScene.GenerateDialogueOptions (firstChoice);
-		GameObject[] optObjects = Services.DialogueUIManager.optionObjects;
+		optObjects = Services.DialogueUIManager.optionObjects;
         optObjects[0].transform.parent.localRotation = Quaternion.identity;
 		numAvailOptions = 0;
 		for (int i = 0; i < optObjects.Length; i++) {
@@ -108,7 +109,6 @@ public class ShowDialogueOptions : Task {
 		float duration = Services.DialogueUIManager.optionAppearanceTime;
 		float staggerTime = Services.DialogueUIManager.optionAppearanceStaggerTime;
 		float totalDuration = duration + ((numAvailOptions - 1) * staggerTime);
-		GameObject[] optObjects = Services.DialogueUIManager.optionObjects;
 		for (int i = 0; i < numAvailOptions; i++) {
 			float totalStaggerTime = i * staggerTime;
 			GameObject obj = optObjects [i];
@@ -139,5 +139,6 @@ public class ShowDialogueOptions : Task {
     {
         Services.DialogueUIManager.selectedOption = Services.DialogueUIManager.optionObjects[0];
         Services.DialogueUIManager.SetOptionUIStatus(true);
+        foreach (GameObject opt in optObjects) opt.transform.localScale = Vector3.one;
     }
 }

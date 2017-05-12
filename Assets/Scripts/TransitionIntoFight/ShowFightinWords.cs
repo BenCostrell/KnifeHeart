@@ -54,7 +54,8 @@ public class ShowFightinWords : Task {
 
 	protected override void OnSuccess ()
 	{
-		//Services.DialogueUIManager.ponytail.GetComponent<Animator> ().SetTrigger ("getAngry");
-		//Services.DialogueUIManager.pigtails.GetComponent<Animator> ().SetTrigger ("getAngry");
+        //Services.DialogueUIManager.ponytail.GetComponent<Animator> ().SetTrigger ("getAngry");
+        //Services.DialogueUIManager.pigtails.GetComponent<Animator> ().SetTrigger ("getAngry");
+        foreach (Transform word in wordObjects) word.localScale = Vector3.one;
 	}
 }

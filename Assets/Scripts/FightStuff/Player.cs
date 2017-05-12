@@ -104,6 +104,7 @@ public class Player : MonoBehaviour {
 			Move ();
 		} else {
 		}
+        //if (playerNum == 1) Debug.Log(rb.velocity.magnitude);
 	}
 
     void LateUpdate()
