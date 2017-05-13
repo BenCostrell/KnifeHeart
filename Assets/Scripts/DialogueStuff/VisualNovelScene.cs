@@ -78,29 +78,11 @@ public class VisualNovelScene : Scene<TransitionData> {
             /// rooftop prefight comic
             new List<List<Vector2>>
             {
-                new List<Vector2> {900 * Vector2.up, 1600 * Vector2.left, 1600 * Vector2.right },
-                new List<Vector2> {1600 * Vector2.left},
+                new List<Vector2> {1600 * Vector2.left, 1600 * Vector2.right },
+                new List<Vector2> {1600 * Vector2.left, 1600 * Vector2.right, 1600 * Vector2.left},
                 new List<Vector2> {1600 * Vector2.left, 1600 * Vector2.right}
             },
          };
-        //new Vector2[3, 3, 3]
-        //{
-        //    {
-        //        {1600 * Vector2.left, 1600 * Vector2.right, 900 * Vector2.up },
-        //        {1600 * Vector2.right, 1600 * Vector2.left, 1600 * Vector2.right },
-        //        {Vector2.zero, Vector2.zero, Vector2.zero }
-        //    },
-        //    {
-        //        {1600 * Vector2.left, 1600 * Vector2.right, Vector2.zero },
-        //        {1600 * Vector2.left, 1600 * Vector2.right, Vector2.zero },
-        //        {1600 * Vector2.left, 1600 * Vector2.right, Vector2.zero }
-        //    },
-        //    {
-        //        {900 * Vector2.up, 1600 * Vector2.left, 1600 * Vector2.right },
-        //        {1600 * Vector2.left, Vector2.zero, Vector2.zero },
-        //        {1600 * Vector2.left, 1600 * Vector2.right, Vector2.zero }
-        //    }
-        //};
     }
 
     void InitializeAbilityPool(){
