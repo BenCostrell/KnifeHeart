@@ -72,7 +72,7 @@ public class MusicManager : MonoBehaviour
                 StartPlayingTrack(baseSource);
                 break;
             case "FightScene":
-                StartPlayingTrack(fightSources[Services.FightScene.roundNum - 1]);
+                //StartPlayingTrack(fightSources[Services.FightScene.roundNum - 1]);
                 if (Services.FightScene.roundNum == 3)
                 {
                     finaleBattle = FMODUnity.RuntimeManager.CreateInstance(FinalBattle);
@@ -164,10 +164,10 @@ public class MusicManager : MonoBehaviour
         currentActiveSources.Remove(baseSource);
     }
 
-    public void StartRooftop()
-    {
-        this.GetComponent<StudioEventEmitter>().enabled = true;
-    }
+    //public void StartRooftop()
+    //{
+    //    this.GetComponent<StudioEventEmitter>().enabled = true;
+    //}
 
     public void StartParkingLot()
     {
