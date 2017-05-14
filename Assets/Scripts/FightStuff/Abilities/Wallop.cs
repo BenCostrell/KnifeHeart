@@ -31,4 +31,10 @@ public class Wallop : Attack {
         base.SetActive();
         PlaySpecialAudio();
     }
+
+    public override void SetInactive()
+    {
+        TurnOffHitbox();
+        GetComponent<SpriteRenderer>().enabled = false;
+    }
 }
