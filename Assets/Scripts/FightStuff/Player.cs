@@ -321,10 +321,7 @@ public class Player : MonoBehaviour {
 
     public void SetAbilityActive()
     {
-        if (currentActiveAbility != null)
-        {
-            currentActiveAbility.SetActive();
-        }
+        if (currentActiveAbility != null) currentActiveAbility.SetActive();
     }
 
     public void TurnOffHitbox()
@@ -334,6 +331,11 @@ public class Player : MonoBehaviour {
             Attack currentActiveAttack = currentActiveAbility as Attack;
             currentActiveAttack.TurnOffHitbox();
         }
+    }
+
+    public void SetAbilityInactive()
+    {
+        if (currentActiveAbility != null) currentActiveAbility.SetInactive();
     }
 
 	public void EndAbility(){

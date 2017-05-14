@@ -99,4 +99,9 @@ public class Attack : Ability {
     {
         GetComponent<Collider2D>().enabled = false;
     }
+
+    public override void SetInactive()
+    {
+        TurnOffHitbox();
+    }
 }

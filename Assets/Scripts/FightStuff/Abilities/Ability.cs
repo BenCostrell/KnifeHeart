@@ -10,7 +10,6 @@ public class Ability : MonoBehaviour {
 	public GameObject parentPlayer;
 
     public float cooldown;
-    public float castDuration;
 	public string animTrigger;
 	public AudioClip onCastAudio;
     public bool isMelee;
@@ -56,6 +55,11 @@ public class Ability : MonoBehaviour {
 	}
 
     public virtual void SetActive()
+    {
+
+    }
+
+    public virtual void SetInactive()
     {
 
     }

@@ -176,13 +176,14 @@ public class VisualNovelScene : Scene<TransitionData> {
             new TransitionFromSelectionToDialogue(),
             new PopUpDialogueBox(false),
             new TypeRpsDialogue(),
-            new WaitToContinueDialogue(),
+            new WaitToContinueDialogue(false),
+            new ActionTask(ChangePlayerTurn),
             new PopUpDialogueBox(false),
             new TypeRpsDialogue(),
-            new WaitToContinueDialogue(),
+            new WaitToContinueDialogue(false),
             new PopUpDialogueBox(true),
             new TypeDialogue(true),
-            new WaitToContinueDialogue(),
+            new WaitToContinueDialogue(true),
             new ActionTask(Services.DialogueUIManager.NotInRpsStage)
         });
     }
@@ -197,15 +198,16 @@ public class VisualNovelScene : Scene<TransitionData> {
             new ActionTask(Services.DialogueUIManager.SetPose),
             new PopUpDialogueBox(false),
             new TypeDialogue (false),
-            new WaitToContinueDialogue (),
+            new WaitToContinueDialogue (false),
             new SetObjectStatus(false, Services.DialogueUIManager.dialogueContainer),
+            new ActionTask(ChangePlayerTurn),
             new ShowDialogueOptions (false),
             new WaitForDialogueChoiceTask (),
             new HighlightSelectedOption (),
             new ActionTask(Services.DialogueUIManager.SetPose),
             new PopUpDialogueBox(false),
             new TypeDialogue (false),
-            new WaitToContinueDialogue (),
+            new WaitToContinueDialogue (false),
             new DialogueTransitionTask ()
         });
     }

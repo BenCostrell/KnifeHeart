@@ -37,7 +37,6 @@ public class TypeDialogue : Task {
 	}
 
 	protected override void OnSuccess ()
-	{
-		Services.VisualNovelScene.ChangePlayerTurn ();
+    { 
 	}
 }

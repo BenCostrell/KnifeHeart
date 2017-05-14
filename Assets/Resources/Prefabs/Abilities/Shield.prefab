@@ -75,7 +75,6 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.00000061185835}
   serializedVersion: 2
   m_Radius: 1.829344
@@ -108,12 +107,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentPlayer: {fileID: 0}
-  cooldown: 2
-  castDuration: 0.5
+  cooldown: 3
   animTrigger: Shield
   onCastAudio: {fileID: 8300000, guid: 66cec28388591ef419e87583d39063ce, type: 3}
   isMelee: 1
   specialAudio: {fileID: 0}
+  shrinkTime: 0.2
 --- !u!212 &212586019797389198
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -144,13 +143,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 0bc7b5569ae1c4d42b3b86e0b4c57887, type: 3}
   m_Color: {r: 0.9877283, g: 1, b: 0.1102941, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0

@@ -4,19 +4,29 @@ using UnityEngine;
 
 public class Shield : Ability {
 
+    private bool shrink;
+    public float shrinkTime;
+    private float shrinkTimeElapsed;
+    private Vector3 baseScale;
+    
 	// Use this for initialization
-	void Start () {
-		
+	void Start() { 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (shrink)
+        {
+            shrinkTimeElapsed += Time.deltaTime;
+            transform.localScale = Vector3.Lerp(baseScale, Vector3.zero, Easing.QuadEaseOut(shrinkTimeElapsed / shrinkTime));
+        }
 	}
 
 	public override void Init(GameObject player){
 		base.Init (player);
-
+        baseScale = transform.localScale;
+        shrinkTimeElapsed = 0;
+        shrink = false;
         GetComponent<Collider2D>().enabled = false;
 	}
 
@@ -51,4 +61,11 @@ public class Shield : Ability {
 	public void ShieldAnimationStarted(){
 		Debug.Log ("shield animation started");
 	}
+
+    public override void SetInactive()
+    {
+        GetComponent<Collider2D>().enabled = false;
+        parentPlayer.GetComponent<Player>().isInvulnerable = false;
+        shrink = true;
+    }
 }

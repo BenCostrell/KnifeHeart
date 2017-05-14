@@ -7,6 +7,12 @@ public class WaitToContinueDialogue : WaitForAnyInput {
     private Vector3 baseSize;
     private GameObject indicator;
     private float duration;
+    private bool crowdDialogue;
+
+    public WaitToContinueDialogue(bool crowd)
+    {
+        crowdDialogue = crowd;
+    }
 
     protected override void Init()
     {
@@ -16,6 +22,11 @@ public class WaitToContinueDialogue : WaitForAnyInput {
         timeSinceIndicatorChanged = 0;
         baseSize = indicator.transform.localScale;
         duration = Services.DialogueUIManager.indicatorFlashUptime;
+    }
+
+    protected override void Continue(ButtonPressed e)
+    {
+        if (e.playerNum == Services.VisualNovelScene.currentTurnPlayerNum || crowdDialogue) base.Continue(e);
     }
 
     internal override void Update()

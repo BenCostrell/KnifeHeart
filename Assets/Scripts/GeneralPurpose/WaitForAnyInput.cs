@@ -9,7 +9,7 @@ public class WaitForAnyInput : Task {
 		Services.EventManager.Register<ButtonPressed> (Continue);
 	}
 
-	void Continue (ButtonPressed e){
+	protected virtual void Continue (ButtonPressed e){
         Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.vnSelect);
         SetStatus (TaskStatus.Success);
 	}

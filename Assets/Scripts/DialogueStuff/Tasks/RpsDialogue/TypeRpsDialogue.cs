@@ -38,7 +38,6 @@ public class TypeRpsDialogue : Task {
 
     protected override void OnSuccess()
     {
-        Services.VisualNovelScene.ChangePlayerTurn();
     }
 
 }
