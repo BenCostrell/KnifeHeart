@@ -69,11 +69,13 @@ public class GameManager : MonoBehaviour {
         Services.EventManager.Register<Reset>(Reset);
         Services.TaskManager.Clear();
         Services.SceneStackManager.Swap<FightScene>(new TransitionData(3));
+        Services.MusicManager.ResetMusic();
     }
 
     void HardReset()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Services.MusicManager.ResetMusic();
     }
 
 

@@ -182,4 +182,12 @@ public class MusicManager : MonoBehaviour
         finaleBattle.setParameterValue("Level 3", .51f);
     }
 
+    public void ResetMusic()
+    {
+        finaleBattle.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        finaleBattle.setParameterValue("Level 2", 0f);
+        finaleBattle.setParameterValue("Level 3", 0f);
+
+    }
+
 }

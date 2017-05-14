@@ -13,12 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114816455065208722}
-  - {fileID: 114031320553105548}
+  - {fileID: 114092907801167462}
   EditorEvents:
   - {fileID: 114671467378789974}
-  MasterBankRef: {fileID: 114031320553105548}
+  MasterBankRef: {fileID: 114092907801167462}
   StringsBankRef: {fileID: 114816455065208722}
-  stringsBankWriteTime: 636301267045296210
+  stringsBankWriteTime: 636301254720000000
   cacheVersion: 2
 --- !u!114 &114028007699728472
 MonoBehaviour:
@@ -81,6 +81,40 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 3591968
+  Exists: 1
+--- !u!114 &114088582266791008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Level 2
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114092907801167462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\dmf46\Desktop\MyProjects\ProofOfConceptv2\Assets\Knifeheart 5.11.17(Version2)\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636301254720000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 47019488
   Exists: 1
 --- !u!114 &114120906969361966
 MonoBehaviour:
@@ -146,6 +180,21 @@ MonoBehaviour:
   - Name: Desktop
     Value: 47019488
   Exists: 1
+--- !u!114 &114260045579646742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Level 3
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114296856233617968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,14 +391,14 @@ MonoBehaviour:
   Path: event:/Final Battle
   guid: 288dfed929d5da4592e20623d802f007
   Banks:
-  - {fileID: 114031320553105548}
+  - {fileID: 114092907801167462}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114788418824770826}
-  - {fileID: 114915428838144010}
-  - {fileID: 114978516452928872}
+  - {fileID: 114088582266791008}
+  - {fileID: 114260045579646742}
+  - {fileID: 114729744697442156}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &114671476284323512
@@ -368,6 +417,21 @@ MonoBehaviour:
   Max: 1
   Default: 0
 --- !u!114 &114717422647539672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Battle End
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114729744697442156
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -409,7 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Knifeheart 5.11.17(Version2)\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636301267045296210
+  lastModified: 636301254720000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
