@@ -220,20 +220,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentPlayer: {fileID: 0}
   cooldown: 3
-  castDuration: 0.5
   animTrigger: Pull
   onCastAudio: {fileID: 8300000, guid: ddd78c43ddd66cd47a4cfd7270691a54, type: 3}
   isMelee: 0
   specialAudio: {fileID: 0}
   baseKnockback: 0
   knockbackGrowth: 0
-  damage: 2
+  damage: 3
   isProjectile: 1
   onImpactAudio: {fileID: 8300000, guid: f2db3ad3ee6c31247b6ec2b79727a973, type: 3}
   speed: 20
   distanceToPullTo: 2
   hitstun: 0.3
   positionOffset: 0.6
+  hookedPlayer: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!120 &120232303718718666
 LineRenderer:
   m_ObjectHideFlags: 1

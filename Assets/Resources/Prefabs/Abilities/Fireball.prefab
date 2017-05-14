@@ -121,13 +121,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentPlayer: {fileID: 0}
   cooldown: 1
-  castDuration: 0.2
   animTrigger: ThrowFireball
   onCastAudio: {fileID: 8300000, guid: 87650208af3aea04293a33e86e0e3bab, type: 3}
   isMelee: 0
+  specialAudio: {fileID: 0}
   baseKnockback: 8
-  knockbackGrowth: 0.5
-  damage: 1
+  knockbackGrowth: 1
+  damage: 2
   isProjectile: 1
   onImpactAudio: {fileID: 8300000, guid: baefbd2825175f844ab299ea93a556ee, type: 3}
   speed: 10

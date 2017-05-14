@@ -77,7 +77,7 @@ public class FightScene : Scene<TransitionData> {
     void SetPlayerAbilities()
     {
         Services.GameInfo.player1Abilities = new List<Ability.Type>() {
-			Ability.Type.Blink,
+			Ability.Type.Fireball,
 			Ability.Type.Shield,
             Ability.Type.Sing
         };

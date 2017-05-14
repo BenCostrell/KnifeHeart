@@ -89,12 +89,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentPlayer: {fileID: 0}
   cooldown: 0.6
-  castDuration: 0.2
   animTrigger: basicAttack
   onCastAudio: {fileID: 8300000, guid: 2bb8ab2614a34e549bdee102f20fc535, type: 3}
   isMelee: 1
+  specialAudio: {fileID: 0}
   baseKnockback: 16
   knockbackGrowth: 2
-  damage: 2
+  damage: 4
   isProjectile: 0
   onImpactAudio: {fileID: 8300000, guid: e09e364b0d2c9a745bf11918c0f2c816, type: 3}
