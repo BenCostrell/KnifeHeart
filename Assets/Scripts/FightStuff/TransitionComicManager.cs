@@ -77,6 +77,7 @@ public class TransitionComicManager : MonoBehaviour {
             /// hell end (win) comic
             new List<List<Vector2>>
             {
+                new List<Vector2> {1600 * Vector2.left },
                 new List<Vector2>{900 * Vector2.down, 900 * Vector2.up, 900 * Vector2.down },
                 new List<Vector2>{ 900 * Vector2.up, 900 * Vector2.down }
             }
