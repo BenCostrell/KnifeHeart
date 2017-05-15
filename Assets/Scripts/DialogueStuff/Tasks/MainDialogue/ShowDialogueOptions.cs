@@ -28,7 +28,8 @@ public class ShowDialogueOptions : Task {
         timeElapsed = 0;
         Services.VisualNovelScene.GenerateDialogueOptions (firstChoice);
 		optObjects = Services.DialogueUIManager.optionObjects;
-        optObjects[0].transform.parent.localRotation = Quaternion.identity;
+        optObjects[0].transform.parent.localRotation = 
+            Quaternion.Euler(Services.DialogueUIManager.optObjWheelBaseRotation * Vector3.right);
 		numAvailOptions = 0;
 		for (int i = 0; i < optObjects.Length; i++) {
 			if (optObjects [i].GetComponentInChildren<Text> ().text != "") {

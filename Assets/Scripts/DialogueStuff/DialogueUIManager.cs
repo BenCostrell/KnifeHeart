@@ -70,6 +70,7 @@ public class DialogueUIManager : MonoBehaviour {
     public float optionArrowBounceDistance;
     public float optObjNoiseMag;
     public float optObjNoiseSpd;
+    public float optObjWheelBaseRotation;
 
 	// Use this for initialization
 	void Start () {

@@ -44,7 +44,8 @@ public class RotateDialogueOptions : Task
     {
         timeElapsed = Mathf.Min(duration, timeElapsed + Time.deltaTime);
 
-        Vector3 targetRotation = Vector3.LerpUnclamped(initialRotation, initialRotation + (360/numAvailableOptions * direction * Vector3.right),
+        Vector3 targetRotation = Vector3.LerpUnclamped(initialRotation, initialRotation + 
+            (360/numAvailableOptions * direction * Vector3.right),
             Easing.QuadEaseOut(timeElapsed / duration));
         optionBaseTransform.Rotate(targetRotation - previousRotation);
         previousRotation = targetRotation;
