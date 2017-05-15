@@ -254,7 +254,8 @@ public class FightScene : Scene<TransitionData> {
 
         TaskQueue cleanUpSequence = new TaskQueue(new List<Task>()
         {
-            new SetObjectStatus(true, Services.TransitionComicManager.resetText)
+            new SetObjectStatus(true, Services.TransitionComicManager.resetText),
+            new ActionTask(Services.GameManager.SetEasyResetAvailable)
         });
 
         TaskQueue finalFightSequence = rooftopSequence

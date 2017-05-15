@@ -5,12 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
+    private bool easyResetAvailable;
+
 	// Use this for initialization
 	void Awake () {
 		InitializeUniversalServices ();
         Services.MusicManager.Init();
         Services.EventManager.Register<Reset> (Reset);
         Cursor.visible = false;
+        easyResetAvailable = false;
 	}
 	
     void Start()
@@ -47,9 +50,14 @@ public class GameManager : MonoBehaviour {
         Services.MusicManager = GameObject.FindWithTag("MusicManager").GetComponent<MusicManager>();
 	}
 
+    public void SetEasyResetAvailable()
+    {
+        easyResetAvailable = true;
+    }
+
 	void Reset(Reset e){
-		if (Input.GetButton ("SoftReset")) {
-            if (Services.SceneStackManager.CurrentScene != null)
+		if (Input.GetButton ("SoftReset") || easyResetAvailable) {
+            /*if (Services.SceneStackManager.CurrentScene != null)
             {
                 if (Services.SceneStackManager.CurrentScene.GetType() == typeof(FightScene))
                 {
@@ -58,7 +66,7 @@ public class GameManager : MonoBehaviour {
                 else SoftReset();
             }
             else HardReset();
-        } else {
+        } else {*/
             HardReset();
         }
     }
