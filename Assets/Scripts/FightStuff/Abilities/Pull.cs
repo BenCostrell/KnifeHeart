@@ -56,6 +56,7 @@ public class Pull : Attack {
 
     public override void OnCastFinish()
     {
+        Debug.Log("ending pull at time " + Time.time);
         Services.EventManager.Fire(new AbilityEnded(this));
     }
 
@@ -144,9 +145,9 @@ public class Pull : Attack {
             Context.hookedPlayer.rb.MovePosition(Context.transform.position);
             if (InPosition())
             {
+                EndPull();
                 Context.hookedPlayer.Stun(Context.hitstun);
                 Context.parentPlayer.GetComponent<Player>().StartListeningForInput();
-                EndPull();
             }
         }
 

@@ -294,6 +294,7 @@ public class Player : MonoBehaviour {
         HitLag hitLag = new HitLag(knockbackMagnitude);
         if (knockbackMagnitude > 0)
         {
+            stunned = true;
             KnockbackTask startKnockback = new KnockbackTask(hitstunDuration, this, knockbackVector);
             hitLag
             .Then(startKnockback);
@@ -314,7 +315,8 @@ public class Player : MonoBehaviour {
 	}
 
 	public void Stun(float hitstun){
-		HitstunTask startHitstun = new HitstunTask (hitstun, this);
+        stunned = true;
+        HitstunTask startHitstun = new HitstunTask (hitstun, this);
 		taskManager.AddTask (startHitstun);
         anim.SetTrigger("SingStunned");
     }

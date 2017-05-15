@@ -9,7 +9,6 @@ public class HitstunTask : PlayerUnactionableTask {
 	protected override void Init ()
 	{
 		base.Init ();
-        player.stunned = true;
 		player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 		player.gameObject.GetComponent<SpriteRenderer> ().color = Color.red;
 	}
