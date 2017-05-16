@@ -20,6 +20,7 @@ public class DialogueUIManager : MonoBehaviour {
     public GameObject rpsTimerBackground;
     public GameObject rpsReady_P1;
     public GameObject rpsReady_P2;
+    public GameObject[] rpsWords;
 	public GameObject continueIndicator;
 	public GameObject ponytail;
 	public GameObject pigtails;
@@ -59,6 +60,9 @@ public class DialogueUIManager : MonoBehaviour {
 	public float unselectedOptionShrinkTime;
 	public float selectedOptionHighlightTime;
 	public float crowdSlideTime;
+    public float rpsWordScaleInTime;
+    public float rpsWordScaleOutTime;
+    public float rpsWordStaggerTime;
     public float rpsWaitTime;
     public float rpsDialogueDelay;
     public float symbolGrowthTime;
@@ -103,6 +107,7 @@ public class DialogueUIManager : MonoBehaviour {
         ponytail.GetComponent<RectTransform>().anchoredPosition = defaultPosPonytail;
         pigtails.GetComponent<RectTransform>().anchoredPosition = defaultPosPigtails;
         background.GetComponent<Image>().sprite = backgroundImages[Services.VisualNovelScene.currentRoundNum - 1];
+        foreach (GameObject word in rpsWords) word.SetActive(false);
 	}
 
 	public void SetOptionUIStatus(bool active){

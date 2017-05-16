@@ -172,6 +172,10 @@ public class VisualNovelScene : Scene<TransitionData> {
         return new TaskQueue(new List<Task>()
         {
             new ActionTask(Services.DialogueUIManager.InRpsStage),
+            new ShowPreRpsWords(Services.DialogueUIManager.rpsWordScaleInTime, Services.DialogueUIManager.rpsWordStaggerTime),
+            new WaitForTime(0.5f),
+            new ScaleOutRpsWords(Services.DialogueUIManager.rpsWords[0].transform.parent.gameObject,
+            Services.DialogueUIManager.rpsWordScaleOutTime),
             new ShowRpsDialogueOptions(),
             new WaitForRpsDialogueSelection(),
             new TransitionFromSelectionToDialogue(),
