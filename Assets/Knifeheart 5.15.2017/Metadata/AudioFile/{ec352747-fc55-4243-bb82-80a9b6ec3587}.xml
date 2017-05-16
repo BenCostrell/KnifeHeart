@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{ec352747-fc55-4243-bb82-80a9b6ec3587}">
+        <property name="assetPath">
+            <value>Visual Novel1.wav</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>22.994013605442177</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{41306f2b-a3d0-47a8-88f2-51a43efbcb84}</destination>
+        </relationship>
+    </object>
+</objects>

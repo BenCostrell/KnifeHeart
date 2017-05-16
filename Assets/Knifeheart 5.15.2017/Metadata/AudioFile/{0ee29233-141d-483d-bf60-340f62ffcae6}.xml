@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{0ee29233-141d-483d-bf60-340f62ffcae6}">
+        <property name="assetPath">
+            <value>Start Battle Sting1.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>2.0130158730158731</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{41306f2b-a3d0-47a8-88f2-51a43efbcb84}</destination>
+        </relationship>
+    </object>
+</objects>

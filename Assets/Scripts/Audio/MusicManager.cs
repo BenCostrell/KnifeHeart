@@ -32,8 +32,8 @@ public class MusicManager : MonoBehaviour
     public AudioClip fightTransition;
 
     [FMODUnity.EventRef]
-    public string FinalBattle;
-    FMOD.Studio.EventInstance finaleBattle;
+    public string Music;
+    FMOD.Studio.EventInstance musicInstance;
 
 
     // Use this for initialization
@@ -75,8 +75,8 @@ public class MusicManager : MonoBehaviour
                 //StartPlayingTrack(fightSources[Services.FightScene.roundNum - 1]);
                 if (Services.FightScene.roundNum == 3)
                 {
-                    finaleBattle = FMODUnity.RuntimeManager.CreateInstance(FinalBattle);
-                    finaleBattle.start();
+                    musicInstance = FMODUnity.RuntimeManager.CreateInstance(Music);
+                    musicInstance.start();
                 }
                 break;
             default:
@@ -173,20 +173,20 @@ public class MusicManager : MonoBehaviour
     {
         //finaleBattle.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         //FMOD.Studio.EventInstance parkingLot = RuntimeManager.CreateInstance(FinalBattle);
-        finaleBattle.setParameterValue("Level 2", .51f);
+        musicInstance.setParameterValue("Level 2", .51f);
         //parkingLot.start();
     }
 
     public void StartHellLevel()
     {
-        finaleBattle.setParameterValue("Level 3", .51f);
+        musicInstance.setParameterValue("Level 3", .51f);
     }
 
     public void ResetMusic()
     {
-        finaleBattle.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        finaleBattle.setParameterValue("Level 2", 0f);
-        finaleBattle.setParameterValue("Level 3", 0f);
+        musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        musicInstance.setParameterValue("Level 2", 0f);
+        musicInstance.setParameterValue("Level 3", 0f);
 
     }
 

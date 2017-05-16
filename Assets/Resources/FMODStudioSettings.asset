@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasSourceProject: 1
   HasPlatforms: 1
-  SourceProjectPath: Assets\Knifeheart 5.11.17(Version2)\Knifeheart 5.11.17(Version2).fspro
-  SourceBankPath: Assets\Knifeheart 5.11.17(Version2)\Build
+  SourceProjectPath: Assets\Knifeheart 5.15.2017\Knifeheart 5.15.2017.fspro
+  SourceBankPath: Assets\Knifeheart 5.15.2017\Build
   AutomaticEventLoading: 1
   AutomaticSampleLoading: 0
   ImportType: 0
