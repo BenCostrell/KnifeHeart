@@ -17,6 +17,7 @@ public class DialogueUIManager : MonoBehaviour {
     public GameObject[] rpsArrows;
     public GameObject[] optionArrows;
     public GameObject rpsTimer;
+    public GameObject rpsTimerBackground;
     public GameObject rpsReady_P1;
     public GameObject rpsReady_P2;
 	public GameObject continueIndicator;

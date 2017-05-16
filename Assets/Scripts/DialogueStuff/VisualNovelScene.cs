@@ -172,7 +172,6 @@ public class VisualNovelScene : Scene<TransitionData> {
         return new TaskQueue(new List<Task>()
         {
             new ActionTask(Services.DialogueUIManager.InRpsStage),
-            new SlideInCrowd(),
             new ShowRpsDialogueOptions(),
             new WaitForRpsDialogueSelection(),
             new TransitionFromSelectionToDialogue(),
@@ -183,6 +182,7 @@ public class VisualNovelScene : Scene<TransitionData> {
             new PopUpDialogueBox(false),
             new TypeRpsDialogue(),
             new WaitToContinueDialogue(false),
+            new SlideInCrowd(),
             new PopUpDialogueBox(true),
             new TypeDialogue(true),
             new WaitToContinueDialogue(true),

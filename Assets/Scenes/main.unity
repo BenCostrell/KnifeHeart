@@ -198,26 +198,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114543626297634862, guid: 7113b7853415cca4b9c5c64d085a3dbe,
-        type: 2}
-      propertyPath: Music
-      value: event:/Music
-      objectReference: {fileID: 0}
-    - target: {fileID: 114543626297634862, guid: 7113b7853415cca4b9c5c64d085a3dbe,
-        type: 2}
-      propertyPath: fightTracks.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114543626297634862, guid: 7113b7853415cca4b9c5c64d085a3dbe,
-        type: 2}
-      propertyPath: fightTracks.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114543626297634862, guid: 7113b7853415cca4b9c5c64d085a3dbe,
-        type: 2}
-      propertyPath: baseTrack
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7113b7853415cca4b9c5c64d085a3dbe, type: 2}
   m_IsPrefabParent: 0
