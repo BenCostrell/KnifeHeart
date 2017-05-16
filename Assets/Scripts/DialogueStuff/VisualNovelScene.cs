@@ -25,6 +25,7 @@ public class VisualNovelScene : Scene<TransitionData> {
 
     internal override void Init()
     {
+        Services.MusicManager.StartFMODInstance();
         InitializeVNServices();
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         currentRoundNum = 0;
@@ -39,6 +40,7 @@ public class VisualNovelScene : Scene<TransitionData> {
     internal override void OnEnter(TransitionData data)
     {
         currentRoundNum += 1;
+        Services.MusicManager.StartVNMusic();
         Services.ComicPanelManager.TurnOffComicPanels();
         Services.DialogueUIManager.SetUpUI();
         Services.TransitionUIManager.SetUpUI();
