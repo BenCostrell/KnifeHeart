@@ -11,6 +11,7 @@ public class WaitForRpsDialogueSelection : Task {
     private string choice_P2;
     private float choiceTime_P1;
     private float choiceTime_P2;
+    private Image timerBackground;
     private Image timer;
 
     protected override void Init()
@@ -20,8 +21,10 @@ public class WaitForRpsDialogueSelection : Task {
         timeElapsed = 0;
         choice_P1 = "";
         choice_P2 = "";
+        timerBackground = Services.DialogueUIManager.rpsTimerBackground.GetComponent<Image>();
         timer = Services.DialogueUIManager.rpsTimer.GetComponent<Image>();
         timer.gameObject.SetActive(true);
+        timerBackground.gameObject.SetActive(true);
     }
 
     internal override void Update()

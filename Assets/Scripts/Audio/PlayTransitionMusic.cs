@@ -15,9 +15,10 @@ public class PlayTransitionMusic : Task {
 
     protected override void Init()
     {
-        timeElapsed = 0;
-        Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.fightTransition);
-        duration = Services.MusicManager.fightTransition.length - Services.MusicManager.jankyHeadstart;
+        //timeElapsed = 0;
+        //Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.fightTransition);
+        //duration = Services.MusicManager.fightTransition.length - Services.MusicManager.jankyHeadstart;
+        Services.MusicManager.StartBattleMusic();
     }
 
     internal override void Update()

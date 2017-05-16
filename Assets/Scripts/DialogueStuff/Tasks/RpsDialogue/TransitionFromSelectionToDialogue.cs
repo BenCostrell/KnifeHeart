@@ -24,6 +24,7 @@ public class TransitionFromSelectionToDialogue : Task {
 
     protected override void OnSuccess()
     {
+        Services.DialogueUIManager.rpsTimerBackground.SetActive(false);
         Services.DialogueUIManager.rpsTimer.SetActive(false);
         Services.DialogueUIManager.SetRpsOptionUIStatus(false);
         Services.DialogueUIManager.rpsReady_P1.SetActive(false);

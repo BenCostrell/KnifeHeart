@@ -25,6 +25,7 @@ public class VisualNovelScene : Scene<TransitionData> {
 
     internal override void Init()
     {
+        Services.MusicManager.StartFMODInstance();
         InitializeVNServices();
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         currentRoundNum = 0;
@@ -39,6 +40,7 @@ public class VisualNovelScene : Scene<TransitionData> {
     internal override void OnEnter(TransitionData data)
     {
         currentRoundNum += 1;
+        Services.MusicManager.StartVNMusic();
         Services.ComicPanelManager.TurnOffComicPanels();
         Services.DialogueUIManager.SetUpUI();
         Services.TransitionUIManager.SetUpUI();
@@ -170,7 +172,6 @@ public class VisualNovelScene : Scene<TransitionData> {
         return new TaskQueue(new List<Task>()
         {
             new ActionTask(Services.DialogueUIManager.InRpsStage),
-            new SlideInCrowd(),
             new ShowRpsDialogueOptions(),
             new WaitForRpsDialogueSelection(),
             new TransitionFromSelectionToDialogue(),
@@ -181,6 +182,7 @@ public class VisualNovelScene : Scene<TransitionData> {
             new PopUpDialogueBox(false),
             new TypeRpsDialogue(),
             new WaitToContinueDialogue(false),
+            new SlideInCrowd(),
             new PopUpDialogueBox(true),
             new TypeDialogue(true),
             new WaitToContinueDialogue(true),

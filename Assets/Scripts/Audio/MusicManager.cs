@@ -73,11 +73,11 @@ public class MusicManager : MonoBehaviour
                 break;
             case "FightScene":
                 //StartPlayingTrack(fightSources[Services.FightScene.roundNum - 1]);
-                if (Services.FightScene.roundNum == 3)
-                {
-                    musicInstance = FMODUnity.RuntimeManager.CreateInstance(Music);
-                    musicInstance.start();
-                }
+                //if (Services.FightScene.roundNum == 3)
+                //{
+                //    musicInstance = FMODUnity.RuntimeManager.CreateInstance(Music);
+                //    musicInstance.start();
+                //}
                 break;
             default:
                 break;
@@ -188,6 +188,51 @@ public class MusicManager : MonoBehaviour
         musicInstance.setParameterValue("Level 2", 0f);
         musicInstance.setParameterValue("Level 3", 0f);
 
+    }
+
+    public void StartFMODInstance()
+    {
+        musicInstance = FMODUnity.RuntimeManager.CreateInstance(Music);
+        musicInstance.start();
+    }
+
+    public void StartBattleMusic()
+    {
+        switch (Services.VisualNovelScene.currentRoundNum)
+        {
+            case 1:
+                musicInstance.setParameterValue("Battle 1", .51f);
+                break;
+            case 2:
+                musicInstance.setParameterValue("Battle 2", .51f);
+                break;
+            case 3:
+                musicInstance.setParameterValue("Final Battle", .51f);
+                break;
+            case 4:
+                musicInstance.setParameterValue("Level 2", .51f);
+                break;
+            case 5:
+                musicInstance.setParameterValue("Level 3", .51f);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void StartVNMusic()
+    {
+        switch (Services.VisualNovelScene.currentRoundNum)
+        {
+            case 2:
+                musicInstance.setParameterValue("Visual Novel 2", .51f);
+                break;
+            case 3:
+                musicInstance.setParameterValue("Visual Novel 3", .51f);
+                break;
+            default:
+                break;
+        }
     }
 
 }
