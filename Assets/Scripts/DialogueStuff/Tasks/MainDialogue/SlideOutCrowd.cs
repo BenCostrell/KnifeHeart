@@ -37,5 +37,7 @@ public class SlideOutCrowd : Task {
 
 	protected override void OnSuccess(){
 		Services.DialogueUIManager.crowdImage.SetActive (false);
-	}
+        crowdLeft.anchoredPosition = leftInitialPos;
+        crowdRight.anchoredPosition = rightInitialPos;
+    }
 }

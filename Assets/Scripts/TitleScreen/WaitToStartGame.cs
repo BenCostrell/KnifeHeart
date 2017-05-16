@@ -61,6 +61,7 @@ public class WaitToStartGame : Task
 
     void OnButtonPressed(ButtonPressed e)
     {
+        Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.readyP2);
         bool readyToStart = true;
         int playerIndex = e.playerNum - 1;
         if (!playersReady[playerIndex])
