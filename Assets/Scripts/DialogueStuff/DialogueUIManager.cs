@@ -102,6 +102,8 @@ public class DialogueUIManager : MonoBehaviour {
 		crowdImage.SetActive (false);
 		SetOptionUIStatus (false);
         SetRpsOptionUIStatus(false);
+        rpsTimer.SetActive(false);
+        rpsTimerBackground.SetActive(false);
         rpsReady_P1.SetActive(false);
         rpsReady_P2.SetActive(false);
         ponytail.GetComponent<RectTransform>().anchoredPosition = defaultPosPonytail;
