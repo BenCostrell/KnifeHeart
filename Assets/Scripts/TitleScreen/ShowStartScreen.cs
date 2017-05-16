@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShowStartScreen : Task {
+
     protected override void Init()
     {
         Services.EventManager.Register<ButtonPressed>(Continue);
