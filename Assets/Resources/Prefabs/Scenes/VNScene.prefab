@@ -3626,6 +3626,7 @@ MonoBehaviour:
   rockSymbol: {fileID: 21300000, guid: dcea39a0547636542b20b4412dd38d8f, type: 3}
   paperSymbol: {fileID: 21300000, guid: 93b3d5d91fc76e343a6521af147e7cb7, type: 3}
   scissorsSymbol: {fileID: 21300000, guid: 6d4186bd8882fa34a82f5bc6eb2986e8, type: 3}
+  blankSymbol: {fileID: 21300000, guid: b97bc5684ce3046459ec98a1878896a1, type: 3}
   defaultPosPonytail: {x: 0, y: 0}
   defaultPosPigtails: {x: 0, y: 0}
   selectedOption: {fileID: 0}
@@ -6210,7 +6211,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 200}
+  m_SizeDelta: {x: 330, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224371435932640374
 RectTransform:
@@ -6911,7 +6912,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 200}
+  m_SizeDelta: {x: 330, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224664872013029864
 RectTransform:
@@ -7605,7 +7606,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 200}
+  m_SizeDelta: {x: 330, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224918274853073974
 RectTransform:
@@ -7679,7 +7680,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 200}
+  m_SizeDelta: {x: 330, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224925905881155416
 RectTransform:

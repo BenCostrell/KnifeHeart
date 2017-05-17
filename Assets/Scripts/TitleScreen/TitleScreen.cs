@@ -27,8 +27,8 @@ public class TitleScreen : Scene<TransitionData> {
     // Use this for initialization
 	void Start () {
         Services.TitleScreen = this;
-        characters[0].transform.position = characters[0].transform.position + 500 * Vector3.left;
-        characters[1].transform.position = characters[1].transform.position + 500 * Vector3.right;
+        characters[0].transform.position = characters[0].transform.position + 700 * Vector3.left;
+        characters[1].transform.position = characters[1].transform.position + 700 * Vector3.right;
         startPrompt.SetActive(false);
         title.SetActive(false);
 
@@ -37,10 +37,10 @@ public class TitleScreen : Scene<TransitionData> {
             new WaitForTime(initialDelay),
             new SlideCharacter(characters[0],
             characters[0].transform.position,
-            characters[0].transform.position + 500 * Vector3.right, slideInDuration, Easing.FunctionType.BackEaseOut),
+            characters[0].transform.position + 700 * Vector3.right, slideInDuration, Easing.FunctionType.BackEaseOut),
             new SlideCharacter(characters[1],
             characters[1].transform.position,
-            characters[1].transform.position + 500 * Vector3.left, slideInDuration, Easing.FunctionType.BackEaseOut),
+            characters[1].transform.position + 700 * Vector3.left, slideInDuration, Easing.FunctionType.BackEaseOut),
             new ScaleTitle(title, Vector3.zero, title.transform.localScale, titleScaleInTime, Easing.FunctionType.BackEaseOut),
             new WaitForTime(delayBeforeStartPrompt),
             new SetObjectStatus(true, startPrompt),
@@ -61,10 +61,10 @@ public class TitleScreen : Scene<TransitionData> {
     {
         Services.TaskManager.AddTask(new SlideCharacter(characters[0],
             characters[0].transform.position,
-            characters[0].transform.position + 600 * Vector3.left, slideInDuration, Easing.FunctionType.BackEaseIn));
+            characters[0].transform.position + 1000 * Vector3.left, slideInDuration, Easing.FunctionType.BackEaseIn));
         Services.TaskManager.AddTask(new SlideCharacter(characters[1],
             characters[1].transform.position,
-            characters[1].transform.position + 600 * Vector3.right, slideInDuration, Easing.FunctionType.BackEaseIn));
+            characters[1].transform.position + 1000 * Vector3.right, slideInDuration, Easing.FunctionType.BackEaseIn));
     }
 
     void SetStartPromptSprite()

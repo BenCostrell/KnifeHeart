@@ -37,6 +37,7 @@ public class DialogueUIManager : MonoBehaviour {
     public Sprite rockSymbol;
     public Sprite paperSymbol;
     public Sprite scissorsSymbol;
+    public Sprite blankSymbol;
     [HideInInspector]
     public Dictionary<Ability.Type, Sprite> spriteDict;
     [HideInInspector]
@@ -288,6 +289,7 @@ public class DialogueUIManager : MonoBehaviour {
                 symbol = scissorsSymbol;
                 break;
             case VisualNovelScene.RpsOption.None:
+                symbol = blankSymbol;
                 break;
             default:
                 break;
