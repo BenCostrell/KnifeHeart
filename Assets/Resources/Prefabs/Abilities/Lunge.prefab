@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentPlayer: {fileID: 0}
-  cooldown: 1.5
+  cooldown: 2
   animTrigger: Lunge
   onCastAudio: {fileID: 8300000, guid: cdb7d3e7e30f91f47a5473658c869be2, type: 3}
   isMelee: 1

@@ -492,6 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed1187a3a76c66438e5c1b1f19b6551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerRoundLosses: 
 --- !u!4 &1593401669
 Transform:
   m_ObjectHideFlags: 0

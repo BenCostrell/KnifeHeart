@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     private bool easyResetAvailable;
+    [HideInInspector]
+    public int[] playerRoundLosses;
 
 	// Use this for initialization
 	void Awake () {
@@ -14,6 +16,8 @@ public class GameManager : MonoBehaviour {
         Services.EventManager.Register<Reset> (Reset);
         Cursor.visible = false;
         easyResetAvailable = false;
+        playerRoundLosses = new int[2] { 0, 0 };
+        Services.EventManager.Register<PlayerFall>(RoundLoss);
 	}
 	
     void Start()
@@ -84,6 +88,11 @@ public class GameManager : MonoBehaviour {
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Services.MusicManager.ResetMusic();
+    }
+
+    void RoundLoss(PlayerFall e)
+    {
+        playerRoundLosses[e.fallenPlayer.playerNum - 1] += 1;
     }
 
 

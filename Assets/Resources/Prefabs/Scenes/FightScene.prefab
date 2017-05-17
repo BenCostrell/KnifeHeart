@@ -5171,6 +5171,7 @@ MonoBehaviour:
   fightActive: 0
   fallenPlayer: {fileID: 0}
   fallDamage: 10
+  damagePerRoundLoss: 5
   fallAnimationTime: 0.7
   additionalFallDistance: 0.5
   roundNum: 0
