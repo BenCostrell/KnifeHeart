@@ -58,7 +58,7 @@ MonoBehaviour:
   isMelee: 0
   specialAudio: {fileID: 0}
   distance: 3.5
-  stopShortDistance: 1
+  stopShortDistance: 0.3
   stageBoundary:
     serializedVersion: 2
     m_Bits: 512
