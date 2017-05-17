@@ -25,6 +25,7 @@ public class FightScene : Scene<TransitionData> {
     [HideInInspector]
     public Player fallenPlayer;
     public int fallDamage;
+    public int damagePerRoundLoss;
     public float fallAnimationTime;
     public float additionalFallDistance;
     [HideInInspector]
@@ -77,14 +78,19 @@ public class FightScene : Scene<TransitionData> {
     void SetPlayerAbilities()
     {
         Services.GameInfo.player1Abilities = new List<Ability.Type>() {
-			Ability.Type.Fireball,
+			Ability.Type.Wallop,
 			Ability.Type.Lunge,
 			Ability.Type.Pull
         };
         Services.GameInfo.player2Abilities = new List<Ability.Type>() {
             Ability.Type.Shield,
+<<<<<<< HEAD
 			Ability.Type.Sing,
             Ability.Type.Blink
+=======
+			Ability.Type.Blink,
+            Ability.Type.Fireball
+>>>>>>> master
         };
     }
 
@@ -101,6 +107,7 @@ public class FightScene : Scene<TransitionData> {
             players[1].GetComponent<SpriteRenderer>()
         };
         fightActive = true;
+        Services.FightUIManager.UpdateDamageUI();
     }
 
     Player InitializePlayer(int playerNum){
@@ -120,6 +127,7 @@ public class FightScene : Scene<TransitionData> {
         playerObj.GetComponent<Animator>().runtimeAnimatorController = playerAnimators[playerNum - 1];
 		player.abilityList = abilityList;
         player.Init();
+        player.damage = Services.GameManager.playerRoundLosses[playerNum - 1] * damagePerRoundLoss;
         return player;
 	}
 
@@ -181,10 +189,9 @@ public class FightScene : Scene<TransitionData> {
 
     public void PositionPlayers(int roundNumber)
     {
-        foreach(Player player in players)
+        for (int i = 0; i < players.Length; i++)
         {
-            if (player == fallenPlayer) player.damage = fallDamage;
-            else player.damage = 0;
+            players[i].damage = Services.GameManager.playerRoundLosses[i] * damagePerRoundLoss;
         }
         fallenPlayer = null;
         foreach (Player player in players)

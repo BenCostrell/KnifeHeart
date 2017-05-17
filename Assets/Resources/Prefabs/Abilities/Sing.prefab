@@ -130,7 +130,7 @@ MonoBehaviour:
   damage: 0
   isProjectile: 1
   onImpactAudio: {fileID: 8300000, guid: e6da6118125f54d438225f79bfd69606, type: 3}
-  stunDuration: 1
+  stunDuration: 0.8
   lifeDuration: 3
   maxSize: 1.25
   particleFadeTimeAfterHit: 0.6
