@@ -20,6 +20,7 @@ public class KnockbackTask : HitstunTask {
         player.stageEdgeBoundaryCollider.enabled = false;
         player.UpdateRotation(-knockback);
         player.anim.SetTrigger("Stunned");
+        player.rb.drag = player.knockbackDrag;
     }
 
     internal override void Update()
@@ -32,5 +33,6 @@ public class KnockbackTask : HitstunTask {
     {
         base.CleanUp();
         player.stageEdgeBoundaryCollider.enabled = true;
+        player.rb.drag = player.baseDrag;
     }
 }
