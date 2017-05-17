@@ -102,6 +102,7 @@ public class FightScene : Scene<TransitionData> {
             players[1].GetComponent<SpriteRenderer>()
         };
         fightActive = true;
+        Services.FightUIManager.UpdateDamageUI();
     }
 
     Player InitializePlayer(int playerNum){
