@@ -22,6 +22,9 @@ public class VisualNovelScene : Scene<TransitionData> {
     public List<List<List<Vector2>>> comicShifts;
     [HideInInspector]
     public GameObject canvas;
+    [HideInInspector]
+    public RpsOption[] lastRpsChoices;
+    public enum RpsOption { Rock, Paper, Scissors, None }
 
     internal override void Init()
     {
@@ -179,15 +182,15 @@ public class VisualNovelScene : Scene<TransitionData> {
             new ShowRpsDialogueOptions(),
             new WaitForRpsDialogueSelection(),
             new TransitionFromSelectionToDialogue(),
-            new PopUpDialogueBox(false),
+            new PopUpDialogueBox(false, true),
             new TypeRpsDialogue(),
             new WaitToContinueDialogue(false),
             new ActionTask(ChangePlayerTurn),
-            new PopUpDialogueBox(false),
+            new PopUpDialogueBox(false, true),
             new TypeRpsDialogue(),
             new WaitToContinueDialogue(false),
             new SlideInCrowd(),
-            new PopUpDialogueBox(true),
+            new PopUpDialogueBox(true, false),
             new TypeDialogue(true),
             new WaitToContinueDialogue(true),
             new ActionTask(Services.DialogueUIManager.NotInRpsStage)
@@ -202,7 +205,7 @@ public class VisualNovelScene : Scene<TransitionData> {
             new WaitForDialogueChoiceTask (),
             new HighlightSelectedOption (),
             new ActionTask(Services.DialogueUIManager.SetPose),
-            new PopUpDialogueBox(false),
+            new PopUpDialogueBox(false, false),
             new TypeDialogue (false),
             new WaitToContinueDialogue (false),
             new SetObjectStatus(false, Services.DialogueUIManager.dialogueContainer),
@@ -211,7 +214,7 @@ public class VisualNovelScene : Scene<TransitionData> {
             new WaitForDialogueChoiceTask (),
             new HighlightSelectedOption (),
             new ActionTask(Services.DialogueUIManager.SetPose),
-            new PopUpDialogueBox(false),
+            new PopUpDialogueBox(false, false),
             new TypeDialogue (false),
             new WaitToContinueDialogue (false),
             new DialogueTransitionTask ()
@@ -286,31 +289,31 @@ public class VisualNovelScene : Scene<TransitionData> {
 		}
 	}
 
-    public void ProcessRpsChoices(string choice_P1, string choice_P2, float choiceTime_P1, float choiceTime_P2)
+    public void ProcessRpsChoices(RpsOption choice_P1, RpsOption choice_P2, float choiceTime_P1, float choiceTime_P2)
     {
         int winningPlayerNum = 0;
         string[] dialogueArray = null;
-        if ((choice_P1 == "") && (choice_P2 == ""))
+        if ((choice_P1 == RpsOption.None) && (choice_P2 == RpsOption.None))
         {
             Debug.Log("nothing chosen");
             winningPlayerNum = Random.Range(1, 3);
         }
-        else if (choice_P1 == "")
+        else if (choice_P1 == RpsOption.None)
         {
             Debug.Log("player 1 chose nothing");
             Debug.Log("player 2 chose " + choice_P2);
             winningPlayerNum = 2;
         }
-        else if (choice_P2 == "")
+        else if (choice_P2 == RpsOption.None)
         {
             Debug.Log("player 1 chose " + choice_P1);
             Debug.Log("player 2 chose nothing");
             winningPlayerNum = 1;
         }
 
-        if (choice_P1 == "BE AGGRESSIVE")
+        if (choice_P1 == RpsOption.Rock)
         {
-            if (choice_P2 == "BE AGGRESSIVE")
+            if (choice_P2 == RpsOption.Rock)
             {
                 if (choiceTime_P1 < choiceTime_P2)
                 {
@@ -328,25 +331,25 @@ public class VisualNovelScene : Scene<TransitionData> {
                     winningPlayerNum = Random.Range(1, 3);
                 }
             }
-            else if (choice_P2 == "BE NICE")
+            else if (choice_P2 == RpsOption.Paper)
             {
                 Debug.Log("player 2 beats rock with paper");
                 winningPlayerNum = 2;
             }
-            else if (choice_P2 == "BE PASSIVE AGGRESSIVE")
+            else if (choice_P2 == RpsOption.Scissors)
             {
                 Debug.Log("player 1 beats scissors with rock");
                 winningPlayerNum = 1;
             }
         }
-        else if (choice_P1 == "BE NICE")
+        else if (choice_P1 == RpsOption.Paper)
         {
-            if (choice_P2 == "BE AGGRESSIVE")
+            if (choice_P2 == RpsOption.Rock)
             {
                 Debug.Log("player 1 beats rock with paper");
                 winningPlayerNum = 1;
             }
-            else if (choice_P2 == "BE NICE")
+            else if (choice_P2 == RpsOption.Paper)
             {
                 if (choiceTime_P1 < choiceTime_P2)
                 {
@@ -364,25 +367,25 @@ public class VisualNovelScene : Scene<TransitionData> {
                     winningPlayerNum = Random.Range(1, 3);
                 }
             }
-            else if (choice_P2 == "BE PASSIVE AGGRESSIVE")
+            else if (choice_P2 == RpsOption.Scissors)
             {
                 Debug.Log("player 2 beats paper with scissors");
                 winningPlayerNum = 2;
             }
         }
-        else if (choice_P1 == "BE PASSIVE AGGRESSIVE")
+        else if (choice_P1 == RpsOption.Scissors)
         {
-            if (choice_P2 == "BE AGGRESSIVE")
+            if (choice_P2 == RpsOption.Rock)
             {
                 Debug.Log("player 2 beats scissors with rock");
                 winningPlayerNum = 2;
             }
-            else if (choice_P2 == "BE NICE")
+            else if (choice_P2 == RpsOption.Paper)
             {
                 Debug.Log("player 1 beats paper with scissors");
                 winningPlayerNum = 1;
             }
-            else if (choice_P2 == "BE PASSIVE AGGRESSIVE")
+            else if (choice_P2 == RpsOption.Scissors)
             {
                 if (choiceTime_P1 < choiceTime_P2)
                 {
@@ -413,6 +416,7 @@ public class VisualNovelScene : Scene<TransitionData> {
         initiatingPlayer = winningPlayerNum;
         currentTurnPlayerNum = 3 - winningPlayerNum;
         rpsDialogueArray = dialogueArray;
+        lastRpsChoices = new RpsOption[2] { choice_P1, choice_P2 };
     }
 
     

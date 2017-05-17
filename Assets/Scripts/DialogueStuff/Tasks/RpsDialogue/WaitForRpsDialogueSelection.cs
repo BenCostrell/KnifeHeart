@@ -7,8 +7,8 @@ public class WaitForRpsDialogueSelection : Task {
 
     private float timeElapsed;
     private float duration;
-    private string choice_P1;
-    private string choice_P2;
+    private VisualNovelScene.RpsOption choice_P1;
+    private VisualNovelScene.RpsOption choice_P2;
     private float choiceTime_P1;
     private float choiceTime_P2;
     private Image timerBackground;
@@ -19,8 +19,8 @@ public class WaitForRpsDialogueSelection : Task {
         Services.EventManager.Register<ButtonPressed>(OnInputReceived);
         duration = Services.DialogueUIManager.rpsWaitTime;
         timeElapsed = 0;
-        choice_P1 = "";
-        choice_P2 = "";
+        choice_P1 = VisualNovelScene.RpsOption.None;
+        choice_P2 = VisualNovelScene.RpsOption.None;
         timerBackground = Services.DialogueUIManager.rpsTimerBackground.GetComponent<Image>();
         timer = Services.DialogueUIManager.rpsTimer.GetComponent<Image>();
         timer.gameObject.SetActive(true);
@@ -41,17 +41,17 @@ public class WaitForRpsDialogueSelection : Task {
 
     private void OnInputReceived(ButtonPressed e)
     {
-        string choice = "";
+        VisualNovelScene.RpsOption choice = VisualNovelScene.RpsOption.None;
         switch (e.buttonTitle)
         {
             case "Y":
-                choice = "BE AGGRESSIVE";
+                choice = VisualNovelScene.RpsOption.Rock;
                 break;
             case "X":
-                choice = "BE NICE";
+                choice = VisualNovelScene.RpsOption.Paper;
                 break;
             case "B":
-                choice = "BE PASSIVE AGGRESSIVE";
+                choice = VisualNovelScene.RpsOption.Scissors;
                 break;
             default:
                 break;
@@ -59,7 +59,7 @@ public class WaitForRpsDialogueSelection : Task {
         if (e.playerNum == 1)
         {
             choice_P1 = choice;
-            if (choice != "")
+            if (choice != VisualNovelScene.RpsOption.None)
             {
                 Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.rpsReadySoundP1);
                 choiceTime_P1 = timeElapsed;
@@ -69,14 +69,14 @@ public class WaitForRpsDialogueSelection : Task {
         else if (e.playerNum == 2)
         {
             choice_P2 = choice;
-            if (choice != "")
+            if (choice != VisualNovelScene.RpsOption.None)
             {
                 Services.MusicManager.GenerateSourceAndPlay(Services.MusicManager.rpsReadySoundP2);
                 choiceTime_P2 = timeElapsed;
                 Services.DialogueUIManager.rpsReady_P2.SetActive(true);
             }
         }
-        if ((choice_P1 != "") && (choice_P2 != ""))
+        if ((choice_P1 != VisualNovelScene.RpsOption.None) && (choice_P2 != VisualNovelScene.RpsOption.None))
         {
             SetStatus(TaskStatus.Success);
         }

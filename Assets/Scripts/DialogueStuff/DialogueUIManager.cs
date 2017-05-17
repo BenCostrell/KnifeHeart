@@ -10,6 +10,7 @@ public class DialogueUIManager : MonoBehaviour {
 	public GameObject dialogueContainer;
 	public GameObject dialogueText;
 	public GameObject dialogueTextBox;
+    public GameObject dialogueBoxRpsSymbol;
     public Sprite[] backgroundImages;
     public Sprite[] dialogueTextBoxImages;
 	public GameObject[] optionObjects;
@@ -32,6 +33,10 @@ public class DialogueUIManager : MonoBehaviour {
     public Sprite singSymbol;
     public Sprite lungeSymbol;
     public Sprite blinkSymbol;
+
+    public Sprite rockSymbol;
+    public Sprite paperSymbol;
+    public Sprite scissorsSymbol;
     [HideInInspector]
     public Dictionary<Ability.Type, Sprite> spriteDict;
     [HideInInspector]
@@ -266,6 +271,29 @@ public class DialogueUIManager : MonoBehaviour {
     public void NotInRpsStage()
     {
         inRpsStage = false;
+    }
+
+    public Sprite GetRpsSymbol(VisualNovelScene.RpsOption rpsOption)
+    {
+        Sprite symbol = null;
+        switch (rpsOption)
+        {
+            case VisualNovelScene.RpsOption.Rock:
+                symbol = rockSymbol;
+                break;
+            case VisualNovelScene.RpsOption.Paper:
+                symbol = paperSymbol;
+                break;
+            case VisualNovelScene.RpsOption.Scissors:
+                symbol = scissorsSymbol;
+                break;
+            case VisualNovelScene.RpsOption.None:
+                break;
+            default:
+                break;
+        }
+
+        return symbol;
     }
 }
 
