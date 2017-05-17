@@ -343,7 +343,7 @@ Animator:
   m_GameObject: {fileID: 1000013687557626}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 67eaf806daf2bf747b77e9e32629d312, type: 2}
+  m_Controller: {fileID: 9100000, guid: 24cd367b2c85043f9aac2341f1e9abef, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -377,6 +377,8 @@ MonoBehaviour:
   knockbackDamageGrowthFactor: 0.3
   wallBounceFactor: 0
   expectedHighKnockback: 180
+  knockbackDrag: 9
+  baseDrag: 0
   damage: 0
   actionable: 0
   isInvulnerable: 0

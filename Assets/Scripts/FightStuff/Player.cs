@@ -22,6 +22,9 @@ public class Player : MonoBehaviour {
 	public float knockbackDamageGrowthFactor;
     public float wallBounceFactor;
     public float expectedHighKnockback;
+    public float knockbackDrag;
+    [HideInInspector]
+    public float baseDrag;
 
     [HideInInspector]
     public int damage;
@@ -74,6 +77,7 @@ public class Player : MonoBehaviour {
         movementDust = GetComponentsInChildren<ParticleSystem>()[0];
         knockbackTrail = GetComponentsInChildren<ParticleSystem>()[1];
         baseMovementDustRotation = movementDust.transform.localEulerAngles.z;
+        baseDrag = rb.drag;
         foreach(Collider2D col in GetComponentsInChildren<Collider2D>())
         {
             if (col.gameObject.tag == "stageEdgeBoundaryCollider")
