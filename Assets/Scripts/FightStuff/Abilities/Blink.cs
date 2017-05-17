@@ -11,11 +11,14 @@ public class Blink : Ability
     public override void Init(GameObject player)
     {
         base.Init(player);
+        parentPlayer.GetComponent<Player>().isInvulnerable = true;
+
 
     }
 
     void Teleport()
     {
+        parentPlayer.GetComponent<Player>().isInvulnerable = false;
         parentPlayer.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         float angle = parentPlayer.GetComponent<Player>().effectiveRotation;
         Vector3 direction = new Vector3(-Mathf.Cos(angle * Mathf.Deg2Rad), -Mathf.Sin(angle * Mathf.Deg2Rad));
@@ -42,5 +45,11 @@ public class Blink : Ability
     public override void SetActive()
     {
         Teleport();
+    }
+
+    public override void OnCastFinish()
+    {
+        parentPlayer.GetComponent<Player>().isInvulnerable = false;
+        base.OnCastFinish();
     }
 }
