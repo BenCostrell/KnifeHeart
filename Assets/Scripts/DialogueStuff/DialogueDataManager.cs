@@ -190,10 +190,35 @@ public class DialogueDataManager {
 		}
 	}
 
-    public string[] GetRpsDialogue(int scenarioNum, string winningChoice, string losingChoice)
+    public string[] GetRpsDialogue(int scenarioNum, VisualNovelScene.RpsOption winningChoice, VisualNovelScene.RpsOption losingChoice)
     {
-        string[] key = new string[3] { scenarioNum.ToString(), winningChoice, losingChoice };
+        string[] key = new string[3] { scenarioNum.ToString(),
+            RpsOptionToString(winningChoice),
+            RpsOptionToString(losingChoice) };
         return rpsDialogueDict[key];
+    }
+
+    string RpsOptionToString(VisualNovelScene.RpsOption rpsOption)
+    {
+        string rpsString = "";
+        switch (rpsOption)
+        {
+            case VisualNovelScene.RpsOption.Rock:
+                rpsString = "BE AGGRESSIVE";
+                break;
+            case VisualNovelScene.RpsOption.Paper:
+                rpsString = "BE NICE";
+                break;
+            case VisualNovelScene.RpsOption.Scissors:
+                rpsString = "BE PASSIVE AGGRESSIVE";
+                break;
+            case VisualNovelScene.RpsOption.None:
+                break;
+            default:
+                break;
+        }
+
+        return rpsString;
     }
 
 	public Dialogue GetDialogue (List<Ability.Type> abilityList, bool call){

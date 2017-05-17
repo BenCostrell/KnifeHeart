@@ -10,25 +10,48 @@ public class PopUpDialogueBox : Task
     private float timeElapsed;
     private float duration;
     private Vector3 baseSize;
-    private RectTransform textBoxTransform;
+    private RectTransform containerTransform;
     private bool crowdDialogue;
+    private bool rpsDialogue;
 
-    public PopUpDialogueBox(bool crowd)
+    public PopUpDialogueBox(bool crowd, bool rps)
     {
         crowdDialogue = crowd;
+        rpsDialogue = rps;
     }
 
     protected override void Init()
     {
         GameObject dialogueContainer = Services.DialogueUIManager.dialogueContainer;
-        RectTransform containerTransform = dialogueContainer.GetComponent<RectTransform>();
+        containerTransform = dialogueContainer.GetComponent<RectTransform>();
         timeElapsed = 0;
         duration = Services.DialogueUIManager.dialogueTextBoxPopUpTime;
-        textBoxTransform = Services.DialogueUIManager.dialogueTextBox.GetComponent<RectTransform>();
-        baseSize = textBoxTransform.localScale;
-        textBoxTransform.localScale = Vector3.zero;
+        baseSize = containerTransform.localScale;
+        containerTransform.localScale = Vector3.zero;
         dialogueContainer.SetActive(true);
         Services.DialogueUIManager.dialogueText.GetComponent<Text>().text = "";
+        if (rpsDialogue)
+        {
+            Services.DialogueUIManager.dialogueBoxRpsSymbol.SetActive(true);
+            Services.DialogueUIManager.dialogueBoxRpsSymbol.GetComponent<Image>().sprite = 
+                Services.DialogueUIManager.GetRpsSymbol(
+                    Services.VisualNovelScene.lastRpsChoices[Services.VisualNovelScene.currentTurnPlayerNum - 1]);
+            Services.DialogueUIManager.dialogueBoxRpsSymbol.GetComponent<Image>().SetNativeSize();
+            RectTransform symbolRect = Services.DialogueUIManager.dialogueBoxRpsSymbol.GetComponent<RectTransform>();
+            Vector2 symbolPos = symbolRect.anchoredPosition;
+            if (Services.VisualNovelScene.currentTurnPlayerNum == 2)
+            {
+                symbolRect.anchoredPosition = new Vector2(-Mathf.Abs(symbolPos.x), symbolPos.y);
+            }
+            else
+            {
+                symbolRect.anchoredPosition = new Vector2(Mathf.Abs(symbolPos.x), symbolPos.y);
+            }
+        }
+        else
+        {
+            Services.DialogueUIManager.dialogueBoxRpsSymbol.SetActive(false);
+        }
         if (!crowdDialogue)
         {
             Services.DialogueUIManager.dialogueTextBox.GetComponent<Image>().sprite =
@@ -60,7 +83,7 @@ public class PopUpDialogueBox : Task
     {
         timeElapsed += Time.deltaTime;
 
-        textBoxTransform.localScale = Vector3.Lerp(Vector3.zero, baseSize, Easing.QuadEaseOut(timeElapsed / duration));
+        containerTransform.localScale = Vector3.Lerp(Vector3.zero, baseSize, Easing.QuadEaseOut(timeElapsed / duration));
 
         if (timeElapsed >= duration)
         {
