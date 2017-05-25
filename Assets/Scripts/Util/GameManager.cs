@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour {
             Services.SceneStackManager.PushScene<TitleScreen>();
         }
 
+		//Set 16:9 for Mac
+		Screen.SetResolution (1600, 900, true);
+
     }
 
 	// Update is called once per frame
