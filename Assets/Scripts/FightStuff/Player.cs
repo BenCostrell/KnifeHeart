@@ -260,7 +260,7 @@ public class Player : MonoBehaviour {
 			EndAbility ();
 			currentActiveAbility = abilityObj.GetComponent<Ability> ();
             Debug.Assert(currentActiveAbility != null);
-			currentActiveAbility.Init (gameObject);
+			currentActiveAbility.Init (this);
 
 			//CastAbilityTask castTimeLockout = new CastAbilityTask (currentActiveAbility.castDuration, this, currentActiveAbility);
 			AbilityCooldownTask abilityCooldown = new AbilityCooldownTask (type, currentActiveAbility.cooldown, this);

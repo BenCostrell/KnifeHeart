@@ -22,7 +22,7 @@ public class Shield : Ability {
         }
 	}
 
-	public override void Init(GameObject player){
+	public override void Init(Player player){
 		base.Init (player);
         baseScale = transform.localScale;
         shrinkTimeElapsed = 0;
@@ -34,11 +34,13 @@ public class Shield : Ability {
 		GameObject collidedObject = collider.gameObject;
 		if (collidedObject.tag == "Attack") {
 			Attack attack = collidedObject.GetComponent<Attack> ();
-			if (attack.parentPlayer.GetComponent<Player>().playerNum != parentPlayer.GetComponent<Player>().playerNum){
+			if (attack.parentPlayer.playerNum != parentPlayer.playerNum){
 				attack.parentPlayer = parentPlayer;
 				if (attack.isProjectile) {
 					collidedObject.GetComponent<Rigidbody2D> ().velocity *= -1;
-					collidedObject.transform.localScale = new Vector3 (collidedObject.transform.localScale.x * -1, collidedObject.transform.localScale.y,
+					collidedObject.transform.localScale = new Vector3 (
+                        collidedObject.transform.localScale.x * -1, 
+                        collidedObject.transform.localScale.y,
 						collidedObject.transform.localScale.z);
 				}
 
@@ -48,14 +50,14 @@ public class Shield : Ability {
 
 	public override void OnCastFinish ()
 	{
-        parentPlayer.GetComponent<Player>().isInvulnerable = false;
+        parentPlayer.isInvulnerable = false;
         base.OnCastFinish ();
 	}
 
     public override void SetActive()
     {
         GetComponent<Collider2D>().enabled = true;
-        parentPlayer.GetComponent<Player>().isInvulnerable = true;
+        parentPlayer.isInvulnerable = true;
     }
 
 	public void ShieldAnimationStarted(){

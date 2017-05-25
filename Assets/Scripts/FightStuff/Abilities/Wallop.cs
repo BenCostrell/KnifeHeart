@@ -16,13 +16,13 @@ public class Wallop : Attack {
 		
 	}
 
-	public override void Init(GameObject player){
+	public override void Init(Player player){
 		base.Init (player);
-		WallopTask delayHitbox = new WallopTask (player.GetComponent<Player> (), this);
-		player.GetComponent<Player>().taskManager.AddTask (delayHitbox);
+		WallopTask delayHitbox = new WallopTask (player, this);
+		player.taskManager.AddTask (delayHitbox);
 	}
 
-	protected override Vector3 GetDirectionHit(GameObject playerHit){
+	protected override Vector3 GetDirectionHit(Player playerHit){
 		return (playerHit.transform.position - parentPlayer.transform.position).normalized;
 	}
 

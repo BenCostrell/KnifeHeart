@@ -7,7 +7,7 @@ public class Ability : MonoBehaviour {
     [HideInInspector]
     public enum Type { None, BasicAttack, Fireball, Lunge, Sing, Shield, Wallop, Pull, Blink };
     [HideInInspector]
-	public GameObject parentPlayer;
+	public Player parentPlayer;
 
     public float cooldown;
 	public string animTrigger;
@@ -24,23 +24,23 @@ public class Ability : MonoBehaviour {
 		
 	}
 
-	public virtual void Init(GameObject player){
+	public virtual void Init(Player player){
 		parentPlayer = player;
 		if (isMelee) {
 			transform.parent = player.transform;
-			transform.localRotation = Quaternion.Euler (0, 0, player.GetComponent<Player> ().effectiveRotation);
-			FixedJoint2D joint = player.AddComponent<FixedJoint2D> ();
+			transform.localRotation = Quaternion.Euler (0, 0, player.effectiveRotation);
+			FixedJoint2D joint = player.gameObject.AddComponent<FixedJoint2D> ();
 			joint.connectedBody = GetComponent<Rigidbody2D> ();
 			joint.enableCollision = true;
 		}
-		player.GetComponent<Player> ().anim.SetTrigger (animTrigger);
-		player.GetComponent<Player> ().anim.SetBool ("neutral", false);
+		player.anim.SetTrigger (animTrigger);
+		player.anim.SetBool ("neutral", false);
 		OnCast ();
 	}
 
 	protected virtual void OnCast(){
 		if (onCastAudio != null) {
-            AudioSource source = parentPlayer.GetComponent<Player>().castAudioSource;
+            AudioSource source = parentPlayer.castAudioSource;
             source.clip = onCastAudio;
 			source.Play ();
 		}
@@ -49,7 +49,7 @@ public class Ability : MonoBehaviour {
 	public virtual void OnCastFinish(){
         //Debug.Log("ending ability at time " + Time.time);
         if (isMelee) {
-			Destroy (parentPlayer.GetComponent<FixedJoint2D> ());
+			Destroy (parentPlayer.gameObject.GetComponent<FixedJoint2D> ());
 		}
 		Destroy (gameObject);
 	}

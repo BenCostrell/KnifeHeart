@@ -20,19 +20,19 @@ public class Lunge : Attack {
         CheckIfGoingOffStage();
     }
 
-	public override void Init(GameObject player){
+	public override void Init(Player player){
 		base.Init (player);
 
         Dash();
 	}
 
-	protected override Vector3 GetDirectionHit(GameObject playerHit){
+	protected override Vector3 GetDirectionHit(Player playerHit){
 		return (playerHit.transform.position - parentPlayer.transform.position).normalized;
 	}
 
     void Dash()
     {
-        float angle = parentPlayer.GetComponent<Player>().effectiveRotation;
+        float angle = parentPlayer.effectiveRotation;
         Vector3 direction = new Vector3(-Mathf.Cos(angle * Mathf.Deg2Rad), -Mathf.Sin(angle * Mathf.Deg2Rad));
         if (angle == 90 || angle == -90)
         {
@@ -40,12 +40,12 @@ public class Lunge : Attack {
             trail.widthMultiplier = upDownTrailWidth;
         }
 
-        parentPlayer.GetComponent<Rigidbody2D>().velocity = speed * direction;
+        parentPlayer.rb.velocity = speed * direction;
     }
 
     void CheckIfGoingOffStage()
     {
-        Vector3 positionDelta = parentPlayer.GetComponent<Rigidbody2D>().velocity * Time.fixedDeltaTime;
+        Vector3 positionDelta = parentPlayer.rb.velocity * Time.fixedDeltaTime;
         Bounds previousFeetBounds = parentPlayer.GetComponentInChildren<Feet>().gameObject.GetComponent<BoxCollider2D>().bounds;
         Bounds nextFeetBounds = new Bounds(previousFeetBounds.center + positionDelta, previousFeetBounds.size);
 
@@ -60,7 +60,6 @@ public class Lunge : Attack {
             }
         }
 
-        if (stop) parentPlayer.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-        
+        if (stop) parentPlayer.rb.velocity = Vector3.zero;
     }
 }

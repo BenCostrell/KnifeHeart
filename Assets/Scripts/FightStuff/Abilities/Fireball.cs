@@ -19,18 +19,18 @@ public class Fireball : Attack {
 		}
 	}
 
-	public override void Init(GameObject player){
+	public override void Init(Player player){
         GetComponent<SpriteRenderer>().enabled = false;
 
 		base.Init (player);
-        angle = parentPlayer.GetComponent<Player>().effectiveRotation;
+        angle = parentPlayer.effectiveRotation;
     }
 
-	protected override Vector3 GetDirectionHit(GameObject playerHit){
+	protected override Vector3 GetDirectionHit(Player playerHit){
 		return GetComponent<Rigidbody2D> ().velocity.normalized;
 	}
 
-	protected override void HitPlayer(GameObject player){
+	protected override void HitPlayer(Player player){
 		base.HitPlayer (player);
 		Destroy (gameObject);
 	}

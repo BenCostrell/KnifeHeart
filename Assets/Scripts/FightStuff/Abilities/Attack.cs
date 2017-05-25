@@ -23,15 +23,14 @@ public class Attack : Ability {
 	void Update () {
 	}
 
-	protected virtual void HitPlayer(GameObject player){
-		player.GetComponent<Player> ().TakeHit (damage, baseKnockback, knockbackGrowth, GetDirectionHit(player));
+	protected virtual void HitPlayer(Player player){
+		player.TakeHit (damage, baseKnockback, knockbackGrowth, GetDirectionHit(player));
         PlayImpactSound(player);
         PlayHitParticleEffect(player);
     }
 
-    void PlayHitParticleEffect(GameObject playerObj)
+    void PlayHitParticleEffect(Player player)
     {
-        Player player = playerObj.GetComponent<Player>();
         Vector3 collisionPoint = player.transform.position + (transform.position - player.transform.position) / 2;
         GameObject hitParticle = Instantiate(Services.PrefabDB.HitParticle,
                 collisionPoint, Quaternion.identity, player.transform) as GameObject;
@@ -51,14 +50,14 @@ public class Attack : Ability {
         Destroy(hitParticle, longestDuration);
     }
 
-    void PlayImpactSound(GameObject player)
+    void PlayImpactSound(Player player)
     {
-        AudioSource source = player.GetComponent<Player>().impactAudioSource;
+        AudioSource source = player.impactAudioSource;
         source.clip = onImpactAudio;
         source.Play();
     }
 
-	protected virtual Vector3 GetDirectionHit (GameObject playerHit){
+	protected virtual Vector3 GetDirectionHit (Player playerHit){
 		return Vector3.zero;
 	}
 
@@ -66,17 +65,17 @@ public class Attack : Ability {
 		GameObject collidedObject = collider.gameObject;
 		if (collidedObject.tag == "Player") {
 			Player pc = collidedObject.GetComponent<Player> ();
-			if (pc.playerNum != parentPlayer.GetComponent<Player>().playerNum){
+			if (pc.playerNum != parentPlayer.playerNum){
 				if ((pc.playerNum == 1) && !hitPlayer1) {
 					hitPlayer1 = true;
 					if (!pc.isInvulnerable){
-						HitPlayer (collidedObject);
+						HitPlayer (pc);
 					}
 				}
 				else if ((pc.playerNum == 2) && !hitPlayer2) {
 					hitPlayer2 = true;
 					if (!pc.isInvulnerable){
-						HitPlayer (collidedObject);
+						HitPlayer (pc);
 					}
 				}
 
@@ -84,7 +83,7 @@ public class Attack : Ability {
 		}
 	}
 
-    public override void Init(GameObject player)
+    public override void Init(Player player)
     {
         base.Init(player);
         GetComponent<Collider2D>().enabled = false;

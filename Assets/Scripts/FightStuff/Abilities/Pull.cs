@@ -22,20 +22,20 @@ public class Pull : Attack {
         stateMachine.Update();
     }
 
-	public override void Init(GameObject player){
+	public override void Init(Player player){
 		base.Init (player);
         rb = GetComponent<Rigidbody2D>();
         stateMachine = new FSM<Pull>(this);
         stateMachine.TransitionTo<PreFire>();
     }
 
-    protected override Vector3 GetDirectionHit(GameObject playerHit){
+    protected override Vector3 GetDirectionHit(Player playerHit){
 		return GetComponent<Rigidbody2D> ().velocity.normalized;
 	}
 
-	protected override void HitPlayer(GameObject player){
+	protected override void HitPlayer(Player player){
 		base.HitPlayer (player);
-		Services.EventManager.Fire (new PlayerHooked (player.GetComponent<Player>()));
+		Services.EventManager.Fire (new PlayerHooked (player));
 	}
 
     public override void SetActive()
@@ -46,7 +46,7 @@ public class Pull : Attack {
 
     public void BeginToExtend()
     {
-        float angle = parentPlayer.GetComponent<Player>().effectiveRotation;
+        float angle = parentPlayer.effectiveRotation;
         Vector3 direction = new Vector3(-Mathf.Cos(angle * Mathf.Deg2Rad), -Mathf.Sin(angle * Mathf.Deg2Rad));
 
         transform.rotation = Quaternion.Euler(0, 0, angle);
@@ -84,7 +84,7 @@ public class Pull : Attack {
         {
             if (e.ability == Context)
             {
-                if (Context.parentPlayer.GetComponent<Player>().stunned) EndPull();
+                if (Context.parentPlayer.stunned) EndPull();
             }
         }
 
@@ -147,7 +147,7 @@ public class Pull : Attack {
             {
                 EndPull();
                 Context.hookedPlayer.Stun(Context.hitstun);
-                Context.parentPlayer.GetComponent<Player>().StartListeningForInput();
+                Context.parentPlayer.StartListeningForInput();
             }
         }
 

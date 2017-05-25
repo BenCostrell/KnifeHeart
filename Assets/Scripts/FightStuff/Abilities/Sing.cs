@@ -26,7 +26,7 @@ public class Sing : Attack {
         }
 	}
 
-	public override void Init(GameObject player){
+	public override void Init(Player player){
 		base.Init (player);
 		timeElapsed = 0;
         GetComponent<SpriteRenderer>().enabled = false;
@@ -34,8 +34,8 @@ public class Sing : Attack {
         ps = GetComponentInChildren<ParticleSystem>();
     }
 
-    protected override void HitPlayer(GameObject player){
-		player.GetComponent<Player> ().Stun (stunDuration);
+    protected override void HitPlayer(Player player){
+		player.Stun (stunDuration);
         TurnOffHitbox();
         ParticleSystem.Particle[] particles = new ParticleSystem.Particle[ps.main.maxParticles];
         int numParticles = ps.GetParticles(particles);

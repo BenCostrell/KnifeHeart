@@ -12,11 +12,11 @@ public class BasicAttack : Attack {
 	void Update () {
 	}
 
-	public override void Init(GameObject player){
+	public override void Init(Player player){
 		base.Init (player);
 	}
 
-	protected override Vector3 GetDirectionHit(GameObject playerHit){
+	protected override Vector3 GetDirectionHit(Player playerHit){
 		return (playerHit.transform.position - parentPlayer.transform.position).normalized;
 	}
 }
