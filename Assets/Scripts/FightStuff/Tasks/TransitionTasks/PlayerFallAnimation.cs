@@ -18,6 +18,7 @@ public class PlayerFallAnimation : Task {
         initialScale = playerTransform.localScale;
         initialDirection = Services.FightScene.fallenPlayer.velocityAtDeath.normalized;
         initialPos = playerTransform.position;
+        Services.FightScene.fallenPlayer.falling = true;
     }
 
     internal override void Update()
@@ -37,6 +38,7 @@ public class PlayerFallAnimation : Task {
     {
         playerTransform.gameObject.GetComponent<SpriteRenderer>().enabled = false;
         playerTransform.localScale = initialScale;
+        Services.FightScene.fallenPlayer.falling = false;
     }
 
 }

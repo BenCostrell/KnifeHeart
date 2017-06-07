@@ -192,14 +192,19 @@ public class FightScene : Scene<TransitionData> {
         foreach (Player player in players)
         {
             player.transform.position = spawnPoints[roundNumber - 1][player.playerNum - 1];
-            player.StartListeningForInput();
             player.gameObject.GetComponent<SpriteRenderer>().enabled = true;
             player.ResetCooldowns();
             foreach (Ability.Type ability in player.abilityList) Services.FightUIManager.ScaleCooldownUI(ability, player.playerNum, 1);
             Services.FightUIManager.ScaleCooldownUI(Ability.Type.BasicAttack, player.playerNum, 1);
             player.stageEdgeBoundaryCollider.enabled = true;
+            player.anim.SetTrigger("fallEnd");
         }
         Services.FightUIManager.UpdateDamageUI();
+    }
+
+    void AllowInputOnFightStart()
+    {
+        foreach (Player player in players) player.StartListeningForInput();
     }
 
     void InitiateFightSequence()
@@ -237,6 +242,8 @@ public class FightScene : Scene<TransitionData> {
             new ActionTask(FightAdvanced),
             new ActionTask(Services.CameraController.ResumeCameraFollow),
             new PositionPlayersTask(4),
+            new ParkingLotAnimation(),
+            new ActionTask(AllowInputOnFightStart),
             new WaitForFall(),
             new PlayerFallAnimation()
         });
@@ -248,6 +255,7 @@ public class FightScene : Scene<TransitionData> {
             new ActionTask(FightAdvanced),
             new ActionTask(Services.CameraController.ResumeCameraFollow),
             new PositionPlayersTask(5),
+            new ActionTask(AllowInputOnFightStart),
             new WaitForFall(),
             new PlayerFallAnimation()
         });

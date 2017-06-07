@@ -29,6 +29,12 @@ public class FightUIManager : MonoBehaviour {
     public float dmgRotationMin;
     public float dmgRotationMax;
 
+    public Sprite[] parkingLotSprites;
+    public float[] parkingLotAnimationStaggerTimes;
+    public float[] parkingLotAnimationScreenshakeDurations;
+    public float[] parkingLotAnimationScreenshakeMagnitudes;
+    public float[] parkingLotAnimationScreenshakeSpeeds;
+
 
     // Use this for initialization
     public void Init () {

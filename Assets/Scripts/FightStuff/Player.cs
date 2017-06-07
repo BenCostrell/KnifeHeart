@@ -40,6 +40,8 @@ public class Player : MonoBehaviour {
     public Vector3 velocityAtDeath;
     [HideInInspector]
     public bool stunned;
+    [HideInInspector]
+    public bool falling;
 
     private Ability currentActiveAbility;
     [HideInInspector]
@@ -370,7 +372,7 @@ public class Player : MonoBehaviour {
 
     public void ResetProperties()
     {
-        transform.localScale = baseScale;
+        if (!falling) transform.localScale = baseScale;
         sr.color = baseColor;
     }
 
