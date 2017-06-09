@@ -63,7 +63,8 @@ public class Player : MonoBehaviour {
     [HideInInspector]
     public ParticleSystem knockbackTrail;
     private float baseKnockbackTrailRotation;
-    public int knockbackTrailEmissionCount;
+    public int kbTrailEmissionCount;
+    public float kbTrailEmissionDistance;
     public float castAudioFadeOutTime;
 
     private Vector3 baseScale;
@@ -307,7 +308,7 @@ public class Player : MonoBehaviour {
         }
 
 		taskManager.AddTask (hitLag);
-        EmitKnockbackTrail(knockbackDirection);
+        //EmitKnockbackTrail(knockbackDirection);
         if (castAudioSource.isPlaying) taskManager.AddTask(new FadeOutAudio(castAudioSource, castAudioFadeOutTime));
         Services.CameraController.ShakeScreen(Easing.QuadEaseOut(knockbackMagnitude/expectedHighKnockback));
         if (currentActiveAbility != null)
@@ -362,12 +363,9 @@ public class Player : MonoBehaviour {
         movementDust.Emit(dustEmissionCount);
     }
 
-    public void EmitKnockbackTrail(Vector2 knockbackDirection)
+    public void EmitKnockbackTrail()
     {
-        knockbackTrail.transform.parent.localRotation =
-           Quaternion.Euler(0, 0, Mathf.Atan2(knockbackDirection.y, knockbackDirection.x) * Mathf.Rad2Deg);
-        knockbackTrail.Emit(knockbackTrailEmissionCount);
-        //Debug.Log("emitting at time: " + Time.time);
+        knockbackTrail.Emit(kbTrailEmissionCount);
     }
 
     public void ResetProperties()
