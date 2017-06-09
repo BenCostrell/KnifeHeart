@@ -71,18 +71,21 @@ public class VisualNovelScene : Scene<TransitionData> {
         {
             /// hallway prefight comic
             new List<List<Vector2>>{
+                new List<Vector2> {new Vector2(400, 900) },
                 new List<Vector2> {1600 * Vector2.left, 1600 * Vector2.right, 900 * Vector2.up },
                 new List<Vector2> {1600 * Vector2.right, 1600 * Vector2.left, 1600 * Vector2.right }
             },
             /// cafeteria prefight comic
             new List<List<Vector2>>
             {
+                new List<Vector2> {new Vector2(800, 900) },
                 new List<Vector2> { 1600 * Vector2.left, 1600 * Vector2.right, 1600 * Vector2.left, 1600 * Vector2.right },
                 new List<Vector2> {900 * Vector2.down, 900 * Vector2.up, 900 * Vector2.down}
             },
             /// rooftop prefight comic
             new List<List<Vector2>>
             {
+                new List<Vector2> {new Vector2(800, 900) },
                 new List<Vector2> {1600 * Vector2.left, 1600 * Vector2.right },
                 new List<Vector2> {1600 * Vector2.left, 1600 * Vector2.right, 1600 * Vector2.left},
                 new List<Vector2> {1600 * Vector2.left, 1600 * Vector2.right}
@@ -153,8 +156,10 @@ public class VisualNovelScene : Scene<TransitionData> {
                 comicTasks.Add (new SlideInPanel(page.GetChild(j).gameObject, true, comicShifts[comicNum][i][j],
                     Services.ComicPanelManager.panelAppearTime));
             }
+            if (i == 0) comicTasks.Add(new ActionTask(Services.ComicPanelManager.PositionAndActivateCalendarCircle));
             comicTasks.Add(new WaitToContinueFromComic(page.gameObject, Services.ComicPanelManager.continueButton,
                 Services.TransitionUIManager.readyPromptGrowTime, Services.TransitionUIManager.readyPromptShrinkTime));
+            if (i == 0) comicTasks.Add(new SetObjectStatus(false, Services.ComicPanelManager.calendarCircle));
         }
 
         comicTasks.Then(new TaskQueue(new List<Task>() {

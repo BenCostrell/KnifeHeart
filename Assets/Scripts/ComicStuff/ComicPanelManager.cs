@@ -8,6 +8,10 @@ public class ComicPanelManager : MonoBehaviour {
     public GameObject[] scenarios;
     public GameObject continueButton;
     public float panelAppearTime;
+    public GameObject calendarCircle;
+    public Sprite[] calendarAnimationSprites;
+    public float calendarAnimationSpeed;
+    public Vector2[] calendarCircleLocations;
 
 
     // Use this for initialization
@@ -23,6 +27,7 @@ public class ComicPanelManager : MonoBehaviour {
     {
         comicBackground.SetActive(false);
         continueButton.SetActive(false);
+        calendarCircle.SetActive(false);
 
         for (int i = 0; i < scenarios.Length; i++)
         {
@@ -31,5 +36,12 @@ public class ComicPanelManager : MonoBehaviour {
                 t.gameObject.SetActive(false);
             }
         }
+    }
+
+    public void PositionAndActivateCalendarCircle()
+    {
+        calendarCircle.SetActive(true);
+        calendarCircle.GetComponent<RectTransform>().anchoredPosition = 
+            calendarCircleLocations[Services.VisualNovelScene.currentRoundNum - 1];
     }
 }
