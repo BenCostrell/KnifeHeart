@@ -32,3 +32,4 @@ MonoBehaviour:
   blurb: {fileID: 1728505097209552, guid: 2471af3fd4928a747af2cf3a91428802, type: 2}
   hitParticle: {fileID: 1493663410891176, guid: 800f4236d127800419f5bc1bb31a601d,
     type: 2}
+  deflection: {fileID: 1752486201939984, guid: 8291338f757af9e44bc87de1d0bca94a, type: 2}
