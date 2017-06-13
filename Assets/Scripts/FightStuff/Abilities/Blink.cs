@@ -14,6 +14,7 @@ public class Blink : Ability
     {
         base.Init(player);
         parentPlayer.isInvulnerable = true;
+        PlayTeleportEffect(true);
     }
 
     void Teleport()
@@ -23,18 +24,40 @@ public class Blink : Ability
         Feet feet = parentPlayer.GetComponentInChildren<Feet>();
         float angle = parentPlayer.effectiveRotation;
         Vector3 direction = new Vector3(-Mathf.Cos(angle * Mathf.Deg2Rad), -Mathf.Sin(angle * Mathf.Deg2Rad)).normalized;
+        Vector3 targetPosition;
         RaycastHit2D hit;
         hit = Physics2D.Raycast(feet.transform.position, direction, distance, stageBoundary);
         if (hit)
         {
             float distanceToBlink = Mathf.Max(hit.distance - stopShortDistance, 0f);
-            Vector3 targetPosition = parentPlayer.transform.position + distanceToBlink * direction;
-            parentPlayer.rb.MovePosition(targetPosition);
+            targetPosition = parentPlayer.transform.position + distanceToBlink * direction;
         }
         else
         {
-            parentPlayer.rb.MovePosition(parentPlayer.transform.position + distance * direction);
+            targetPosition = parentPlayer.transform.position + distance * direction;
         }
+        parentPlayer.rb.MovePosition(targetPosition);
+        transform.position = targetPosition;
+        PlayTeleportEffect(false);
+    }
+
+    void PlayTeleportEffect(bool goingOut)
+    {
+        GameObject effectPrefab;
+        if (goingOut) effectPrefab = Services.PrefabDB.TeleportOut;
+        else effectPrefab = Services.PrefabDB.TeleportIn;
+        GameObject teleportParticle =
+            Instantiate(effectPrefab, transform.position, Quaternion.identity) as GameObject;
+        ParticleSystem[] particleSystems = teleportParticle.GetComponentsInChildren<ParticleSystem>();
+        float longestDuration = 0;
+        for (int i = 0; i < particleSystems.Length; i++)
+        {
+            ParticleSystem.MainModule main;
+            main = particleSystems[i].main;
+            float duration = main.duration + main.startLifetime.constant;
+            if (duration > longestDuration) longestDuration = duration;
+        }
+        Destroy(teleportParticle, longestDuration);
     }
 
     public override void SetActive()

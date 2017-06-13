@@ -64,6 +64,14 @@ public class PrefabDB : ScriptableObject {
     private GameObject deflection;
     public GameObject Deflection { get { return deflection; } }
 
+    [SerializeField]
+    private GameObject teleportOut;
+    public GameObject TeleportOut { get { return teleportOut; } }
+
+    [SerializeField]
+    private GameObject teleportIn;
+    public GameObject TeleportIn { get { return teleportIn; } }
+
     public GameObject GetPrefabFromAbilityType(Ability.Type type){
 		switch (type) {
 		case Ability.Type.BasicAttack:

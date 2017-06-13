@@ -33,3 +33,6 @@ MonoBehaviour:
   hitParticle: {fileID: 1493663410891176, guid: 800f4236d127800419f5bc1bb31a601d,
     type: 2}
   deflection: {fileID: 1752486201939984, guid: 8291338f757af9e44bc87de1d0bca94a, type: 2}
+  teleportOut: {fileID: 1412749852254596, guid: dbcbfd166fdd3cc45ab6b8ef3ecd5640,
+    type: 2}
+  teleportIn: {fileID: 1149631626545812, guid: b65b08eeb902ed14d98e802b32bf04f6, type: 2}
