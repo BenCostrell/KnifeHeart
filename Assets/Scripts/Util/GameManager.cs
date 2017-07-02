@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour {
         }
 
 		//Set 16:9 for Mac
-		Screen.SetResolution (1600, 900, true);
+		//Screen.SetResolution (1600, 900, true);
 
     }
 
